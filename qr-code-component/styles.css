@@ -36,10 +36,12 @@ main {
   color: rgb(31, 50, 81);
   margin: 20px 0 15px;
   letter-spacing: 0.8px;
+  font-weight: 700;
 }
 .paragraph {
   color: rgb(123, 135, 157);
   font-size: 1.5rem;
+  font-weight: 400;
 }
 .attribution {
   position: fixed;
