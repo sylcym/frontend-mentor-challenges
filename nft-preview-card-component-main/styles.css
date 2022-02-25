@@ -153,12 +153,14 @@ hr {
 
 .footer__link:link,
 .footer__link:visited {
+  color: rgb(139, 172, 218);
   transition: all 0.2s;
 }
 
 .footer__link:focus,
 .footer__link:hover,
 .footer__link:active {
+  color: rgb(0, 255, 247);
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
