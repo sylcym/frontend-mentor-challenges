@@ -148,12 +148,12 @@ hr {
   font-size: 11px;
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: rgb(255, 255, 255);
   transition: color 0.5s;
 }
 .attribution a:hover,
 .attribution a:focus {
   outline: none;
-  color: rgb(38, 6, 177);
-  border-bottom: 1px solid rgb(38, 6, 177);
+  color: rgb(0, 255, 247);
+  border-bottom: 1px solid rgb(0, 255, 247);
 }
