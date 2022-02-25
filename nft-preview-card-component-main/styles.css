@@ -142,18 +142,23 @@ hr {
 .paragraph-author a:hover {
   color: rgb(0, 255, 247);
 }
-.attribution {
+
+.footer {
   position: fixed;
-  bottom: 2rem;
-  font-size: 11px;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
 }
-.attribution a {
-  color: rgb(255, 255, 255);
-  transition: color 0.5s;
+
+.footer__link:link,
+.footer__link:visited {
+  transition: all 0.2s;
 }
-.attribution a:hover,
-.attribution a:focus {
-  outline: none;
-  color: rgb(0, 255, 247);
-  border-bottom: 1px solid rgb(0, 255, 247);
+
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
