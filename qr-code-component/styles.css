@@ -43,19 +43,24 @@ main {
   font-size: 1.5rem;
   font-weight: 400;
 }
-.attribution {
+.footer {
   position: fixed;
-  bottom: 2rem;
-  font-size: 11px;
-  text-align: center;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
-  transition: color 0.5s;
+
+.footer__link:link,
+.footer__link:visited {
+  color: rgb(123, 135, 157);
+  transition: all 0.2s;
 }
-.attribution a:hover,
-.attribution a:focus {
-  outline: none;
+
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
   color: rgb(38, 6, 177);
-  border-bottom: 1px solid rgb(38, 6, 177);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
