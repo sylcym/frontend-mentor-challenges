@@ -12,7 +12,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
   font-family: 'Outfit', sans-serif;
   background-color: rgb(13, 25, 43);
   color: rgb(240, 248, 255);
