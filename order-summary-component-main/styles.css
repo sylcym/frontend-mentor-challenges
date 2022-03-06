@@ -119,6 +119,7 @@ button {
   margin: 9px auto;
   color: rgb(114, 128, 167);
   background-color: rgb(248, 249, 254);
+  cursor: pointer;
 }
 .attribution {
   position: fixed;
