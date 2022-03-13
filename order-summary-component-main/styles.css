@@ -127,6 +127,7 @@ button {
   right: 0.5rem;
   transform: rotate(180deg);
   writing-mode: vertical-rl;
+  font-size: 0.75rem;
 }
 
 .footer__link:link,
