@@ -10,7 +10,7 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: 'Red Hat Display', sans-serif;
-  height: 90vh;
+  height: 100vh;
   background-color: rgb(224, 232, 255);
   background-image: url(images/pattern-background-mobile.svg);
   background-repeat: no-repeat;
