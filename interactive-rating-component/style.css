@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%; /*1rem=10px*/
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: hsl(216, 12%, 8%);
+  font-family: 'Overpass', sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+.card__container {
+  width: 33rem;
+  background-color: hsl(213, 19%, 18%);
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.6rem;
+  border-radius: 1.8rem;
+}
+.card__icon {
+  background-image: url(images/icon-star.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  background-size: 1.4rem;
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+}
+.card__heading {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.06rem;
+  color: rgb(255, 255, 255);
+}
+.card__paragraph {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: rgb(149, 158, 172);
+  line-height: 1.4;
+  letter-spacing: -0.04rem;
+}
+.card__number-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin-top: 3rem;
+  margin-bottom: 2.4rem;
+}
+.card__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  color: hsl(217, 12%, 63%);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.card__number:hover {
+  background-color: rgb(251, 116, 19);
+  color: white;
+  cursor: pointer;
+}
+.card__number.active {
+  background-color: hsl(217, 12%, 63%);
+  color: white;
+}
+.btn {
+  width: 100%;
+  height: 4.5rem;
+  border-radius: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: white;
+  background-color: rgb(251, 116, 19);
+  border: none;
+}
+.btn:hover {
+  background-color: hsl(0, 0%, 100%);
+  color: rgb(251, 116, 19);
+  cursor: pointer;
+}
+.card__container--thanks {
+  text-align: center;
+  padding: 2.9rem 2.5rem 4rem;
+}
+.card__img {
+  background-image: url(images/illustration-thank-you.svg);
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  height: 10rem;
+  background-repeat: no-repeat;
+}
+.card__select {
+  padding: 1rem;
+  width: 60%;
+  margin: 2rem auto 2.5rem;
+  color: rgb(251, 116, 19);
+  border-radius: 25px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.card__container--hidden {
+  display: none;
+}
+.footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color: rgb(149, 158, 172);
+  font-size: 1.2rem;
+}
+.footer__link:link,
+.footer__link:visited {
+  color: hsl(0, 0%, 100%);
+  transition: all 0.2s;
+}
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  color: rgb(251, 116, 19);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+@media screen and (min-width: 1440px) {
+  .card__container {
+    width: 41rem;
+    background-color: hsl(213, 19%, 18%);
+    padding-left: 3.1rem;
+    padding-right: 3.6rem;
+    padding-top: 3.7rem;
+    padding-bottom: 3.4rem;
+    border-radius: 2.5rem;
+    background-color: black;
+  }
+  .card__icon {
+    background-size: 1.6rem;
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  .card__heading {
+    font-size: 2.6rem;
+    margin-top: 3.2rem;
+    letter-spacing: 0.08rem;
+  }
+  .card__paragraph {
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+  .card__number-list {
+    margin-top: 2.5rem;
+    margin-bottom: 3.4em;
+  }
+  .card__number {
+    font-size: 1.7rem;
+    width: 5rem;
+    height: 5rem;
+  }
+  .btn {
+    font-size: 1.5rem;
+  }
+
+  .card__img {
+    margin-top: 1rem;
+    margin-bottom: 3.1rem;
+    height: 11rem;
+  }
+  .card__select {
+    width: 56%;
+    padding: 0.6rem;
+    padding-left: 1.2rem;
+    letter-spacing: 0.01rem;
+    font-size: 1.5rem;
+    margin-bottom: 3.4rem;
+  }
+  .card__paragraph {
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+    letter-spacing: -0.05rem;
+    margin-bottom: 1rem;
+  }
+  .card__container--thanks .card__paragraph {
+    letter-spacing: -0.04rem;
+  }
+}
