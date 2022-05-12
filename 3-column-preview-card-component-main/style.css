@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700&family=Lexend+Deca&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%; /*1rem=10px*/
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: rgb(242, 242, 242);
+}
+.card {
+  margin: 2rem auto;
+  width: 32.8rem;
+}
+.section-1 {
+  border-top-left-radius: 1.1rem;
+  border-top-right-radius: 1.1rem;
+  padding: 5rem;
+  background-color: rgb(227, 136, 38);
+}
+.section-2 {
+  padding: 5rem;
+  background-color: rgb(0, 105, 112);
+}
+.section-3 {
+  border-bottom-left-radius: 1.1rem;
+  border-bottom-right-radius: 1.1rem;
+  padding: 5rem;
+  background-color: rgb(0, 66, 65);
+}
+.card-heading {
+  color: white;
+  font-family: 'Big Shoulders Display', cursive;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 4rem;
+  padding-top: 3.2rem;
+}
+.paragraph {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.65;
+  font-family: 'Lexend Deca', sans-serif;
+  padding-top: 2.7rem;
+}
+.btn {
+  width: 64%;
+  height: 4.6rem;
+  border-radius: 3rem;
+  font-family: 'Lexend Deca', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  background-color: rgb(242, 242, 242);
+  border: none;
+  margin-top: 2.5rem;
+  margin-bottom: -0.1rem;
+}
+.btn-section-1 {
+  color: rgb(227, 136, 38);
+}
+.btn-section-2 {
+  color: rgb(0, 105, 112);
+}
+.btn-section-3 {
+  color: rgb(0, 66, 65);
+}
+.footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color: rgb(0, 66, 65);
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 1.2rem;
+}
+.footer__link:link,
+.footer__link:visited {
+  color: rgb(0, 105, 112);
+  transition: all 0.2s;
+}
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  color: rgb(227, 136, 38);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 1024px) {
+  .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 93.6rem;
+  }
+  .section-1 {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 1.1rem;
+  }
+  .section-3 {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 1.1rem;
+  }
+  .btn {
+    margin-top: 8.3rem;
+    width: 71%;
+    font: bold;
+    letter-spacing: 0.2rem;
+  }
+  .btn:hover {
+    border: solid 2px rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.75);
+    background-color: rgb(227, 136, 38);
+    cursor: pointer;
+  }
+  .btn-secondary:hover {
+    color: rgba(255, 255, 255, 0.75);
+    background-color: rgb(0, 105, 112);
+  }
+  .btn-tertiary:hover {
+    color: rgba(255, 255, 255, 0.75);
+    background-color: rgb(0, 66, 65);
+  }
+}
