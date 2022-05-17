@@ -123,6 +123,26 @@ a:hover {
   cursor: pointer;
   color: hsl(179deg 98% 11%);
 }
+.footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  color: rgb(0, 66, 65);
+  font-size: 1.2rem;
+  text-align: right;
+}
+.footer__link:link,
+.footer__link:visited {
+  color: rgb(0, 105, 112);
+  transition: all 0.2s;
+}
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  color:hsl(179, 62%, 43%);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 @media screen and (min-width: 1024px) {
   .card {
     display: flex;
