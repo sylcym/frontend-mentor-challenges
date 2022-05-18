@@ -120,11 +120,11 @@ body {
     background-color: rgb(227, 136, 38);
     cursor: pointer;
   }
-  .btn-secondary:hover {
+  .btn-section-2:hover {
     color: rgba(255, 255, 255, 0.75);
     background-color: rgb(0, 105, 112);
   }
-  .btn-tertiary:hover {
+  .btn-section-3:hover {
     color: rgba(255, 255, 255, 0.75);
     background-color: rgb(0, 66, 65);
   }
