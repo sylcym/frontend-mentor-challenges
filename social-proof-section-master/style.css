@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+  font-family: 'League Spartan', sans-serif;
+}
+body {
+  background-image: url(images/bg-pattern-top-mobile.svg),
+    url(images/bg-pattern-bottom-mobile.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top left, bottom center;
+  background-size: 85%, 100%;
+}
+.container {
+  width: 30rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.heading {
+  padding: 6rem 2rem 2rem 2rem;
+  letter-spacing: -0.2rem;
+  line-height: 0.7;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: rgb(80, 32, 80);
+}
+.paragraph {
+  padding: 0 1.7rem 2rem;
+  line-height: 1.3;
+  letter-spacing: -0.04rem;
+  margin-bottom: 1.4rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgb(80, 32, 80);
+}
+.rating {
+  background-color: hsl(300, 24%, 96%);
+  width: 88%;
+  margin: 0 auto;
+  margin-bottom: 1.2rem;
+  border-radius: 5px;
+  padding-top: 1.1rem;
+  padding-bottom: 0.4rem;
+}
+.rating span {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0 0.2rem;
+  background-image: url(images/icon-star.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.rated {
+  font-size: 1.3rem;
+  letter-spacing: 0.03rem;
+  padding: 1rem 0;
+}
+.opinions {
+  width: 88%;
+  margin: 3.8rem auto 0;
+}
+.opinion {
+  background-color: rgb(80, 32, 80);
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  padding-bottom: 2.5rem;
+}
+.opinion-header {
+  display: flex;
+  padding-top: 3.4rem;
+  padding-left: 2.7rem;
+}
+img {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.user-info {
+  padding-left: 2rem;
+  font-size: 0.9rem;
+}
+.user-name {
+  color: rgb(247, 242, 247);
+}
+.user-status {
+  color: rgb(238, 104, 164);
+  letter-spacing: 0.1rem;
+  padding-top: 0.5rem;
+}
+.user-opinion {
+  font-size: 1.3rem;
+  line-height: 1.4;
+  letter-spacing: 0.02rem;
+  text-align: left;
+  padding-left: 2.6rem;
+  padding-top: 2.2rem;
+  padding-right: 2.2rem;
+  color: rgb(247, 242, 247);
+}
+.footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color: rgb(80, 32, 80);
+  font-size: 1.2rem;
+}
+.footer__link:link,
+.footer__link:visited {
+  color: rgb(255, 255, 255);
+  transition: all 0.2s;
+}
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  color: rgb(238, 104, 164);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url(images/bg-pattern-top-desktop.svg),
+      url(images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top left, bottom right;
+    background-size: 50%, 70%;
+    overflow: hidden;
+  }
+  .container {
+    width: 126rem;
+  }
+  .wrapper {
+    display: flex;
+  }
+  .header {
+    width: 50%;
+    padding: 5.2rem;
+  }
+  .heading {
+    text-align: left;
+    letter-spacing: -0.4rem;
+    line-height: 0.8;
+    font-size: 6rem;
+    width: 70%;
+  }
+  .paragraph {
+    line-height: 1.3;
+    text-align: left;
+    margin: 0.3rem 3.5rem 0 0.4rem;
+    letter-spacing: -0.1rem;
+    font-size: 2rem;
+  }
+  .ratings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-top: 4.8rem;
+    margin-left: -8rem;
+  }
+  .rating {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70%;
+    margin: 0.8rem;
+    padding: 1.1rem 2.8rem;
+  }
+  .rating span {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin: 0 0.35rem;
+  }
+  .rating:nth-child(2) {
+    margin-left: 10rem;
+  }
+  .rating:nth-last-child(1) {
+    margin-left: 20rem;
+  }
+  .rated {
+    font-size: 1.7rem;
+    letter-spacing: -0.01rem;
+    margin-left: 2.8rem;
+  }
+  .opinions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -0.5rem;
+  }
+  .opinion {
+    width: 31.5%;
+    margin-bottom: 1rem;
+    padding-bottom: 3.5rem;
+  }
+  .opinion-header {
+    padding-top: 4.3rem;
+    padding-left: 3rem;
+  }
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  .user-info {
+    font-weight: 700;
+    padding-left: 2.2rem;
+    font-size: 1.1rem;
+  }
+  .user-status {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  .user-opinion {
+    font-size: 1.6rem;
+    letter-spacing: 0.03rem;
+    margin: 0.2rem 1rem 0 0.5rem;
+  }
+  .opinion:nth-child(1) {
+    margin-bottom: 4rem;
+  }
+  .opinion:nth-child(2) {
+    margin-top: 1.6rem;
+    margin-bottom: 2.2rem;
+  }
+  .opinion:nth-child(3) {
+    margin-top: 3.2rem;
+  }
+}
