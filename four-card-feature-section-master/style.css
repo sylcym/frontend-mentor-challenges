@@ -1,0 +1,170 @@
+:root {
+    --color-red: rgb(234, 83, 83);
+    --color-cyan: rgb(69, 211, 211);
+    --color-orange: rgb(252, 175, 74);
+    --color-blue: rgb(84, 158, 242) ;
+    --dark: rgb(76, 78, 97);
+    --grayish: rgb(163, 165, 174);
+    --light-gray: rgb(250, 250, 250);
+    --color-whit:rgb(255, 255, 255);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+  font-family:'Poppins', sans-serif; ;
+}
+body {
+  background-color: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.container {
+  width: 30rem;
+  margin: 0 auto;
+}
+.header {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+.header h1 {
+  color: var(--grayish);
+  font-weight: 200;
+  font-size: 2.45rem;
+}
+.header h1 span {
+  display: block;
+  color: var(--dark);
+  font-weight: 600;
+}
+.paragraph {
+  color: var(--grayish);
+  font-weight: 400;
+  font-size:1.5rem;
+  letter-spacing: 0.01rem;
+  line-height:1.6;
+  text-align: center;
+  padding-top: 1.5rem;
+  }
+.section {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color:var(--color-whit); 
+  padding-bottom: 2rem;
+  margin-bottom: 2.7rem;
+  box-shadow: 0 7px 12px 1px var(--grayish);
+}
+.section-magnifier {
+  border-top:5px solid var(--color-cyan);
+}
+.section-house-builder {
+  border-top: 5px solid var(--color-red);
+}
+.section-destination {
+  border-top: 5px solid var(--color-orange);
+}
+.section-calculator {
+  border-top:5px solid var(--color-blue) ;
+}
+.heading {
+  color: var(--dark);
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 2rem 0 0 2.2rem;
+}
+.description {
+  color: var(--grayish);
+  font-size: 1.33rem;
+  line-height: 1.6;
+  padding: 0.5rem 0 3.5rem 2.2rem;
+}
+.illustration {
+  align-self: flex-end;
+  width: 60px;
+  height: 60px;
+  margin-right: 2rem;
+}
+.footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color:var(--dark);
+  font-size: 1.2rem;
+}
+.footer__link:link,
+.footer__link:visited {
+  color: var(--color-blue);
+  transition: all 0.2s;
+}
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  color: var(--color-cyan);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width:1024px) {
+  .header {
+    margin-top: 0;
+  }
+  .container {
+    width: 58%;
+    text-align: center;
+  }
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    column-gap: 2rem;
+    align-items: center;
+    max-width: 90rem;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+  }
+  .section {
+    width: 33%;
+  }
+  .section-house-builder,
+  .section-destination {
+    width: 100%;
+  }
+  .header h1 {
+    font-size: 3rem;
+    letter-spacing:-0.02rem;  
+    line-height:1.35;
+  }
+  .paragraph {
+    width: 47%;
+    margin: 0 auto;
+    font-size:1.2rem;
+  }
+  .heading {
+    font-size: 1.6rem;
+    padding: 2rem 0 0 2.2rem;
+  }
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 0.5rem 0 3.5rem 2.2rem;
+  }
+  .section {
+    padding-right: 7px;
+  }
+  .illustration {
+    width: 52px;
+    height: unset;
+  }
+ 
+}
