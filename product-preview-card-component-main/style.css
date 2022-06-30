@@ -1,7 +1,8 @@
 
 :root {
     --color-cream:  rgb(242, 235, 227);
-    --color-cyan:  rgb(60, 128, 103);
+    --color-cyan:  hsl(158, 36%, 37%);
+    --color-cyan-dark:  rgb(24, 60, 47);
     --color-dark:rgb(28, 35, 43);
     --grayish-blue:rgb(108, 114, 137);
     --color-whit:rgb(255, 255, 255);
@@ -28,6 +29,8 @@ body {
     margin: 0 5px;
     background-color: var(--color-whit);
     border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+ 
 }
 .hero-img {
     height: 26.5rem;
@@ -107,11 +110,11 @@ padding-right: 3rem;
     padding-left: 2.3rem;
     margin-top: 1.5rem;
     margin-bottom: 2rem;
-   ;
+    transition-duration: .5s;
 }
-.btn:hover 
-{
+.btn:hover {
     cursor: pointer;
+    background-color: var(--color-cyan-dark);
 }
 .footer {
     position: fixed;
