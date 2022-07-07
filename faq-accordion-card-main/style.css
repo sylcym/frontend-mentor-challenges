@@ -1,0 +1,158 @@
+:root {
+    --color-text-dark-blue:rgb(29, 30, 53);
+    --color-text-red:rgb(244, 124, 87);
+    --color-text-dark-grayish:rgb(74, 75, 94);
+    --color-text-grayish:rgb(120, 120, 135);
+    --color-background-violet:rgb(175, 103, 233);
+    --color-background-blue:rgb(101, 101, 231);
+    --color-background-light-grayish: rgb(231, 231, 233);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    font-family: 'Kumbh Sans', sans-serif; 
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(var(--color-background-violet) 0% , var(--color-background-blue) 100%);
+    text-align: center;
+}
+.container {
+    width: 33rem;
+    min-height: 65vh;
+    background-color: white;
+    border-radius: 20px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    margin-top: -13.5rem;
+}
+.hero-img {
+    display:inline-block;
+    width: 24rem;
+    height: 24rem;
+    background-image: url(images/bg-pattern-mobile.svg),url(images/illustration-woman-online-mobile.svg);
+    background-repeat: no-repeat,no-repeat;
+    background-position: center;
+    background-position-y: 11rem, 0;
+    margin: 0 auto;
+    z-index: 1;
+}
+.heading {
+    font-size: 3.2rem;
+    font-weight: 700;
+    padding-top: 13rem;
+    padding-bottom: 1.65rem;
+ }
+ details {
+    border-bottom: 1px solid var(--color-background-light-grayish);
+    margin-top: 1.65rem;
+}
+.summary { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.32rem;
+    font-weight: 400;
+    text-align:left;
+    list-style-type:none;
+    padding-bottom: 2rem;
+    cursor: pointer; 
+}
+.summary img {
+    display: inline-block;
+    text-align: end;
+    height: 0.7rem;
+    width: 1rem;
+}
+details[open] img  {
+    transform: rotate(180deg);
+} 
+details[open] summary {
+    font-weight: bold;  
+}
+.summary:hover {
+    color: var(--color-text-red);
+    font-weight:bold;  
+} 
+.paragraph { 
+    font-size: 1.21rem;
+    text-align: left; 
+    padding-bottom: 2rem;
+ } 
+.footer {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    transform: rotate(180deg);
+    writing-mode: vertical-rl;
+    color:var(--color-text-red);
+    font-size: 1.2rem;
+}
+.footer__link:link,
+.footer__link:visited {
+    color: var(--color-background-light-grayish);
+    transition: all 0.2s;
+}
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+    color: var(--color-text-dark-grayish);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+@media screen and (min-width:1024px){
+    .main-wrapper {
+        position: relative;
+        max-width: 100rem;
+    }
+    .hero-img {
+        position: absolute;
+        left: -8rem;
+        z-index: 1;
+        background-image: url(images/illustration-box-desktop.svg),url(images/illustration-woman-online-desktop.svg),url(images/bg-pattern-desktop.svg);
+        background-position-x: -2rem, -1rem,-50rem;
+        background-position-y: 20rem , 7rem,-30rem;
+        width: 49rem;
+        height: 62rem;
+    }
+    .container {
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 62vh;
+        padding-bottom: 5rem;
+        width: 92rem;
+        margin-top: 0;
+    } 
+    .container .wrapper {
+        text-align: left;
+        min-width: 50%;
+        margin-left: 46rem;
+        margin-top: -5rem;
+        padding-right: 9.6rem;
+        padding-left: 0.6rem;
+    }
+    .heading {
+        letter-spacing: -0.1rem;
+        padding-top: 11rem;
+        padding-bottom: 2.2rem;
+     }
+     details {
+        margin-bottom: 0.5rem;
+     }
+    
+    .paragraph { 
+       margin-bottom:3rem;
+     }
+}
