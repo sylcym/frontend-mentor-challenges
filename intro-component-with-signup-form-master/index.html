@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Intro component with sign up form</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="section">
+        <h1 class="header"><strong>Learn to code by watching others</strong></h1>
+        <p class="paragraph">
+          See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but
+          understanding how developers think is invaluable.
+        </p>
+      </section>
+
+      <section class="description">
+        <h2 class="info"><strong>Try it free 7 days</strong> then $20/mo. thereafter</h2>
+        <form>
+          <label for="first-name"></label>
+          <input type="text" id="first-name" placeholder="First Name" />
+          <span><em>First Name cannot be empty</em></span>
+
+          <label for="last-name"></label>
+          <input type="text" id="last-name" placeholder="Last Name" />
+          <span><em>Last Name cannot be empty</em></span>
+
+          <label for="email"></label>
+          <input type="email" id="email" placeholder="Email Address" />
+          <span><em>Looks like this is not an email</em></span>
+
+          <label for="password"></label>
+          <input type="password" required min="5" id="password" placeholder="Password" />
+          <span><em>Password cannot be empty</em></span>
+
+          <button type="button" class="btn">Claim your free trial</button>
+
+          <p class="terms">
+            By clicking the button, you are agreeing to our
+            <a href="#" target="_blank"><strong>Terms and Services</strong></a>
+          </p>
+        </form>
+      </section>
+    </div>
+    <footer class="footer">
+      Challenge by
+      <a class="footer__link" href="https://www.frontendmentor.io?ref=challenge" target="_blank" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a
+        class="footer__link"
+        href="https://https://github.com/sylcym/frontend-mentor-challenges/edit/main/product-preview-card-component-main/index.html"
+        >sylcym</a
+      >.
+    </footer>
+  </body>
+</html>
