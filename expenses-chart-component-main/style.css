@@ -1,0 +1,244 @@
+:root {
+  --color-primary-red: rgb(236, 119, 95);
+  --col0r-active-red: rgb(255, 153, 133);
+  --color-primary-cyan: rgb(118, 181, 188);
+  --color-active-cyan: rgb(180, 224, 229);
+  --color-dark-brown: rgb(56, 35, 20);
+  --color-medium-brown: rgb(147, 134, 123);
+  --color-cream: rgb(248, 233, 221);
+  --color-very-pale-orange: rgb(255, 250, 245);
+  --color-text: rgb(255, 255, 255);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'DM Sans', sans-serif;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-cream);
+  min-height: 100vh;
+}
+.main {
+  width: 34.5rem;
+}
+.header {
+  padding: 2.3rem 2rem;
+  background-image: url(images/logo.svg);
+  background-repeat: no-repeat;
+  background-position: right 2.4rem center;
+  border-radius: 1rem;
+  background-color: var(--color-primary-red);
+  margin-bottom: 1.6rem;
+}
+.heading-primary {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.3rem;
+  color: var(--color-text);
+}
+.heading-primary--bold {
+  display: block;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.1rem;
+}
+.section-details {
+  background-color: var(--color-very-pale-orange);
+  border-radius: 1rem;
+  padding: 2.4rem 2rem;
+}
+.heading-secondary {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.1rem;
+  color: var(--color-dark-brown);
+}
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: center;
+}
+.summary-container {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid var(--color-cream);
+  margin: 2.4rem 0 0;
+  border-radius: 1px;
+}
+.current-total {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: var(--color-medium-brown);
+  padding-top: 2.4rem;
+}
+.current-total .total {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 3.9rem;
+  color: var(--color-dark-brown);
+}
+.current-increase {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2rem;
+  color: var(--color-medium-brown);
+  margin-bottom: 0.7rem;
+}
+.current-increase .percentage {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  color: var(--color-dark-brown);
+  text-align: right;
+}
+.weekday {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  color: var(--color-medium-brown);
+}
+.graph {
+  display: inline-block;
+  background-color: var(--color-primary-red);
+  border-radius: 5px;
+  width: 3.3rem;
+  margin-top: 1.5rem;
+}
+.graph:hover {
+  background-color: var(--col0r-active-red);
+  cursor: pointer;
+}
+.graph.blue {
+  background-color: var(--color-primary-cyan);
+}
+.graph.blue:hover {
+  background-color: var(--color-active-cyan);
+}
+.amount {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  transform: translate(-50%, -20px);
+  display: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.8rem;
+  background-color: var(--color-dark-brown);
+  border-radius: 5px;
+  color: var(--color-cream);
+  padding: 0.1rem 0.5rem;
+}
+.dayInfo {
+  position: relative;
+  padding-top: 2.2rem;
+}
+.dayInfo:hover .amount {
+  display: block;
+}
+.footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color: var(--color-dark-brown);
+  font-size: 1.2rem;
+}
+.footer__link:link,
+.footer__link:visited {
+  color: var(--color-primary-cyan);
+  transition: all 0.2s;
+}
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  color: var(--color-primary-red);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 1440px) {
+  .main {
+    width: 54rem;
+  }
+  .header {
+    background-position: right 4rem center;
+    padding: 2.9rem 4rem 2.9rem 3.4rem;
+    margin-bottom: 2.4rem;
+    border-radius: 2rem;
+  }
+  .heading-primary {
+    font-size: 1.8rem;
+  }
+  .heading-primary--bold {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+  .section-details {
+    border-radius: 2rem;
+    padding: 3.3rem 4rem 3.8rem;
+  }
+  .heading-secondary {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+  .chart-container {
+    margin-top: 6.6rem;
+  }
+  .summary-container {
+    margin: 3.3rem 0 0;
+    padding-top: 3.2rem;
+  }
+  .dayInfo {
+    padding-top: 0;
+  }
+  .current-total {
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+    padding-top: 0;
+  }
+  .current-total .total {
+    font-size: 4.8rem;
+    line-height: 6.2rem;
+  }
+  .current-increase {
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+  }
+  .current-increase .percentage {
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+  }
+  .weekday {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-top: 0.8rem;
+  }
+  .graph {
+    width: 5.06rem;
+    padding-top: 1rem;
+    margin-top: 0;
+  }
+  .amount {
+    top: -29px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 2.3rem;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    margin: 0 0 0.8rem;
+  }
+}
