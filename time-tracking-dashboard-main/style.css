@@ -188,6 +188,27 @@ body {
 .previous-time.active {
   display: inline-block;
 }
+.footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color: var(--color-card-play);
+  font-size: 1.2rem;
+}
+.footer__link:link,
+.footer__link:visited {
+  color: var(--color-card-study);
+  transition: all 0.2s;
+}
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  color: var(--color-card-exercise);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 @media screen and (min-width: 1024px) {
   body {
     padding: 0;
