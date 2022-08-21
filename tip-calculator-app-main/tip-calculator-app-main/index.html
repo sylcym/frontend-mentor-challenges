@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Tip calculator app</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1>
+        <a href="#" aria-label="Splitter tip calculator"><img src="images/logo.svg" alt="" /></a>
+      </h1>
+    </header>
+
+    <main class="main">
+      <section class="section-calculator">
+        <div class="bill-wrapper">
+          <div class="error-wrapper">
+            <h2 class="heading-secondary">Bill</h2>
+            <span class="error">Can't be zero or less</span>
+          </div>
+
+          <label for="bill" class="label">Add bill amount</label>
+          <input type="number" id="bill" min="1" max="999" class="input" placeholder="0" />
+        </div>
+
+        <div class="tip-wrapper">
+          <h2 class="heading-secondary">Select Tip %</h2>
+
+          <div class="tip-options-wrapper">
+            <button type="button" class="btn btn-tip" data-tip="5">5%</button>
+            <button type="button" class="btn btn-tip" data-tip="10">10%</button>
+            <button type="button" class="btn btn-tip" data-tip="15">15%</button>
+            <button type="button" class="btn btn-tip" data-tip="25">25%</button>
+            <button type="button" class="btn btn-tip" data-tip="50">50%</button>
+
+            <label for="tip" class="label">Add custom tip amount</label>
+            <input type="number" id="tip" class="input btn btn-tip btn-tip-custom" placeholder="Custom" />
+          </div>
+        </div>
+
+        <div class="people-wrapper">
+          <div class="error-wrapper">
+            <h2 class="heading-secondary">Number of People</h2>
+            <span class="error">Can't be zero or less</span>
+          </div>
+
+          <label for="people" class="label">Number of people</label>
+          <input type="number" id="people" class="input" placeholder="0" />
+        </div>
+      </section>
+
+      <section class="section-display">
+        <div class="display-wrapper">
+          <div class="display-data">
+            <p class="display-info">Tip Amount <span class="display-info-person">/ person</span></p>
+            <p class="display-result display-result-tip">$0.00</p>
+          </div>
+
+          <div class="display-data">
+            <p class="display-info">Total <span class="display-info-person">/ person</span></p>
+            <p class="display-result display-result-total">$0.00</p>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-reset" disabled>Reset</button>
+      </section>
+    </main>
+    <footer class="footer">
+      Challenge by
+      <a class="footer__link" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
+      <a class="footer__link" href="" target="_blank">sylcym</a>.
+    </footer>
+  </body>
+</html>

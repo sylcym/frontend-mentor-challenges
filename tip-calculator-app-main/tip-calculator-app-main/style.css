@@ -1,0 +1,285 @@
+:root {
+  --color-background: rgba(197, 228, 231, 1);
+  --color-main: rgb(255, 255, 255);
+  --color-text-calculator: rgba(94, 122, 125, 1);
+  --color-background-input: rgba(243, 249, 250, 1);
+  --color-text-input: rgba(0, 71, 75, 1);
+  --color-text-input-tip: rgba(84, 120, 120, 1);
+  --color-info-person: rgba(127, 157, 159, 1);
+  --color-result: rgba(38, 194, 174, 1);
+  --color-background-empty: rgba(13, 104, 109, 1);
+  --color-background-active: rgba(159, 232, 223, 1);
+  --color-error: rgba(225, 112, 82, 1);
+  --color-error-text: rgba(225, 116, 87, 1);
+  --color-custom: rgba(243, 249, 250, 1);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Space Mono', monospace;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background);
+}
+.header {
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+}
+.main {
+  max-width: 37.5rem;
+  background-color: var(--color-main);
+  box-shadow: 0px 32px 43px rgba(79, 166, 175, 0.200735);
+  border-radius: 25px 25px 0px 0px;
+}
+.section-calculator {
+  padding: 3.2rem 3.2rem;
+}
+.heading-secondary {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--color-text-calculator);
+}
+.error-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 0.6rem;
+}
+.error {
+  display: none;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--color-error-text);
+}
+.error.show {
+  display: block;
+}
+.label {
+  display: none;
+}
+.input {
+  background-color: var(--color-background-input);
+  border: 0.2rem solid var(--color-background-input);
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.6rem 0.6rem 1.7rem;
+  font-family: inherit;
+  text-align: right;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+}
+input:hover {
+  border: 0.2rem solid var(--color-result);
+}
+input::placeholder {
+  color: var(--color-text-input);
+  opacity: 0.35;
+}
+input.outline-error {
+  border: 0.2rem solid var(--color-error);
+}
+#bill {
+  background-image: url(images/icon-dollar.svg);
+  background-repeat: no-repeat;
+  background-position: left 1.9rem center;
+}
+.bill-wrapper {
+  padding-bottom: 3.2rem;
+}
+.tip-options-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 1.6rem;
+  column-gap: 1.6rem;
+  padding: 1.6rem 0 3.2rem 0;
+}
+.btn {
+  width: 47%;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  border: 0.2rem solid transparent;
+  background-color: var(--color-text-input);
+  color: var(--color-main);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0;
+  cursor: pointer;
+}
+.btn:hover {
+  border: 0.2rem solid var(--color-result);
+}
+.btn.active {
+  background-color: var(--color-background-active);
+  color: var(--color-text-input);
+}
+.btn-tip-custom {
+  background-color: var(--color-background-input);
+  color: var(--color-text-input-tip);
+  padding-right: 1.7rem;
+}
+.btn-tip-custom::placeholder {
+  color: var(--color-text-input-tip);
+  opacity: 1;
+}
+.btn.btn-tip-custom.active {
+  background-color: var(--color-custom);
+  border: 0.2rem solid var(--color-result);
+}
+#people {
+  background-image: url(images/icon-person.svg);
+  background-repeat: no-repeat;
+  background-position: left 1.9rem center;
+}
+.section-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-text-input);
+  border-radius: 1.5rem;
+  margin: 0 2.4rem 3.2rem;
+  padding: 5.4rem 2.4rem 2.4rem;
+}
+.display-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+.display-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-reset {
+  border-radius: 0.5rem;
+  background-color: var(--color-background-empty);
+  color: var(--color-text-input);
+  font-size: 2rem;
+  text-transform: uppercase;
+  line-height: 3rem;
+  width: 100%;
+  padding: 0.9rem 0;
+  margin-top: 3.2rem;
+  transition: all 0.2 linear;
+}
+.btn-reset:disabled {
+  background-color: var(--color-background-empty);
+  border: 0.2rem solid var(--color-background-empty);
+}
+.btn-reset:hover {
+  background-color: var(--color-background-active);
+  border: 0.2rem solid var(--color-background-active);
+}
+.display-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: var(--color-main);
+}
+.display-info-person {
+  font-size: 1.3rem;
+  line-height: 1.9rem;
+  color: var(--color-info-person);
+}
+.display-result {
+  font-size: 3.2rem;
+  line-height: 4.7rem;
+  letter-spacing: -0.67px;
+  color: var(--color-result);
+}
+.footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color: var(--color-text-input);
+  font-size: 1.2rem;
+}
+.footer__link:link,
+.footer__link:visited {
+  color: var(--color-result);
+  transition: all 0.2s;
+}
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  color: var(--color-error);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 1024px) {
+  .header {
+    padding-top: 16rem;
+    padding-bottom: 8.8rem;
+  }
+  .main {
+    max-width: 92rem;
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+  }
+  .section-calculator {
+    max-width: 47.5rem;
+    padding: 4.5rem 4.8rem;
+  }
+  .bill-wrapper {
+    padding-bottom: 4rem;
+  }
+  .tip-options-wrapper {
+    column-gap: 1.4rem;
+    padding: 1.6rem 0 4rem 0;
+  }
+  .input {
+    width: 100%;
+  }
+  .btn,
+  .btn.btn-tip.btn-tip-custom {
+    width: 30%;
+  }
+  .btn-tip-custom {
+    background-color: var(--color-background-input);
+    color: var(--color-text-input-tip);
+    padding-right: 1.5rem;
+  }
+  .section-display {
+    min-width: 41rem;
+    max-width: 41rem;
+    margin: 4.2rem 2.7rem 2.2rem 0;
+    padding: 4rem;
+  }
+  .display-wrapper {
+    row-gap: 2rem;
+  }
+  .display-result {
+    font-size: 4.8rem;
+    line-height: 7.1rem;
+    letter-spacing: -0.01rem;
+  }
+  .btn-reset {
+    width: 100%;
+    padding: 0.9rem 0;
+    margin-top: 13.3rem;
+  }
+}
