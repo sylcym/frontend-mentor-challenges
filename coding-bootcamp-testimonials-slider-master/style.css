@@ -160,7 +160,6 @@ body {
     background-position: center 10rem;
   }
 }
-
 @media screen and (min-width: 1024px) {
   body {
     background-size: 48.5%;
@@ -214,7 +213,6 @@ body {
     line-height: 4.4rem;
     text-align: left;
     padding-top: 10rem;
-    /* margin-bottom: 1rem; */
   }
   .section-testimonial-description {
     margin-top: 10.4rem;
