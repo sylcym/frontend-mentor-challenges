@@ -111,6 +111,28 @@ body {
 .card-4 {
   background-color: var(--color-black);
 }
+.footer {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color: var(--color-border);
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 1.2rem;
+}
+.footer__link:link,
+.footer__link:visited {
+  color: var(--color-black);
+  transition: all 0.2s;
+}
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  color: var(--color-background-highlight);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 @media screen and (min-width: 1024px) {
   .main {
     display: grid;
