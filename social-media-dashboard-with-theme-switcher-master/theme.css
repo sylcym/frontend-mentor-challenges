@@ -14,7 +14,7 @@
 }
 /* DARK MODE  */
 @media (prefers-color-scheme: dark) {
-  .container {
+  body {
     background-color: var(--color-background);
     color: var(--color-text-light);
   }
@@ -70,7 +70,7 @@
 }
 /* LIGHT MODE  */
 @media (prefers-color-scheme: light) {
-  .container {
+  body {
     background-color: var(--color-text-light);
     color: var(--color-background);
   }
@@ -131,7 +131,7 @@
   }
 }
 /* DARK MODE  */
-.darkMode .container {
+body.darkMode {
   background-color: var(--color-background);
   color: var(--color-text-light);
 }
@@ -185,7 +185,7 @@
   color: var(--color-icon-up);
 }
 /* LIGHT MODE  */
-.lightMode .container {
+body.lightMode {
   background-color: var(--color-text-light);
   color: var(--color-background);
 }

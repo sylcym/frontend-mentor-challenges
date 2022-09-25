@@ -131,12 +131,12 @@ body {
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 2.9rem;
-  padding: 4.6rem 0 2.7rem 2.45rem;
+  padding: 4.6rem 0 0.8rem 2.45rem;
 }
 .card-wrapper {
   border-radius: 0.5rem;
   padding: 2.7rem 3.1rem 1.9rem 2.4rem;
-  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
   cursor: pointer;
 }
 .media-wrapper {
@@ -204,9 +204,9 @@ body {
 }
 .footer {
   position: fixed;
-  bottom: 1rem;
+  top: 50%;
   right: 1rem;
-  transform: rotate(360deg);
+  transform: translateY(-50%) rotate(180deg);
   writing-mode: vertical-rl;
   font-size: 1.2rem;
 }
@@ -264,14 +264,14 @@ body {
     font-size: 2.4rem;
     font-weight: 700;
     line-height: 2.9rem;
-    padding: 4.6rem 0 2.4rem 16.5rem;
+    padding: 4.6rem 0 0.8rem 16.5rem;
   }
   .daily-statistics-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 16.5rem 7.5rem 16.5rem;
+    padding: 0 16.5rem 0 16.5rem;
   }
   .card-wrapper {
     width: 23%;
