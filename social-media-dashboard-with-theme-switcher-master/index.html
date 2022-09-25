@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Social media dashboard.</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <!-- CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="theme.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- JS -->
+    <script src="script.js" defer></script>
+  </head>
+  <body class="darkMode">
+    <main class="container">
+      <header class="header">
+        <div class="header-container">
+          <h1 class="heading-primary">Social Media Dashboard</h1>
+          <p class="paragraph-header">Total Followers: 23,004</p>
+        </div>
+        <div class="theme-container">
+          <span for="toggle-switch" class="switch">Dark mode</span>
+          <button class="theme-switcher" aria-label="Toggle dark mode">
+            <span class="dot"></span>
+          </button>
+        </div>
+      </header>
+      <section class="full-statistics-container">
+        <div class="wrapper wrapper-facebook">
+          <div class="social-info">
+            <img class="social-icon social-icon-facebook" src="images/icon-facebook.svg" alt="" />
+            <a class="social-user" href="#">@nathanf</a>
+          </div>
+          <h2 class="followers-number">1987</h2>
+          <p class="paragraph-followers">Followers</p>
+          <div class="daily-info">
+            <div class="wrapper-icon-up">
+              <img class="icon-up" src="images/icon-up.svg" alt="" />
+              <p class="daily-number">12 Today</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wrapper wrapper-twitter">
+          <div class="social-info">
+            <img class="social-icon" src="images/icon-twitter.svg" alt="" />
+            <a class="social-user" href="#">@nathanf</a>
+          </div>
+          <h2 class="followers-number">1044</h2>
+          <p class="paragraph-followers">Followers</p>
+          <div class="daily-info">
+            <div class="wrapper-icon-up">
+              <img class="icon-up" src="images/icon-up.svg" alt="" />
+              <p class="daily-number">99 Today</p>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper wrapper-instagram">
+          <div class="social-info">
+            <img class="social-icon" src="images/icon-instagram.svg" alt="" />
+            <a class="social-user" href="#">@realnathanf</a>
+          </div>
+          <h2 class="followers-number">11K</h2>
+          <p class="paragraph-followers">Followers</p>
+          <div class="daily-info">
+            <div class="wrapper-icon-up">
+              <img class="icon-up" src="images/icon-up.svg" alt="" />
+              <p class="daily-number">1099 Today</p>
+            </div>
+          </div>
+        </div>
+        <div class="wrapper wrapper-youtube">
+          <div class="social-info">
+            <img class="social-icon" src="images/icon-youtube.svg" alt="" />
+            <a class="social-user" href="#">Nathan F.</a>
+          </div>
+          <h2 class="followers-number">8239</h2>
+          <p class="paragraph-followers">Subscribers</p>
+          <div class="daily-info">
+            <div class="wrapper-icon-down">
+              <img class="icon-down" src="images/icon-down.svg" alt="" />
+              <p class="daily-number">144 Today</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <h2 class="heading-secondary">Overview - Today</h2>
+
+      <section class="daily-statistics-container">
+        <div class="card-wrapper">
+          <div class="media-wrapper">
+            <h3 class="heading-tertiary">Page Views</h3>
+            <img class="card-icon" src="images/icon-facebook.svg" alt="" />
+          </div>
+          <div class="info-wrapper">
+            <p class="info-number">87</p>
+            <div class="wrapper-icon-up">
+              <img class="icon-up" src="images/icon-up.svg" alt="" />
+              <p class="percentage">3%</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="media-wrapper">
+            <h3 class="heading-tertiary">Likes</h3>
+            <img class="card-icon" src="images/icon-facebook.svg" alt="" />
+          </div>
+          <div class="info-wrapper">
+            <p class="info-number">52</p>
+            <div class="wrapper-icon-down">
+              <img class="icon-down" src="images/icon-down.svg" alt="" />
+              <p class="percentage">2%</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="media-wrapper">
+            <h3 class="heading-tertiary">Likes</h3>
+            <img class="card-icon" src="images/icon-instagram.svg" alt="" />
+          </div>
+          <div class="info-wrapper">
+            <p class="info-number">5462</p>
+            <div class="wrapper-icon-up">
+              <img class="icon-up" src="images/icon-up.svg" alt="" />
+              <p class="percentage">2257%</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="media-wrapper">
+            <h3 class="heading-tertiary">Profile Views</h3>
+            <img class="card-icon" src="images/icon-instagram.svg" alt="" />
+          </div>
+          <div class="info-wrapper">
+            <p class="info-number">52k</p>
+            <div class="wrapper-icon-up">
+              <img class="icon-up" src="images/icon-up.svg" alt="" />
+              <p class="percentage">1375%</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="media-wrapper">
+            <h3 class="heading-tertiary">Retweets</h3>
+            <img class="card-icon" src="images/icon-twitter.svg" alt="" />
+          </div>
+          <div class="info-wrapper">
+            <p class="info-number">117</p>
+            <div class="wrapper-icon-up">
+              <img class="icon-up" src="images/icon-up.svg" alt="" />
+              <p class="percentage">303%</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="media-wrapper">
+            <h3 class="heading-tertiary">Likes</h3>
+            <img class="card-icon" src="images/icon-twitter.svg" alt="" />
+          </div>
+          <div class="info-wrapper">
+            <p class="info-number">507</p>
+            <div class="wrapper-icon-up">
+              <img class="icon-up" src="images/icon-up.svg" alt="" />
+              <p class="percentage">553%</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="media-wrapper">
+            <h3 class="heading-tertiary">Likes</h3>
+            <img class="card-icon" src="images/icon-youtube.svg" alt="" />
+          </div>
+          <div class="info-wrapper">
+            <p class="info-number">107</p>
+            <div class="wrapper-icon-down">
+              <img class="icon-down" src="images/icon-down.svg" alt="" />
+              <p class="percentage">19%</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="media-wrapper">
+            <h3 class="heading-tertiary">Total Views</h3>
+            <img class="card-icon" src="images/icon-youtube.svg" alt="" />
+          </div>
+          <div class="info-wrapper">
+            <p class="info-number">1407</p>
+            <div class="wrapper-icon-down">
+              <img class="icon-down" src="images/icon-down.svg" alt="" />
+              <p class="percentage">1375%</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      Challenge by
+      <a class="footer__link" href="https://www.frontendmentor.io?ref=challenge" target="_blank" target="_blank">Frontend Mentor</a>. Coded by
+      <a class="footer__link" href="">sylcym</a>.
+    </footer>
+  </body>
+</html>

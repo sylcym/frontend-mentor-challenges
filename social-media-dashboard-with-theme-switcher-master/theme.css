@@ -1,0 +1,262 @@
+:root {
+  --color-text-light: rgba(255, 255, 255, 1);
+  --color-text-paragraph: rgba(140, 152, 198, 1);
+  --color-background: rgba(29, 31, 41, 1);
+  --color-dark-heder: rgba(32, 34, 47, 1);
+  --color-dark-background: rgba(37, 43, 66, 1);
+  --color-icon-up: rgba(30, 181, 137, 1);
+  --color-icon-down: rgba(220, 65, 76, 1);
+  --color-light-background: rgba(241, 243, 250, 1);
+  --color-light-heder: rgba(247, 249, 255, 1);
+  --color-light-text-paragraph: rgba(99, 104, 125, 1);
+  --color-dark-hover: rgba(51, 58, 85, 1);
+  --color-light-hover: rgba(225, 228, 240, 1);
+}
+/* DARK MODE  */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: var(--color-background);
+    color: var(--color-text-light);
+  }
+  .header-container {
+    border-bottom: 2px solid rgba(51, 58, 85, 1);
+  }
+  .header {
+    background-color: var(--color-dark-heder);
+  }
+  .paragraph-header,
+  .switch {
+    color: var(--color-text-paragraph);
+  }
+  .wrapper {
+    background-color: var(--color-dark-background);
+  }
+  .social-user {
+    color: var(--color-text-paragraph);
+  }
+  .paragraph-followers {
+    color: var(--color-text-paragraph);
+  }
+  .card-wrapper {
+    background-color: var(--color-dark-background);
+  }
+  .heading-tertiary {
+    color: var(--color-text-paragraph);
+  }
+  .wrapper-icon-up {
+    color: var(--color-icon-up);
+  }
+  .wrapper-icon-down {
+    color: var(--color-icon-down);
+  }
+  .wrapper:hover {
+    background-color: var(--color-dark-hover);
+  }
+  .card-wrapper:hover {
+    background-color: var(--color-dark-hover);
+  }
+  .footer {
+    color: var(--color-text-paragraph);
+  }
+  .footer__link:link,
+  .footer__link:visited {
+    color: var(--color-light-text-paragraph);
+  }
+  .footer__link:focus,
+  .footer__link:hover,
+  .footer__link:active {
+    color: var(--color-icon-up);
+  }
+}
+/* LIGHT MODE  */
+@media (prefers-color-scheme: light) {
+  .container {
+    background-color: var(--color-text-light);
+    color: var(--color-background);
+  }
+  .header-container {
+    border-bottom: 2px solid rgba(51, 58, 85, 1);
+  }
+  .header {
+    background-color: var(--color-light-heder);
+  }
+  .paragraph-header,
+  .switch {
+    color: var(--color-light-text-paragraph);
+  }
+  #toggle-switch {
+    background-color: var();
+  }
+  .wrapper {
+    background-color: var(--color-light-background);
+  }
+  .social-user {
+    color: var(--color-light-text-paragraph);
+  }
+  .paragraph-followers {
+    color: var(--color-light-text-paragraph);
+  }
+  .heading-secondary {
+    color: var(--color-light-text-paragraph);
+  }
+  .card-wrapper {
+    background-color: var(--color-light-background);
+  }
+  .heading-tertiary {
+    color: var(--color-light-text-paragraph);
+  }
+  .wrapper-icon-up {
+    color: var(--color-icon-up);
+  }
+  .wrapper-icon-down {
+    color: var(--color-icon-down);
+  }
+  .wrapper:hover {
+    background-color: var(--color-light-hover);
+  }
+  .card-wrapper:hover {
+    background-color: var(--color-light-hover);
+  }
+  .footer {
+    color: var(--color-text-paragraph);
+  }
+  .footer__link:link,
+  .footer__link:visited {
+    color: var(--color-background);
+  }
+  .footer__link:focus,
+  .footer__link:hover,
+  .footer__link:active {
+    color: var(---color-icon-down);
+  }
+}
+/* DARK MODE  */
+.darkMode .container {
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+}
+.darkMode .header-container {
+  border-bottom: 2px solid rgba(51, 58, 85, 1);
+}
+.darkMode .header {
+  background-color: var(--color-dark-heder);
+}
+.darkMode .paragraph-header,
+.darkMode .switch {
+  color: var(--color-text-paragraph);
+}
+.darkMode .wrapper {
+  background-color: var(--color-dark-background);
+}
+.darkMode .social-user {
+  color: var(--color-text-paragraph);
+}
+.darkMode .paragraph-followers {
+  color: var(--color-text-paragraph);
+}
+.darkMode .card-wrapper {
+  background-color: var(--color-dark-background);
+}
+.darkMode .heading-tertiary {
+  color: var(--color-text-paragraph);
+}
+.darkMode .wrapper-icon-up {
+  color: var(--color-icon-up);
+}
+.darkMode .wrapper-icon-down {
+  color: var(--color-icon-down);
+}
+.darkMode .wrapper:hover {
+  background-color: var(--color-dark-hover);
+}
+.darkMode .card-wrapper:hover {
+  background-color: var(--color-dark-hover);
+}
+.darkMode.footer {
+  color: var(--color-text-paragraph);
+}
+.darkMode.footer__link:link,
+.darkMode.footer__link:visited {
+  color: var(--color-light-text-paragraph);
+}
+.darkMode.footer__link:focus,
+.darkMode.footer__link:hover,
+.darkMode.footer__link:active {
+  color: var(--color-icon-up);
+}
+/* LIGHT MODE  */
+.lightMode .container {
+  background-color: var(--color-text-light);
+  color: var(--color-background);
+}
+.lightMode .header-container {
+  border-bottom: 2px solid rgba(51, 58, 85, 1);
+}
+.lightMode .header {
+  background-color: var(--color-light-heder);
+}
+.lightMode .paragraph-header,
+.lightMode .switch {
+  color: var(--color-light-text-paragraph);
+}
+.lightMode .wrapper {
+  background-color: var(--color-light-background);
+}
+.lightMode .social-user {
+  color: var(--color-light-text-paragraph);
+}
+.lightMode .paragraph-followers {
+  color: var(--color-light-text-paragraph);
+}
+.lightMode .heading-secondary {
+  color: var(--color-light-text-paragraph);
+}
+.lightMode .card-wrapper {
+  background-color: var(--color-light-background);
+}
+.lightMode .heading-tertiary {
+  color: var(--color-light-text-paragraph);
+}
+.lightMode .wrapper-icon-up {
+  color: var(--color-icon-up);
+}
+.lightMode .wrapper-icon-down {
+  color: var(--color-icon-down);
+}
+.lightMode .wrapper:hover {
+  background-color: var(--color-light-hover);
+}
+.lightMode .card-wrapper:hover {
+  background-color: var(--color-light-hover);
+}
+.lightMode.footer {
+  color: var(--color-text-paragraph);
+}
+.lightMode.footer__link:link,
+.lightMode.footer__link:visited {
+  color: var(--color-background);
+}
+.lightMode.footer__link:focus,
+.lightMode.footer__link:hover,
+.lightMode.footer__link:active {
+  color: var(--color-icon-down);
+}
+
+@media screen and (min-width: 1150px) {
+  @media (prefers-color-scheme: dark) {
+    .header-container {
+      border-bottom: none;
+    }
+  }
+  @media (prefers-color-scheme: light) {
+    .header-container {
+      border-bottom: none;
+    }
+  }
+  .darkMode .header-container {
+    border-bottom: none;
+  }
+  .lightMode .header-container {
+    border-bottom: none;
+  }
+}
