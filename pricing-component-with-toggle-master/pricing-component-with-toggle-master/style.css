@@ -90,6 +90,9 @@ input[type='checkbox'].toggle + label::after {
 input[type='checkbox'].toggle:checked + label::after {
   transform: translateX(100%);
 }
+input[type='checkbox'].toggle + label span {
+  display: none;
+}
 .pricing-switcher:hover {
   background: var(--color-violet-light);
 }
