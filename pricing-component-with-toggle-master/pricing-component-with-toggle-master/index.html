@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Pricing component with toggle</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="heading-primary">Our Pricing</h1>
+        <div class="pricing-container">
+          <span class="switcher-label">Annually</span>
+          <input type="checkbox" id="check" class="toggle" placeholder="Switch between annual and monthly prices" />
+          <label for="check"></label>
+          <span class="switcher-label">Monthly</span>
+        </div>
+      </header>
+
+      <div class="wrapper">
+        <section class="section section-basic">
+          <h2 class="heading-secondary">Basic</h2>
+          <strong class="price monthly-price"><span class="currency">&dollar;</span>19.99</strong>
+          <strong class="price price-hidden annual-price"><span class="currency">&dollar;</span>199.99</strong>
+          <p class="information">500 GB Storage</p>
+          <p class="information">2 Users Allowed</p>
+          <p class="information">Send up to 3 GB</p>
+          <button class="btn-learn-more" aria-label="Learn More">Learn More</button>
+        </section>
+
+        <section class="section section-professional">
+          <h2 class="heading-secondary">Professional</h2>
+          <strong class="price monthly-price"><span class="currency">&dollar;</span>24.99</strong>
+          <strong class="price price-hidden annual-price"><span class="currency">&dollar;</span>249.99</strong>
+          <p class="information">1 TB Storage</p>
+          <p class="information">5 Users Allowed</p>
+          <p class="information">Send up to 10 GB</p>
+          <button class="btn-learn-more" aria-label="Learn More">Learn More</button>
+        </section>
+
+        <section class="section section-master">
+          <h2 class="heading-secondary">Master</h2>
+          <strong class="price monthly-price"><span class="currency">&dollar;</span>39.99</strong>
+          <strong class="price price-hidden annual-price"><span class="currency">&dollar;</span>399.99</strong>
+          <p class="information">2 TB Storage</p>
+          <p class="information">10 Users Allowed</p>
+          <p class="information">Send up to 20 GB</p>
+          <button class="btn-learn-more" aria-label="Learn More">Learn More</button>
+        </section>
+      </div>
+    </div>
+
+    <footer class="footer">
+      Challenge by <a class="footer__link" href="https://www.frontendmentor.io?ref=challenge" target="_blank" target="_blank">Frontend Mentor</a>.
+      Coded by <a class="footer__link" href="" target="_blank">sylcym</a>.
+    </footer>
+  </body>
+</html>
