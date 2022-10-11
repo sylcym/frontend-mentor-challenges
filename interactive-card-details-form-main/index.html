@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Interactive card details form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <main class="main">
+      <section class="section section-card">
+        <div class="front-card">
+          <p class="number-card">0000 0000 0000 0000</p>
+          <div class="wrapper-card">
+            <h1 class="owner-card">Jane Appleseed</h1>
+            <div class="wrapper-validity">
+              <p class="validity-month">00</p>/
+              <!-- <p class="validity-number">00/00</p> -->
+              <p class="validity-year">00</p>
+            </div>
+          </div>
+        </div>
+        <div class="rear-card">
+          <p class="validity-number-cvc">000</p>
+        </div>
+      </section>
+      <section class="section section-form">
+        <form class="form show">
+          <div class="input-wrapper">
+            <label class="label" for="cardholder-name">Cardholder Name</label>
+            <input class="input cardholder-name " type="text" name="cardholder-name" id="cardholder-name" placeholder="e.g. Jane Appleseed" minlength="3" maxlength="24"/>
+            <span class="error error-cardholder">Can't be blank</span>
+          </div>
+
+          <div class="wrapper-basic-date">
+            <label class="label" for="card-number">Card Number</label>
+            <input class="input card-number" type="text" name="card-number" id="card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="19"  />
+            <span class="error error-card-number">Wrong format,numbers only</span>
+          </div>
+
+
+          <div class="wrapper-basic-data-check">
+            <div class="validity-numbers">
+            <span class="label">Exp. Date (MM/YY)</span>
+              <div class="wrapper-validity">
+                <div class="wrapper">
+                  <label class="label-none" for="month">Month</label>
+                  <input class="input input-validity month" type="text" name="month" id="month" placeholder="MM" maxlength="2" />
+                  <label class="label-none" for="year">Year</label>
+                  <input class="input input-validity year" type="text" name="year" id="year" placeholder="YY" maxlength="2" />
+                </div>
+              </div>
+              <span class="error error-date">Can't be blank</span>
+            </div>
+
+            <div class="validity-cvc">
+              <div class="input-container">
+                <label class="label" for="number-cvc">CVC</label>
+                <input class="input input-cvc number-cvc" type="text" name="number-cvc" id="number-cvc" placeholder="e.g. 123" maxlength="3" />
+              </div>
+              <span class="error error-cvc">Can't be blank</span>
+            </div>
+          </div>
+        
+        </div>
+          <button type="submit" class="btn btn-confirm">Confirm</button>
+        </form>
+
+        <div class="follow-up">
+          <h2 class="header">Thank you!</h2>
+          <p class="confirmation-adding">We've added your card details</p>
+          <button type="submit" class="btn btn-continue">Continue</button>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      Challenge by <a class="footer__link" href="https://www.frontendmentor.io?ref=challenge" target="_blank" target="_blank">Frontend Mentor</a>.
+      Coded by <a class="footer__link" href="https://github.com/sylcym/frontend-mentor-challenges/tree/main/advice-generator-app-main" target="_blank">sylcym</a>.
+    </footer>
+  </body>
+</html>
