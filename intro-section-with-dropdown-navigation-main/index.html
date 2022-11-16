@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#">
+        <img src="images/logo.svg" class="header-logo" alt="logo" />
+      </a>
+
+      <button type="button" class="nav-btn-menu" aria-label="Open menu"></button>
+
+      <div class="nav-link-header">
+        <button type="button" class="nav-btn-close" aria-label="Close menu"></button>
+
+        <div class="nav-link-container">
+          <details class="details">
+            <summary class="nav-link nav-list-category">
+              Features
+              <img src="images/icon-arrow-down.svg" class="icon-arrow" alt="" />
+            </summary>
+
+            <ul class="nav-link nav-link-list">
+              <li class="nav-list-item"><img src="images/icon-todo.svg" class="icon" alt="" /><a href="#" class="nav-link">Todo List</a></li>
+              <li class="nav-list-item"><img src="images/icon-calendar.svg" class="icon" alt="" /><a href="#" class="nav-link">Calendar</a></li>
+              <li class="nav-list-item"><img src="images/icon-reminders.svg" class="icon" alt="" /><a href="#" class="nav-link">Reminders</a></li>
+              <li class="nav-list-item"><img src="images/icon-planning.svg" class="icon" alt="" /><a href="#" class="nav-link">Planning</a></li>
+            </ul>
+          </details>
+
+          <details class="details">
+            <summary class="nav-link nav-list-category">
+              Company
+              <img src="images/icon-arrow-down.svg" class="icon-arrow" alt="" />
+            </summary>
+
+            <ul class="nav-link nav-link-list">
+              <li class="nav-list-item"><a href="#" class="nav-link">History</a></li>
+              <li class="nav-list-item"><a href="#" class="nav-link">Our Team</a></li>
+              <li class="nav-list-item"><a href="#" class="nav-link">Blog</a></li>
+            </ul>
+          </details>
+          <a class="nav-link" href="#">Careers</a>
+          <a class="nav-link" href="#"> About</a>
+          <div class="btn-user-login">
+            <a href="#" class="btn-user btn-login">Login</a>
+            <a href="#" class="btn-user btn-login-register">Register</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="hero-img">
+        <img src="images/image-hero-mobile.png" class="hero-img-mobile" alt="" />
+        <img src="images/image-hero-desktop.png" class="hero-img-desktop" alt="" />
+      </div>
+      <div class="hero-content">
+        <div class="hero-details">
+          <h1 class="heading">Make remote work</h1>
+          <p class="paragraph">
+            Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.
+          </p>
+          <a href="#" class="btn-learn-more">Learn more</a>
+        </div>
+
+        <div class="partners">
+          <img src="images/client-databiz.svg" class="partner" alt="" />
+          <img src="images/client-audiophile.svg" class="partner" alt="" />
+          <img src="images/client-meet.svg" class="partner" alt="" />
+          <img src="images/client-maker.svg" class="partner" alt="" />
+        </div>
+      </div>
+    </main>
+    <div class="overlay"></div>
+    <div class="attribution-container">
+      Challenge by <a class="attribution-link" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
+      <a class="attribution-link" href="" target="_blank">sylcym</a>.
+    </div>
+  </body>
+</html>
