@@ -449,6 +449,7 @@ html {
   .hero-img-desktop,
   .img-desktop {
     display: block;
+    min-width: 50%;
     width: 50%;
   }
   .hero-details-graphic {
