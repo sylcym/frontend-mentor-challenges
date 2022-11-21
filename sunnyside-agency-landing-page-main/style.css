@@ -391,7 +391,7 @@ html {
 @media screen and (min-width: 1024px) {
   .header {
     height: 80rem;
-    padding: 3.4rem;
+    padding: 4.2rem 4.7rem 3.4rem 4rem;
   }
   .header-logo {
     width: 17rem;
