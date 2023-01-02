@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Interactive pricing component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="heading">Simple, traffic-based pricing</h1>
+      <p class="paragraph">Sign-up for our 30-day trial. No credit card required.</p>
+    </header>
+    <main class="main">
+      <section class="section-info">
+        <h2 class="heading-secondary"><span class="span-heading">10K</span> Pageviews</h2>
+        <div class="progress-bar">
+          <input class="input-progress" aria-label="input-progress" type="range" min="1" max="5" step="1" value="3" />
+        </div>
+        <div class="price">
+          <span class="span-price">$</span>
+          <span class="price-fix">16.00</span>
+          <span class="price-month">/month</span>
+        </div>
+        <div class="container-data">
+          <p class="billing">Monthly Billing</p>
+          <label class="switch">
+            <input type="checkbox" aria-label="checkbox" />
+            <span class="dot"></span>
+          </label>
+          <p class="billing">Yearly Billing</p>
+          <p class="paragraph-percent">25% <span class="percent">discount</span></p>
+        </div>
+      </section>
+      <section class="section-web">
+        <ul class="items">
+          <li class="item-web item-one"><img class="icon-check" src="images/icon-check.svg" alt="" /> Unlimited websites</li>
+          <li class="item-web item-two"><img class="icon-check" src="images/icon-check.svg" alt="" /> 100% data ownership</li>
+          <li class="item-web item-three"><img class="icon-check" src="images/icon-check.svg" alt="" /> Email reports</li>
+        </ul>
+        <button class="btn-trial">Start my trial</button>
+      </section>
+    </main>
+    <footer class="footer">
+      Challenge by <a class="footer__link" href="https://www.frontendmentor.io?ref=challenge" target="_blank" target="_blank">Frontend Mentor</a>.
+      Coded by <a class="footer__link" href="" target="_blank">sylcym</a>.
+    </footer>
+  </body>
+</html>
