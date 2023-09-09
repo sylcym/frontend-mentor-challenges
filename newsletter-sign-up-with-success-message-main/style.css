@@ -84,8 +84,6 @@ body {
 
 .form {
   padding-top: 42px;
-  transition: ;
-
 }
 
 .form-email {
@@ -112,6 +110,10 @@ body {
 .form-error {
   display: none;
   color: var(--tomato);
+}
+
+.form-error.show {
+  display: inline-block;
 }
 
 .error {
@@ -274,4 +276,9 @@ body {
   .img {
     height: 593px;
   }
+}
+
+
+.hidden {
+  display: none;
 }

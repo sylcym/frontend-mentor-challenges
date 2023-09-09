@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-
+<script defer src="script.js"></script>
     <title>Frontend Mentor | Newsletter sign-up form with success message</title>
   </head>
   <body>
@@ -40,27 +40,28 @@
 
             <input id="email" class="form-input" name="email" type="text" placeholder="email@company.com" />
 
-            <button type="submit" class="btn btn-subscribe">
+            <button type="button" class="btn btn-subscribe">
               Subscribe to monthly newsletter
             </button>
           </form>
         </section>
       </div>
+    </main>
 
-      <!-- <div class="modal">
-        <img class="success" src="./assets/images/icon-success.svg" alt="Success icon" />
+    <div class="modal hidden">
+      <img class="success" src="./assets/images/icon-success.svg" alt="Success icon" />
 
-        <h2 class="modal-heading">Thanks for subscribing!</h2>
+      <h2 class="modal-heading">Thanks for subscribing!</h2>
 
-        <p class="modal-paragraph">
-          A confirmation email has been sent to
-          <strong>ash@loremcompany.com.</strong>
-          Please open it and click the button inside to confirm your
-          subscription.
-        </p>
-        <button type="button" class="btn btn-modal">Dismiss message</button>
-      </div>
-    </main> -->
+      <p class="modal-paragraph">
+        A confirmation email has been sent to
+        <strong>ash@loremcompany.com.</strong>
+        Please open it and click the button inside to confirm your
+        subscription.
+      </p>
+      <button type="button" class="btn btn-modal">Dismiss message</button>
+    </div>
+
     <!-- <footer class="footer">
       Challenge by
       <a class="footer__link" href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
