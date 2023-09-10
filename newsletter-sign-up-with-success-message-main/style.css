@@ -122,10 +122,6 @@ body {
   border: solid 1px var(--tomato);
 }
 
-.active {
-  background-color: var(--gradient);
-}
-
 .btn {
   width: 100%;
   font-size: 15px;
@@ -137,6 +133,10 @@ body {
   padding: 20px 25px;
   margin-top: 11px;
   cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(204.47deg, #ff6a3a 0%, #ff527b 100%);
 }
 
 .modal {
@@ -165,24 +165,24 @@ body {
 
 .footer {
   position: fixed;
-  bottom: 1rem;
+  bottom: 12rem;
   right: 1rem;
   transform: rotate(180deg);
   writing-mode: vertical-rl;
-  color: #fff;
+  color: var(--tomato);
   font-size: 1.2rem;
 }
 
 .footer__link:link,
 .footer__link:visited {
-  color: #721e7e;
+  color: var(--grey);
   transition: all 0.2s;
 }
 
 .footer__link:focus,
 .footer__link:hover,
 .footer__link:active {
-  color: #2e0f33;
+  color: var(--tomato);
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -233,7 +233,7 @@ body {
     height: 520px;
     border-radius: 40px;
 
-    background-color: #721e7e;
+    background-color: var(--white);
     padding: 48px 65px 51px 65px;
 
   }
