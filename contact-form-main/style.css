@@ -1,0 +1,32 @@
+:root {
+  --color-green: rgb(223, 241, 231);
+  --color-green-media: rgb(12, 125, 105);
+  --color-red: rgb(215, 60, 60);
+  --color-gray: rgb(135, 163, 166);
+  --color-gray-media: rgb(43, 66, 70);
+  --color-white: rgb(255, 255, 255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  padding: 3rem 2rem;
+  background-color: var(--color-green);
+}
+
+.main {
+  padding: 2rem;
+  background-color: var(--color-white);
+}
