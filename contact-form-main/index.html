@@ -12,8 +12,15 @@
       href="./assets/images/favicon-32x32.png"
     />
 
-    <title>Frontend Mentor | Contact form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Contact form</title>
   </head>
 
   <body>
@@ -23,57 +30,70 @@
       <form action="#" class="form">
         <div class="wrapper">
           <div class="input-wrapper">
-            <label for="first-name">First Name *</label>
-            <input type="text" id="first-name" />
+            <label for="first-name" class="label"
+              >First Name <span class="span">*</span></label
+            >
+            <input type="text" class="input" id="first-name" />
             <span class="error error-first-name">This field is required</span>
           </div>
 
           <div class="input-wrapper">
-            <label for="last-name">Last Name *</label>
-            <input type="text" id="last-name" name="last-name" />
+            <label for="last-name" class="label"
+              >Last Name <span class="span">*</span></label
+            >
+            <input type="text" class="input" id="last-name" name="last-name" />
             <span class="error error-last-name">This field is required</span>
           </div>
         </div>
 
-        <div class="input-wrapper">
-          <label for="email">Email Address *</label>
-          <input type="text" id="email" name="email" />
+        <div class="input-wrapper input-email">
+          <label for="email" class="label"
+            >Email Address <span class="span">*</span></label
+          >
+          <input type="text" class="input" id="email" name="email" />
           <span class="error error-email">This field is required</span>
         </div>
 
-        <div class="wrapper">
-          <p class="description">Query Type *</p>
+        <div class="wrapper wrapper-radio">
+          <p class="description">Query Type <span class="span">*</span></p>
 
-          <div class="input-wrapper">
-            <label for="general">General Enquiry</label>
-            <input
-              type="radio"
-              id="general"
-              name="query"
-              value="general-enquiry"
-            />
+          <div class="input-wrapper input-radio">
+            <label for="general" class="label label-type">
+              <input
+                type="radio"
+                id="general"
+                name="query"
+                value="general-enquiry"
+              />
+              General Enquiry
+            </label>
 
-            <label for="support">Support Request</label>
-            <input
-              type="radio"
-              id="support"
-              name="query"
-              value="support-request"
-            />
+            <label for="support" class="label label-type">
+              <input
+                type="radio"
+                id="support"
+                name="query"
+                value="support-request"
+              />
+              Support Request
+            </label>
           </div>
           <span class="error error-query">Please select a query type</span>
         </div>
 
         <div class="input-wrapper">
-          <label for="message">Message *</label>
+          <label for="message" class="label label-message"
+            >Message <span class="span">*</span></label
+          >
           <textarea name="message" id="message"></textarea>
           <span class="error error-message">This field is required</span>
         </div>
 
-        <div class="wrapper">
-          <input type="checkbox" id="consent" name="consent" />
-          <label for="consent">
-            I consent to being contacted by the team *</label
+        <div class="checkbox-wrapper">
+          <input type="checkbox" class="input" id="consent" name="consent" />
+          <label for="consent" class="label">
+            I consent to being contacted by the team
+            <span class="span">*</span></label
           >
           <span class="error error-consent">
             To submit this form, please consent to being contacted
