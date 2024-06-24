@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
@@ -25,6 +23,13 @@
   </head>
 
   <body>
+    <dialog class="modal"dialog >
+      <p class="info info-sent">
+        Message Sent! 
+      <p class="info info-text">Thanks for completing the form. We'll be in touch soon!
+      </p></p>
+    </dialog>
+
     <main class="main">
       <h1 class="header">Contact Us</h1>
 
@@ -92,7 +97,7 @@
 
         <div class="checkbox-wrapper">
           <label for="consent" class="label checkbox-label">
-            <input type="checkbox" class="input" id="consent" name="consent" />
+            <input type="checkbox"checked="checked" class="input" id="consent" name="consent" />
             <span>
               I consent to being contacted by the team
               <span class="span">*</span>
@@ -105,46 +110,6 @@
 
         <button type="submit" class="btn-submit">Submit</button>
       </form>
-
-      <dialog open class="modal">
-        <p class="info info-sent">
-          Message Sent! 
-        <p class="info info-text">Thanks for completing the form. We'll be in touch soon!
-        </p></p>
-      </dialog>
     </main>
-
-    <!-- Contact Us
-
-  First Name
-  This field is required
-
-  Last Name
-  This field is required
-
-  Email Address
-  Please enter a valid email address
-  This field is required
-
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
-
-  Message
-  This field is required
-
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
-
-  Submit
-
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
   </body>
 </html>

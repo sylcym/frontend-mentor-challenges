@@ -19,14 +19,12 @@ html {
 }
 
 body {
-
   font-size: 1.6rem;
   padding: 33px 16px;
   background-color: var(--color-green);
 }
 
 .main {
-  position: relative;
   display: flex;
   flex-direction: column;
   max-width: 738px;
@@ -70,7 +68,7 @@ body {
 
 .input {
   border-radius: 10px;
-  padding: 18px 0;
+  padding: 18px 15px;
   border: 1px solid var(--color-gray);
   outline: none
 }
@@ -159,6 +157,7 @@ body {
   height: 240px;
   border: 1px solid var(--color-gray);
   border-radius: 10px;
+  padding: 10px;
   outline: none;
 }
 
@@ -180,6 +179,7 @@ body {
 }
 
 #consent {
+  background-image: url(./assets/images/icon-checkbox-check.svg);
   display: none;
 }
 
@@ -191,7 +191,10 @@ body {
   width: 15px;
   height: 15px;
   border: 1px solid var(--color-gray-media);
-  /* margin-right: 17px; */
+}
+
+input[type=checkbox] {
+  background-image: url(./assets/images/icon-checkbox-check.svg);
 }
 
 .btn-submit {
@@ -211,36 +214,33 @@ body {
   cursor: pointer;
 }
 
-.error {
+span.error {
   display: none;
   color: var(--color-red);
 }
 
-.input.error {
+.input-wrapper.show-error input,
+.input-wrapper.show-error #message {
   border: 1px solid var(--color-red);
 }
 
-.input-wrapper.show-error input,
-.input-wrapper.show-error #message {
-  border: 1px solid red;
-}
-
-.input-wrapper.show-error .error,
-.input-wrapper.show-error .error,
-.radio-wrapper.show-error .error,
-.checkbox-wrapper.show-error .error {
+.input-wrapper.show-error span.error,
+.input-wrapper.show-error span.error,
+.radio-wrapper.show-error span.error,
+.checkbox-wrapper.show-error span.error {
   display: block;
 }
 
 .modal {
-  position: absolute;
-  margin: -32px auto 10px;
+  position: relative;
+  margin: 0 auto;
   background-color: var(--color-gray-media);
   color: var(--color-white);
   line-height: 2;
   padding: 22px 24px;
   border-radius: 10px;
   border: 0px transparent;
+  top: 5px;
 }
 
 .info-sent {
@@ -252,7 +252,7 @@ body {
   padding-left: 31px;
 }
 
-info @media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) {
   .main {
     padding: 38px 41px;
   }
@@ -262,7 +262,6 @@ info @media screen and (min-width: 600px) {
     column-gap: 13px;
     row-gap: 17px;
     padding-top: 28px;
-
   }
 
   .input-wrapper {
@@ -306,9 +305,7 @@ info @media screen and (min-width: 600px) {
   .checkbox-label::before {
     top: 0;
     left: 0;
-
   }
-
 
   .btn-submit {
     padding: 19px 0;
