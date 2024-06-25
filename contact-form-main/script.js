@@ -18,10 +18,7 @@ const checkDate = (e) => {
   const firstName = inputFirstName.value;
   const lastName = inputLastName.value;
   const email = inputEmail.value;
-  const general = inputGeneral.value;
-  const support = inputSupport.value;
   const message = textMessage.value;
-  const consent = inputConsent.value;
 
   if (firstName.trim() === '') inputFirstName.parentElement.classList.add('show-error');
   else inputFirstName.parentElement.classList.remove('show-error');
@@ -32,22 +29,18 @@ const checkDate = (e) => {
   if (!regexEmail.test(email.trim())) inputEmail.parentElement.classList.add('show-error');
   else inputEmail.parentElement.classList.remove('show-error');
 
-  if (general || support) inputRadio.parentElement.classList.add('show-error');
+  if (!inputGeneral.checked && !inputSupport.checked) inputRadio.parentElement.classList.add('show-error');
   else inputRadio.parentElement.classList.remove('show-error');
 
   if (message.trim() === '') textMessage.parentElement.classList.add('show-error');
   else textMessage.parentElement.classList.remove('show-error');
 
-  if (consent) inputConsent.classList.add('error-consent');
-  else inputConsent.classList.remove('error-consent');
-  consent.setAttribute(checked)
-  console.log('ok')
+  if (!inputConsent.checked) inputConsent.parentElement.parentElement.classList.add('show-error');
+  else inputConsent.parentElement.parentElement.classList.remove('show-error');
 
-  if (firstName && lastName && email && (general || support) && message && consent) {
+  if (firstName && lastName && email && (inputGeneral.checked || inputSupport.checked) && message && inputConsent.checked) {
     modal.setAttribute('open', true);
   }
 }
-
-
 
 btnSubmit.addEventListener('click', checkDate)
