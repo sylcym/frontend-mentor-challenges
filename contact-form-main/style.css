@@ -275,6 +275,30 @@ span.error {
   padding-left: 31px;
 }
 
+.footer {
+  position: fixed;
+  bottom: -12rem;
+  right: 20rem;
+  transform: rotate(270deg);
+  writing-mode: vertical-rl;
+  color: var(--color-gray-media);
+  font-size: 1.2rem;
+}
+
+.footer__link:link,
+.footer__link:visited {
+  color: var(--color-green-media);
+  transition: all 0.2s;
+}
+
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  color: var(--color-red);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 @media screen and (min-width: 600px) {
   .main {
     padding: 38px 41px;
@@ -327,5 +351,20 @@ span.error {
 
   .btn-submit {
     padding: 19px 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
