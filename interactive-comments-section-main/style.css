@@ -1,0 +1,97 @@
+:root {
+  --color-blue: rgb(84, 87, 182);
+  --color-red: rgb(237, 100, 104);
+  --color-grayish-blue: rgb(195, 196, 239);
+  --color-light-red: rgb(255, 184, 187);
+  --color-dark-blue: rgb(50, 65, 82);
+  --color-gray: rgb(103, 114, 126);
+  --color-light-gray: rgb(234, 236, 241);
+  --color-very-light-gray: rgb(245, 246, 250);
+  --color-white: rgb(255, 255, 255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  font-size: 1.6rem;
+  padding: 28px 14px;
+  background-color: var(--color-light-gray);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* .wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+} */
+
+.card {
+  border-radius: 8px;
+  background-color: var(--color-very-light-gray);
+  padding: 7px 15px 27px 15px;
+  margin-bottom: 15px;
+}
+
+
+.card-info {
+  display: flex;
+  flex-direction: row;
+  column-gap: 14px;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0;
+
+}
+
+.avatar {
+  display: block;
+  width: 33px;
+  height: 33px;
+}
+
+.card-name {
+  font-weight: 700;
+}
+
+.card-date {
+  font-weight: 400;
+}
+
+.card-content {
+  padding: 5px 0px 11px;
+  line-height: 1.5;
+}
+
+.card-score {
+  display: inline;
+  background-color: var(--color-light-gray);
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+.span {
+  color: var(--color-blue);
+  font-weight: 700;
+  padding: 0 10px;
+}
+
+.card-replay {
+  display: flex;
+
+}
