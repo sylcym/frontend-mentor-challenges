@@ -42,6 +42,7 @@ body {
 } */
 
 .card {
+  position: relative;
   border-radius: 8px;
   background-color: var(--color-very-light-gray);
   padding: 7px 15px 27px 15px;
@@ -74,7 +75,7 @@ body {
 }
 
 .card-content {
-  padding: 5px 0px 11px;
+  padding: 5px 0px 26px;
   line-height: 1.5;
 }
 
@@ -93,5 +94,16 @@ body {
 
 .card-replay {
   display: flex;
+  position: absolute;
+  bottom: 26px;
+  right: 19px;
+  background-color: transparent;
+  border: none;
+}
 
+.reply {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-blue);
+  padding-left: 8px;
 }
