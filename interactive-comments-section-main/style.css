@@ -1,13 +1,14 @@
 :root {
   --color-blue: rgb(84, 87, 182);
-  --color-red: rgb(237, 100, 104);
-  --color-grayish-blue: rgb(195, 196, 239);
+  --color-red: rgb(237, 99, 104);
+  --color-grayish-blue: rgb(103, 114, 126);
   --color-light-red: rgb(255, 184, 187);
-  --color-dark-blue: rgb(50, 65, 82);
+  --color-dark-blue: rgb(51, 66, 83);
   --color-gray: rgb(103, 114, 126);
   --color-light-gray: rgb(234, 236, 241);
   --color-very-light-gray: rgb(245, 246, 250);
   --color-white: rgb(255, 255, 255);
+  --color-border: rgb(224 225 230);
 }
 
 * {
@@ -30,7 +31,7 @@ body {
 .main {
   display: flex;
   flex-direction: column;
-  row-gap: 18px;
+  /* row-gap: 18px; */
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -45,7 +46,7 @@ body {
   position: relative;
   border-radius: 8px;
   background-color: var(--color-very-light-gray);
-  padding: 7px 15px 27px 15px;
+  padding: 6px 26px 19px 12px;
   margin-bottom: 15px;
 }
 
@@ -75,28 +76,29 @@ body {
 }
 
 .card-content {
-  padding: 5px 0px 26px;
+  padding: 5px 0px 15px;
   line-height: 1.5;
 }
 
 .card-score {
-  display: inline;
+  display: inline-flex;
+  align-items: center;
   background-color: var(--color-light-gray);
   border-radius: 10px;
-  padding: 10px 16px;
+  padding: 10px 22px;
 }
 
 .span {
   color: var(--color-blue);
   font-weight: 700;
-  padding: 0 10px;
+  padding: 0 15px 0 15px;
 }
 
 .card-replay {
   display: flex;
   position: absolute;
-  bottom: 26px;
-  right: 19px;
+  bottom: 27px;
+  right: 23px;
   background-color: transparent;
   border: none;
 }
@@ -106,4 +108,119 @@ body {
   font-weight: 700;
   color: var(--color-blue);
   padding-left: 8px;
+}
+
+.card-replies-wrapper {
+  border-left: 2px solid var(--color-border);
+  padding-left: 20px;
+}
+
+.card-delete {
+  display: flex;
+  position: absolute;
+  bottom: 28px;
+  right: 88px;
+  background-color: transparent;
+  border: none;
+}
+
+
+.delete {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-red);
+  padding-left: 8px;
+}
+
+.card-edit {
+  display: flex;
+  position: absolute;
+  bottom: 28px;
+  right: 18px;
+  background-color: transparent;
+  border: none;
+}
+
+.edit {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-blue);
+  padding-left: 8px;
+}
+
+.form {
+  position: relative;
+  border-radius: 8px;
+  background-color: var(--color-very-light-gray);
+  padding: 17px 17px 24px 18px;
+  margin-bottom: 15px;
+}
+
+#message {
+  width: 100%;
+  height: 96px;
+  background-color: var(--color-very-light-gray);
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  margin-bottom: 18px;
+}
+
+textarea::placeholder {
+  font-size: 17px;
+  font-weight: 400;
+  padding: 12px 23px;
+  letter-spacing: -0.25px;
+
+}
+
+.btn-submit {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  text-transform: uppercase;
+  border: transparent;
+  border-radius: 10px;
+  padding: 17px 34px;
+}
+
+.dialog {
+  width: 343px;
+  height: 224px;
+  background-color: var(--color-white);
+  padding: 10px 10px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-dark-blue);
+}
+
+.title-dialog {
+  color: var(--color-grayish-blue);
+  padding: 20px 0;
+}
+
+.form-btn {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.btn {
+  text-transform: uppercase;
+  color: var(--color-white);
+  border: transparent;
+  border-radius: 10px;
+  padding: 14px 26px;
+}
+
+.btn-cancel {
+  background-color: var(--color-grayish-blue);
+}
+
+.btn-delete {
+  background-color: var(--color-red);
 }

@@ -138,13 +138,13 @@
 
               <div class="card-action">
                 <button class="card-delete">
-                  <img src="./images/icon-delete.svg" alt="Reply" />
-                  <span>Delete</span>
+                  <img src="./images/icon-delete.svg" alt="Delete" />
+                  <span class="delete">Delete</span>
                 </button>
 
                 <button class="card-edit">
-                  <img src="./images/icon-edit.svg" alt="Reply" />
-                  <span>Edit</span>
+                  <img src="./images/icon-edit.svg" alt="Edit" />
+                  <span class="edit">Edit</span>
                 </button>
               </div>
             </div>
@@ -153,6 +153,12 @@
       </div>
 
       <form class="form">
+        <label for="message"></label>
+        <textarea
+          name="message"
+          id="message"
+          placeholder="Add a comment..."
+        ></textarea>
         <div class="content-avatar">
           <img
             src="./images/avatars/image-juliusomo.webp"
@@ -160,13 +166,21 @@
             alt="Avatar"
           />
         </div>
-        <label for="message">Add a comment</label>
-        <textarea name="message" id="message" placeholder=" Add a comment">
-        Add a comment
-      </textarea
-        >
-        <button type="submit">send</button>
+        <button type="submit" class="btn-submit">send</button>
       </form>
+      <div class="dialog">
+        <!-- <dialog open> -->
+        <p class="title">Delete comment</p>
+        <p class="title-dialog">
+          Are you sure you want to delete this comment? this will be remove the
+          comment add cant't be undone.
+        </p>
+        <form method="dialog" class="form-btn">
+          <button class="btn btn-cancel">no, cancel</button>
+          <button class="btn btn-delete">yes, delete</button>
+        </form>
+        <!-- </dialog> -->
+      </div>
     </main>
 
     <!-- Pull dynamic content from the data.json file -->
