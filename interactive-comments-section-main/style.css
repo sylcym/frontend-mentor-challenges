@@ -73,9 +73,11 @@ body {
 
 .card-date {
   font-weight: 400;
+  color: var(--color-grayish-blue);
 }
 
 .card-content {
+  color: var(--color-grayish-blue);
   padding: 5px 0px 15px;
   line-height: 1.5;
 }
@@ -173,16 +175,20 @@ textarea::placeholder {
 
 }
 
-.btn-submit {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
+.btn {
   background-color: var(--color-blue);
   color: var(--color-white);
   text-transform: uppercase;
   border: transparent;
   border-radius: 10px;
   padding: 17px 34px;
+
+}
+
+.btn-submit {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
 }
 
 .dialog {
@@ -223,4 +229,102 @@ textarea::placeholder {
 
 .btn-delete {
   background-color: var(--color-red);
+}
+
+.btn-update,
+.btn-replay {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .wrapper {
+    margin: 0 auto;
+    max-width: 730px;
+  }
+
+  /* .card-wrapper1 {
+    display: flex;
+    flex-direction: column;
+  } */
+
+  .card {
+    /* width: 618px; */
+    max-width: 730px;
+    margin: 0 auto 19px;
+    padding: 12px 31px 11px 88px;
+  }
+
+  .card-info {
+    max-width: 618px;
+  }
+
+  .card-content {
+    max-width: 618px;
+  }
+
+  .card-score {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 40px;
+    height: 100px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 11px 8px;
+  }
+
+  .span {
+    padding: 18px 0px 18px 0px;
+  }
+
+  .card-replay {
+    bottom: 118px;
+    right: 24px;
+  }
+
+
+
+  .card-replies-wrapper {
+    padding-left: 46px;
+    margin: 0 0 0 auto;
+    max-width: 676px;
+  }
+
+  .card-delete {
+    bottom: 115px;
+    right: 105px;
+  }
+
+  .card-edit {
+    bottom: 115px;
+    right: 26px;
+  }
+
+  .form {
+
+    max-width: 730px;
+    margin: 0 auto 15px;
+    background-color: var(--color-very-light-gray);
+    padding: 30px 150px 19px 74px;
+    margin-bottom: 15px;
+  }
+
+  #message {
+    width: 506px;
+    height: 96px;
+  }
+
+  .content-avatar {
+    position: absolute;
+    top: 31px;
+    left: 25px;
+  }
+
+  .btn-submit {
+    bottom: 87px;
+    right: 16px;
+
+  }
 }
