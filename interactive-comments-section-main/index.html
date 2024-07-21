@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
@@ -25,180 +23,10 @@
   </head>
   <body>
     <main class="main">
-      <!-- <div class="wrapper">
-        <div class="card-wrapper card-wrapper-1">
-          <div class="card">
-            <div class="card-info">
-              <img
-                src="./images/avatars/image-amyrobson.png"
-                class="avatar"
-                alt="avatar"
-              />
-              <p class="card-name">amyrobson</p>
-              <p class="card-date">1 month ago</p>
-            </div>
-            <p class="card-content">
-              Impressive! Though it seems the drag feature could be improved.
-              But overall it looks incredible. You've nailed the design and the
-              responsiveness at various breakpoints works really well.
-            </p>
-
-            <div class="card-score">
-              <img src="./images/icon-plus.svg" alt="Add point" class="point" />
-              <span class="span">12</span>
-              <img
-                src="./images/icon-minus.svg"
-                alt="Remove point"
-                class="point"
-              />
-            </div>
-
-            <button class="card-replay">
-              <img src="./images/icon-reply.svg" alt="Replay" />
-              <p class="reply">Reply</p>
-            </button>
-          </div>
-        </div>
-
-        <div class="card-wrapper card-wrapper-2">
-          <div class="card">
-            <div class="card-info">
-              <img
-                src="./images/avatars/image-maxblagun.png"
-                class="avatar"
-                alt="avatar"
-              />
-              <p class="card-name">maxblagun</p>
-              <p class="card-date">2 weeks ago</p>
-            </div>
-            <p class="card-content">
-              Woah, your project looks awesome! How long have you been coding
-              for? I'm still new, but think I want to dive into React as well
-              soon. Perhaps you can give me an insight on where I can learn
-              React? Thanks!
-            </p>
-            <div class="card-score">
-              <img src="./images/icon-plus.svg" alt="Add point" class="point" />
-              <span class="span">5</span>
-              <img
-                src="./images/icon-minus.svg"
-                alt="Remove point"
-                class="point"
-              />
-            </div>
-
-            <button class="card-replay">
-              <img src="./images/icon-reply.svg" alt="Replay" />
-              <p class="reply">Reply</p>
-            </button>
-          </div>
-
-          <div class="card-replies-wrapper">
-            <div class="card">
-              <div class="card-info">
-                <img
-                  src="./images/avatars/image-ramsesmiron.png"
-                  class="avatar"
-                  alt="avatar"
-                />
-                <p class="card-name">ramsesmiron</p>
-                <p class="card-date">1 weeks ago</p>
-              </div>
-              <p class="card-content">
-                <span class="card-replaying-to">@maxblagun</span>
-                If you're still new, I'd recommend focusing on the fundamentals
-                of HTML, CSS, and JS before considering React. It's very
-                tempting to jump ahead but lay a solid foundation first.
-              </p>
-              <div class="card-score">
-                <img
-                  src="./images/icon-plus.svg"
-                  alt="Add point"
-                  class="point"
-                />
-                <span class="span">4</span>
-                <img
-                  src="./images/icon-minus.svg"
-                  alt="Remove point"
-                  class="point"
-                />
-              </div>
-
-              <button class="card-replay">
-                <img src="./images/icon-reply.svg" alt="Replay" />
-                <p class="reply">Reply</p>
-              </button>
-            </div>
-
-            <div class="card">
-              <div class="card-info">
-                <img
-                  src="./images/avatars/image-juliusomo.png"
-                  class="avatar"
-                  alt="avatar"
-                />
-                <p class="card-name">juliusomo</p>
-                <p class="card-marker">you</p>
-                <p class="card-date">1 days ago</p>
-              </div>
-              <p class="card-content active">
-                <span class="card-replaying-to">@ramsesmiron</span>
-                I couldn't agree more with this. Everything moves so fast and it
-                always seems like everyone knows the newest library/framework.
-                But the fundamentals are what stay constant.
-              </p>
-              <div class="card-score point">
-                <img
-                  src="./images/icon-plus.svg"
-                  alt="Add point"
-                  class="point"
-                />
-                <span class="span">2</span>
-                <img
-                  src="./images/icon-minus.svg"
-                  alt="Remove point"
-                  class="point"
-                />
-              </div>
-
-              <div class="card-action">
-                <button class="card-delete">
-                  <img src="./images/icon-delete.svg" alt="Delete" />
-                  <span class="delete">Delete</span>
-                </button>
-
-                <button class="card-edit">
-                  <img src="./images/icon-edit.svg" alt="Edit" />
-                  <span class="edit">Edit</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-      <form class="form">
-        <label for="message"></label>
-        <textarea
-          name="message"
-          id="message"
-          class="active"
-          placeholder="Add a comment..."
-        ></textarea>
-        <div class="content-avatar">
-          <img
-            src="./images/avatars/image-juliusomo.webp"
-            class="avatar"
-            alt="Avatar"
-          />
-        </div>
-        <button type="submit" class="btn btn-submit">send</button>
-        <button class="btn btn-update">Update</button>
-        <button class="btn btn-replay">Replay</button>
-      </form>
+      <div class="comments-container"></div>
+      <div class="form-container"></div>
 
       <div class="dialog">
-        <!-- <dialog open> -->
         <p class="title">Delete comment</p>
         <p class="title-dialog">
           Are you sure you want to delete this comment? this will be remove the
@@ -208,17 +36,7 @@
           <button class="btn btn-cancel">no, cancel</button>
           <button class="btn btn-delete">yes, delete</button>
         </form>
-        <!-- </dialog> -->
       </div>
     </main>
-
-    <!-- Pull dynamic content from the data.json file -->
-
-    <!-- <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div> -->
   </body>
 </html>

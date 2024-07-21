@@ -1,42 +1,30 @@
 const main = document.querySelector('.main');
-const cardContent = document.querySelector('.card-content');
-const cardScore = document.querySelector('.card-score');
-const point = document.querySelector('.point');
-const span = document.querySelector('.span');
-const reply = document.querySelector('.reply');
-const replayingTo = document.querySelector('.card-replaying-to');
-const cardDelete = document.querySelector('.card-delete');
-const cardEdit = document.querySelector('.card-edit');
-const message = document.querySelector('#message');
-const btnSubmit = document.querySelector('.btn-submit');
-const btnUpdate = document.querySelector('.btn-update');
-const btnReplay = document.querySelector('.btn-replay');
-const dialog = document.querySelector('.dialog');
-const btnCancel = document.querySelector('.btn-cancel');
-const btnDelete = document.querySelector('.btn-delete');
+const commentsContainer = document.querySelector('.comments-container');
+const formContainer = document.querySelector('.form-container');
 
-async function getData(e) {
+let currentIndex = 0;
+let currUser = '';
+
+async function getData() {
   try {
     const res = await (fetch('./data.json'));
-    console.log(res)
     const data = await res.json();
-    console.log(data)
 
-    showComments(data);
+    const { comments, currentUser } = data;
+
+    currUser = currentUser;
+
+    showComments(comments);
+    addForm(currentUser, formContainer);
     return data;
   } catch (err) {
-    console.error(`💥 ${err}`)
+    console.error(`💥 ${err}`);
   }
 }
 
-function showComments(data) {
-  const { comments } = data;
-
+function showComments(comments) {
   const wrapper = document.createElement('div');
   wrapper.classList.add('wrapper');
-
-  let commentHTML = '';
-  let repliesHTML = '';
 
   comments.forEach((comment, index) => {
     const {
@@ -47,10 +35,25 @@ function showComments(data) {
       replies
     } = comment;
 
-    const cardWrapper = document.createElement('div');
-    cardWrapper.classList.add('card-wrapper', `card-wrapper-${index + 1}`)
+    const cardWrapper = commentCard(index, image, username, createdAt, content, score);
 
-    commentHTML = `
+    if (replies.length > 0) {
+      cardWrapper.appendChild(addReplies(replies));
+    }
+
+    wrapper.appendChild(cardWrapper);
+    currentIndex = index;
+  });
+
+  commentsContainer.insertAdjacentElement('beforeEnd', wrapper);
+}
+
+function commentCard(index, image, username, createdAt, content, score = 0) {
+  const cardWrapper = document.createElement('div');
+  cardWrapper.classList.add('card-wrapper', `card-wrapper-${index + 1}`);
+
+  let commentHTML = `
+   <div class="card-cw">
       <div class="card">
         <div class="card-info">
           <img
@@ -66,38 +69,44 @@ function showComments(data) {
         </p>
 
         <div class="card-score">
-          <img src="./images/icon-plus.svg" alt="Add point" class="point" />
+          <button class="add-score">
+            <img
+              src="./images/icon-plus.svg"
+              alt="Add point"
+              class="point"
+            />
+          </button>
           <span class="span">${score}</span>
-          <img
-            src="./images/icon-minus.svg"
-            alt="Remove point"
-            class="point"
-          />
+          <button class="remove-score">
+            <img
+              src="./images/icon-minus.svg"
+              alt="Remove point"
+              class="point"
+            />
+          </button>
         </div>
 
-        <button class="card-replay">
-          <img src="./images/icon-reply.svg" alt="Replay" />
-          <p class="reply">Reply</p>
+        <button class="card-reply">
+          <img src="./images/icon-reply.svg" alt="reply" />
+          <span class="reply">Reply</span>
         </button>
       </div>
-    `;
+    </div>
+  `;
 
-    cardWrapper.insertAdjacentHTML('beforeend', commentHTML)
+  cardWrapper.insertAdjacentHTML('beforeend', commentHTML);
 
-    if (replies.length > 0) {
-      cardWrapper.appendChild(addReplies(replies))
-    }
+  const replyBtns = cardWrapper.querySelectorAll('.card-reply');
+  const cardScore = cardWrapper.querySelectorAll('.card-score');
+  handleReply(replyBtns);
+  handleScore(cardScore);
 
-    wrapper.appendChild(cardWrapper)
-  });
-
-  main.insertAdjacentElement('afterbegin', wrapper)
-  console.log(wrapper)
+  return cardWrapper
 }
 
 function addReplies(replies) {
   const replyWrapper = document.createElement('div');
-  replyWrapper.classList.add('card-replies-wrapper')
+  replyWrapper.classList.add('card-replies-wrapper');
 
   let replyHTML = '';
 
@@ -111,50 +120,150 @@ function addReplies(replies) {
     } = reply;
 
     replyHTML = `
-      <div class="card">
-        <div class="card-info">
-          <img
-            src="${image.webp}"
-            class="avatar"
-            alt="${username}"
-          />
-          <p class="card-name">${username}</p>
-          <p class="card-date">${createdAt}</p>
-        </div>
-        <p class="card-content">
-          <span class="card-replaying-to">@${replyingTo}</span>
-          ${content}
-        </p>
-        <div class="card-score">
-          <img
-            src="./images/icon-plus.svg"
-            alt="Add point"
-            class="point"
-          />
-          <span class="span">${score}</span>
-          <img
-            src="./images/icon-minus.svg"
-            alt="Remove point"
-            class="point"
-          />
-        </div>
+      <div class="card-rw">
+        <div class="card">
+          <div class="card-info">
+            <img
+              src="${image.webp}"
+              class="avatar"
+              alt="${username}"
+            />
+            <p class="card-name">${username}</p>
+            <p class="card-date">${createdAt}</p>
+          </div>
+          <p class="card-content">
+            <span class="card-replying-to">@${replyingTo}</span>
+            ${content}
+          </p>
+          <div class="card-score">
+            <button class="add-score">
+              <img
+                src="./images/icon-plus.svg"
+                alt="Add point"
+                class="point"
+              />
+            </button>
+            <span class="span">${score}</span>
+            <button class="remove-score">
+              <img
+                src="./images/icon-minus.svg"
+                alt="Remove point"
+                class="point"
+              />
+            </button>
+          </div>
 
-        <button class="card-replay">
-          <img src="./images/icon-reply.svg" alt="Replay" />
-          <p class="reply">Reply</p>
-        </button>
+          <button class="card-reply">
+            <img src="./images/icon-reply.svg" alt="reply" />
+            <span class="reply">Reply</span>
+          </button>
+        </div>
       </div>
     `;
 
-    replyWrapper.insertAdjacentHTML('beforeend', replyHTML)
+    replyWrapper.insertAdjacentHTML('beforeend', replyHTML);
   })
+
+  const replyBtns = replyWrapper.querySelectorAll('.card-reply');
+  const cardScore = replyWrapper.querySelectorAll('.card-score');
+  handleReply(replyBtns);
+  handleScore(cardScore);
 
   return replyWrapper;
 }
 
-getData()
+function addForm(currentUser, container, reply) {
+  const form = document.createElement('form');
+  form.classList.add('form')
 
-// main.addEventListener('click', getData)
+  const { image, username } = currentUser;
 
+  const fromHTML = `
+    <form class="form">
+      <textarea name="message" id="message" class="active" placeholder="Add a comment..." ></textarea>
+      <div class="content-avatar">
+        <img src="${image.webp}" class="avatar" alt="${username}" />
+      </div>
+      <button type="submit" class="btn btn-submit">Send</button>
+    </form>
+  `;
 
+  container.insertAdjacentHTML('beforeEnd', fromHTML);
+  handleFormSubmit(image, username, reply);
+}
 
+function handleFormSubmit(image, username, reply) {
+  const form = document.querySelector('.form');
+  const options = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const replyToReply = e.target.closest('.card-rw');
+    const replyToComment = e.target.closest('.card-cw');
+
+    const message = form.querySelector('#message').value;
+    const createdAt = new Date().toLocaleDateString("en-EN", options);
+    const score = 0;
+
+    const newComment = commentCard(currentIndex, image, username, createdAt, message, score)
+
+    if (replyToReply) {
+      const replyForm = replyToReply.querySelector('.form');
+
+      replyToReply.appendChild(newComment);
+      replyToReply.removeChild(replyForm);
+    } else if (replyToComment) {
+      const replyForm = replyToComment.querySelector('.form');
+
+      replyToComment.appendChild(newComment);
+      replyToComment.removeChild(replyForm);
+    } else {
+      commentsContainer.appendChild(newComment);
+    }
+
+    if (reply) reply.disabled = false;
+    form.querySelector('#message').value = '';
+  })
+}
+
+function handleReply(replyBtns) {
+  replyBtns.forEach(reply => {
+    reply.addEventListener('click', (e) => {
+      const replyToReply = e.target.closest('.card-rw');
+      const replyToComment = e.target.closest('.card-cw');
+
+      reply.disabled = true;
+
+      if (replyToReply) {
+        addForm(currUser, replyToReply, reply);
+      } else {
+        addForm(currUser, replyToComment, reply);
+      }
+    })
+  })
+}
+
+function handleScore(cardScore) {
+  cardScore.forEach(score => {
+    const addScore = score.querySelector('.add-score');
+    const removeScore = score.querySelector('.remove-score');
+    const scoreSpan = score.querySelector('.span');
+
+    addScore.addEventListener('click', () => {
+      const currentScore = scoreSpan.textContent;
+      scoreSpan.textContent = +currentScore + 1;
+    })
+
+    removeScore.addEventListener('click', () => {
+      const currentScore = scoreSpan.textContent;
+      scoreSpan.textContent = +currentScore - 1;
+    })
+  })
+}
+
+getData();

@@ -28,11 +28,16 @@ body {
   background-color: var(--color-light-gray);
 }
 
+button {
+  font-family: inherit;
+  border: 0;
+  background-color: transparent;
+}
+
 .main {
   position: relative;
   display: flex;
   flex-direction: column;
-  /* row-gap: 18px; */
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -43,6 +48,7 @@ body {
   background-color: var(--color-very-light-gray);
   padding: 6px 26px 19px 12px;
   margin-bottom: 15px;
+  min-height: 144px;
 }
 
 
@@ -53,7 +59,6 @@ body {
   align-items: center;
   text-align: center;
   padding: 10px 0;
-
 }
 
 .avatar {
@@ -87,9 +92,9 @@ body {
 .card-score {
   display: inline-flex;
   align-items: center;
+  justify-content: space-between;
   background-color: var(--color-light-gray);
   border-radius: 10px;
-  padding: 10px 22px;
 }
 
 .point:hover {
@@ -99,10 +104,9 @@ body {
 .span {
   color: var(--color-blue);
   font-weight: 700;
-  padding: 0 15px 0 15px;
 }
 
-.card-replay {
+.card-reply {
   display: flex;
   position: absolute;
   bottom: 27px;
@@ -111,7 +115,7 @@ body {
   border: none;
 }
 
-.card-replay:hover {
+.card-reply:hover {
   cursor: pointer;
   opacity: 0.5;
 }
@@ -141,7 +145,6 @@ body {
   cursor: pointer;
   opacity: 0.5;
 }
-
 
 .delete {
   font-size: 16px;
@@ -186,14 +189,13 @@ body {
   border-radius: 10px;
   border: 1px solid var(--color-border);
   margin-bottom: 18px;
+  padding: 10px;
 }
 
 textarea::placeholder {
-  font-size: 17px;
+  font-size: 13px;
   font-weight: 400;
-  padding: 12px 23px;
   letter-spacing: -0.25px;
-
 }
 
 .btn {
@@ -203,7 +205,6 @@ textarea::placeholder {
   border: transparent;
   border-radius: 10px;
   padding: 17px 34px;
-
 }
 
 .btn-submit {
@@ -269,15 +270,19 @@ textarea::placeholder {
 }
 
 .btn-update,
-.btn-replay {
+.btn-reply {
   display: none;
 }
 
-.card-content.active,
-#message.active {
-  border: 1px solid var(--color-grayish-blue);
-  border-radius: 10px;
-  padding: 5px 5px;
+.add-score,
+.remove-score {
+  width: 100%;
+  height: 3.3rem;
+  cursor: pointer;
+}
+
+.card-reply:disabled {
+  opacity: 0.5;
 }
 
 @media screen and (min-width: 750px) {
@@ -286,13 +291,7 @@ textarea::placeholder {
     max-width: 730px;
   }
 
-  /* .card-wrapper1 {
-    display: flex;
-    flex-direction: column;
-  } */
-
   .card {
-    /* width: 618px; */
     max-width: 730px;
     margin: 0 auto 19px;
     padding: 12px 31px 11px 88px;
@@ -315,20 +314,13 @@ textarea::placeholder {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-
-    padding: 11px 8px;
   }
 
-  .span {
-    padding: 18px 0px 18px 0px;
-  }
-
-  .card-replay {
-    bottom: 118px;
+  .card-reply {
+    top: 20px;
+    bottom: unset;
     right: 24px;
   }
-
-
 
   .card-replies-wrapper {
     padding-left: 46px;
@@ -347,7 +339,6 @@ textarea::placeholder {
   }
 
   .form {
-
     max-width: 730px;
     margin: 0 auto 15px;
     background-color: var(--color-very-light-gray);
@@ -360,6 +351,10 @@ textarea::placeholder {
     height: 96px;
   }
 
+  .card-replies-wrapper #message {
+    width: 100%;
+  }
+
   .content-avatar {
     position: absolute;
     top: 31px;
@@ -369,6 +364,5 @@ textarea::placeholder {
   .btn-submit {
     bottom: 87px;
     right: 16px;
-
   }
 }
