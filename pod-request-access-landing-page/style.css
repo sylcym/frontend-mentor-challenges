@@ -1,0 +1,245 @@
+:root {
+  --white: rgb(255, 255, 255);
+  --bg-primary: rgb(18, 23, 37);
+  --bg-secondary: rgb(44, 52, 75);
+  --bg-third: rgb(90, 102, 138);
+  --lilac: rgb(194, 203, 229);
+  --green: rgb(84, 230, 175);
+  --red: #ff0000;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  /*1rem=10px*/
+  font-family: 'Chivo', sans-serif;
+}
+
+body {
+  background-color: var(--bg-primary);
+}
+
+.wrapper-position {
+  background-image: url(./assets/tablet/image-host.jpg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: revert;
+}
+
+.wrapper {
+  min-height: 667px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--bg-primary);
+  /* margin: 0 auto; */
+  padding: 62px 24px 62px 24px;
+  opacity: 0.95;
+}
+
+.site-header {
+  width: 134.85px;
+  height: 56px;
+  margin: 0 auto;
+}
+
+
+.hero {
+  padding-top: 57px;
+  padding-bottom: 33px;
+}
+
+.hero-title {
+  font-size: 26px;
+  line-height: 38px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.hero-accent {
+  color: var(--white);
+}
+
+.hero-description {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 25px;
+  color: var(--lilac)
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.social-link img {
+  max-width: 73px;
+  height: 11px;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+.form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 48px;
+  row-gap: 16px;
+}
+
+.input-email {
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 700;
+  background-color: var(--bg-secondary);
+  color: var(--lilac);
+  border-radius: 28px;
+  border: 1px solid transparent;
+  padding: 16px 170px 16px 32px;
+  width: 100%;
+}
+
+.input-email::placeholder {
+  opacity: 50%;
+}
+
+.btn-form {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  font-size: 14px;
+  line-height: 28px;
+  font-weight: 700;
+  background-color: var(--green);
+  color: var(--bg-primary);
+  border-radius: 28px;
+  border: 1px solid transparent;
+  padding: 8px 0px 8px 32px;
+}
+
+.form-error {
+  display: block;
+  text-align: left;
+  color: var(--red);
+  padding-top: 5px;
+  padding-left: 32px;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-image: url(./assets/desktop/bg-pattern-dots.svg);
+    background-repeat: no-repeat;
+    background-position: top 77% left 10%;
+    background-size: revert;
+
+  }
+
+  /* .wrapper-position {
+    min-width: 768px;
+    min-height: 1024px;
+    background-image: url(./assets/tablet/image-host.jpg), url(./assets/desktop/bg-pattern-dots.svg);
+    background-repeat: no-repeat, non repeat;
+    background-position: top right, bottom left;
+    background-size: revert, revert;
+
+
+
+  } */
+  .wrapper-position {
+    min-width: 768px;
+    min-height: 1024px;
+    background-image: url(./assets/tablet/image-host.jpg);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: revert;
+  }
+
+  .wrapper {
+    /* background-image: url(./assets/desktop/bg-pattern-dots.svg);
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: revert; */
+    position: relative;
+    background-color: transparent;
+    text-align: left;
+    padding: 50px 24px 64px 39px;
+    opacity: 1;
+  }
+
+  .site-header {
+    margin: 0;
+    max-width: 277px;
+    z-index: 1;
+  }
+
+
+  .site-main {
+    position: relative;
+    width: 635px;
+    height: 509px;
+    background-color: var(--bg-primary);
+    opacity: 1;
+  }
+
+  .hero {
+    position: relative;
+    padding-top: 93px;
+    padding-bottom: 40px;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    line-height: 56px;
+
+  }
+
+  .hero-description {
+    font-size: 18px;
+    line-height: 28px;
+    padding-top: 31px;
+    padding-right: 178px;
+
+  }
+
+
+  .form {
+    max-width: 427px;
+    flex-direction: row;
+    padding-top: 0;
+  }
+
+  .btn-form {
+    width: 162px;
+    top: 14%;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .social-links {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 536px;
+    max-height: 29px;
+    gap: 27px;
+  }
+
+  .social-link img {
+    max-width: inherit;
+    height: inherit;
+  }
+
+
+}

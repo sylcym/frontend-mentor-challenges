@@ -10,56 +10,93 @@
       sizes="32x32"
       href="./assets/favicon-32x32.png"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
 
     <title>Frontend Mentor | Pod request access landing page</title>
   </head>
   <body>
-    <header class="site-header">
-      <img class="site-logo" src="" alt="Podcast logo" />
-    </header>
+    <div class="wrapper-position">
+      <div class="wrapper">
+        <header class="site-header">
+          <img
+            class="site-logo"
+            src="./assets/desktop/logo.svg"
+            alt="Podcast logo"
+          />
+        </header>
 
-    <main class="site-main">
-      <section class="hero">
-        <h1 class="hero-title">
-          Publish your podcasts <span class="hero-accent">everywhere.</span>
-        </h1>
-        <p class="hero-description">
-          Upload your audio to Pod with a single click. We’ll then distribute
-          your podcast to Spotify, Apple Podcasts, Google Podcasts, Pocket Casts
-          and more!
-        </p>
-      </section>
+        <main class="site-main">
+          <section class="hero">
+            <h1 class="hero-title">
+              Publish your podcasts <span class="hero-accent">everywhere.</span>
+            </h1>
+            <p class="hero-description">
+              Upload your audio to Pod with a single click. We’ll then
+              distribute your podcast to Spotify, Apple Podcasts, Google
+              Podcasts, Pocket Casts and more!
+            </p>
+          </section>
 
-      <section class="social-links">
-        <a href="#" class="social-link social-spotify" aria-label="Spotify">
-          <img src="spotify-icon.svg" alt="" />
-        </a>
-        <a
-          href="#"
-          class="social-link social-apple"
-          aria-label="Apple Podcasts"
-        >
-          <img src="apple-podcast-icon.svg" alt="" />
-        </a>
-        <a
-          href="#"
-          class="social-link social-google"
-          aria-label="Google Podcasts"
-        >
-          <img src="google-podcast-icon.svg" alt="" />
-        </a>
-        <a href="#" class="social-link social-pocket" aria-label="Pocket Casts">
-          <img src="pocket-casts-icon.svg" alt="" />
-        </a>
-      </section>
+          <section class="social-links">
+            <a href="#" class="social-link social-spotify" aria-label="Spotify">
+              <img
+                src="./assets/desktop/spotify.svg"
+                alt="Ikon social spotify"
+              />
+            </a>
+            <a
+              href="#"
+              class="social-link social-apple"
+              aria-label="Apple Podcasts"
+            >
+              <img
+                src="./assets/desktop/apple-podcast.svg"
+                alt="Ikon social apple"
+              />
+            </a>
+            <a
+              href="#"
+              class="social-link social-google"
+              aria-label="Google Podcasts"
+            >
+              <img
+                src="./assets/desktop/google-podcasts.svg"
+                alt="Ikon social google"
+              />
+            </a>
+            <a
+              href="#"
+              class="social-link social-pocket"
+              aria-label="Pocket Casts"
+            >
+              <img
+                src="./assets/desktop/pocket-casts.svg"
+                alt="Ikon social pocket"
+              />
+            </a>
+          </section>
 
-      <form class="email-form">
-        <label for="email" class="visually-hidden">Email address</label>
-        <input type="email" id="email" placeholder="Email address" required />
-        <button type="submit">Request Access</button>
-        <span class="form-error">Oops! Please check your email</span>
-      </form>
-    </main>
+          <form class="form">
+            <label for="email" class="visually-hidden">Email address</label>
+            <input
+              class="input-email"
+              type="email"
+              id="email"
+              placeholder="Email address"
+              required
+            />
+            <button class="btn-form" type="submit">Request Access</button>
+          </form>
+          <span class="form-error">Oops! Please check your email</span>
+        </main>
+      </div>
+    </div>
 
     <!-- Publish your podcasts everywhere.
 
