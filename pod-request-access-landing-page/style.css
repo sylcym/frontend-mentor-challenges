@@ -116,9 +116,6 @@ body {
 }
 
 .btn-form {
-  position: absolute;
-  right: 0;
-  top: 50%;
   font-size: 14px;
   line-height: 28px;
   font-weight: 700;
@@ -129,48 +126,61 @@ body {
   padding: 8px 0px 8px 32px;
 }
 
+input:invalid {
+  box-shadow: none;
+  outline: none;
+}
+
+input:valid {
+  box-shadow: none;
+  outline: none;
+}
+
 .form-error {
-  display: block;
+  display: none;
   text-align: left;
   color: var(--red);
   padding-top: 5px;
   padding-left: 32px;
 }
 
+.form-error.show {
+  display: block
+}
+
+.form-success {
+  display: none;
+  text-align: left;
+  color: var(--green);
+  padding-top: 5px;
+  padding-left: 32px;
+}
+
+.form-success.show {
+  display: block
+}
+
 @media (min-width: 768px) {
   body {
+
     background-image: url(./assets/desktop/bg-pattern-dots.svg);
     background-repeat: no-repeat;
-    background-position: top 77% left 10%;
+    background-position: top 100% left 7%;
     background-size: revert;
 
   }
 
-  /* .wrapper-position {
-    min-width: 768px;
-    min-height: 1024px;
-    background-image: url(./assets/tablet/image-host.jpg), url(./assets/desktop/bg-pattern-dots.svg);
-    background-repeat: no-repeat, non repeat;
-    background-position: top right, bottom left;
-    background-size: revert, revert;
-
-
-
-  } */
   .wrapper-position {
     min-width: 768px;
     min-height: 1024px;
     background-image: url(./assets/tablet/image-host.jpg);
     background-repeat: no-repeat;
     background-position: top right;
-    background-size: revert;
+    background-size: 491px 767px;
+    /
   }
 
   .wrapper {
-    /* background-image: url(./assets/desktop/bg-pattern-dots.svg);
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-size: revert; */
     position: relative;
     background-color: transparent;
     text-align: left;
@@ -190,6 +200,7 @@ body {
     width: 635px;
     height: 509px;
     background-color: var(--bg-primary);
+    margin-top: 152px;
     opacity: 1;
   }
 
@@ -213,7 +224,6 @@ body {
 
   }
 
-
   .form {
     max-width: 427px;
     flex-direction: row;
@@ -221,8 +231,10 @@ body {
   }
 
   .btn-form {
-    width: 162px;
+    position: absolute;
+    right: 0;
     top: 14%;
+    width: 162px;
     padding-left: 0;
     text-align: center;
   }
@@ -241,5 +253,71 @@ body {
     height: inherit;
   }
 
+
+}
+
+@media (min-width: 1324px) {
+  body {
+    background-image: none;
+  }
+
+  .wrapper-position {
+    max-width: 1275px;
+    max-height: 640px;
+    background-image: url(./assets/desktop/image-host.jpg);
+    background-repeat: no-repeat;
+    background-size: 888px 640px;
+    background-position: right top;
+    margin: 130px 0 130px 165px;
+
+  }
+
+  .wrapper {
+    background-image: url(./assets/desktop/bg-pattern-dots.svg);
+    background-repeat: no-repeat;
+    background-position: bottom 16% right;
+
+  }
+
+  ba .site-header {
+    position: absolute;
+    top: -30px;
+    left: 0;
+  }
+
+  .site-main {
+    width: 732px;
+    height: 509px;
+    margin-top: 131px;
+
+  }
+
+  .hero {
+    position: relative;
+    padding-top: 88px;
+    padding-bottom: 40px;
+  }
+
+  .hero-title {
+    font-size: 52px;
+    line-height: 62px;
+  }
+
+  .hero-description {
+    padding-top: 24px;
+    padding-right: 278px;
+  }
+
+  .social-links {
+    bottom: 32px;
+  }
+
+  .input-email {
+    padding: 13px 170px 13px 32px;
+  }
+
+  .btn-form {
+    top: 8%;
+  }
 
 }
