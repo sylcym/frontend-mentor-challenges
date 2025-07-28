@@ -255,6 +255,30 @@ body {
   opacity: 50%;
 }
 
+.attribution-container {
+  position: fixed;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-size: 1.2rem;
+  color: var(--black);
+}
+
+.attribution-link:link,
+.attribution-link:visited {
+  color: fi;
+  transition: all 0.2s;
+}
+
+.attribution-link:focus,
+.attribution-link:hover,
+.attribution-link:active {
+  color: red;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 @media (min-width: 768px) {
   .nav-btn {
     display: none;
@@ -308,8 +332,6 @@ body {
 
   .header {
     background-image: url(./images/desktop/image-hero.jpg);
-    /* padding: 40px 64px; */
-    /* max-height: 650px; */
   }
 
   .navigation {
