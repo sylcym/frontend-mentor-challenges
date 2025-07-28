@@ -1,0 +1,272 @@
+:root {
+  --orange: rgb(255, 125, 26);
+  --pale-orange: rgb(255, 237, 224);
+  --dark-blue: rgb(29, 32, 37);
+  --dark-grayish-blue: hsl(219, 9%, 45%);
+  --grayish-blue: hsl(220, 14%, 75%);
+  --light-grayish-blue: hsl(223, 64%, 98%);
+  --white: rgb(255, 255, 255);
+  /* --black:  rgb(0, 0, 0);(with 75% opacity for lightbox background) */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  /*1rem=10px*/
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 100vh; */
+  /* background-color: aqua; */
+  background-color: var(--white);
+}
+
+.header {
+  position: relative;
+}
+
+.navbar {
+  min-width: 327px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 24px 25px 14px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  display: block;
+  height: 20px;
+  width: 137.5px;
+  padding-left: 16px;
+}
+
+.nav-btn {
+  border: none;
+  outline: none;
+  background: none;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.nav-hamburger {
+  display: block;
+  width: 16px;
+  height: 15px;
+
+}
+
+.group-ikon {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding-left: 89.5px;
+}
+
+.cart-count {
+  display: none;
+}
+
+.nav-cart {
+  display: block;
+  width: 22px;
+  height: 20px;
+}
+
+.avatar {
+  /* display: block; */
+  height: 24px;
+  width: 24px;
+}
+
+.navigation {
+  display: none;
+  height: 100vh;
+  width: 250px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 25px 0px 0px 25px;
+  z-index: 3;
+  background-color: var(--white);
+}
+
+.navigation-open {
+  display: block;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  line-height: 28px;
+  font-weight: 700;
+  font-size: 18px;
+  list-style: none;
+  gap: 20px;
+  padding-top: 54px;
+}
+
+.menu-link {
+  display: inline-flex;
+  text-decoration: none;
+  color: var(--dark-blue);
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  display: none;
+}
+
+.overlay-show {
+  display: block;
+}
+
+.carousel {
+  max-width: 550px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel-slide {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-btn.prev {
+  left: 16px;
+}
+
+.carousel-btn.next {
+  right: 16px;
+}
+
+.carousel-thumbnails {
+  display: none;
+}
+
+.product {
+  padding: 24px 24px 88px 24px;
+}
+
+.product-details {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.85px;
+  text-transform: uppercase;
+  color: var(--orange);
+  padding-bottom: 19px;
+}
+
+.product-title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  color: var(--dark-blue);
+  padding-bottom: 15px;
+}
+
+.product-description {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--dark-grayish-blue);
+  padding-bottom: 24px;
+}
+
+.price-current {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: auto;
+  color: var(--dark-blue);
+  padding-right: 16px;
+}
+
+/* .carousel-thumbnails {
+  display: none;
+  margin-top: 16px;
+  justify-content: center;
+  gap: 16px;
+} */
+
+/* .thumb {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: opacity 0.3s ease, border 0.3s ease;
+} */
+
+/* .thumb:hover,
+.thumb.active {
+  opacity: 0.7;
+  border-color: hsl(26, 100%, 55%);
+} */
+
+/* === Desktop: pokazuj miniaturki pod karuzelą === */
+@media (min-width: 768px) {
+  .carousel-thumbnails {
+    display: flex;
+  }
+
+  .carousel-btn {
+    display: none;
+    /* Opcjonalnie ukryj strzałki na desktopie */
+  }
+}
