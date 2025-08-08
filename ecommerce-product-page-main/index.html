@@ -26,78 +26,64 @@
   <body>
     <header class="header">
       <div class="navbar">
-        <button
-          class="nav-btn btn-open"
-          aria-label="Open navigation menu button"
-        >
-          <img
-            src="./images/icon-menu.svg"
-            class="nav-hamburger"
-            alt="Icon hamburger"
-          />
-        </button>
-        <a href="#" class="navbar-logo" title="Sneaker" target="_blank">
-          <img src="./images/logo.svg" class="nav-logo" alt="Logo Sneaker" />
-        </a>
+        <div class="navbar-left">
+          <button
+            class="nav-btn btn-open"
+            aria-label="Open navigation menu button"
+          >
+            <img
+              src="./images/icon-menu.svg"
+              class="nav-hamburger"
+              alt="Menu"
+            />
+          </button>
+          <a href="#" class="navbar-logo" title="Sneaker">
+            <img src="./images/logo.svg" class="nav-logo" alt="Logo Sneaker" />
+          </a>
+        </div>
+
+        <nav class="navigation">
+          <div class="nav">
+            <button
+              class="nav-btn btn-close"
+              aria-label="Close navigation menu button"
+            >
+              <img
+                src="./images/icon-close.svg"
+                class="nav-close"
+                alt="Close"
+              />
+            </button>
+            <ul class="menu">
+              <li><a class="menu-link" href="#">Collections</a></li>
+              <li><a class="menu-link" href="#">Men</a></li>
+              <li><a class="menu-link" href="#">Women</a></li>
+              <li><a class="menu-link" href="#">About</a></li>
+              <li><a class="menu-link" href="#">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
         <div class="group-ikon">
           <button class="nav-btn btn-cart" aria-label="Cart">
-            <img
-              src="./images/icon-cart.svg"
-              class="nav-cart"
-              alt="Icon cart"
-            />
+            <img src="./images/icon-cart.svg" class="nav-cart" alt="Cart" />
             <span class="cart-count">0</span>
           </button>
           <div class="nav-avatar">
-            <img
-              src="./images/image-avatar.png"
-              class="avatar"
-              alt="Icon avatar"
-            />
+            <img src="./images/image-avatar.png" class="avatar" alt="Avatar" />
           </div>
         </div>
       </div>
-      <nav class="navigation">
-        <div class="nav">
-          <button
-            class="nav-btn btn-close"
-            aria-label="Close navigation menu button"
-          >
-            <img
-              src="./images/icon-close.svg"
-              class="nav-close"
-              alt="Icon close"
-            />
-          </button>
-          <ul class="menu">
-            <li class="menu-item">
-              <a class="menu-link" href="#">Collections</a>
-            </li>
-            <li class="menu-item">
-              <a class="menu-link" href="#">Men</a>
-            </li>
-            <li class="menu-item">
-              <a class="menu-link" href="#">Women</a>
-            </li>
-            <li class="menu-item">
-              <a class="menu-link" href="#">About</a>
-            </li>
-            <li class="menu-item">
-              <a class="menu-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
     </header>
-    <div class="overlay"></div>
-    <!-- <div class="cart-dropdown" aria-label="Shopping cart dropdown">
-      <h2 class="cart-title">Cart</h2>
 
-      <div class="cart-content empty">
+    <div class="overlay"></div>
+
+    <div class="cart-dropdown" aria-label="Shopping cart dropdown">
+      <h2 class="cart-title">Cart</h2>
+      <div class="cart-empty">
         <p>Your cart is empty.</p>
       </div>
 
-      <div class="cart-content filled">
+      <div class="cart-filled">
         <div class="cart-item">
           <img
             src="images/image-product-1-thumbnail.jpg"
@@ -106,7 +92,9 @@
           />
           <div class="cart-item-details">
             <p class="cart-item-title">Fall Limited Edition Sneakers</p>
-            <p class="cart-item-price">$125.00 × 3 <strong>$375.00</strong></p>
+            <p class="cart-item-price">
+              $125.00 × 3 <strong class="strong-price">$375.00</strong>
+            </p>
           </div>
           <button class="cart-item-delete" aria-label="Remove item from cart">
             <img src="images/icon-delete.svg" alt="Delete icon" />
@@ -115,7 +103,7 @@
 
         <button class="btn-checkout">Checkout</button>
       </div>
-    </div> -->
+    </div>
     <main class="main">
       <section class="carousel">
         <div class="carousel-wrapper">
@@ -151,7 +139,6 @@
           </button>
         </div>
 
-        <!-- Miniaturki (widoczne tylko na desktopie) -->
         <div class="carousel-thumbnails">
           <img
             src="images/image-product-1-thumbnail.jpg"
@@ -188,64 +175,103 @@
           the weather can offer.
         </p>
         <div class="product-price">
-          <span class="price-current">$125.00</span>
-          <span class="price-discount">50%</span>
+          <div class="wrapper-produkt">
+            <span class="price-current">$125.00</span>
+            <span class="price-discount">50%</span>
+          </div>
           <span class="price-original">$250.00</span>
         </div>
         <div class="product-actions">
           <div class="quantity-selector">
-            <button class="btn-decrease" aria-label="Decrease quantity">
-              −
+            <button
+              class="btn-select btn-decrease"
+              aria-label="Decrease quantity"
+            >
+              <img
+                src="./images/icon-minus.svg"
+                class="icon-minus"
+                alt="Icon minus"
+              />
             </button>
             <span class="quantity-value">0</span>
-            <button class="btn-increase" aria-label="Increase quantity">
-              +
+            <button
+              class="btn-select btn-increase"
+              aria-label="Increase quantity"
+            >
+              <img
+                src="./images/icon-plus.svg"
+                class="icon-plus"
+                alt="Icon plus"
+              />
             </button>
           </div>
 
-          <button class="btn-add-to-cart">
-            <img src="./images/icon-cart.svg" alt="" aria-hidden="true" />
+          <button class="btn-select btn-add">
+            <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                fill="#ffffff"
+                fill-rule="nonzero"
+              />
+            </svg>
             Add to cart
           </button>
         </div>
       </section>
     </main>
-    <!-- <div class="cart-dropdown" aria-label="Shopping cart dropdown">
-      <h2 class="cart-title">Cart</h2>
 
-      <div class="cart-content empty">
-        <p>Your cart is empty.</p>
-      </div>
+    <div class="lightbox hidden" role="dialog" aria-modal="true">
+      <div class="lightbox-overlay"></div>
 
-      <div class="cart-content filled">
-        <div class="cart-item">
+      <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Close lightbox">
+          <img src="images/icon-close.svg" alt="Close icon" />
+        </button>
+
+        <div class="lightbox-wrapper">
+          <button class="lightbox-btn prev" aria-label="Previous image">
+            <img src="images/icon-previous.svg" alt="Previous" />
+          </button>
+
           <img
-            src="images/image-product-1-thumbnail.jpg"
-            alt="Product thumbnail"
-            class="cart-item-thumbnail"
+            src="images/image-product-1.jpg"
+            alt="Product 1"
+            class="lightbox-slide"
           />
-          <div class="cart-item-details">
-            <p class="cart-item-title">Fall Limited Edition Sneakers</p>
-            <p class="cart-item-price">$125.00 × 3 <strong>$375.00</strong></p>
-          </div>
-          <button class="cart-item-delete" aria-label="Remove item from cart">
-            <img src="images/icon-delete.svg" alt="Delete icon" />
+
+          <button class="lightbox-btn next" aria-label="Next image">
+            <img src="images/icon-next.svg" alt="Next" />
           </button>
         </div>
 
-        <button class="btn-checkout">Checkout</button>
-      </div>
-    </div> -->
-    <!-- Collections Men Women About Contact Sneaker Company Fall Limited Edition
-    Sneakers These low-profile sneakers are your perfect casual wear companion.
-    Featuring a durable rubber outer sole, they’ll withstand everything the
-    weather can offer. $125.00 50% $250.00 0 Add to cart
+        <div class="lightbox-thumbnails">
+          <img
+            src="images/image-product-1-thumbnail.jpg"
+            class="light-thumb"
+            data-index="0"
+            alt="Thumb 1"
+          />
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div> -->
+          <img
+            src="images/image-product-2-thumbnail.jpg"
+            class="light-thumb"
+            data-index="1"
+            alt="Thumb 2"
+          />
+          <img
+            src="images/image-product-3-thumbnail.jpg"
+            class="light-thumb"
+            data-index="2"
+            alt="Thumb 3"
+          />
+          <img
+            src="images/image-product-4-thumbnail.jpg"
+            class="light-thumb"
+            data-index="3"
+            alt="Thumb 4"
+          />
+        </div>
+      </div>
+    </div>
   </body>
 </html>
