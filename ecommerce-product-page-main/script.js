@@ -15,10 +15,6 @@ btnClose.addEventListener('click', () => {
   overlay.classList.remove('overlay-show');
 })
 
-// overlay.addEventListener('click', () => {
-//   nav.classList.remove('navigation-open');
-//   overlay.classList.remove('overlay-show');
-// });
 console.log('ok')
 
 // carousel
@@ -70,15 +66,22 @@ const DISCOUNT_PRICE = 125;
 let quantity = 0;
 let cartQuantity = 0;
 
+function updateAddBtn() {
+  addBtn.disabled = quantity === 0;
+}
+updateAddBtn();
+
 increaseBtn.addEventListener('click', () => {
   quantity++;
   quantityValue.textContent = quantity;
+  updateAddBtn();
 });
 
 decreaseBtn.addEventListener('click', () => {
   if (quantity > 0) {
     quantity--;
     quantityValue.textContent = quantity;
+    updateAddBtn();
   }
 });
 
@@ -91,16 +94,19 @@ addBtn.addEventListener('click', () => {
 
   updateCartUI();
   cartDropdown.classList.add('visible');
+  updateAddBtn();
 });
 
 btnCart.addEventListener('click', () => {
   cartDropdown.classList.toggle('visible');
   updateCartUI();
+
 });
 
 deleteBtn.addEventListener('click', () => {
   cartQuantity = 0;
   updateCartUI();
+  updateAddBtn();
 });
 
 function updateCartUI() {
@@ -135,27 +141,6 @@ lightThumb.forEach((el) => {
   });
 });
 
-// function updateLightboxImage() {
-
-//   const newSrc = `images/image-product-${currentIndex + 1}.jpg`;
-//   largeImg.src = newSrc;
-//   largeImg.alt = `Product ${currentIndex + 1}`;
-
-//   lightThumb.forEach(t => t.classList.remove('active'));
-//   lightThumb[currentIndex].classList.add('active');
-
-//   if (currentIndex === 0) {
-//     prevBtnLig.disabled = true;
-//   } else {
-//     prevBtnLig.disabled = false;
-//   }
-
-//   if (currentIndex === lightThumb.length - 1) {
-//     nextBtnLig.disabled = true;
-//   } else {
-//     nextBtnLig.disabled = false;
-//   }
-// }
 function updateLightboxImage() {
   largeImg.classList.remove('show');
 
@@ -206,7 +191,6 @@ lightboxThumbs.forEach((thumb) => {
     updateLightboxImage();
   })
 })
-
 const lightboxOverlay = document.querySelector('.lightbox-overlay');
 
 lightboxOverlay.addEventListener('click', () => {

@@ -283,7 +283,9 @@ body {
   height: 50px;
 }
 
+
 .carousel {
+  min-width: 375px;
   max-width: 445px;
   height: 300px;
   margin: 0 auto;
@@ -465,6 +467,31 @@ body {
 
 .lightbox.hidden {
   display: none;
+}
+
+.footer {
+  position: fixed;
+  bottom: 7rem;
+  right: 0.5rem;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+  color: var(--orange);
+  font-size: 1.2rem;
+}
+
+.footer__link:link,
+.footer__link:visited {
+  font-family: 'Kumbh Sans", sans-serif';
+  color: var(--dark-blue);
+  transition: all 0.2s;
+}
+
+.footer__link:focus,
+.footer__link:hover,
+.footer__link:active {
+  color: var(--dark-grayish-blue);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
