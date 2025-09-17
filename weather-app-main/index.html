@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Weather app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-top">
+        <div class="logo">
+          <img
+            src="/assets/images/logo.svg"
+            alt="Extensions Manager"
+            class="logo-img"
+          />
+        </div>
+
+        <div class="units-container">
+          <button
+            id="unitsBtn"
+            class="units-btn"
+            aria-haspopup="dialog"
+            aria-expanded="false"
+          >
+            <img
+              src="./assets/images/icon-units.svg"
+              alt="Icon units"
+              aria-hidden="true"
+              class="icon"
+            />
+            <span class="label-units">Units</span>
+            <img
+              src="./assets/images/icon-checkmark.svg"
+              alt="Icon checkmark"
+              aria-hidden="true"
+              class="icon"
+            />
+          </button>
+
+          <div class="units-panel">
+            <button class="switch switch-imperial">Switch to Imperial</button>
+            <button class="switch switch-metric">Switch to Metric</button>
+
+            <ul class="units-list">
+              <li class="units-item">
+                <h4 class="switch-option">Temperature</h4>
+                <p class="switch active">Celsius (°C)</p>
+                <p class="switch">Fahrenheit (°F)</p>
+              </li>
+
+              <li class="units-item">
+                <h4 class="switch-option">Wind Speed</h4>
+                <p class="switch active">km/h</p>
+                <p class="switch">mph</p>
+              </li>
+              <li class="units-item">
+                <h4 class="switch-option">Precipitation</h4>
+                <p class="switch active">Millimeters (mm)</p>
+                <p class="switch">Inches (in)</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <h1 class="title">How's the sky looking today?</h1>
+      <section class="search">
+        <button class="btn-search" type="button">
+          <img
+            src="./assets/images/icon-search.svg"
+            alt=""
+            aria-hidden="true"
+            class="icon"
+          />
+          <span class="label">Search for a place...</span>
+        </button>
+        <ul class="city-options" role="listbox">
+          <li class="item-city active-day" role="option">
+            <button class="btn-day" data-value="mon">City Name</button>
+          </li>
+          <li class="item-city" role="option">
+            <button class="btn-day" data-value="tue">City Name</button>
+          </li>
+          <li class="item-city" role="option">
+            <button class="btn-day" data-value="wed">City Name</button>
+          </li>
+          <li class="item-city" role="option">
+            <button class="btn-day" data-value="thu">City Name</button>
+          </li>
+        </ul>
+
+        <button class="btn-search btn-light" type="button">
+          <span class="label">Search </span>
+        </button>
+      </section>
+      <section class="results">
+        <div class="results-wrapper">
+          <div class="exact">
+            <div class="exact-wrapper">
+              <p class="info info-city">
+                Berlin, <span class="info info-country">Germany</span>
+              </p>
+              <p class="description">
+                Tuesday, <span class="date">Aug 5,2025</span>
+              </p>
+            </div>
+            <div class="degrees">
+              <img
+                src="assets/images/icon-sunny.webp"
+                alt="Icon sunny"
+                class="icon-sun"
+              />
+              <p class="sing">20<span class="degree">°</span></p>
+            </div>
+          </div>
+          <div class="weather">
+            <ul class="weather-list">
+              <li class="weather-item">
+                <p class="weather-title">Feels Like</p>
+                <p class="weather-value">18<span class="degree">°</span></p>
+              </li>
+
+              <li class="weather-item">
+                <p class="weather-title">Humidity</p>
+                <p class="weather-value">46<span class="percent">%</span></p>
+              </li>
+
+              <li class="weather-item">
+                <p class="weather-title">Wind</p>
+                <p class="weather-value">14 <span class="speed">km/h</span></p>
+              </li>
+
+              <li class="weather-item">
+                <p class="weather-title">Precipitation</p>
+                <p class="weather-value">0 <span class="quantity">mm</span></p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="week">
+            <h2 class="title-forecast">Daily forecast</h2>
+            <ul class="day-list">
+              <li class="day-item">
+                <h3 class="day">Tue</h3>
+                <img
+                  src="assets/images/icon-drizzle.webp"
+                  alt="Icon weather"
+                  class="icon-weather"
+                />
+                <div class="degrees-wrapper">
+                  <p class="value value-max">20<span class="degree">°</span></p>
+                  <p class="value value-min">14<span class="degree">°</span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day">Tue</h3>
+                <img
+                  src="assets/images/icon-drizzle.webp"
+                  alt="Icon weather"
+                  class="icon-weather"
+                />
+                <div class="degrees-wrapper">
+                  <p class="value value-max">20<span class="degree">°</span></p>
+                  <p class="value value-min">14<span class="degree">°</span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day">Tue</h3>
+                <img
+                  src="assets/images/icon-drizzle.webp"
+                  alt="Icon weather"
+                  class="icon-weather"
+                />
+                <div class="degrees-wrapper">
+                  <p class="value value-max">20<span class="degree">°</span></p>
+                  <p class="value value-min">14<span class="degree">°</span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day">Tue</h3>
+                <img
+                  src="assets/images/icon-drizzle.webp"
+                  alt="Icon weather"
+                  class="icon-weather"
+                />
+                <div class="degrees-wrapper">
+                  <p class="value value-max">20<span class="degree">°</span></p>
+                  <p class="value value-min">14<span class="degree">°</span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day">Tue</h3>
+                <img
+                  src="assets/images/icon-drizzle.webp"
+                  alt="Icon weather"
+                  class="icon-weather"
+                />
+                <div class="degrees-wrapper">
+                  <p class="value value-max">20<span class="degree">°</span></p>
+                  <p class="value value-min">14<span class="degree">°</span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day">Tue</h3>
+                <img
+                  src="assets/images/icon-drizzle.webp"
+                  alt="Icon weather"
+                  class="icon-weather"
+                />
+                <div class="degrees-wrapper">
+                  <p class="value value-max">20<span class="degree">°</span></p>
+                  <p class="value value-min">14<span class="degree">°</span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day">Tue</h3>
+                <img
+                  src="assets/images/icon-drizzle.webp"
+                  alt="Icon weather"
+                  class="icon-weather"
+                />
+                <div class="degrees-wrapper">
+                  <p class="value value-max">20<span class="degree">°</span></p>
+                  <p class="value value-min">14<span class="degree">°</span></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="forecast-wrapper">
+          <div class="choice">
+            <h2 class="title-forecast">Hourly forecast</h2>
+            <div class="day-dropdown">
+              <button
+                class="day-toggle"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+              >
+                Tuesday
+                <img
+                  src="./assets/images/icon-checkmark.svg"
+                  alt="Icon checkmark"
+                  aria-hidden="true"
+                  class="icon"
+                />
+              </button>
+              <ul class="day-options" role="listbox">
+                <li class="item-day active-day" role="option">
+                  <button data-value="mon" class="btn-day">Monday</button>
+                </li>
+                <li class="item-day" role="option">
+                  <button data-value="tue" class="btn-day">Tuesday</button>
+                </li>
+                <li class="item-day" role="option">
+                  <button data-value="wed" class="btn-day">Wednesday</button>
+                </li>
+                <li class="item-day" role="option">
+                  <button data-value="thu" class="btn-day">Thursday</button>
+                </li>
+                <li class="item-day" role="option">
+                  <button data-value="fri" class="btn-day">Friday</button>
+                </li>
+                <li class="item-day" role="option">
+                  <button data-value="sat" class="btn-day">Saturday</button>
+                </li>
+                <li class="item-day" role="option">
+                  <button data-value="sun" class="btn-day">Sunday</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <ul class="hour-list">
+            <li class="hour-item">
+              <img
+                src="assets/images/icon-overcast.webp"
+                alt="Icon weather"
+                class="icon-hour"
+              />
+              <div class="content">
+                <p class="hour">3<span class="time">pm</span></p>
+                <p class="value value-hour">20<span class="degree">°</span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <img
+                src="assets/images/icon-overcast.webp"
+                alt="Icon weather"
+                class="icon-hour"
+              />
+              <div class="content">
+                <p class="hour">3<span class="time">pm</span></p>
+                <p class="value value-hour">20<span class="degree">°</span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <img
+                src="assets/images/icon-overcast.webp"
+                alt="Icon weather"
+                class="icon-hour"
+              />
+              <div class="content">
+                <time class="hour" datetime="15:00"
+                  >3<span class="time">pm</span></time
+                >
+
+                <p class="value value-hour">20<span class="degree">°</span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <img
+                src="assets/images/icon-overcast.webp"
+                alt="Icon weather"
+                class="icon-hour"
+              />
+              <div class="content">
+                <time class="hour" datetime="15:00"
+                  >3<span class="time">pm</span></time
+                >
+
+                <p class="value value-hour">20<span class="degree">°</span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <img
+                src="assets/images/icon-overcast.webp"
+                alt="Icon weather"
+                class="icon-hour"
+              />
+              <div class="content">
+                <time class="hour" datetime="15:00"
+                  >3<span class="time">pm</span></time
+                >
+
+                <p class="value value-hour">20<span class="degree">°</span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <img
+                src="assets/images/icon-overcast.webp"
+                alt="Icon weather"
+                class="icon-hour"
+              />
+              <div class="content">
+                <time class="hour" datetime="15:00"
+                  >3<span class="time">pm</span></time
+                >
+
+                <p class="value value-hour">20<span class="degree">°</span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <img
+                src="assets/images/icon-overcast.webp"
+                alt="Icon weather"
+                class="icon-hour"
+              />
+              <div class="content">
+                <time class="hour" datetime="15:00"
+                  >3<span class="time">pm</span></time
+                >
+
+                <p class="value value-hour">20<span class="degree">°</span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <img
+                src="assets/images/icon-overcast.webp"
+                alt="Icon weather"
+                class="icon-hour"
+              />
+              <div class="content">
+                <time class="hour" datetime="15:00"
+                  >3<span class="time">pm</span></time
+                >
+
+                <p class="value value-hour">20<span class="degree">°</span></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="results loading hidden">
+        <div class="results-wrapper">
+          <div class="exact">
+            <div class="exact-wrapper">
+              <p class="info info-city">
+                <span class="info info-country"></span>
+              </p>
+              <p class="description">
+                <span class="date"></span>
+              </p>
+            </div>
+            <div class="degrees">
+              <div class="dots-loader">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <p class="loading-text">Loading...</p>
+            </div>
+          </div>
+
+          <div class="weather">
+            <ul class="weather-list">
+              <li class="weather-item">
+                <p class="weather-title">Feels Like</p>
+                <p class="weather-value">–</p>
+              </li>
+              <li class="weather-item">
+                <p class="weather-title">Humidity</p>
+                <p class="weather-value">–</p>
+              </li>
+              <li class="weather-item">
+                <p class="weather-title">Wind</p>
+                <p class="weather-value">–</p>
+              </li>
+              <li class="weather-item">
+                <p class="weather-title">Precipitation</p>
+                <p class="weather-value">–</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="week">
+            <h2 class="title-forecast">Daily forecast</h2>
+            <ul class="day-list">
+              <li class="day-item">
+                <h3 class="day"></h3>
+
+                <div class="degrees-wrapper">
+                  <p class="value value-max"><span class="degree"></span></p>
+                  <p class="value value-min"><span class="degree"></span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day"></h3>
+
+                <div class="degrees-wrapper">
+                  <p class="value value-max"><span class="degree"></span></p>
+                  <p class="value value-min"><span class="degree"></span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day"></h3>
+
+                <div class="degrees-wrapper">
+                  <p class="value value-max"><span class="degree"></span></p>
+                  <p class="value value-min"><span class="degree"></span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day"></h3>
+
+                <div class="degrees-wrapper">
+                  <p class="value value-max"><span class="degree"></span></p>
+                  <p class="value value-min"><span class="degree"></span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day"></h3>
+
+                <div class="degrees-wrapper">
+                  <p class="value value-max"><span class="degree"></span></p>
+                  <p class="value value-min"><span class="degree"></span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day"></h3>
+
+                <div class="degrees-wrapper">
+                  <p class="value value-max"><span class="degree"></span></p>
+                  <p class="value value-min"><span class="degree"></span></p>
+                </div>
+              </li>
+              <li class="day-item">
+                <h3 class="day"></h3>
+
+                <div class="degrees-wrapper">
+                  <p class="value value-max"><span class="degree"></span></p>
+                  <p class="value value-min"><span class="degree"></span></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="forecast-wrapper loading-forecast">
+          <div class="choice">
+            <h2 class="title-forecast">Hourly forecast</h2>
+            <div class="day-dropdown">
+              <button
+                class="day-toggle"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+              >
+                -
+                <img
+                  src="./assets/images/icon-checkmark.svg"
+                  alt="Icon checkmark"
+                  aria-hidden="true"
+                  class="icon"
+                />
+              </button>
+            </div>
+          </div>
+          <ul class="hour-list">
+            <li class="hour-item">
+              <div class="content">
+                <p class="hour"><span class="time"></span></p>
+                <p class="value value-hour"><span class="degree"></span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <div class="content">
+                <p class="hour"><span class="time"></span></p>
+                <p class="value value-hour"><span class="degree"></span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <div class="content">
+                <p class="hour"><span class="time"></span></p>
+                <p class="value value-hour"><span class="degree"></span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <div class="content">
+                <p class="hour"><span class="time"></span></p>
+                <p class="value value-hour"><span class="degree"></span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <div class="content">
+                <p class="hour"><span class="time"></span></p>
+                <p class="value value-hour"><span class="degree"></span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <div class="content">
+                <p class="hour"><span class="time"></span></p>
+                <p class="value value-hour"><span class="degree"></span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <div class="content">
+                <p class="hour"><span class="time"></span></p>
+                <p class="value value-hour"><span class="degree"></span></p>
+              </div>
+            </li>
+            <li class="hour-item">
+              <div class="content">
+                <p class="hour"><span class="time"></span></p>
+                <p class="value value-hour"><span class="degree"></span></p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="not-found">
+        <h2 class="title-forecast title-found">No search result found!</h2>
+      </section>
+    </main>
+    <section class="error">
+      <div class="wrapper-error">
+        <img
+          src="assets/images/icon-error.svg"
+          alt="Icon error"
+          class="icon-error"
+        />
+        <h2 class="title">Something went wrong</h2>
+        <p class="weather-title title-error">
+          We couldn't connect to the server (API error). Please try again in a
+          few moments.
+        </p>
+        <button class="btn-retry">
+          <span class="retry">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <polyline points="1 20 1 14 7 14"></polyline>
+              <path
+                d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"
+              ></path>
+            </svg>
+          </span>
+          Retry
+        </button>
+      </div>
+    </section>
+
+    <!-- Units Switch to Imperial/Metric Temperature Celsius (°C) Fahrenheit (°F)
+    Wind Speed km/h mph Precipitation Millimeters (mm) Inches (in) How's the sky
+    looking today? Search for a city, e.g., New York Search Feels like -->
+    <!-- Insert temperature here -->
+    <!-- 
+    Humidity
+    Insert humidity here -->
+
+    <!-- Wind -->
+    <!-- Insert wind here -->
+
+    <!-- Precipitation -->
+    <!-- Insert precipitation here -->
+
+    <!-- Daily forecast -->
+    <!-- Insert daily forecast for the next 7 days here -->
+
+    <!-- Hourly forecast -->
+    <!-- Insert hourly forecast for the selected day here -->
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+  </body>
+</html>
