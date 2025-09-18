@@ -6,7 +6,7 @@ const btnSearch = document.querySelector('.btn-search');
 
 
 
-// ukrywania/pokazywanie
+// hiding/showing
 function hideErrorAndNotFound() {
   if (errorSection) errorSection.classList.add('hidden');
   if (notFoundSection) notFoundSection.classList.add('hidden');
@@ -33,17 +33,7 @@ function showNotFound() {
   if (notFoundSection) notFoundSection.classList.remove('hidden');
   hideAllExcept(notFoundSection);
 }
-
-// Przykład: podpinamy pod przycisk "Search" symulację
-const searchBtn = document.querySelector('.btn-search');
-if (searchBtn) {
-  searchBtn.addEventListener('click', () => {
-    showLoader();
-    setTimeout(() => {
-      showResults();
-    }, 1500);
-  });
-}
+// retrieving data from the API
 async function fetchWeatherData() {
   showLoader();
 
@@ -57,13 +47,21 @@ async function fetchWeatherData() {
     }
 
     const data = await response.json();
-    console.log(data);
+    console.log("API data:", data);
+
+    const temp = data.current_weather.temperature;
+    console.log("Temperatura:", temp, data.current_weather.time);
+
+    const tempEl = document.querySelector('.sing');
+    tempEl.textContent = temp + "°";
+
     showResults();
   } catch (error) {
     console.error(error);
     showError();
   }
 }
+
 
 btnSearch.addEventListener('click', () => {
   console.log('Przycisk kliknięty');
