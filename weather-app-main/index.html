@@ -90,7 +90,7 @@
     <main class="main">
       <h1 class="title">How's the sky looking today?</h1>
       <section class="search">
-        <button class="btn-search" type="button">
+        <!-- <button class="btn-search" type="button">
           <img
             src="./assets/images/icon-search.svg"
             alt=""
@@ -98,19 +98,33 @@
             class="icon"
           />
           <span class="label">Search for a place...</span>
-        </button>
+        </button> -->
+        <div class="search-box">
+          <img
+            src="./assets/images/icon-search.svg"
+            alt=""
+            aria-hidden="true"
+            class="icon"
+          />
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search for a place..."
+          />
+        </div>
+
         <ul class="city-options" role="listbox">
           <li class="item-city active-day" role="option">
-            <button class="btn-day" data-value="mon">City Name</button>
+            <button class="btn-day" data-value="berlin">City Name</button>
           </li>
           <li class="item-city" role="option">
-            <button class="btn-day" data-value="tue">City Name</button>
+            <button class="btn-day" data-value="berlin">City Name</button>
           </li>
           <li class="item-city" role="option">
-            <button class="btn-day" data-value="wed">City Name</button>
+            <button class="btn-day" data-value="berlin">City Name</button>
           </li>
           <li class="item-city" role="option">
-            <button class="btn-day" data-value="thu">City Name</button>
+            <button class="btn-day" data-value="berlin">City Name</button>
           </li>
         </ul>
 
@@ -125,9 +139,7 @@
               <p class="info info-city">
                 Berlin, <span class="info info-country">Germany</span>
               </p>
-              <p class="description">
-                Tuesday, <span class="date">Aug 5,2025</span>
-              </p>
+              <p class="date">Tuesday, Aug 5,2025</p>
             </div>
             <div class="degrees">
               <img
@@ -142,22 +154,30 @@
             <ul class="weather-list">
               <li class="weather-item">
                 <p class="weather-title">Feels Like</p>
-                <p class="weather-value">18<span class="degree">°</span></p>
+                <p class="weather-value feels-like">
+                  18<span class="degree">°</span>
+                </p>
               </li>
 
               <li class="weather-item">
                 <p class="weather-title">Humidity</p>
-                <p class="weather-value">46<span class="percent">%</span></p>
+                <p class="weather-value humidity">
+                  46<span class="percent">%</span>
+                </p>
               </li>
 
               <li class="weather-item">
                 <p class="weather-title">Wind</p>
-                <p class="weather-value">14 <span class="speed">km/h</span></p>
+                <p class="weather-value wind">
+                  14 <span class="speed">km/h</span>
+                </p>
               </li>
 
               <li class="weather-item">
                 <p class="weather-title">Precipitation</p>
-                <p class="weather-value">0 <span class="quantity">mm</span></p>
+                <p class="weather-value precipitation">
+                  0 <span class="quantity">mm</span>
+                </p>
               </li>
             </ul>
           </div>
