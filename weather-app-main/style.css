@@ -630,7 +630,7 @@ body {
 
 .units-panel,
 .city-options,
-.day-options,
+/* .day-options, */
 .not-found,
 .error {
   display: none;
