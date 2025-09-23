@@ -1,10 +1,13 @@
+let recentCities = JSON.parse(localStorage.getItem('recentCities')) || [];
+
+
 const weatherIcons = {
   // 🌞 Clear & Sunny
   0: 'icon-sunny.webp',
   1: 'icon-sunny.webp',
 
   // 🌤️ Partly cloudy / Overcast
-  2: 'icon-party-cloudy.webp',
+  2: 'icon-partly-cloudy.webp',
   3: 'icon-overcast.webp',
 
   // 🌫️ Fog
@@ -72,41 +75,209 @@ const hourList = document.querySelector('.hour-list');
 const dayToggle = document.querySelector('.day-toggle');
 const dayOptions = document.querySelectorAll('.btn-day');
 
+const cityOptionsList = document.querySelector('.city-options');
+
+const btnImperial = document.querySelector('.switch-imperial');
+const btnMetric = document.querySelector('.switch-metric');
+const unitsList = document.querySelector('.units-list');
+
+const unitsPanel = document.querySelector('.units-panel');
+const switchButtons = document.querySelectorAll('.units-list .switch');
+
 
 let currentWeatherData = null;
 
+const defaultUnits = {
+  temperature: 'C',   // 'C' | 'F'
+  wind: 'kmh',        // 'kmh' | 'mph'
+  precipitation: 'mm' // 'mm' | 'in'
+};
+
+// Wczytanie z localStorage albo użycie domyślnych
+let unitsSettings = JSON.parse(localStorage.getItem('unitsSettings')) || defaultUnits;
+
+// Funkcja do zapisywania ustawień
+function saveUnitsSettings() {
+  localStorage.setItem('unitsSettings', JSON.stringify(unitsSettings));
+}
+
+// Obsługa kliknięcia w opcje jednostek
+switchButtons.forEach(sw => {
+  sw.addEventListener('click', () => {
+    const parent = sw.closest('.units-item');
+
+    // usuwamy .active z rodzeństwa
+    parent.querySelectorAll('.switch').forEach(s => s.classList.remove('active'));
+
+    // dodajemy .active na kliknięty
+    sw.classList.add('active');
+
+    // ustalamy kategorię
+    const category = parent.querySelector('.switch-option').textContent.toLowerCase();
+    const value = sw.dataset.value || sw.textContent;
+
+    if (category.includes('temperature')) {
+      unitsSettings.temperature = value.includes('F') ? 'F' : 'C';
+    } else if (category.includes('wind')) {
+      unitsSettings.wind = value;
+    } else if (category.includes('precipitation')) {
+      unitsSettings.precipitation = value;
+    }
+
+    saveUnitsSettings();
+    console.log('Nowe ustawienia:', unitsSettings);
+  });
+});
+
+// Odtwarzanie ustawień przy starcie
+function applyUnitsSettings() {
+  switchButtons.forEach(sw => {
+    const parent = sw.closest('.units-item');
+    const category = parent.querySelector('.switch-option').textContent.toLowerCase();
+
+    let currentValue;
+    if (category.includes('temperature')) {
+      currentValue = unitsSettings.temperature;
+    } else if (category.includes('wind')) {
+      currentValue = unitsSettings.wind;
+    } else if (category.includes('precipitation')) {
+      currentValue = unitsSettings.precipitation;
+    }
+
+    if (sw.dataset.value === currentValue || sw.textContent.includes(currentValue)) {
+      sw.classList.add('active');
+    } else {
+      sw.classList.remove('active');
+    }
+  });
+}
+applyUnitsSettings();
+
+
+
+
+
+cityOptionsList.classList.add('hidden');
+
+function addCityToHistory(cityName) {
+  if (!recentCities.includes(cityName)) {
+    recentCities.unshift(cityName);
+  }
+
+  if (recentCities.length > 5) {
+    recentCities.pop();
+  }
+
+  localStorage.setItem('recentCities', JSON.stringify(recentCities));
+}
+
+function renderCityHistory() {
+  cityOptionsList.innerHTML = '';
+
+  recentCities.forEach((city, index) => {
+    const li = document.createElement('li');
+    li.classList.add('item-city');
+    li.setAttribute('role', 'option');
+
+    if (index === 0) {
+      li.classList.add('active-day');
+    }
+
+    li.innerHTML = `<button class="btn-day" data-value="${city}">${city}</button>`;
+    cityOptionsList.appendChild(li);
+
+    const btn = li.querySelector('button');
+
+    btn.addEventListener('click', async () => {
+      document.querySelectorAll('.city-options .item-city')
+        .forEach(el => el.classList.remove('active-day'));
+
+      li.classList.add('active-day');
+
+      searchInput.value = city;
+
+      const geo = await geocodeCity(city);
+      if (!geo) {
+        showNotFound();
+        return;
+      }
+      await fetchWeatherData(geo);
+      showResults();
+      cityOptionsList.classList.add('hidden');
+    });
+  });
+}
+
+
+
+renderCityHistory();
+
+searchInput.addEventListener('focus', () => {
+  if (recentCities.length > 0) {
+    cityOptionsList.classList.remove('hidden');
+  }
+});
+
+document.addEventListener('click', (e) => {
+  if (!searchInput.contains(e.target) && !cityOptionsList.contains(e.target)) {
+    cityOptionsList.classList.add('hidden');
+  }
+});
+
+searchBtn.addEventListener('click', async () => {
+  const cityName = searchInput.value.trim();
+  if (!cityName) return;
+
+  const geo = await geocodeCity(cityName);
+  if (!geo) {
+    showNotFound();
+    return;
+  }
+
+  await fetchWeatherData(geo);
+  addCityToHistory(cityName);
+});
 
 
 
 
 
 // hiding/showing
-function hideErrorAndNotFound() {
-  if (errorSection) errorSection.classList.add('hidden');
-  if (notFoundSection) notFoundSection.classList.add('hidden');
+function hideAllSections() {
+  const sections = [resultsReal, resultsLoader, errorSection, notFoundSection];
+  sections.forEach(s => s?.classList.add('hidden'));
+}
+
+function showOnly(section) {
+  hideAllSections();
+  if (section) section.classList.remove('hidden');
 }
 
 function showLoader() {
-  resultsLoader.classList.remove('hidden');
-  resultsReal.classList.add('hidden');
-  hideErrorAndNotFound();
+  showOnly(resultsLoader);
 }
 
 function showResults() {
-  resultsLoader.classList.add('hidden');
-  resultsReal.classList.remove('hidden');
-  hideErrorAndNotFound();
+  showOnly(resultsReal);
 }
 
 function showError() {
-  if (errorSection) errorSection.classList.remove('hidden');
-  hideAllExcept(errorSection);
+  showOnly(errorSection);
 }
+
+function showNotFound() {
+  showOnly(notFoundSection);
+}
+
+
+
+
 
 // rendering temperature, date, and location
 function getWeatherIcon(code) {
   return weatherIcons[code] || weatherIcons.default;
 }
+
 
 
 function renderWeather(geo, data, idx = 0) {
@@ -159,9 +330,9 @@ function renderWeather(geo, data, idx = 0) {
     precipitationEl.textContent = precipText;
   }
 
-  // 🗓️ prognoza na 7 dni
+  //  7 day
   if (dayList && data.daily?.time) {
-    dayList.innerHTML = ''; // wyczyść stare elementy
+    dayList.innerHTML = '';
 
     for (let i = 0; i < data.daily.time.length; i++) {
       const d = new Date(data.daily.time[i]);
@@ -255,12 +426,15 @@ function renderHourlyForecast(data, selectedDayIdx = 0) {
     const li = document.createElement('li');
     li.classList.add('hour-item');
     li.innerHTML = `
-      <img src="assets/images/${iconFile}" alt="Weather icon" class="icon-hour" />
-      <div class="content">
-        <p class="hour">${hourStr}<span class="time">${ampm}</span></p>
-        <p class="value value-hour">${Math.round(temp)}<span class="degree">°</span></p>
-      </div>
-    `;
+  <img src="assets/images/${iconFile}" 
+       alt="Weather icon" 
+       class="icon-hour"
+       onerror="this.src='assets/images/${weatherIcons.default}'" />
+  <div class="content">
+    <p class="hour">${hourStr}<span class="time">${ampm}</span></p>
+    <p class="value value-hour">${Math.round(temp)}<span class="degree">°</span></p>
+  </div>
+`;
     hourList.appendChild(li);
   });
 }
@@ -344,7 +518,6 @@ async function fetchWeatherData(geo) {
     showResults();
     return data;
 
-
   } catch (err) {
     console.error(err);
     showError();
@@ -353,7 +526,19 @@ async function fetchWeatherData(geo) {
 
 
 
+// obsługa kliknięcia w przycisk
 searchBtn.addEventListener('click', async () => {
+  await handleCitySearch();
+});
+
+searchInput.addEventListener('keydown', async (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    await handleCitySearch();
+  }
+});
+
+async function handleCitySearch() {
   const cityName = searchInput.value.trim();
   if (!cityName) {
     console.log('Nic nie wpisano');
@@ -376,7 +561,7 @@ searchBtn.addEventListener('click', async () => {
     console.error('Błąd podczas wyszukiwania:', err);
     showError();
   }
-});
+}
 
 
 

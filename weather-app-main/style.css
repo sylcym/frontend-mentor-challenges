@@ -196,6 +196,7 @@ body {
 
 .search-box {
   display: flex;
+  max-width: 525px;
   font-size: 21px;
   font-weight: 300;
   text-align: left;
@@ -628,8 +629,8 @@ body {
   height: 62px;
 }
 
-.units-panel,
-.city-options,
+/* .units-panel, */
+/* .city-options, */
 /* .day-options, */
 .not-found,
 .error {

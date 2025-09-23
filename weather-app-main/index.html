@@ -61,26 +61,31 @@
             />
           </button>
 
-          <div class="units-panel">
-            <button class="switch switch-imperial">Switch to Imperial</button>
-            <button class="switch switch-metric">Switch to Metric</button>
+          <div class="units-panel hidden">
+            <button class="switch switch-imperial" data-value="imperial">
+              Switch to Imperial
+            </button>
+            <button class="switch switch-metric" data-value="metric">
+              Switch to Metric
+            </button>
 
             <ul class="units-list">
               <li class="units-item">
                 <h4 class="switch-option">Temperature</h4>
-                <p class="switch active">Celsius (°C)</p>
-                <p class="switch">Fahrenheit (°F)</p>
+                <p class="switch active" data-value="C">Celsius (°C)</p>
+                <p class="switch" data-value="F">Fahrenheit (°F)</p>
               </li>
 
               <li class="units-item">
                 <h4 class="switch-option">Wind Speed</h4>
-                <p class="switch active">km/h</p>
-                <p class="switch">mph</p>
+                <p class="switch active" data-value="kmh">km/h</p>
+                <p class="switch" data-value="mph">mph</p>
               </li>
+
               <li class="units-item">
                 <h4 class="switch-option">Precipitation</h4>
-                <p class="switch active">Millimeters (mm)</p>
-                <p class="switch">Inches (in)</p>
+                <p class="switch active" data-value="mm">Millimeters (mm)</p>
+                <p class="switch" data-value="in">Inches (in)</p>
               </li>
             </ul>
           </div>
@@ -114,7 +119,7 @@
         </div>
 
         <ul class="city-options" role="listbox">
-          <li class="item-city active-day" role="option">
+          <!-- <li class="item-city active-day" role="option">
             <button class="btn-day" data-value="berlin">City Name</button>
           </li>
           <li class="item-city" role="option">
@@ -125,7 +130,7 @@
           </li>
           <li class="item-city" role="option">
             <button class="btn-day" data-value="berlin">City Name</button>
-          </li>
+          </li> -->
         </ul>
 
         <button class="btn-search btn-light" type="button">
