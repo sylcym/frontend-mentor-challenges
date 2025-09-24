@@ -83,79 +83,143 @@ const unitsList = document.querySelector('.units-list');
 
 const unitsPanel = document.querySelector('.units-panel');
 const switchButtons = document.querySelectorAll('.units-list .switch');
+const unitsContainer = document.querySelector('.units-container');
+const unitsBtn = document.getElementById('unitsBtn');
 
 
 let currentWeatherData = null;
 
+// panel-units
 const defaultUnits = {
-  temperature: 'C',   // 'C' | 'F'
-  wind: 'kmh',        // 'kmh' | 'mph'
-  precipitation: 'mm' // 'mm' | 'in'
+  system: 'metric',
+  temperature: 'C',
+  wind: 'kmh',
+  precipitation: 'mm'
 };
 
-// Wczytanie z localStorage albo użycie domyślnych
 let unitsSettings = JSON.parse(localStorage.getItem('unitsSettings')) || defaultUnits;
 
-// Funkcja do zapisywania ustawień
+//  HELPERS
 function saveUnitsSettings() {
   localStorage.setItem('unitsSettings', JSON.stringify(unitsSettings));
 }
 
-// Obsługa kliknięcia w opcje jednostek
+function openUnitsPanel() {
+  if (!unitsPanel || !unitsBtn) return;
+  unitsPanel.classList.remove('hidden');
+  unitsBtn.setAttribute('aria-expanded', 'true');
+
+  const focusable = unitsPanel.querySelector('.switch, button, [tabindex]');
+  if (focusable) focusable.focus();
+}
+
+function closeUnitsPanel() {
+  if (!unitsPanel || !unitsBtn) return;
+  unitsPanel.classList.add('hidden');
+  unitsBtn.setAttribute('aria-expanded', 'false');
+  unitsBtn.focus();
+}
+
+function toggleUnitsPanel(e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+  const expanded = unitsBtn.getAttribute('aria-expanded') === 'true';
+  expanded ? closeUnitsPanel() : openUnitsPanel();
+}
+
+if (unitsBtn) unitsBtn.addEventListener('click', toggleUnitsPanel);
+
+if (unitsPanel) unitsPanel.addEventListener('click', (e) => e.stopPropagation());
+
+document.addEventListener('click', (e) => {
+  if (unitsContainer && !unitsContainer.contains(e.target)) {
+    closeUnitsPanel();
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeUnitsPanel();
+});
+
 switchButtons.forEach(sw => {
   sw.addEventListener('click', () => {
     const parent = sw.closest('.units-item');
-
-    // usuwamy .active z rodzeństwa
     parent.querySelectorAll('.switch').forEach(s => s.classList.remove('active'));
-
-    // dodajemy .active na kliknięty
     sw.classList.add('active');
 
-    // ustalamy kategorię
     const category = parent.querySelector('.switch-option').textContent.toLowerCase();
     const value = sw.dataset.value || sw.textContent;
 
-    if (category.includes('temperature')) {
-      unitsSettings.temperature = value.includes('F') ? 'F' : 'C';
-    } else if (category.includes('wind')) {
-      unitsSettings.wind = value;
-    } else if (category.includes('precipitation')) {
-      unitsSettings.precipitation = value;
-    }
+    if (category.includes('temperature')) unitsSettings.temperature = value.includes('F') ? 'F' : 'C';
+    else if (category.includes('wind')) unitsSettings.wind = value;
+    else if (category.includes('precipitation')) unitsSettings.precipitation = value;
 
     saveUnitsSettings();
-    console.log('Nowe ustawienia:', unitsSettings);
+    console.log('Updated units settings:', unitsSettings);
   });
 });
 
-// Odtwarzanie ustawień przy starcie
+function updateSystemButtons() {
+  if (!btnImperial || !btnMetric) return;
+  btnImperial.classList.toggle('active', unitsSettings.system === 'imperial');
+  btnMetric.classList.toggle('active', unitsSettings.system === 'metric');
+}
+
+if (btnImperial) {
+  btnImperial.addEventListener('click', () => {
+    unitsSettings.system = 'imperial';
+    unitsSettings.temperature = 'F';
+    unitsSettings.wind = 'mph';
+    unitsSettings.precipitation = 'in';
+    saveUnitsSettings();
+    updateSystemButtons();
+    applyUnitsSettings();
+    closeUnitsPanel();
+  });
+}
+
+if (btnMetric) {
+  btnMetric.addEventListener('click', () => {
+    unitsSettings.system = 'metric';
+    unitsSettings.temperature = 'C';
+    unitsSettings.wind = 'kmh';
+    unitsSettings.precipitation = 'mm';
+    saveUnitsSettings();
+    updateSystemButtons();
+    applyUnitsSettings();
+    closeUnitsPanel();
+  });
+}
+
 function applyUnitsSettings() {
   switchButtons.forEach(sw => {
     const parent = sw.closest('.units-item');
     const category = parent.querySelector('.switch-option').textContent.toLowerCase();
 
     let currentValue;
-    if (category.includes('temperature')) {
-      currentValue = unitsSettings.temperature;
-    } else if (category.includes('wind')) {
-      currentValue = unitsSettings.wind;
-    } else if (category.includes('precipitation')) {
-      currentValue = unitsSettings.precipitation;
-    }
+    if (category.includes('temperature')) currentValue = unitsSettings.temperature;
+    else if (category.includes('wind')) currentValue = unitsSettings.wind;
+    else if (category.includes('precipitation')) currentValue = unitsSettings.precipitation;
 
-    if (sw.dataset.value === currentValue || sw.textContent.includes(currentValue)) {
-      sw.classList.add('active');
-    } else {
-      sw.classList.remove('active');
-    }
+    const isActive = sw.dataset.value === currentValue || sw.textContent.includes(currentValue);
+    sw.classList.toggle('active', isActive);
   });
 }
-applyUnitsSettings();
+
+function initUnitsPanel() {
+  if (!unitsSettings.system) {
+    unitsSettings = { ...defaultUnits };
+    saveUnitsSettings();
+  }
+  updateSystemButtons();
+  applyUnitsSettings();
+  if (unitsPanel) unitsPanel.classList.add('hidden');
+  if (unitsBtn) unitsBtn.setAttribute('aria-expanded', 'false');
+}
 
 
+initUnitsPanel();
 
-
+// search-city
 
 cityOptionsList.classList.add('hidden');
 
@@ -269,11 +333,6 @@ function showNotFound() {
   showOnly(notFoundSection);
 }
 
-
-
-
-
-// rendering temperature, date, and location
 function getWeatherIcon(code) {
   return weatherIcons[code] || weatherIcons.default;
 }
@@ -281,12 +340,12 @@ function getWeatherIcon(code) {
 
 
 function renderWeather(geo, data, idx = 0) {
-  // 🌡️ temperatura główna
+  // 🌡️
   if (tempEl && data.current_weather) {
     tempEl.textContent = `${Math.round(data.current_weather.temperature)}°`;
   }
 
-  // 📍 miasto + kraj
+  // 📍 
   if (infoCity) {
     const parts = [];
     if (geo.name) parts.push(geo.name);
@@ -294,7 +353,7 @@ function renderWeather(geo, data, idx = 0) {
     infoCity.textContent = parts.join(', ');
   }
 
-  // 📅 data
+  // 📅 
   if (dateEl && data.current_weather?.time) {
     const d = new Date(data.current_weather.time);
     const options = { month: 'short', day: 'numeric', year: 'numeric' };
@@ -308,18 +367,18 @@ function renderWeather(geo, data, idx = 0) {
     feelsLikeEl.textContent = (feels != null) ? `${Math.round(feels)}°` : '–';
   }
 
-  // 💧 wilgotność (z hourly)
+  // 💧 
   if (humidityEl && data.hourly?.relativehumidity_2m) {
     const hum = data.hourly.relativehumidity_2m[idx];
     humidityEl.textContent = (hum != null) ? `${Math.round(hum)}%` : '–';
   }
 
-  // 🌬️ wiatr (jest w current_weather)
+  // 🌬️ 
   if (windEl && data.current_weather) {
     windEl.textContent = `${Math.round(data.current_weather.windspeed)} km/h`;
   }
 
-  // 🌧️ opady (najpierw hourly, potem fallback do daily)
+  // 🌧️ 
   if (precipitationEl) {
     let precipText = '–';
     if (data.hourly?.precipitation?.[idx] != null) {
@@ -364,12 +423,7 @@ function renderWeather(geo, data, idx = 0) {
       dayList.appendChild(li);
     }
   }
-
-
-
 }
-
-
 
 // DROPDOWN TOGGLE
 dayToggle.addEventListener('click', () => {
@@ -482,7 +536,6 @@ async function fetchWeatherData(geo) {
       latitude: geo.latitude,
       longitude: geo.longitude,
       current_weather: 'true',
-      // hourly: 'temperature_2m,apparent_temperature,relativehumidity_2m,precipitation',
       hourly: 'temperature_2m,apparent_temperature,relativehumidity_2m,precipitation,weathercode',
       daily: 'temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode',
       timezone: 'auto',
@@ -497,7 +550,6 @@ async function fetchWeatherData(geo) {
     if (!res.ok) throw new Error('Forecast request failed');
 
     const data = await res.json();
-    // console.log("Dane pogodowe:", data);
     console.log('ok', data.hourly)
     const currentTime = data.current_weather?.time;
     let idx = -1;
@@ -525,8 +577,6 @@ async function fetchWeatherData(geo) {
 }
 
 
-
-// obsługa kliknięcia w przycisk
 searchBtn.addEventListener('click', async () => {
   await handleCitySearch();
 });
