@@ -57,8 +57,12 @@ const resultsReal = document.querySelector('.results:not(.loading)');
 const resultsLoader = document.querySelector('.loading');
 const errorSection = document.querySelector('.error');
 const notFoundSection = document.querySelector('.not-found');
+
+const searchBox = document.querySelector('.search-box');
 const searchInput = document.querySelector('.search-input');
-const searchBtn = document.querySelector('.btn-light');
+const searchBtn = document.querySelector('.btn-search');
+const cityOptionsList = document.querySelector('.city-options');
+
 
 const tempEl = document.querySelector('.sing');
 const infoCity = document.querySelector('.info.info-city');
@@ -75,7 +79,7 @@ const hourList = document.querySelector('.hour-list');
 const dayToggle = document.querySelector('.day-toggle');
 const dayOptions = document.querySelectorAll('.btn-day');
 
-const cityOptionsList = document.querySelector('.city-options');
+
 
 const btnImperial = document.querySelector('.switch-imperial');
 const btnMetric = document.querySelector('.switch-metric');
@@ -84,12 +88,13 @@ const unitsList = document.querySelector('.units-list');
 const unitsPanel = document.querySelector('.units-panel');
 const switchButtons = document.querySelectorAll('.units-list .switch');
 const unitsContainer = document.querySelector('.units-container');
-const unitsBtn = document.getElementById('unitsBtn');
+const unitsBtn = document.querySelector('.units-btn');
+// const unitsBtn = document.getElementById('unitsBtn');
 
 
 let currentWeatherData = null;
 
-// panel-units
+// panel - units
 const defaultUnits = {
   system: 'metric',
   temperature: 'C',
@@ -99,7 +104,7 @@ const defaultUnits = {
 
 let unitsSettings = JSON.parse(localStorage.getItem('unitsSettings')) || defaultUnits;
 
-//  HELPERS
+// HELPERS
 function saveUnitsSettings() {
   localStorage.setItem('unitsSettings', JSON.stringify(unitsSettings));
 }
@@ -130,11 +135,11 @@ if (unitsBtn) unitsBtn.addEventListener('click', toggleUnitsPanel);
 
 if (unitsPanel) unitsPanel.addEventListener('click', (e) => e.stopPropagation());
 
-document.addEventListener('click', (e) => {
-  if (unitsContainer && !unitsContainer.contains(e.target)) {
-    closeUnitsPanel();
-  }
-});
+// document.addEventListener('click', (e) => {
+//   if (unitsContainer && !unitsContainer.contains(e.target)) {
+//     closeUnitsPanel();
+//   }
+// });
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeUnitsPanel();
@@ -219,7 +224,7 @@ function initUnitsPanel() {
 
 initUnitsPanel();
 
-// search-city
+// // search-city
 
 cityOptionsList.classList.add('hidden');
 
@@ -408,24 +413,24 @@ function renderWeather(geo, data, idx = 0) {
       li.classList.add('day-item');
 
       li.innerHTML = `
-            <h3 class="day">${dayName}</h3>
-            <img
-              src="assets/images/${iconFile}"
-              alt="Weather icon"
-              class="icon-weather"
-            />
-            <div class="degrees-wrapper">
-              <p class="value value-max">${Math.round(max)}<span class="degree">°</span></p>
-              <p class="value value-min">${Math.round(min)}<span class="degree">°</span></p>
-            </div>
-      `;
+              <h3 class="day">${dayName}</h3>
+              <img
+                src="assets/images/${iconFile}"
+                alt="Weather icon"
+                class="icon-weather"
+              />
+              <div class="degrees-wrapper">
+                <p class="value value-max">${Math.round(max)}<span class="degree">°</span></p>
+                <p class="value value-min">${Math.round(min)}<span class="degree">°</span></p>
+              </div>
+        `;
 
       dayList.appendChild(li);
     }
   }
 }
 
-// DROPDOWN TOGGLE
+// // DROPDOWN TOGGLE
 dayToggle.addEventListener('click', () => {
   const optionsList = dayToggle.parentElement.querySelector('.day-options');
   const expanded = dayToggle.getAttribute('aria-expanded') === 'true';
@@ -450,7 +455,7 @@ dayOptions.forEach((btn, i) => {
   });
 });
 
-// HOUR RENDERING 
+// // HOUR RENDERING 
 function renderHourlyForecast(data, selectedDayIdx = 0) {
   if (!hourList || !data?.hourly?.time) return;
 
@@ -493,7 +498,7 @@ function renderHourlyForecast(data, selectedDayIdx = 0) {
   });
 }
 
-// INITIALIZATION AFTER DATA LOAD
+// // INITIALIZATION AFTER DATA LOAD
 function initHourlyDropdown(data) {
   currentWeatherData = data;
 
@@ -511,8 +516,8 @@ function initHourlyDropdown(data) {
 
 
 
-// retrieving data from the API
-// geo object (open-meteo geocoding)
+// // retrieving data from the API
+// // geo object (open-meteo geocoding)
 async function geocodeCity(name) {
   const base = 'https://geocoding-api.open-meteo.com/v1/search';
   const url = `${base}?name=${encodeURIComponent(name)}&count=1&language=en`;
@@ -577,9 +582,25 @@ async function fetchWeatherData(geo) {
 }
 
 
+
+
+// searchInput.addEventListener('input', function (event) {
+//   // event.target.value zawiera to, co użytkownik wpisuje
+//   console.log(event.target.value);
+// });
+// searchInput.addEventListener('keydown', function (event) {
+//   if (event.key === 'Enter') {
+//     console.log('Szukana fraza:', event.target.value);
+//   }
+// });
+
+
+
 searchBtn.addEventListener('click', async () => {
+  console.log(event.target.value);
   await handleCitySearch();
 });
+
 
 searchInput.addEventListener('keydown', async (e) => {
   if (e.key === 'Enter') {
@@ -587,6 +608,8 @@ searchInput.addEventListener('keydown', async (e) => {
     await handleCitySearch();
   }
 });
+
+
 
 async function handleCitySearch() {
   const cityName = searchInput.value.trim();
@@ -607,11 +630,18 @@ async function handleCitySearch() {
     const data = await fetchWeatherData(geo);
     console.log('Dane pogodowe:', data);
     showResults();
+
+    addCityToHistory(cityName);
+    renderCityHistory();
+
+    // wyczyść input
+    searchInput.value = '';
+    searchInput.focus();
+
+
   } catch (err) {
     console.error('Błąd podczas wyszukiwania:', err);
     showError();
   }
 }
-
-
 
