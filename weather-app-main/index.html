@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link
       rel="icon"
@@ -28,6 +27,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
+
   <body>
     <header class="header">
       <div class="header-top">
@@ -38,6 +38,11 @@
             class="logo-img"
           />
         </div>
+
+        <button class="btn-theme" aria-label="Theme button">
+          <span class="light"></span>
+          <span class="dark"></span>
+        </button>
 
         <div class="units-container">
           <button
@@ -61,13 +66,6 @@
             >
               <path d="M1 1L6 5L11 1" stroke="white" stroke-width="2" />
             </svg>
-
-            <!-- <img
-              src="./assets/images/icon-checkmark.svg"
-              alt="Icon checkmark"
-              aria-hidden="true"
-              class="icon"
-            /> -->
           </button>
 
           <div class="units-panel">
@@ -118,20 +116,7 @@
           />
         </div>
 
-        <ul class="city-options" role="listbox">
-          <!-- <li class="item-city active-day" role="option">
-            <button class="btn-day" data-value="berlin">City Name</button>
-          </li>
-          <li class="item-city" role="option">
-            <button class="btn-day" data-value="berlin">City Name</button>
-          </li>
-          <li class="item-city" role="option">
-            <button class="btn-day" data-value="berlin">City Name</button>
-          </li>
-          <li class="item-city" role="option">
-            <button class="btn-day" data-value="berlin">City Name</button>
-          </li> -->
-        </ul>
+        <ul class="city-options" role="listbox"></ul>
 
         <button class="btn-search btn-light" type="button">
           <span class="label">Search </span>
@@ -604,11 +589,11 @@
           </ul>
         </div>
       </section>
-      <section class="not-found">
+      <section class="not-found hidden">
         <h2 class="title-forecast title-found">No search result found!</h2>
       </section>
     </main>
-    <section class="error">
+    <section class="error hidden">
       <div class="wrapper-error">
         <img
           src="assets/images/icon-error.svg"
@@ -644,31 +629,19 @@
         </button>
       </div>
     </section>
-
-    <!-- Units Switch to Imperial/Metric Temperature Celsius (°C) Fahrenheit (°F)
-    Wind Speed km/h mph Precipitation Millimeters (mm) Inches (in) How's the sky
-    looking today? Search for a city, e.g., New York Search Feels like -->
-    <!-- Insert temperature here -->
-    <!-- 
-    Humidity
-    Insert humidity here -->
-
-    <!-- Wind -->
-    <!-- Insert wind here -->
-
-    <!-- Precipitation -->
-    <!-- Insert precipitation here -->
-
-    <!-- Daily forecast -->
-    <!-- Insert daily forecast for the next 7 days here -->
-
-    <!-- Hourly forecast -->
-    <!-- Insert hourly forecast for the selected day here -->
-
-    <!-- <div class="attribution">
+    <div class="attribution-container">
       Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
-    </div> -->
+      <a
+        class="attribution-link"
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a
+        class="attribution-link"
+        href="https://github.com/sylcym/frontend-mentor-challenges/tree/main/weather-app-main"
+        >sylcym</a
+      >.
+    </div>
   </body>
 </html>

@@ -1,6 +1,3 @@
-let recentCities = JSON.parse(localStorage.getItem('recentCities')) || [];
-
-
 const weatherIcons = {
   // 🌞 Clear & Sunny
   0: 'icon-sunny.webp',
@@ -50,19 +47,24 @@ const weatherIcons = {
   default: 'icon-overcast.webp'
 };
 
+const defaultUnits = {
+  system: 'metric',
+  temperature: 'C',
+  wind: 'kmh',
+  precipitation: 'mm'
+};
 
-
-
+const main = document.querySelector('.main');
 const resultsReal = document.querySelector('.results:not(.loading)');
 const resultsLoader = document.querySelector('.loading');
 const errorSection = document.querySelector('.error');
+const btnRetry = document.querySelector('.btn-retry');
 const notFoundSection = document.querySelector('.not-found');
 
 const searchBox = document.querySelector('.search-box');
 const searchInput = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.btn-search');
 const cityOptionsList = document.querySelector('.city-options');
-
 
 const tempEl = document.querySelector('.sing');
 const infoCity = document.querySelector('.info.info-city');
@@ -79,8 +81,6 @@ const hourList = document.querySelector('.hour-list');
 const dayToggle = document.querySelector('.day-toggle');
 const dayOptions = document.querySelectorAll('.btn-day');
 
-
-
 const btnImperial = document.querySelector('.switch-imperial');
 const btnMetric = document.querySelector('.switch-metric');
 const unitsList = document.querySelector('.units-list');
@@ -89,18 +89,23 @@ const switchButtons = document.querySelectorAll('.units-list .switch');
 const unitsContainer = document.querySelector('.units-container');
 const unitsBtn = document.querySelector('.units-btn');
 
-let currentWeatherData = null;
+const body = document.body;
+const themeToggleBtn = document.querySelector('.btn-theme');
 
-//  DEFAULT SETTINGS
-const defaultUnits = {
-  system: 'metric',
-  temperature: 'C',
-  wind: 'kmh',
-  precipitation: 'mm'
+let currentWeatherData = null;
+let unitsSettings = JSON.parse(localStorage.getItem('unitsSettings')) || { ...defaultUnits };
+let recentCities = JSON.parse(localStorage.getItem('recentCities')) || [];
+let weatherData = {
+  temperature: 20,
+  feelsLike: 18,
+  humidity: 46,
+  wind: 14,
+  precipitation: 0
 };
 
-let unitsSettings = JSON.parse(localStorage.getItem('unitsSettings')) || { ...defaultUnits };
-
+themeToggleBtn.addEventListener('click', () => {
+  body.classList.toggle('light-theme');
+});
 
 // HELPERS
 function saveUnitsSettings() {
@@ -196,8 +201,8 @@ if (btnImperial) {
     unitsSettings.temperature = 'F';
     unitsSettings.wind = 'mph';
     unitsSettings.precipitation = 'in';
-    saveUnitsSettings();
 
+    saveUnitsSettings();
     updateSystemButtons();
     applyUnitsSettings();
     closeUnitsPanel();
@@ -210,8 +215,8 @@ if (btnMetric) {
     unitsSettings.temperature = 'C';
     unitsSettings.wind = 'kmh';
     unitsSettings.precipitation = 'mm';
-    saveUnitsSettings();
 
+    saveUnitsSettings();
     updateSystemButtons();
     applyUnitsSettings();
     closeUnitsPanel();
@@ -224,15 +229,15 @@ function initUnitsPanel() {
     unitsSettings = { ...defaultUnits };
     saveUnitsSettings();
   }
+
   updateSystemButtons();
   applyUnitsSettings();
+
   if (unitsPanel) unitsPanel.classList.add('hidden');
   if (unitsBtn) unitsBtn.setAttribute('aria-expanded', 'false');
 }
 
 initUnitsPanel();
-
-
 
 // CONVERSIONS
 function cToF(celsius) {
@@ -263,8 +268,8 @@ function inToMm(inches) {
 function formatValue(category, value) {
   if (category === 'temperature') {
     return unitsSettings.temperature === 'C'
-      ? `${Math.round(value)} °C`
-      : `${Math.round(cToF(value))} °F`;
+      ? `${Math.round(value)} °`
+      : `${Math.round(cToF(value))} °`;
   }
 
   if (category === 'wind') {
@@ -281,14 +286,6 @@ function formatValue(category, value) {
 
   return value;
 }
-
-let weatherData = {
-  temperature: 20,
-  feelsLike: 18,
-  humidity: 46,
-  wind: 14,
-  precipitation: 0
-};
 
 // RENDER ALL DATA
 function renderAllData() {
@@ -326,7 +323,6 @@ function renderAllData() {
       .replace(/(mm|in)/, '<span class="quantity">$1</span>');
   }
 }
-
 
 if (btnImperial) {
   btnImperial.addEventListener('click', () => {
@@ -368,13 +364,11 @@ function init() {
 
   updateSystemButtons();
   applyUnitsSettings();
-
   renderAllData();
 }
 
 init();
 renderAllData();
-
 
 // search-city
 
@@ -416,20 +410,20 @@ function renderCityHistory() {
       li.classList.add('active-day');
 
       searchInput.value = city;
+      cityOptionsList.classList.add('hidden');
 
       const geo = await geocodeCity(city);
+
       if (!geo) {
         showNotFound();
         return;
       }
+
       await fetchWeatherData(geo);
       showResults();
-      cityOptionsList.classList.add('hidden');
     });
   });
 }
-
-
 
 renderCityHistory();
 
@@ -480,7 +474,13 @@ function showResults() {
 }
 
 function showError() {
+  main.classList.add('hidden')
   showOnly(errorSection);
+}
+
+function resetError() {
+  main.classList.remove('hidden')
+  errorSection.classList.add('hidden')
 }
 
 function showNotFound() {
@@ -490,8 +490,6 @@ function showNotFound() {
 function getWeatherIcon(code) {
   return weatherIcons[code] || weatherIcons.default;
 }
-
-
 
 function renderWeather(geo, data, idx = 0) {
   // 🌡️
@@ -562,22 +560,26 @@ function renderWeather(geo, data, idx = 0) {
       li.classList.add('day-item');
 
       li.innerHTML = `
-              <h3 class="day">${dayName}</h3>
-              <img
-                src="assets/images/${iconFile}"
-                alt="Weather icon"
-                class="icon-weather"
-              />
-              <div class="degrees-wrapper">
-                <p class="value value-max">${Math.round(max)}<span class="degree">°</span></p>
-                <p class="value value-min">${Math.round(min)}<span class="degree">°</span></p>
-              </div>
-        `;
+        <h3 class="day">${dayName}</h3>
+        <img
+          src="assets/images/${iconFile}"
+          alt="Weather icon"
+          class="icon-weather"
+        />
+        <div class="degrees-wrapper">
+          <p class="value value-max">${Math.round(max)}<span class="degree">°</span></p>
+          <p class="value value-min">${Math.round(min)}<span class="degree">°</span></p>
+        </div>
+      `;
 
       dayList.appendChild(li);
     }
   }
 }
+
+btnRetry.addEventListener('click', () => {
+  resetError();
+})
 
 // // DROPDOWN TOGGLE
 dayToggle.addEventListener('click', () => {
@@ -611,7 +613,6 @@ function renderHourlyForecast(data, selectedDayIdx = 0) {
   hourList.innerHTML = '';
 
   const dailyTimes = data.daily.time[selectedDayIdx];
-
   const dayHours = data.hourly.time
     .map((t, i) => ({ time: t, idx: i }))
     .filter(item => item.time.startsWith(dailyTimes))
@@ -630,19 +631,19 @@ function renderHourlyForecast(data, selectedDayIdx = 0) {
     if (temp == null || code == null) return;
 
     const iconFile = getWeatherIcon(code);
-
     const li = document.createElement('li');
+
     li.classList.add('hour-item');
     li.innerHTML = `
-  <img src="assets/images/${iconFile}" 
-       alt="Weather icon" 
-       class="icon-hour"
-       onerror="this.src='assets/images/${weatherIcons.default}'" />
-  <div class="content">
-    <p class="hour">${hourStr}<span class="time">${ampm}</span></p>
-    <p class="value value-hour">${Math.round(temp)}<span class="degree">°</span></p>
-  </div>
-`;
+      <img src="assets/images/${iconFile}" 
+            alt="Weather icon" 
+            class="icon-hour"
+            onerror="this.src='assets/images/${weatherIcons.default}'" />
+      <div class="content">
+        <p class="hour">${hourStr}<span class="time">${ampm}</span></p>
+        <p class="value value-hour">${Math.round(temp)}<span class="degree">°</span></p>
+      </div>
+    `;
     hourList.appendChild(li);
   });
 }
@@ -662,9 +663,6 @@ function initHourlyDropdown(data) {
   renderHourlyForecast(data, 0);
 }
 
-
-
-
 // retrieving data from the API  / geo object (open-meteo geocoding)
 async function geocodeCity(name) {
   const base = 'https://geocoding-api.open-meteo.com/v1/search';
@@ -678,8 +676,6 @@ async function geocodeCity(name) {
 
   return json.results[0];
 }
-
-
 
 async function fetchWeatherData(geo) {
   showLoader();
@@ -700,10 +696,10 @@ async function fetchWeatherData(geo) {
 
     const url = `https://api.open-meteo.com/v1/forecast?${params.toString()}`;
     const res = await fetch(url);
+
     if (!res.ok) throw new Error('Forecast request failed');
 
     const data = await res.json();
-    console.log('ok', data.hourly)
     const currentTime = data.current_weather?.time;
     let idx = -1;
     if (currentTime && data.hourly && Array.isArray(data.hourly.time)) {
@@ -716,24 +712,18 @@ async function fetchWeatherData(geo) {
     if (idx === -1) idx = 0;
 
     renderWeather(geo, data, idx);
-
     initHourlyDropdown(data);
-
-
     showResults();
-    return data;
 
+    return data;
   } catch (err) {
-    console.error(err);
     showError();
   }
 }
 
 searchBtn.addEventListener('click', async () => {
-  console.log(event.target.value);
   await handleCitySearch();
 });
-
 
 searchInput.addEventListener('keydown', async (e) => {
   if (e.key === 'Enter') {
@@ -742,25 +732,22 @@ searchInput.addEventListener('keydown', async (e) => {
   }
 });
 
-
 async function handleCitySearch() {
   const cityName = searchInput.value.trim();
+
   if (!cityName) {
-    console.log('Nothing entered');
     return;
   }
 
-  console.log('Looking for a city:', cityName);
-
   try {
     const geo = await geocodeCity(cityName);
+
     if (!geo) {
       showNotFound();
       return;
     }
 
     const data = await fetchWeatherData(geo);
-    console.log('Weather data:', data);
     showResults();
 
     addCityToHistory(cityName);
@@ -768,11 +755,7 @@ async function handleCitySearch() {
 
     searchInput.value = '';
     searchInput.focus();
-
-
   } catch (err) {
-    console.error('Error while searching:', err);
     showError();
   }
 }
-
