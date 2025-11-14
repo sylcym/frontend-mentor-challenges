@@ -1,0 +1,120 @@
+:root {
+  --bcg: #FFFFFF;
+  --black: #1D1E25;
+  --orange: #F3603C;
+  --blue: #242D52;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  font-family: "Be Vietnam Pro", sans-serif;
+}
+
+body {
+  background-color: var(--bcg);
+}
+
+.header {
+  position: relative;
+  padding: 45px 24px 48px 24px;
+  width: 100%;
+
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  width: 110px;
+  height: 18px;
+}
+
+.nav-btn {
+  display: block;
+  width: 25px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-open.hidden {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(201, 201, 201, 0.6),
+      rgba(84, 84, 84, 0.8));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navigation {
+  display: none;
+  margin-top: 40px;
+  width: 325px;
+  text-align: center;
+
+  background-color: white;
+  position: absolute;
+
+  z-index: 10;
+}
+
+.navigation.active {
+  display: block;
+}
+
+.btn-close {
+  position: absolute;
+  top: 45px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: none;
+  z-index: 15;
+}
+
+.btn-close.active {
+  display: block;
+
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 0;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: var(--blue);
+  font-size: 16px;
+  font-weight: 700;
+}
