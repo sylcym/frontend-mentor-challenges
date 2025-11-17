@@ -13,11 +13,14 @@
     />
 
     <title>Frontend Mentor | Manage landing page</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="style.css">
-   <script defer src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
   </head>
   <body>
     <header class="header">
@@ -32,12 +35,12 @@
           <img src="images/icon-hamburger.svg" alt="Hamburger icon" />
         </button>
       </div>
-       <button
-          class="nav-btn btn-close"
-          aria-label="Close navigation menu button"
-        >
-          <img src="images/icon-close.svg" alt="Close icon" />
-        </button>
+      <button
+        class="nav-btn btn-close"
+        aria-label="Close navigation menu button"
+      >
+        <img src="images/icon-close.svg" alt="Close icon" />
+      </button>
       <div id="overlay" class="overlay"></div>
       <nav id="main-nav" class="navigation" aria-hidden="true">
         <ul class="menu">
@@ -51,8 +54,12 @@
     </header>
     <main class="main">
       <section class="introduction">
-        <img src="images/illustration-intro.svg" alt="Illustration intro" />
-        <div class="introduction-wrapp">
+        <img
+          src="images/illustration-intro.svg"
+          alt="Illustration intro"
+          class="img-intro"
+        />
+        <div class="introduction-wrapper">
           <h1 class="title">
             Bring everyone together to build better products.
           </h1>
@@ -66,7 +73,7 @@
       <section class="features">
         <div class="features-wrapper">
           <h2 class="subtitle">What’s different about Manage?</h2>
-          <p class="description">
+          <p class="description-subtitle">
             Manage provides all the functionality your team needs, without the
             complexity. Our software is tailor-made for modern digital product
             teams.
@@ -107,51 +114,61 @@
           </div>
         </div>
       </section>
-      <section class="testimonials"  aria-label="Customer testimonials">
-        <h2>What they’ve said</h2>
+      <section class="testimonials" aria-label="Customer testimonials">
+        <h2 class="testimonial-title">What they’ve said</h2>
 
         <div class="carousel-wrapper">
-           <div class="carousel-track">
-          <article class="testimonial">
-            <img src="images/avatar-anisha.png" alt="Avatar" />
-            <h3>Anisha Li</h3>
-            <p>
-              “Manage has supercharged our team’s workflow. The ability to
-              maintain visibility on larger milestones at all times keeps
-              everyone motivated.”
-            </p>
-          </article>
+          <div class="carousel-track">
+            <article class="testimonial">
+              <img src="images/avatar-anisha.png" alt="Avatar" class="avatar" />
+              <h3 class="testimonial-name">Anisha Li</h3>
+              <p class="inf">
+                “Manage has supercharged our team’s workflow. The ability to
+                maintain visibility on larger milestones at all times keeps
+                everyone motivated.”
+              </p>
+            </article>
 
-          <article class="testimonial">
-            <img src="images/avatar-ali.png" alt="Avatar" />
-            <h3>Ali Bravo</h3>
-            <p>
-              “We have been able to cancel so many other subscriptions since
-              using Manage. There is no more cross-channel confusion and
-              everyone is much more focused.”
-            </p>
-          </article>
+            <article class="testimonial">
+              <img src="images/avatar-ali.png" alt="Avatar" class="avatar" />
+              <h3 class="testimonial-name">Ali Bravo</h3>
+              <p class="inf">
+                “We have been able to cancel so many other subscriptions since
+                using Manage. There is no more cross-channel confusion and
+                everyone is much more focused.”
+              </p>
+            </article>
 
-          <article class="testimonial">
-            <img src="images/avatar-richard.png" alt="Avatar" />
-            <h3>Richard Watts</h3>
-            <p>
-              “Manage allows us to provide structure and process. It keeps us
-              organized and focused. I can’t stop recommending them to everyone
-              I talk to!”
-            </p>
-          </article>
+            <article class="testimonial">
+              <img
+                src="images/avatar-richard.png"
+                alt="Avatar"
+                class="avatar"
+              />
+              <h3 class="testimonial-name">Richard Watts</h3>
+              <p class="inf">
+                > “Manage allows us to provide structure and process. It keeps
+                us organized and focused. I can’t stop recommending them to
+                everyone I talk to!”
+              </p>
+            </article>
 
-          <article class="testimonial">
-            <img src="images/avatar-shanai.png" alt="Avatar" />
-            <h3>Shanai Gough</h3>
-            <p>
-              “Their software allows us to track, manage and collaborate on our
-              projects from anywhere. It keeps the whole team in-sync without
-              being intrusive.”
-            </p>
-          </article>
+            <article class="testimonial">
+              <img src="images/avatar-shanai.png" alt="Avatar" class="avatar" />
+              <h3 class="testimonial-name">Shanai Gough</h3>
+              <p class="inf">
+                > “Their software allows us to track, manage and collaborate on
+                our projects from anywhere. It keeps the whole team in-sync
+                without being intrusive.”
+              </p>
+            </article>
+          </div>
         </div>
+        <div class="carousel-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
         </div>
         <button class="btn btn-testimonials">Get Started</button>
       </section>
@@ -161,55 +178,55 @@
         </h2>
         <button class="btn btn-cta">Get Started</button>
       </section>
-      
+    </main>
 
-      <footer class="footer">
-        <div class="footer-content">
-          <form class="newsletter" novalidate>
-            <label for="email" class="sr-only">Enter your email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Updates in your inbox…"
-              required
-            />
-            <button type="submit" class="btn btn-footer">Go</button>
+    <footer class="footer">
+      <div class="footer-content">
+        <form class="newsletter" novalidate>
+          <label for="email" class="sr-only">Enter your email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Updates in your inbox…"
+            required
+          />
+          <button type="submit" class="btn btn-footer">Go</button>
 
-            <p class="error-message" aria-live="polite" hidden>
-              Please insert a valid email
-            </p>
-          </form>
-        </div>
+          <p class="error-message" aria-live="polite" hidden>
+            Please insert a valid email
+          </p>
+        </form>
+      </div>
 
-        <div class="footer-wrapper">
-          <ul class="footer-links">
-            <li><a class="footer-link" href="#">Home</a></li>
-            <li><a class="footer-link" href="#">Pricing</a></li>
-            <li><a class="footer-link" href="#">Product</a></li>
-            <li><a class="footer-link" href="#">About Us</a></li>
-          </ul>
-          <ul class="footer-inf">
-            <li><a class="footer-link" href="#">Careers</a></li>
-            <li><a class="footer-link" href="#">Community</a></li>
-            <li><a class="footer-link" href="#">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div class="social">
-          <img src="images/icon-facebook.svg" alt="Social icon" />
-          <img src="images/icon-youtube.svg" alt="Social icon" />
-          <img src="images/icon-twitter.svg" alt="Social icon" />
-          <img src="images/icon-pinterest.svg" alt="Social icon" />
-          <img src="images/icon-instagram.svg" alt="Social icon" />
-        </div>
-        <img src="images/logo.svg" alt="Logo" class="logo logo-footer" />
-        <p class="copyright">Copyright 2020. All Rights Reserved</p>
-      </footer>
+      <div class="footer-wrapper">
+        <ul class="footer-links">
+          <li><a class="footer-link" href="#">Home</a></li>
+          <li><a class="footer-link" href="#">Pricing</a></li>
+          <li><a class="footer-link" href="#">Product</a></li>
+          <li><a class="footer-link" href="#">About Us</a></li>
+        </ul>
+        <ul class="footer-inf">
+          <li><a class="footer-link" href="#">Careers</a></li>
+          <li><a class="footer-link" href="#">Community</a></li>
+          <li><a class="footer-link" href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="social">
+        <img src="images/icon-facebook.svg" alt="Social icon" />
+        <img src="images/icon-youtube.svg" alt="Social icon" />
+        <img src="images/icon-twitter.svg" alt="Social icon" />
+        <img src="images/icon-pinterest.svg" alt="Social icon" />
+        <img src="images/icon-instagram.svg" alt="Social icon" />
+      </div>
+      <img src="images/logo.svg" alt="Logo" class="logo logo-footer" />
+      <p class="copyright">Copyright 2020. All Rights Reserved</p>
+    </footer>
     <!-- <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
-    </div> --> 
+    </div> -->
   </body>
 </html>
