@@ -173,8 +173,10 @@
         <button class="btn btn-testimonials">Get Started</button>
       </section>
       <section class="cta">
-        <h2 class="subtitle subtitle-cta">
-          Simplify how your team works today.
+        <h2 class="subtitle-cta">
+          Simplify how<br />
+          your team works<br />
+          today.
         </h2>
         <button class="btn btn-cta">Get Started</button>
       </section>
@@ -184,18 +186,20 @@
       <div class="footer-content">
         <form class="newsletter" novalidate>
           <label for="email" class="sr-only">Enter your email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Updates in your inbox…"
-            required
-          />
+          <div class="input-wrapper">
+            <input
+              class="input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Updates in your inbox…"
+              required
+            />
+            <p class="error-message" aria-live="polite" hidden>
+              Please insert a valid email
+            </p>
+          </div>
           <button type="submit" class="btn btn-footer">Go</button>
-
-          <p class="error-message" aria-live="polite" hidden>
-            Please insert a valid email
-          </p>
         </form>
       </div>
 
@@ -213,11 +217,31 @@
         </ul>
       </div>
       <div class="social">
-        <img src="images/icon-facebook.svg" alt="Social icon" />
-        <img src="images/icon-youtube.svg" alt="Social icon" />
-        <img src="images/icon-twitter.svg" alt="Social icon" />
-        <img src="images/icon-pinterest.svg" alt="Social icon" />
-        <img src="images/icon-instagram.svg" alt="Social icon" />
+        <img
+          src="images/icon-facebook.svg"
+          alt="Social icon"
+          class="social-icon"
+        />
+        <img
+          src="images/icon-youtube.svg"
+          alt="Social icon"
+          class="social-icon"
+        />
+        <img
+          src="images/icon-twitter.svg"
+          alt="Social icon"
+          class="social-icon"
+        />
+        <img
+          src="images/icon-pinterest.svg"
+          alt="Social icon"
+          class="social-icon"
+        />
+        <img
+          src="images/icon-instagram.svg"
+          alt="Social icon"
+          class="social-icon"
+        />
       </div>
       <img src="images/logo.svg" alt="Logo" class="logo logo-footer" />
       <p class="copyright">Copyright 2020. All Rights Reserved</p>
