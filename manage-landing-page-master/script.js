@@ -7,6 +7,36 @@ const form = document.querySelector(".newsletter");
 const input = document.querySelector(".input");
 const errorMessage = document.querySelector(".error-message");
 
+const track = document.querySelector('.carousel-track');
+const testimonials = Array.from(track.children);
+const dots = Array.from(document.querySelectorAll('.dot'));
+
+let currentIndex = 0;
+
+
+function goToSlide(index) {
+  const slide = testimonials[index];
+  slide.scrollIntoView({
+    behavior: 'smooth',
+    inline: 'center',
+    block: 'nearest'
+  });
+
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+
+  currentIndex = index;
+}
+
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    goToSlide(index);
+  });
+});
+
+goToSlide(0);
+
+
 btnOpen.addEventListener("click", () => {
   nav.classList.add("active");
   overlay.classList.add("show");
@@ -28,6 +58,7 @@ overlay.addEventListener("click", () => {
   btnOpen.classList.remove("hidden");
 });
 
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -46,4 +77,6 @@ form.addEventListener("submit", function (e) {
     console.log("Email OK:", emailValue);
   }
 });
+
+
 
