@@ -3,9 +3,13 @@ const btnClose = document.querySelector(".btn-close");
 const nav = document.querySelector(".navigation");
 const overlay = document.querySelector("#overlay");
 
+// const form = document.querySelector(".newsletter");
+// const input = document.querySelector(".input");
+// const errorMessage = document.querySelector(".error-message");
 const form = document.querySelector(".newsletter");
-const input = document.querySelector(".input");
-const errorMessage = document.querySelector(".error-message");
+const input = form.querySelector(".input");
+const errorMessage = form.querySelector(".error-message");
+const btnSubmit = form.querySelector(".btn-footer");
 
 const track = document.querySelector('.carousel-track');
 const testimonials = Array.from(track.children);
@@ -61,6 +65,7 @@ overlay.addEventListener("click", () => {
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+  console.log('ok')
 
   const emailValue = input.value.trim();
   const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue);
@@ -68,13 +73,15 @@ form.addEventListener("submit", function (e) {
   if (!validEmail) {
     input.classList.add("error");
     errorMessage.hidden = false;
-    input.value = "";
     input.focus();
   } else {
     input.classList.remove("error");
     errorMessage.hidden = true;
 
     console.log("Email OK:", emailValue);
+
+    // czyścimy input dopiero PO pozytywnej walidacji
+    input.value = "";
   }
 });
 

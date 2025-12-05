@@ -4,9 +4,11 @@
   --black: #1D1E25;
   --bcg-testimonial: #FAFAFA;
   --orange: #F3603C;
+  --orange-active: #F98F75;
   --orange-light: #FFF0EC;
   --blue: #242D52;
   --blue-opacity: rgb(36, 45, 82, 0.5);
+  --error: #952F32;
 }
 
 * {
@@ -128,10 +130,15 @@ body {
   color: var(--blue);
   font-size: 16px;
   font-weight: 500;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.menu-link:hover {
+  color: var(--blue-opacity);
 }
 
 .introduction {
-  padding-top: 19px;
   padding-left: 26px;
   padding-right: 26px;
   padding-bottom: 93px;
@@ -141,6 +148,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 19px;
 }
 
 .img-intro {
@@ -155,6 +163,7 @@ body {
   font-size: 40px;
   font-weight: 700;
   letter-spacing: -1px;
+  line-height: 50px;
   text-align: center;
   color: var(--blue);
   padding-bottom: 9px;
@@ -163,11 +172,14 @@ body {
 .description {
   font-size: 16px;
   font-weight: 400;
-  color: var(--blue);
-  padding-bottom: 29px;
+  line-height: 28px;
+  text-align: center;
+  padding: 9px 0 29px;
+
 }
 
 .btn {
+  width: 137px;
   max-width: 137px;
   border: transparent;
   border-radius: 22px;
@@ -178,8 +190,13 @@ body {
   font-weight: 700;
   box-shadow: 0 6px 10px rgba(243, 96, 60, 0.3);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
-  padding: 12px 32px 13px 32px;
+  padding: 14px 32px 15px 32px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
 
+.btn:hover {
+  background-color: var(--orange-active);
 }
 
 .features {
@@ -196,14 +213,17 @@ body {
 .subtitle {
   font-size: 30px;
   font-weight: 700;
+  line-height: 45px;
+  letter-spacing: -0.62px;
   color: var(--blue);
-  padding: 0 22px 13px 21px;
+  padding: 0 24px 13px 25px;
 }
 
 .description-subtitle {
   font-size: 14px;
   font-weight: 400;
   line-height: 28px;
+  color: var(--blue);
   padding: 0 26px 54px;
 
 }
@@ -215,7 +235,7 @@ body {
 .feature-subtitle {
   font-size: 16px;
   font-weight: 700;
-  letter-spacing: -0.28px;
+  letter-spacing: -0.29px;
   color: var(--blue);
   background-color: var(--orange-light);
   border-top-left-radius: 39px;
@@ -234,10 +254,12 @@ body {
   margin-right: 15px;
 }
 
-.description {
+.feature-description {
   font-size: 14px;
   font-weight: 400;
   line-height: 28px;
+  text-align: left;
+  color: var(--blue);
   padding: 8px 14px 47px 0;
 }
 
@@ -245,14 +267,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 62px 17px 42px 18px;
+  padding: 15px 17px 42px 18px;
 }
 
 .testimonial-title {
   font-size: 32px;
   font-weight: 700;
   letter-spacing: -0.66px;
+  line-height: 45px;
   text-align: center;
+  color: var(--blue);
   padding-bottom: 62px;
 }
 
@@ -306,7 +330,7 @@ body {
   text-align: center;
   color: var(--blue);
   padding-top: 60px;
-  padding-bottom: 24px;
+  padding-bottom: 19px;
 }
 
 .inf {
@@ -365,12 +389,17 @@ body {
   color: var(--orange);
 }
 
+.btn-cta:hover {
+  background-color: var(--bcg);
+  color: var(--orange-active);
+}
+
 .footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--black);
-  padding: 51px 24px 29px;
+  padding: 51px 20px 29px;
   color: var(--bcg);
 }
 
@@ -386,6 +415,16 @@ body {
   border: 0;
 }
 
+.footer-container {
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .newsletter {
   display: flex;
   gap: 8px;
@@ -396,7 +435,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  min-width: 239px;
 }
 
 .input {
@@ -417,7 +456,7 @@ body {
   justify-content: center;
   max-width: 64px;
   line-height: 13px;
-  padding: 15.5px 31px;
+  padding: 15.5px 40px;
   align-self: flex-start;
 }
 
@@ -462,6 +501,12 @@ body {
   letter-spacing: -0.23px;
   color: var(--bcg);
   text-decoration: none;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  color: var(--orange);
 }
 
 .social {
@@ -475,7 +520,42 @@ body {
 .social-icon {
   width: 32px;
   height: 32px;
+  background-color: var(--bcg);
+  transition: background-color .3s, transform 0.2s ease;
+  cursor: pointer;
+  display: inline-block;
 }
+
+.social-icon:hover {
+  background-color: var(--orange);
+}
+
+.facebook {
+  mask: url("images/icon-facebook.svg") no-repeat center / contain;
+  -webkit-mask: url("images/icon-facebook.svg") no-repeat center / contain;
+}
+
+.youtube {
+  mask: url("images/icon-youtube.svg") no-repeat center / contain;
+  -webkit-mask: url("images/icon-youtube.svg") no-repeat center / contain;
+}
+
+.twitter {
+  mask: url("images/icon-twitter.svg") no-repeat center / contain;
+  -webkit-mask: url("images/icon-twitter.svg") no-repeat center / contain;
+}
+
+.pinterest {
+  mask: url("images/icon-pinterest.svg") no-repeat center / contain;
+  -webkit-mask: url("images/icon-pinterest.svg") no-repeat center / contain;
+}
+
+.instagram {
+  mask: url("images/icon-instagram.svg") no-repeat center / contain;
+  -webkit-mask: url("images/icon-instagram.svg") no-repeat center / contain;
+}
+
+
 
 .logo-footer {
   display: block;
@@ -490,7 +570,7 @@ body {
   letter-spacing: -0.2px;
   text-align: center;
   color: #55565B;
-  padding-top: 50px;
+  padding-top: 49px;
 
 }
 
@@ -508,10 +588,6 @@ body {
   .menu-link {
     font-size: 13px;
 
-  }
-
-  .navigation {
-    justify-self: center;
   }
 
   .btn-header {
@@ -536,6 +612,7 @@ body {
 
 
   .navigation {
+    justify-self: center;
     display: block;
     position: static;
     max-width: 398px;
@@ -569,6 +646,7 @@ body {
   .logo {
     width: 147px;
     height: 24px;
+    margin-right: 209px;
   }
 
   .menu {
@@ -609,6 +687,7 @@ body {
   .description {
     font-size: 16px;
     line-height: 26px;
+    text-align: left;
     padding: 0 261px 40px 0;
   }
 
@@ -757,6 +836,7 @@ body {
   }
 
   .logo-footer {
+    margin-right: 8px;
     margin-bottom: 66px;
   }
 
@@ -769,9 +849,17 @@ body {
 }
 
 @media(min-width:1224px) {
+  .header {
+    padding: 56px 0 120px 0;
+  }
+
   .introduction {
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .img-intro {
+    margin-right: -44px;
   }
 
   .features {
@@ -785,6 +873,11 @@ body {
 
   .footer-links {
     width: 255px;
+
+  }
+
+  .footer-container {
+    padding: 0px 1px 0px;
 
   }
 
