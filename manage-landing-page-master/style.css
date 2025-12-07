@@ -177,7 +177,6 @@ body {
 .btn {
   min-width: 137px;
   width: fit-content;
-  max-width: 137px;
   border: transparent;
   border-radius: 22px;
   background-color: var(--orange);
