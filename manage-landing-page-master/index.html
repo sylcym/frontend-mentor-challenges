@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link
       rel="icon"
@@ -22,6 +21,7 @@
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
   </head>
+
   <body>
     <header class="header">
       <div class="navbar">
@@ -34,7 +34,6 @@
         >
           <img src="images/icon-hamburger.svg" alt="Hamburger icon" />
         </button>
-        <!-- <button class="btn btn-introduction btn-header">Get Started</button> -->
       </div>
       <button
         class="nav-btn btn-close"
@@ -72,6 +71,7 @@
           <button class="btn btn-introduction">Get Started</button>
         </div>
       </section>
+
       <section class="features">
         <div class="features-wrapper">
           <h2 class="subtitle">What’s different about Manage?</h2>
@@ -116,6 +116,7 @@
           </div>
         </div>
       </section>
+
       <section class="testimonials" aria-label="Customer testimonials">
         <h2 class="testimonial-title">What they’ve said</h2>
 
@@ -174,6 +175,7 @@
         </div>
         <button class="btn btn-testimonials">Get Started</button>
       </section>
+
       <section class="cta">
         <h2 class="subtitle-cta">
           Simplify how<br />
@@ -187,7 +189,7 @@
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-content">
-          <form class="newsletter">
+          <form class="newsletter" novalidate>
             <label for="email" class="sr-only">Enter your email</label>
             <div class="input-wrapper">
               <input
@@ -206,7 +208,7 @@
           </form>
         </div>
 
-        <div class="footer-wrapper">
+        <div class="footer-wrapper footer-wrapper--1">
           <ul class="footer-links">
             <li><a class="footer-link" href="#">Home</a></li>
             <li><a class="footer-link" href="#">Pricing</a></li>
@@ -219,7 +221,8 @@
             <li><a class="footer-link" href="#">Privacy Policy</a></li>
           </ul>
         </div>
-        <div class="social-wrapper">
+
+        <div class="social-wrapper footer-wrapper--2">
           <div class="social">
             <div class="social-icon facebook"></div>
             <div class="social-icon youtube"></div>
@@ -236,11 +239,22 @@
         <p class="copyright">Copyright 2020. All Rights Reserved</p>
       </div>
     </footer>
-    <!-- <div class="attribution">
+
+    <div class="attribution-container">
       Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+      <a
+        class="attribution-link"
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        rel="noopener"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
-    </div> -->
+      >. Coded by
+      <a
+        class="attribution-link"
+        href="https://github.com/sylcym/"
+        rel="noopener"
+        >sylcym</a
+      >.
+    </div>
   </body>
 </html>

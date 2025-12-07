@@ -19,7 +19,6 @@
 
 html {
   font-size: 62.5%;
-
   font-family: "Be Vietnam Pro", sans-serif;
 }
 
@@ -33,7 +32,6 @@ body {
   width: 100%;
   max-width: 1110px;
   margin: 0 auto;
-
 }
 
 .navbar {
@@ -75,12 +73,13 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
-  z-index: 5;
+  z-index: -1;
 }
 
 .overlay.show {
   opacity: 1;
   pointer-events: auto;
+  z-index: 999;
 }
 
 .navigation {
@@ -92,8 +91,7 @@ body {
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  /* margin-top: 40px; */
-  z-index: 10;
+  z-index: 9999;
 }
 
 .navigation.active {
@@ -113,7 +111,6 @@ body {
 
 .btn-close.active {
   display: block;
-
 }
 
 .menu {
@@ -175,7 +172,6 @@ body {
   line-height: 28px;
   text-align: center;
   padding: 9px 0 29px;
-
 }
 
 .btn {
@@ -186,7 +182,6 @@ body {
   background-color: var(--orange);
   color: var(--text);
   font-size: 13px;
-  /* font-weight: 500; */
   font-weight: 700;
   box-shadow: 0 6px 10px rgba(243, 96, 60, 0.3);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
@@ -202,8 +197,6 @@ body {
 .features {
   max-width: 540px;
   margin: 0 auto;
-  /* padding: 0 21px 62px 22px; */
-  /* padding-bottom: 62px; */
 }
 
 .features-wrapper {
@@ -225,7 +218,6 @@ body {
   line-height: 28px;
   color: var(--blue);
   padding: 0 26px 54px;
-
 }
 
 .feature-wrapper {
@@ -283,25 +275,18 @@ body {
 .carousel-wrapper {
   position: relative;
   width: 100%;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.carousel-wrapper::-webkit-scrollbar {
-  display: none;
 }
 
 .carousel-track {
+  overflow-x: scroll;
   display: flex;
   gap: 20px;
   padding-top: 36px;
+  padding-bottom: 10px;
 }
 
 .testimonial {
   width: 340px;
-  /* max-width: 540px; */
   position: relative;
   flex: 0 0 auto;
   scroll-snap-align: center;
@@ -315,7 +300,6 @@ body {
   top: -36px;
   left: 50%;
   transform: translateX(-50%);
-  /* left: 134px; */
   display: block;
   width: 72px;
   height: 72px;
@@ -347,7 +331,6 @@ body {
   display: flex;
   justify-content: center;
   gap: 5px;
-  /* margin-top: 26px; */
   padding-top: 26px;
   padding-bottom: 47px;
 }
@@ -362,7 +345,6 @@ body {
 
 .dot.active {
   background-color: var(--orange);
-
 }
 
 .cta {
@@ -382,7 +364,6 @@ body {
   text-align: center;
   padding-bottom: 29px;
 }
-
 
 .btn-cta {
   background-color: var(--bcg);
@@ -452,7 +433,6 @@ body {
 
 .btn-footer {
   display: flex;
-  /* text-align: center; */
   justify-content: center;
   max-width: 64px;
   line-height: 13px;
@@ -477,7 +457,6 @@ body {
   display: none;
 }
 
-
 .footer-wrapper {
   display: flex;
   gap: 106px;
@@ -492,7 +471,6 @@ body {
   flex-direction: column;
   gap: 13px;
   list-style: none;
-
 }
 
 .footer-link {
@@ -514,7 +492,6 @@ body {
   gap: 34px;
   justify-content: center;
   padding-bottom: 54px;
-
 }
 
 .social-icon {
@@ -555,8 +532,6 @@ body {
   -webkit-mask: url("images/icon-instagram.svg") no-repeat center / contain;
 }
 
-
-
 .logo-footer {
   display: block;
   width: 158px;
@@ -571,7 +546,30 @@ body {
   text-align: center;
   color: #55565B;
   padding-top: 49px;
+}
 
+.attribution-container {
+  position: fixed;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-size: 1.2rem;
+  color: var(--blue);
+}
+
+.attribution-link:link,
+.attribution-link:visited {
+  color: var(--blue-opacity);
+  transition: all 0.2s;
+}
+
+.attribution-link:focus,
+.attribution-link:hover,
+.attribution-link:active {
+  color: var(--error);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -594,7 +592,6 @@ body {
     justify-self: end;
   }
 
-
   .btn-open {
     display: none;
   }
@@ -610,14 +607,19 @@ body {
     justify-content: space-between;
   }
 
-
   .navigation {
+    position: static;
     justify-self: center;
     display: block;
-    position: static;
-    max-width: 398px;
+    width: fit-content;
+    max-width: fit-content;
     margin: 0 auto;
     background: transparent;
+    transform: translateX(0);
+  }
+
+  .overlay {
+    display: none;
   }
 
   .menu {
@@ -630,7 +632,6 @@ body {
   .menu-link {
     white-space: nowrap;
   }
-
 
   .btn-close {
     display: none;
@@ -662,7 +663,6 @@ body {
     max-width: 1110px;
     display: flex;
     flex-direction: row-reverse;
-    /* gap: 125px; */
     padding-top: 0;
     padding-left: 0px;
     padding-right: 0px;
@@ -746,15 +746,13 @@ body {
   .carousel-wrapper {
     scroll-padding-left: 50%;
     scroll-snap-align: center;
-    padding-bottom: 48px;
+    padding-bottom: 40px;
   }
 
   .testimonial {
     width: 540px;
     scroll-snap-align: center;
-
   }
-
 
   .testimonial-name {
     padding-bottom: 19px;
@@ -767,7 +765,6 @@ body {
     padding-bottom: 40px;
   }
 
-
   .carousel-dots {
     display: none;
   }
@@ -778,7 +775,6 @@ body {
     align-items: center;
     gap: 400px;
     padding: 62px 0;
-
   }
 
   .subtitle-cta br {
@@ -797,14 +793,30 @@ body {
 
   .footer-container {
     max-width: 1104px;
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 125px;
-    justify-content: space-between;
+    display: grid;
+    grid-template-areas: 'a b c' 'a b d';
     padding: 0px 24px 0px;
     position: relative;
   }
 
+  .footer-wrapper--1 {
+    grid-area: b;
+  }
+
+  .footer-wrapper--2 {
+    grid-area: a;
+    justify-self: start;
+  }
+
+  .footer-content {
+    grid-area: c;
+    justify-self: end;
+  }
+
+  .copyright {
+    grid-area: d;
+    justify-self: end;
+  }
 
   .footer-wrapper {
     display: flex;
@@ -816,16 +828,18 @@ body {
 
   .footer-links {
     width: 200px;
-
   }
 
   .social-wrapper {
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
+    align-items: flex-end;
+    pointer-events: auto;
   }
 
   .social {
+    display: flex;
     gap: 13px;
     padding-bottom: 0;
   }
@@ -841,11 +855,10 @@ body {
   }
 
   .copyright {
-    position: absolute;
-    right: 24px;
-    bottom: 0;
+    align-self: flex-end;
+    font-size: 13px;
+    color: #FFFFFF80;
   }
-
 }
 
 @media(min-width:1224px) {
@@ -873,13 +886,9 @@ body {
 
   .footer-links {
     width: 255px;
-
   }
 
   .footer-container {
     padding: 0px 1px 0px;
-
   }
-
-
 }
