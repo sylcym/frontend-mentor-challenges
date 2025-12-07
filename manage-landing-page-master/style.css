@@ -175,7 +175,8 @@ body {
 }
 
 .btn {
-  width: 137px;
+  min-width: 137px;
+  width: fit-content;
   max-width: 137px;
   border: transparent;
   border-radius: 22px;
@@ -655,7 +656,6 @@ body {
   }
 
   .btn {
-    width: 137px;
     padding: 14px 32px 15px 32px;
   }
 
