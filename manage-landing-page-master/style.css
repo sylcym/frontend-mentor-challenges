@@ -22,14 +22,22 @@ html {
   font-family: "Be Vietnam Pro", sans-serif;
 }
 
+
+
 body {
   background-color: var(--bcg);
+  background-image: url(/images/bg-tablet-pattern.svg), url(/images/bg-tablet-pattern.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top -70px left 106px, top 516px left 237px;
+  background-size: 349px auto, 326px auto;
 }
+
+
 
 .header {
   position: relative;
   padding: 45px 24px 48px 24px;
-  width: 100%;
+  width: 375;
   max-width: 1110px;
   margin: 0 auto;
 }
@@ -175,7 +183,7 @@ body {
 }
 
 .btn {
-  min-width: 137px;
+  width: 137px;
   width: fit-content;
   border: transparent;
   border-radius: 22px;
@@ -434,10 +442,20 @@ body {
 .btn-footer {
   display: flex;
   justify-content: center;
-  max-width: 64px;
+  width: 64px;
+  border: transparent;
+  border-radius: 22px;
+  background-color: var(--orange);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
   line-height: 13px;
   padding: 15.5px 40px;
   align-self: flex-start;
+}
+
+.btn-footer:hover {
+  background-color: var(--orange-active);
 }
 
 .input.error {
@@ -573,10 +591,21 @@ body {
 }
 
 @media (min-width: 768px) {
+  body {
+    background-color: var(--bcg);
+    background-image: url(/images/bg-tablet-pattern.svg), url(/images/bg-tablet-pattern.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top -158px left 234px, top 1064px left -415px;
+    background-size: 591px auto, 571px auto;
+    ;
+  }
+
   .header {
+    width: 768px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
+    /* padding: 45px 68px 48px 42px */
   }
 
   .logo {
@@ -588,16 +617,13 @@ body {
 
   }
 
-  .btn-header {
-    justify-self: end;
-  }
-
   .btn-open {
     display: none;
   }
 
   .btn-header {
     display: inline-block;
+    justify-self: end;
     margin-left: auto;
   }
 
@@ -640,7 +666,13 @@ body {
 }
 
 @media (min-width: 1024px) {
+  body {
+    background-position: top -198px left 516px, top 1217px left -445px;
+    background-size: 833px auto, 654px auto;
+  }
+
   .header {
+    width: 1000px;
     padding: 56px 24px 120px 24px;
   }
 
@@ -812,6 +844,10 @@ body {
     justify-self: end;
   }
 
+  .btn-footer {
+    padding: 15.5px 23px;
+  }
+
   .copyright {
     grid-area: d;
     justify-self: end;
@@ -861,7 +897,14 @@ body {
 }
 
 @media(min-width:1224px) {
+  body {
+
+    background-position: top -291px left 817px, top 1151px left -404px;
+    background-size: 944px auto, 701px auto;
+  }
+
   .header {
+    width: 1110px;
     padding: 56px 0 120px 0;
   }
 
