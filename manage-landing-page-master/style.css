@@ -711,6 +711,8 @@ body {
 
   .title {
     font-size: 56px;
+    line-height: 64px;
+    letter-spacing: -1px;
     text-align: left;
     padding-bottom: 16px;
   }
