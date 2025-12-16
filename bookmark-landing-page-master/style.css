@@ -164,3 +164,365 @@ body {
   pointer-events: auto;
   z-index: 1;
 }
+
+.wrapper {
+  padding-left: 31px;
+  padding-right: 31px;
+}
+
+.hero {
+  padding-top: 80px;
+  padding-bottom: 140px;
+}
+
+.illustration-hero {
+  width: 313px;
+  height: 209px;
+}
+
+.hero-wrapper {
+  text-align: center;
+  padding-top: 94px;
+
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: -0.09px;
+  /* text-align: center; */
+  padding-bottom: 16px;
+}
+
+.description {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25px;
+  color: var(--black);
+  opacity: 50%;
+
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding-top: 32px;
+}
+
+.btn {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0.25px;
+  color: var(--white);
+  border-radius: 5px;
+  border: transparent;
+  padding: 10px 21px;
+}
+
+.btn1 {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.btn2 {
+  background-color: var(--gray);
+  color: var(--black);
+}
+
+.features {
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: -0.08px;
+  color: var(--black);
+}
+
+.features-tabs {
+  padding-top: 40px;
+  padding-bottom: 72px;
+}
+
+.tab {
+  position: relative;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.53px;
+  opacity: 75%;
+  color: var(--black);
+  list-style: none;
+  padding: 20px 0;
+  border-top: solid 1px var(--gray);
+}
+
+.tab:last-child {
+  border-bottom: 1px solid var(--gray);
+}
+
+.tab.active {
+  opacity: 1;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  /* bottom: -304px; */
+  bottom: -1px;
+  transform: translateX(-50%);
+  width: 143px;
+  height: 4px;
+  background-color: var(--red);
+}
+
+.illustration-features {
+  width: 311px;
+  height: 201px;
+}
+
+.panel {
+  padding-bottom: 77px;
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+
+.subtitle-panel {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: -0.08px;
+  color: var(--black);
+  padding-top: 69px;
+}
+
+.btn-info {
+  background-color: var(--blue);
+  padding-left: 26.5px;
+  padding-right: 26.5px;
+  margin-top: 15px;
+}
+
+.pricing {
+  text-align: center;
+}
+
+.extension-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 40px;
+  padding-bottom: 140px;
+  padding: 40px 16.5px 140px;
+}
+
+.cart {
+  box-shadow: 0 10px 20px 5px rgba(73, 93, 207, 0.3);
+  border-radius: 15px;
+  padding: 49px 24px 24px;
+}
+
+.img-logo {}
+
+.add {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0, 25px;
+  padding-top: 32px;
+  padding-bottom: 6px;
+}
+
+.info {
+  position: relative;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 28px;
+  padding-bottom: 32px;
+  /* border-bottom: 4px dotted var(--gray); */
+}
+
+.info::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 6px;
+  background-image: radial-gradient(circle at center,
+      rgba(73, 93, 207, 0.3) 2px,
+      transparent 2px);
+  background-size: 18px 6px;
+  background-repeat: repeat-x;
+}
+
+.btn-extension {
+  width: 100%;
+  background-color: var(--blue);
+  margin-top: 25px;
+}
+
+.questions {
+  text-align: center;
+  padding-bottom: 123px;
+}
+
+.subtitle-questions {
+  line-height: 30px;
+  padding-bottom: 16px;
+}
+
+.faq {
+  text-align: left;
+  padding-top: 44px;
+}
+
+.faq-question {
+  position: relative;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--black);
+  list-style: none;
+  border-bottom: 1px solid rgb(151, 151, 151, 0.8);
+  padding-right: 32px;
+  padding-bottom: 12px;
+  padding-top: 20px;
+  cursor: pointer;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::marker {
+  display: none;
+}
+
+.faq-question::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 8px;
+  background: url("images/icon-arrow.svg") no-repeat center;
+  background-size: contain;
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-question::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-answer {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 36px;
+  color: var(--black);
+  opacity: 75%;
+  padding-top: 14px;
+}
+
+.btn-faq {
+  background-color: var(--blue);
+  margin-top: 48px;
+  padding-left: 26.5px;
+  padding-right: 26.5px;
+}
+
+.cta {
+  text-align: center;
+  background-color: var(--blue);
+  padding: 60px 32px;
+  color: var(--white);
+}
+
+.cta-joined {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: 4.62px;
+}
+
+.cta-title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.08px;
+  padding-bottom: 32px;
+}
+
+.cta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cta-input {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.25px;
+  color: rgb(36, 42, 69, 0.75);
+  box-shadow: 0 8px 8px 4px rgba(73, 93, 207, 0.3);
+  border: transparent;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.cta-btn {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0.25px;
+  background-color: var(--red);
+  color: var(--white);
+  box-shadow: 0 8px 8px 4px rgba(73, 93, 207, 0.3);
+  border: transparent;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.footer {
+  text-align: center;
+  background-color: var(--black);
+  padding: 40px 113.5px 43px;
+}
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  list-style: none;
+  padding-top: 39px;
+  padding-bottom: 48px;
+}
+
+.footer-link {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 1.73px;
+  color: var(--white);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
