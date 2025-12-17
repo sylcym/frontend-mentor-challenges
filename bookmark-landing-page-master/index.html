@@ -72,7 +72,7 @@
       </nav>
     </header>
     <main class="main">
-      <div class="wrapper">
+      <div class="container">
         <section class="hero">
           <img
             src="images/illustration-hero.svg"
@@ -100,14 +100,58 @@
             can access them on the go.
           </p>
 
-          <ul class="features-tabs">
+          <ul class="features-tabs" role="tablist">
+            <li>
+              <button
+                class="tab active"
+                role="tab"
+                aria-selected="true"
+                aria-controls="panel-1"
+                data-tab="1"
+              >
+                Simple Bookmarking
+              </button>
+            </li>
+
+            <li>
+              <button
+                class="tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-2"
+                data-tab="2"
+              >
+                Speedy Searching
+              </button>
+            </li>
+
+            <li>
+              <button
+                class="tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-3"
+                data-tab="3"
+              >
+                Easy Sharing
+              </button>
+            </li>
+          </ul>
+
+          <!-- <ul class="features-tabs">
             <li class="tab active" data-tab="1">Simple Bookmarking</li>
             <li class="tab" data-tab="2">Speedy Searching</li>
             <li class="tab" data-tab="3">Easy Sharing</li>
-          </ul>
+          </ul> -->
 
           <div class="features-panels">
-            <div class="panel active" data-panel="1">
+            <div
+              class="panel active"
+              id="panel-1"
+              role="tabpanel"
+              aria-labelledby="tab-1"
+              data-panel="1"
+            >
               <img
                 src="images/illustration-features-tab-1.svg"
                 alt="Illustration features"
@@ -124,7 +168,13 @@
               </div>
             </div>
 
-            <div class="panel" data-panel="2">
+            <div
+              class="panel"
+              id="panel-2"
+              role="tabpanel"
+              aria-labelledby="tab-2"
+              data-panel="2"
+            >
               <img
                 src="images/illustration-features-tab-2.svg"
                 alt="Illustration features"
@@ -141,7 +191,13 @@
               </div>
             </div>
 
-            <div class="panel" data-panel="3">
+            <div
+              class="panel"
+              id="panel-3"
+              role="tabpanel"
+              aria-labelledby="tab-3"
+              data-panel="3"
+            >
               <img
                 src="images/illustration-features-tab-3.svg"
                 alt="Illustration features"
@@ -257,13 +313,28 @@
 
         <h2 class="cta-title">Stay up-to-date with what we’re doing</h2>
 
-        <form class="cta-form">
-          <input
-            type="email"
-            class="cta-input"
-            placeholder="Enter your email address"
-            required
-          />
+        <form class="cta-form" novalidate>
+          <div class="form-field">
+            <div class="input-wrapper">
+              <input
+                type="email"
+                class="cta-input"
+                placeholder="Enter your email address"
+                aria-describedby="email-error"
+              />
+              <img
+                src="images/icon-error.svg"
+                alt=""
+                class="error-icon"
+                aria-hidden="true"
+              />
+            </div>
+
+            <p class="error-message" id="email-error">
+              Whoops, make sure it’s an email
+            </p>
+          </div>
+
           <button type="submit" class="cta-btn">Contact Us</button>
         </form>
       </section>
