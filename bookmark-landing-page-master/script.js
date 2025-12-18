@@ -5,9 +5,10 @@ window.addEventListener('load', () => {
   const nav = document.querySelector(".navigation");
   const overlay = document.querySelector("#overlay");
   const header = document.querySelector('header');
+  const menuLinks = document.querySelectorAll('.menu-link');
 
   const openMenu = () => {
-    header.classList.add('menu-open'); // jasne logo
+    header.classList.add('menu-open');
     nav.classList.add("active");
     overlay.classList.add("show");
     btnClose.classList.add("active");
@@ -15,7 +16,7 @@ window.addEventListener('load', () => {
   };
 
   const closeMenu = () => {
-    header.classList.remove('menu-open'); // ciemne logo
+    header.classList.remove('menu-open');
     nav.classList.remove("active");
     overlay.classList.remove("show");
     btnClose.classList.remove("active");
@@ -25,30 +26,42 @@ window.addEventListener('load', () => {
   btnOpen.addEventListener("click", openMenu);
   btnClose.addEventListener("click", closeMenu);
   overlay.addEventListener("click", closeMenu);
+
+  menuLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
 });
 
 const tabs = document.querySelectorAll('[role="tab"]');
 const panels = document.querySelectorAll('[role="tabpanel"]');
 
-const form = document.querySelector('.cta-form');
-const input = document.querySelector('.cta-input');
-const field = document.querySelector('.form-field');
+const form = document.querySelector(".cta-form");
+const field = document.querySelector(".form-field");
+const input = document.querySelector(".cta-input");
 
-form.addEventListener('submit', (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const email = input.value.trim();
-  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const emailValue = input.value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (!isValid) {
-    field.classList.add('error');
-    input.value = '';
-    input.placeholder = 'example@email/com';
+  if (!emailRegex.test(emailValue)) {
+    field.classList.add("error");
+
+    input.value = "";
+    input.placeholder = "example@email/com";
   } else {
-    field.classList.remove('error');
-    input.placeholder = 'Enter your email address';
+    field.classList.remove("error");
+
+    console.log("Email OK:", emailValue);
   }
 });
+input.addEventListener("input", () => {
+  field.classList.remove("error");
+  input.placeholder = "Enter your email address";
+});
+
+
 
 
 tabs.forEach(tab => {
