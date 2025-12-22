@@ -3,18 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
-
     <title>Frontend Mentor | Bookmark landing page</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -104,6 +99,7 @@
             <ul class="features-tabs" role="tablist">
               <li>
                 <button
+                  id="tab-1"
                   class="tab active"
                   role="tab"
                   aria-selected="true"
@@ -116,6 +112,7 @@
 
               <li>
                 <button
+                  id="tab-2"
                   class="tab"
                   role="tab"
                   aria-selected="false"
@@ -128,6 +125,7 @@
 
               <li>
                 <button
+                  id="tab-3"
                   class="tab"
                   role="tab"
                   aria-selected="false"
@@ -341,7 +339,7 @@
       <div class="footer-container">
         <div class="footer-left">
           <img
-            src="images/logo-bookmark-light.svg"
+            src="images/logo-bookmark-footer.svg"
             alt="Bookmark"
             class="footer-logo"
           />
@@ -353,26 +351,20 @@
           </ul>
         </div>
         <ul class="footer-socials">
-          <li>
-            <a href="#"
-              ><img src="images/icon-facebook.svg" alt="Facebook icon"
-            /></a>
-          </li>
-          <li>
-            <a href="#"
-              ><img src="images/icon-twitter.svg" alt="Twitter icon"
-            /></a>
-          </li>
+          <li class="social-icon facebook"></li>
+          <li class="social-icon twitter"></li>
         </ul>
       </div>
     </footer>
-    <!-- <footer>
-      <p class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="#">Your Name Here</a>.
-      </p>
-    </footer> -->
+    <div class="attribution-container">
+      Challenge by
+      <a
+        class="attribution-link"
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        rel="noopener"
+        >Frontend Mentor</a
+      >. Coded by <a class="attribution-link" href="" rel="noopener">sylcym</a>.
+    </div>
   </body>
 </html>
