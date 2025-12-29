@@ -57,39 +57,157 @@
       </nav>
     </header>
     <main class="main">
-      <section class="hero">
-        <img src="images/illustration-working.svg" alt="Illustration working" />
-        <div class="hero-wrapper">
-          <h1 class="title">More than just shorter links</h1>
-          <p class="description">
-            Build your brand’s recognition and get detailed insights on how your
-            links are performing.
-          </p>
-          <button class="btn">Get Started</button>
-        </div>
-      </section>
-      <section class="url-shortener">
-        <form class="shorten-form">
-          <label for="url" class="visually-hidden">Shorten a link</label>
-          <input
-            type="url"
-            id="url"
-            name="url"
-            placeholder="Shorten a link here..."
-            required
+      <div class="container">
+        <section class="hero">
+          <img
+            src="images/illustration-working.svg"
+            alt="Illustration working"
           />
-          <button type="submit">Shorten It!</button>
-        </form>
+          <div class="hero-wrapper">
+            <h1 class="title">More than just shorter links</h1>
+            <p class="description">
+              Build your brand’s recognition and get detailed insights on how
+              your links are performing.
+            </p>
+            <button class="btn">Get Started</button>
+          </div>
+        </section>
+        <section class="url-shortener">
+          <form class="shorten-form">
+            <label for="url" class="visually-hidden">Shorten a link</label>
+            <input
+              type="url"
+              id="url"
+              name="url"
+              placeholder="Shorten a link here..."
+              required
+            />
+            <button type="submit">Shorten It!</button>
+          </form>
 
-        <div class="shortened-links">
-          <article class="shortened-link">
-            <p class="original-url">https://www.frontendmentor.io</p>
-            <a href="https://rel.ink/k4lKyk">https://rel.ink/k4lKyk</a>
-            <button class="copy-btn">Copy</button>
-          </article>
-        </div>
+          <div class="shortened-links">
+            <article class="shortened-link">
+              <p class="original-url">https://www.frontendmentor.io</p>
+              <a href="https://rel.ink/k4lKyk">https://rel.ink/k4lKyk</a>
+              <button class="copy-btn">Copy</button>
+            </article>
+          </div>
+        </section>
+        <section class="statistics">
+          <h2 class="subtitle">Advanced Statistics</h2>
+          <p class="track">
+            Track how your links are performing across the web with our advanced
+            statistics dashboard.
+          </p>
+          <div class="statistics-wrapper">
+            <div class="cart">
+              <img
+                src="images/icon-brand-recognition.svg"
+                alt="Brand recognition"
+                class="icon-statistic"
+              />
+              <h3 class="subtitle-statistic">Brand Recognition</h3>
+              <p class="info">
+                Boost your brand recognition with each click. Generic links
+                don’t mean a thing. Branded links help instil confidence in your
+                content.
+              </p>
+            </div>
+            <div class="cart">
+              <img
+                src="images/icon-detailed-records.svg"
+                alt="Detailed records"
+                class="icon-statistic"
+              />
+              <h3 class="subtitle-statistic">Detailed Records</h3>
+              <p class="info">
+                Gain insights into who is clicking your links. Knowing when and
+                where people engage with your content helps inform better
+                decisions.
+              </p>
+            </div>
+            <div class="cart">
+              <img
+                src="images/icon-fully-customizable.svg"
+                alt="Fully Customizable"
+                class="icon-statistic"
+              />
+              <h3 class="subtitle-statistic">Fully Customizable</h3>
+              <p class="info">
+                Improve brand awareness and content discoverability through
+                customizable links, supercharging audience engagement.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="cta">
+        <h2 class="subtitle">Boost your links today</h2>
+        <button class="btn">Get Started</button>
       </section>
     </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <img
+          src="images/logo-footer.svg"
+          alt="Logo footer"
+          class="logo-footer"
+        />
+
+        <div class="footer-center">
+          <nav class="footer-nav">
+            <ul class="footer-list">
+              <li class="footer-title">Features</li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Link Shortening</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Branded Links</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Analytics</a>
+              </li>
+            </ul>
+
+            <ul class="footer-list">
+              <li class="footer-title">Resources</li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Blog</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Developers</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Support</a>
+              </li>
+            </ul>
+
+            <ul class="footer-list">
+              <li class="footer-title">Company</li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">About</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Our Team</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Careers</a>
+              </li>
+              <li class="footer-item">
+                <a href="#" class="footer-link">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <ul class="footer-socials">
+          <li class="social-icon facebook"></li>
+          <li class="social-icon twitter"></li>
+          <li class="social-icon pinterest"></li>
+          <li class="social-icon instagram"></li>
+        </ul>
+      </div>
+    </footer>
+
     <!-- Features
   Pricing
   Resources
