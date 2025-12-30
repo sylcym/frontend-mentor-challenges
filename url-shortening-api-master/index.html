@@ -14,16 +14,13 @@
 
     <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="header">
@@ -38,31 +35,22 @@
           <img src="images/icon-hamburger.svg" alt="Hamburger icon" />
         </button>
       </div>
-      <!-- <button
-        class="nav-btn btn-close"
-        aria-label="Close navigation menu button"
-      >
-        <img src="images/icon-close.svg" alt="Close icon" />
-      </button> -->
       <nav id="main-nav" class="navigation" aria-hidden="true">
-        <ul class="menu-left">
+        <ul class="menu menu-left">
           <li><a class="menu-link" href="#features">Features</a></li>
           <li><a class="menu-link" href="#pricing">Pricing</a></li>
           <li><a class="menu-link" href="#contact">Resources</a></li>
         </ul>
-        <ul class="menu-right">
-          <li><a class="menu-link menu-link-right" href="#">Login</a></li>
+        <ul class="menu menu-right">
+          <li><a class="menu-link menu-link" href="#">Login</a></li>
           <li><a class="menu-link menu-link-right" href="#"> Sign Up</a></li>
         </ul>
       </nav>
     </header>
     <main class="main">
-      <div class="container">
+      <div class="container-hero">
         <section class="hero">
-          <img
-            src="images/illustration-working.svg"
-            alt="Illustration working"
-          />
+          <div class="hero-image-wrapper"></div>
           <div class="hero-wrapper">
             <h1 class="title">More than just shorter links</h1>
             <p class="description">
@@ -72,6 +60,8 @@
             <button class="btn">Get Started</button>
           </div>
         </section>
+      </div>
+      <div class="container">
         <section class="url-shortener">
           <form class="shorten-form">
             <label for="url" class="visually-hidden">Shorten a link</label>
@@ -79,19 +69,22 @@
               type="url"
               id="url"
               name="url"
+              class="input"
               placeholder="Shorten a link here..."
               required
             />
-            <button type="submit">Shorten It!</button>
+            <button type="submit" class="btn-url">Shorten It!</button>
           </form>
 
-          <div class="shortened-links">
+          <!-- <div class="shortened-links">
             <article class="shortened-link">
               <p class="original-url">https://www.frontendmentor.io</p>
-              <a href="https://rel.ink/k4lKyk">https://rel.ink/k4lKyk</a>
+              <a href="https://rel.ink/k4lKyk" class="short-link"
+                >https://rel.ink/k4lKyk</a
+              >
               <button class="copy-btn">Copy</button>
             </article>
-          </div>
+          </div> -->
         </section>
         <section class="statistics">
           <h2 class="subtitle">Advanced Statistics</h2>
@@ -101,11 +94,13 @@
           </p>
           <div class="statistics-wrapper">
             <div class="cart">
-              <img
-                src="images/icon-brand-recognition.svg"
-                alt="Brand recognition"
-                class="icon-statistic"
-              />
+              <div class="container-icon">
+                <img
+                  src="images/icon-brand-recognition.svg"
+                  alt="Brand recognition"
+                  class="icon-statistic"
+                />
+              </div>
               <h3 class="subtitle-statistic">Brand Recognition</h3>
               <p class="info">
                 Boost your brand recognition with each click. Generic links
@@ -114,11 +109,13 @@
               </p>
             </div>
             <div class="cart">
-              <img
-                src="images/icon-detailed-records.svg"
-                alt="Detailed records"
-                class="icon-statistic"
-              />
+              <div class="container-icon">
+                <img
+                  src="images/icon-detailed-records.svg"
+                  alt="Detailed records"
+                  class="icon-statistic"
+                />
+              </div>
               <h3 class="subtitle-statistic">Detailed Records</h3>
               <p class="info">
                 Gain insights into who is clicking your links. Knowing when and
@@ -127,11 +124,13 @@
               </p>
             </div>
             <div class="cart">
-              <img
-                src="images/icon-fully-customizable.svg"
-                alt="Fully Customizable"
-                class="icon-statistic"
-              />
+              <div class="container-icon">
+                <img
+                  src="images/icon-fully-customizable.svg"
+                  alt="Fully Customizable"
+                  class="icon-statistic"
+                />
+              </div>
               <h3 class="subtitle-statistic">Fully Customizable</h3>
               <p class="info">
                 Improve brand awareness and content discoverability through
@@ -142,7 +141,7 @@
         </section>
       </div>
       <section class="cta">
-        <h2 class="subtitle">Boost your links today</h2>
+        <h2 class="subtitle subtitle-cta">Boost your links today</h2>
         <button class="btn">Get Started</button>
       </section>
     </main>

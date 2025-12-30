@@ -18,7 +18,7 @@ The designs were created to the following widths:
 
 ### Secondary
 
-- Red 400: hsl(0, 87%, 67%)
+- Red 400: #f46262ff
 
 ### Neutral
 
