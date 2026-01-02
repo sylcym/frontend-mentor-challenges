@@ -214,16 +214,37 @@ body {
   display: none;
 }
 
+.error-message.visually-hidden {
+  display: none;
+}
+
 .input {
   font-size: 16px;
   font-weight: 500;
   line-height: 36px;
   letter-spacing: 0.12px;
   border-radius: 5px;
-  border: transparent;
+  border: 2px solid transparent;
   color: rgb(52, 49, 61, .5);
   padding: 6px 10px 6px 16px;
 }
+
+.input.error {
+  border: 2px solid var(--red);
+  color: var(--red);
+}
+
+.error-message {
+  display: none;
+  color: var(--red);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.error-message.show {
+  display: block;
+}
+
 
 .btn-url {
   font-size: 18px;
@@ -240,15 +261,57 @@ body {
   top: 104px;
   left: 0;
   right: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0.12px;
+  z-index: 3;
+}
+
+.shortened-link {
+  width: 100%;
+  max-width: 327px;
   display: flex;
   flex-direction: column;
   background-color: var(--white);
+  background-color: red;
+  border-radius: 5px;
+  padding: 16px;
+  gap: 12px;
+  /* margin: 0 auto; */
+  margin-bottom: 24px;
+}
 
+.original-url {
+  color: var(--black);
+  /* padding-bottom: 6px; */
+  border-bottom: 1px solid var(--gray);
+  /* margin-bottom: 6px; */
+  word-break: break-all;
 }
 
 .short-link {
   display: block;
+  text-decoration: none;
+  color: var(--cyan);
 }
+
+.btn-copy {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--cyan);
+  color: var(--white);
+  padding: 11px 0;
+}
+
+.btn-copy.copied {
+  background-color: var(--blue);
+}
+
+
 
 .statistics {
   text-align: center;
