@@ -137,6 +137,17 @@ body {
 }
 
 .hero-image-wrapper {
+  width: 100%;
+  height: 270px;
+  background-image: url('../images/illustration-working.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center right;
+  overflow: hidden;
+}
+
+
+/* .hero-image-wrapper {
   width: 150%;
   min-height: 270px;
   background-image: url('../images/illustration-working.svg');
@@ -144,7 +155,7 @@ body {
   background-size: cover;
   background-position: center center;
 
-}
+} */
 
 .hero-wrapper {
   text-align: center;
@@ -187,6 +198,7 @@ body {
 
 .url-shortener {
   position: relative;
+  padding-top: 120px;
   /* padding: 24px;
   border-radius: 5px;
   background-color: red; */
@@ -257,6 +269,15 @@ body {
 }
 
 .shortened-links {
+  margin-top: 120px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: 0.12px;
+}
+
+
+/* .shortened-links {
   position: absolute;
   top: 104px;
   left: 0;
@@ -266,7 +287,7 @@ body {
   line-height: 36px;
   letter-spacing: 0.12px;
   z-index: 3;
-}
+} */
 
 .shortened-link {
   width: 100%;
@@ -527,4 +548,95 @@ body {
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 40px;
+    padding-bottom: 120px;
+  }
+
+  .hero-image-wrapper {
+    width: 50%;
+    min-height: 320px;
+    background-position: right center;
+  }
+
+  .hero-wrapper {
+    width: 50%;
+    text-align: left;
+    padding: 0;
+  }
+
+  .title {
+    font-size: 50px;
+    line-height: 56px;
+  }
+
+  .description {
+    font-size: 22px;
+    line-height: 36px;
+    letter-spacing: -0.15px;
+    padding-bottom: 38px;
+  }
+
+  .shorten-form {
+    flex-direction: row;
+    gap: 24px;
+    padding: 24px 32px;
+  }
+
+  .input {
+    font-size: 20px;
+    letter-spacing: 0.15px;
+    flex: 1;
+    padding: 12px 10px 12px 16px;
+
+  }
+
+  .btn-url {
+    width: auto;
+    font-size: 20px;
+    padding: 13.5px 44px;
+  }
+
+  .url-shortener {
+    padding-top: 24px;
+  }
+
+  .shortened-links {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+
+
+  .shortened-link {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 28px;
+    max-width: 100%;
+    margin-bottom: 0;
+
+  }
+
+  .original-url {
+    border-bottom: none;
+    word-break: break-word;
+    0
+  }
+
+  .btn-copy {
+    width: 70px;
+    font-size: 15px;
+  }
+
+
+
 }

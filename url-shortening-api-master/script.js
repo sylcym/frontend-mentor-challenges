@@ -6,17 +6,31 @@ const form = document.querySelector('.shorten-form');
 const input = document.querySelector('.input');
 const errorMessage = form.querySelector('.error-message');
 const linksContainer = document.querySelector('.shortened-links');
-// const links = [];
-const links = [
-  {
-    original: 'https://www.frontendmentor.io',
-    short: 'https://rel.ink/k4lKyk'
-  },
-  {
-    original: 'https://twitter.com/frontendmentor',
-    short: 'https://rel.ink/gxOXp9'
+const links = [];
+loadLinks();
+renderLinks();
+
+// const links = [
+//   {
+//     original: 'https://www.frontendmentor.io',
+//     short: 'https://rel.ink/k4lKyk'
+//   },
+//   {
+//     original: 'https://twitter.com/frontendmentor',
+//     short: 'https://rel.ink/gxOXp9'
+//   }
+// ];
+function saveLinks() {
+  localStorage.setItem('shortenedLinks', JSON.stringify(links));
+}
+
+function loadLinks() {
+  const stored = localStorage.getItem('shortenedLinks');
+  if (stored) {
+    links.push(...JSON.parse(stored));
   }
-];
+}
+
 
 
 form.addEventListener('submit', (e) => {
@@ -32,13 +46,16 @@ form.addEventListener('submit', (e) => {
   input.classList.remove('error');
   errorMessage.classList.remove('show');
 
-  const shortUrl = `https://rel.ink/${Math.random().toString(36).slice(2, 8)}`;
+  // const shortUrl = `https://rel.ink/${Math.random().toString(36).slice(2, 8)}`;
+  const shortUrl = `https://short.ly/${Math.random().toString(36).slice(2, 8)}`;
 
 
   links.unshift({
     original: originalUrl,
     short: shortUrl
   });
+  saveLinks();
+  renderLinks();
 
   input.value = '';
   renderLinks();
@@ -46,23 +63,45 @@ form.addEventListener('submit', (e) => {
 
 
 
-// form.addEventListener('submit', (e) => {
+// form.addEventListener('submit', async (e) => {
 //   e.preventDefault();
 
 //   const originalUrl = input.value.trim();
 
-//   if (!originalUrl) return;
+//   if (!originalUrl) {
+//     input.classList.add('error');
+//     errorMessage.classList.add('show');
+//     return;
+//   }
 
-//   const shortUrl = 'https://rel.ink/' + Math.random().toString(36).slice(2, 8);
+//   input.classList.remove('error');
+//   errorMessage.classList.remove('show');
 
-//   links.unshift({
-//     original: originalUrl,
-//     short: shortUrl
-//   });
+//   try {
+//     const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${originalUrl}`);
+//     const data = await response.json();
 
-//   input.value = '';
-//   renderLinks();
+//     if (!data.ok) {
+//       throw new Error('API error');
+//     }
+
+//     const shortUrl = data.result.full_short_link;
+
+//     links.unshift({
+//       original: originalUrl,
+//       short: shortUrl
+//     });
+
+//     renderLinks();
+//     input.value = '';
+
+//   } catch (error) {
+//     console.error(error);
+//     errorMessage.textContent = 'Something went wrong. Try again.';
+//     errorMessage.classList.add('show');
+//   }
 // });
+
 
 function renderLinks() {
   linksContainer.innerHTML = '';
