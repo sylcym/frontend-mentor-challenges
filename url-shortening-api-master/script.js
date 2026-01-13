@@ -20,6 +20,7 @@ renderLinks();
 //     short: 'https://rel.ink/gxOXp9'
 //   }
 // ];
+
 function saveLinks() {
   localStorage.setItem('shortenedLinks', JSON.stringify(links));
 }
@@ -31,9 +32,7 @@ function loadLinks() {
   }
 }
 
-
-
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const originalUrl = input.value.trim();
@@ -43,65 +42,32 @@ form.addEventListener('submit', (e) => {
     errorMessage.classList.add('show');
     return;
   }
+
   input.classList.remove('error');
   errorMessage.classList.remove('show');
 
-  // const shortUrl = `https://rel.ink/${Math.random().toString(36).slice(2, 8)}`;
-  const shortUrl = `https://short.ly/${Math.random().toString(36).slice(2, 8)}`;
+  try {
+    const response = await fetch(
+      `https://tinyurl.com/api-create.php?url=${encodeURIComponent(originalUrl)}`
+    );
 
+    const shortUrl = await response.text();
 
-  links.unshift({
-    original: originalUrl,
-    short: shortUrl
-  });
-  saveLinks();
-  renderLinks();
+    links.unshift({
+      original: originalUrl,
+      short: shortUrl
+    });
 
-  input.value = '';
-  renderLinks();
+    saveLinks();
+    renderLinks();
+    input.value = '';
+
+  } catch (error) {
+    console.error(error);
+    errorMessage.textContent = 'Network error. Try again.';
+    errorMessage.classList.add('show');
+  }
 });
-
-
-
-// form.addEventListener('submit', async (e) => {
-//   e.preventDefault();
-
-//   const originalUrl = input.value.trim();
-
-//   if (!originalUrl) {
-//     input.classList.add('error');
-//     errorMessage.classList.add('show');
-//     return;
-//   }
-
-//   input.classList.remove('error');
-//   errorMessage.classList.remove('show');
-
-//   try {
-//     const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${originalUrl}`);
-//     const data = await response.json();
-
-//     if (!data.ok) {
-//       throw new Error('API error');
-//     }
-
-//     const shortUrl = data.result.full_short_link;
-
-//     links.unshift({
-//       original: originalUrl,
-//       short: shortUrl
-//     });
-
-//     renderLinks();
-//     input.value = '';
-
-//   } catch (error) {
-//     console.error(error);
-//     errorMessage.textContent = 'Something went wrong. Try again.';
-//     errorMessage.classList.add('show');
-//   }
-// });
-
 
 function renderLinks() {
   linksContainer.innerHTML = '';
