@@ -1,25 +1,49 @@
+
 const btn = document.querySelector('.btn-open');
 const nav = document.getElementById('main-nav');
-const menuLink = document.querySelectorAll('.menu-link');
-
+const menuLinks = document.querySelectorAll('.menu-link');
+// URL SHORTENER
 const form = document.querySelector('.shorten-form');
 const input = document.querySelector('.input');
 const errorMessage = form.querySelector('.error-message');
 const linksContainer = document.querySelector('.shortened-links');
+
 const links = [];
+
+btn.addEventListener('click', () => {
+  const isOpen = nav.getAttribute('aria-hidden') === 'false';
+  nav.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+  btn.classList.toggle('is-open', !isOpen);
+});
+
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    nav.setAttribute('aria-hidden', 'true');
+    btn.classList.remove('is-open');
+  });
+});
+
+document.addEventListener('click', (e) => {
+  const isOpen = nav.getAttribute('aria-hidden') === 'false';
+  const isClickInside = nav.contains(e.target) || btn.contains(e.target);
+
+  if (isOpen && !isClickInside) {
+    nav.setAttribute('aria-hidden', 'true');
+    btn.classList.remove('is-open');
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    nav.setAttribute('aria-hidden', 'true');
+    btn.classList.remove('is-open');
+  }
+});
+
+
+
 loadLinks();
 renderLinks();
-
-// const links = [
-//   {
-//     original: 'https://www.frontendmentor.io',
-//     short: 'https://rel.ink/k4lKyk'
-//   },
-//   {
-//     original: 'https://twitter.com/frontendmentor',
-//     short: 'https://rel.ink/gxOXp9'
-//   }
-// ];
 
 function saveLinks() {
   localStorage.setItem('shortenedLinks', JSON.stringify(links));
@@ -32,19 +56,42 @@ function loadLinks() {
   }
 }
 
+function isValidUrl(url) {
+  try {
+    new URL(url);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function showError(message) {
+  input.classList.add('error');
+  errorMessage.textContent = message;
+  errorMessage.classList.add('show');
+}
+
+function clearError() {
+  input.classList.remove('error');
+  errorMessage.classList.remove('show');
+}
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const originalUrl = input.value.trim();
 
   if (!originalUrl) {
-    input.classList.add('error');
-    errorMessage.classList.add('show');
+    showError('Please add a link');
     return;
   }
 
-  input.classList.remove('error');
-  errorMessage.classList.remove('show');
+  if (!isValidUrl(originalUrl)) {
+    showError('Please add a link');
+    return;
+  }
+
+  clearError();
 
   try {
     const response = await fetch(
@@ -64,8 +111,7 @@ form.addEventListener('submit', async (e) => {
 
   } catch (error) {
     console.error(error);
-    errorMessage.textContent = 'Network error. Try again.';
-    errorMessage.classList.add('show');
+    showError('Network error. Try again.');
   }
 });
 
@@ -78,7 +124,7 @@ function renderLinks() {
 
     article.innerHTML = `
       <p class="original-url">${link.original}</p>
-      <a href="${link.short}" class="short-link" target="_blank">
+      <a href="${link.short}" class="short-link" target="_blank" rel="noopener noreferrer">
         ${link.short}
       </a>
       <button class="btn-copy">Copy</button>
@@ -92,7 +138,7 @@ linksContainer.addEventListener('click', (e) => {
   if (!e.target.classList.contains('btn-copy')) return;
 
   const button = e.target;
-  const shortLink = button.previousElementSibling.textContent;
+  const shortLink = button.previousElementSibling.textContent.trim();
 
   document.querySelectorAll('.btn-copy').forEach(btn => {
     btn.textContent = 'Copy';
@@ -109,42 +155,4 @@ linksContainer.addEventListener('click', (e) => {
     button.classList.remove('copied');
   }, 2000);
 });
-
-renderLinks();
-
-
-
-
-
-btn.addEventListener('click', () => {
-  const isOpen = nav.getAttribute('aria-hidden') === 'false';
-
-  nav.setAttribute('aria-hidden', String(isOpen));
-  btn.classList.toggle('is-open', !isOpen);
-});
-
-menuLink.forEach(link => {
-  link.addEventListener('click', () => {
-    nav.setAttribute('aria-hidden', 'true');
-    btn.classList.remove('is-open');
-  })
-})
-
-document.addEventListener('click', (e) => {
-  const isOpen = nav.getAttribute('aria-hidden') === 'false';
-  const isClickInside =
-    nav.contains(e.target) || btn.contains(e.target);
-
-  if (isOpen && !isClickInside) {
-    nav.setAttribute('aria-hidden', 'true');
-    btn.classList.remove('is-open');
-  }
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    nav.setAttribute('aria-hidden', 'true');
-    btn.classList.remove('is-open');
-  }
-});
-
 
