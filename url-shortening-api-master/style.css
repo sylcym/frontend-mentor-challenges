@@ -23,6 +23,7 @@ html {
 
 body {
   background-color: var(--white);
+  overflow-x: hidden;
 }
 
 .header {
@@ -131,24 +132,54 @@ body {
 }
 
 .container-hero {
-  padding-left: 24px;
-  padding-right: 24px;
+  /* padding-left: 24px;
+  padding-right: 24px; */
   padding-bottom: 88px;
 }
 
 .hero-image-wrapper {
-  width: 100%;
+  /* width: 100%;
   height: 270px;
   background-image: url('../images/illustration-working.svg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center right;
+  overflow: hidden; */
+  position: relative;
+  width: 375px;
+  height: 270px;
   overflow: hidden;
+  margin: 0 auto;
 }
+
+/* .hero-image {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: auto;
+  height: 100%;
+} */
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+
+}
+
+
+/* .hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+} */
 
 .hero-wrapper {
   text-align: center;
-  padding: 60px 0 88px;
+  padding: 60px 24px 88px;
 }
 
 .title {
@@ -222,6 +253,7 @@ body {
 
 
 .input {
+  width: 100%;
   font-size: 16px;
   font-weight: 500;
   line-height: 36px;
@@ -622,15 +654,38 @@ body {
 
   .hero-image-wrapper {
     width: 50%;
+    height: auto;
     min-height: 320px;
-    background-position: right center;
-    transform: translateX(120px);
+    /* background-position: right center; */
+    /* transform: translateX(120px); */
   }
 
-  .hero-wrapper {
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* .hero-wrapper {
     width: 50%;
     text-align: left;
     padding: 63px 0 68px;
+  } */
+  .hero-wrapper {
+    text-align: left;
+    max-width: 564px;
+    padding: 63px 0 68px;
+  }
+
+  .hero-image-wrapper {
+    width: 466px;
+    height: 382px;
+    /* proporcjonalnie większe */
+  }
+
+  .hero-image {
+    left: -20px;
+    /* przesunięcie, żeby kwiat był po lewej */
   }
 
   .title {
@@ -654,6 +709,7 @@ body {
 
   .shorten-form {
     flex-direction: row;
+    align-items: flex-start;
     gap: 24px;
     border-radius: 10px;
     padding: 24px 32px;
@@ -666,7 +722,6 @@ body {
   }
 
   .input {
-    /* flex: 1; */
     font-size: 20px;
     letter-spacing: 0.15px;
     border-radius: 10px;
@@ -679,6 +734,7 @@ body {
     font-size: 20px;
     border-radius: 10px;
     padding: 13.5px 44px;
+    min-height: 64px;
   }
 
   .url-shortener {
@@ -799,15 +855,30 @@ body {
     gap: 60px;
   }
 
-  .hero-wrapper {
+  .hero-image-wrapper {
+    width: 733px;
+    height: 482px;
+  }
+
+  .hero-image {
+    left: 23px;
+  }
+
+  /* .hero-wrapper {
     width: 58%;
     padding-right: 7px;
   }
 
   .hero-image-wrapper {
     width: 42%;
+    min-height: 482px;
     transform: translateX(150px);
   }
+
+  .hero-image {
+    object-fit: contain;
+  
+  } */
 
   .shorten-form {
     top: -81px;
@@ -863,7 +934,7 @@ body {
   .title {
     font-size: 80px;
     line-height: 90px;
-    letter-spacing: -2px;
+    letter-spacing: -4px;
   }
 
   .input {

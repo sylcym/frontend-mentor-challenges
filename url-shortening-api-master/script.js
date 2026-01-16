@@ -5,7 +5,7 @@ const menuLinks = document.querySelectorAll('.menu-link');
 // URL SHORTENER
 const form = document.querySelector('.shorten-form');
 const input = document.querySelector('.input');
-const errorMessage = form.querySelector('.error-message');
+const errorMessage = document.querySelector('.error-message');
 const linksContainer = document.querySelector('.shortened-links');
 
 const links = [];
@@ -42,8 +42,6 @@ document.addEventListener('keydown', (e) => {
 
 
 
-loadLinks();
-renderLinks();
 
 function saveLinks() {
   localStorage.setItem('shortenedLinks', JSON.stringify(links));
@@ -56,6 +54,10 @@ function loadLinks() {
   }
 }
 
+loadLinks();
+renderLinks();
+
+
 function isValidUrl(url) {
   try {
     new URL(url);
@@ -65,9 +67,9 @@ function isValidUrl(url) {
   }
 }
 
-function showError(message) {
+function showError(msg) {
   input.classList.add('error');
-  errorMessage.textContent = message;
+  errorMessage.textContent = msg;
   errorMessage.classList.add('show');
 }
 
@@ -76,9 +78,12 @@ function clearError() {
   errorMessage.classList.remove('show');
 }
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+input.addEventListener('input', () => {
+  clearError();
+});
 
+form.addEventListener('submit', async e => {
+  e.preventDefault();
   const originalUrl = input.value.trim();
 
   if (!originalUrl) {
@@ -87,7 +92,7 @@ form.addEventListener('submit', async (e) => {
   }
 
   if (!isValidUrl(originalUrl)) {
-    showError('Please add a link');
+    showError('Please add a valid link (include https://)');
     return;
   }
 
@@ -97,44 +102,33 @@ form.addEventListener('submit', async (e) => {
     const response = await fetch(
       `https://tinyurl.com/api-create.php?url=${encodeURIComponent(originalUrl)}`
     );
-
     const shortUrl = await response.text();
 
-    links.unshift({
-      original: originalUrl,
-      short: shortUrl
-    });
-
+    links.unshift({ original: originalUrl, short: shortUrl });
     saveLinks();
     renderLinks();
-    input.value = '';
 
-  } catch (error) {
-    console.error(error);
+    input.value = '';
+  } catch (err) {
     showError('Network error. Try again.');
   }
 });
 
 function renderLinks() {
   linksContainer.innerHTML = '';
-
   links.forEach(link => {
     const article = document.createElement('article');
     article.className = 'shortened-link';
-
     article.innerHTML = `
       <p class="original-url">${link.original}</p>
-      <a href="${link.short}" class="short-link" target="_blank" rel="noopener noreferrer">
-        ${link.short}
-      </a>
+      <a href="${link.short}" class="short-link" target="_blank" rel="noopener noreferrer">${link.short}</a>
       <button class="btn-copy">Copy</button>
     `;
-
     linksContainer.appendChild(article);
   });
 }
 
-linksContainer.addEventListener('click', (e) => {
+linksContainer.addEventListener('click', e => {
   if (!e.target.classList.contains('btn-copy')) return;
 
   const button = e.target;
@@ -146,7 +140,6 @@ linksContainer.addEventListener('click', (e) => {
   });
 
   navigator.clipboard.writeText(shortLink);
-
   button.textContent = 'Copied!';
   button.classList.add('copied');
 
