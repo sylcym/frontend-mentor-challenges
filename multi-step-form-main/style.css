@@ -82,10 +82,16 @@ html {
 }
 
 .form-step {
+  display: none;
   width: 100%;
   max-width: 450px;
   margin: 0 auto;
 }
+
+.form-step.is-active {
+  display: block;
+}
+
 
 
 .form-title {
@@ -454,11 +460,6 @@ html {
   margin-bottom: 16px;
 }
 
-/* .thank-you .form-description {
-  font-size: 1.6rem;
-  color: var(--gray);
-  line-height: 1.5;
-} */
 @media (min-width: 768px) {
   .form-container {
     display: grid;

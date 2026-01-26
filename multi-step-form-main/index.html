@@ -21,6 +21,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
   </head>
   <body>
     <main class="app">
@@ -100,7 +101,11 @@
                 name="phone"
                 class="input"
                 placeholder="e.g. +1 234 567 890"
+                pattern="[0-9+\s()-]{6,}"
+                minlength="6"
+                required
               />
+
               <span class="error-message"></span>
             </div>
 
