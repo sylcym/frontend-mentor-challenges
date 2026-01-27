@@ -19,7 +19,7 @@ const btnConfirm = document.querySelector('.btn-confirm');
 let currentStep = 1;
 
 const formData = {
-  plan: "arcade",
+  plan: "Arcade",
   billing: 'monthly',
   addons: []
 };
@@ -42,28 +42,15 @@ function updateFormSteps() {
     sidebarEl.classList.add("is-active");
   }
 
+  if (currentStep === 2 || currentStep === 3) {
+    updatePricesUI();
+  }
+
   if (currentStep === 4) {
     buildSummary();
   }
 }
 
-// function updateFormSteps() {
-//   const stepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
-//   const sidebarEl = document.querySelector(`.step[data-step="${currentStep}"]`);
-
-//   if (!stepEl || !sidebarEl) return;
-
-//   formSteps.forEach((step) => step.classList.remove("is-active"));
-//   stepsSidebar.forEach((step) => step.classList.remove("is-active"));
-
-//   stepEl.classList.add("is-active");
-//   sidebarEl.classList.add("is-active");
-
-//   if (currentStep === 4) {
-//     buildSummary();
-//   }
-
-// }
 
 nextBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -153,10 +140,33 @@ function validateStep1() {
   });
 });
 
-// step 2 billing-toggle
+
+function updatePricesUI() {
+  const priceEls = document.querySelectorAll('[data-monthly]');
+  const bonusEls = document.querySelectorAll('.plan-bonus');
+
+  priceEls.forEach(el => {
+    const price = el.dataset[formData.billing];
+    const suffix = formData.billing === 'monthly' ? 'mo' : 'yr';
+
+    if (el.classList.contains('addon-price')) {
+      el.textContent = `+$${price}/${suffix}`;
+    } else {
+      el.textContent = `$${price}/${suffix}`;
+    }
+  });
+
+  bonusEls.forEach(el => {
+    el.style.display = formData.billing === 'yearly' ? 'block' : 'none';
+  });
+}
+
 billingToggle.addEventListener('change', () => {
   formData.billing = billingToggle.checked ? 'yearly' : 'monthly';
+  updatePricesUI();
 });
+
+
 
 // step 3
 addonInputs.forEach(input => {
@@ -176,8 +186,18 @@ planInputs.forEach(input => {
   });
 });
 
+const labels = {
+  arcade: "Arcade",
+  advanced: "Advanced",
+  pro: "Pro",
+  online: "Online service",
+  storage: "Larger storage",
+  profile: "Customizable profile"
+};
+
+
 const prices = {
-  arcade: { monthly: 9, yearly: 90 },
+  Arcade: { monthly: 9, yearly: 90 },
   advanced: { monthly: 12, yearly: 120 },
   pro: { monthly: 15, yearly: 150 },
 
@@ -193,48 +213,118 @@ function buildSummary() {
   summary.innerHTML = '';
 
   let total = 0;
+  const suffix = formData.billing === 'monthly' ? 'mo' : 'yr';
 
-  // PLAN
+  // PLAN PRICE
   const planPrice = prices[formData.plan][formData.billing];
   total += planPrice;
 
-  const planDiv = document.createElement('div');
-  planDiv.classList.add('summary-item');
-  planDiv.innerHTML = `
-    <span>${formData.plan} (${formData.billing})</span>
-    <span>$${planPrice}/${formData.billing === 'monthly' ? 'mo' : 'yr'}</span>
-  `;
-  summary.appendChild(planDiv);
+  const planBox = document.createElement('div');
+  planBox.classList.add('summary-plan-box');
 
-  // ADDONS
+  planBox.innerHTML = `
+    <div class="summary-plan-top">
+      <div class="summary-plan-left">
+        <span class="summary-plan-name">
+          ${labels[formData.plan]} (${formData.billing})
+        </span>
+        <button type="button" class="summary-change">Change</button>
+      </div>
+      <span class="summary-plan-price">$${planPrice}/${suffix}</span>
+    </div>
+    <div class="summary-divider"></div>
+  `;
+
+  summary.appendChild(planBox);
+
+  // ADD-ONS
   formData.addons.forEach(addon => {
     const addonPrice = prices[addon][formData.billing];
     total += addonPrice;
 
     const addonDiv = document.createElement('div');
-    addonDiv.classList.add('summary-item');
+    addonDiv.classList.add('summary-addon');
     addonDiv.innerHTML = `
-      <span>${addon}</span>
-      <span>+$${addonPrice}/${formData.billing === 'monthly' ? 'mo' : 'yr'}</span>
+      <span>${labels[addon]}</span>
+      <span>+$${addonPrice}/${suffix}</span>
     `;
+
     summary.appendChild(addonDiv);
   });
 
-  // TOTAL
+  //  TOTAL
   const totalDiv = document.createElement('div');
   totalDiv.classList.add('total');
   totalDiv.innerHTML = `
     <span>Total (per ${formData.billing === 'monthly' ? 'month' : 'year'})</span>
-    <span>$${total}/${formData.billing === 'monthly' ? 'mo' : 'yr'}</span>
+    <span>$${total}/${suffix}</span>
   `;
+
   summary.appendChild(totalDiv);
+
+  const changeBtn = summary.querySelector('.summary-change');
+  changeBtn.addEventListener('click', () => {
+    currentStep = 2;
+    updateFormSteps();
+  });
 }
+
+
+// function buildSummary() {
+//   if (!formData.plan) return;
+
+//   const summary = document.querySelector('.summary');
+//   summary.innerHTML = '';
+
+//   let total = 0;
+
+//   // PLAN
+//   const planPrice = prices[formData.plan][formData.billing];
+//   total += planPrice;
+
+//   const planDiv = document.createElement('div');
+//   planDiv.classList.add('summary-item');
+//   planDiv.innerHTML = `
+//     <span>${formData.plan} (${formData.billing})</span>
+//     <span>$${planPrice}/${formData.billing === 'monthly' ? 'mo' : 'yr'}</span>
+//     <span>${labels[formData.plan]} (${formData.billing})</span>
+
+//   `;
+//   summary.appendChild(planDiv);
+
+//   // ADDONS
+//   formData.addons.forEach(addon => {
+//     const addonPrice = prices[addon][formData.billing];
+//     total += addonPrice;
+
+//     const addonDiv = document.createElement('div');
+//     addonDiv.classList.add('summary-item');
+//     addonDiv.innerHTML = `
+//       <span>${labels[addon]}</span>
+//       <span>+$${addonPrice}/${formData.billing === 'monthly' ? 'mo' : 'yr'}</span>
+//     `;
+//     summary.appendChild(addonDiv);
+//   });
+
+//   // TOTAL
+//   const totalDiv = document.createElement('div');
+//   totalDiv.classList.add('total');
+//   totalDiv.innerHTML = `
+//     <span>Total (per ${formData.billing === 'monthly' ? 'month' : 'year'})</span>
+//     <span>$${total}/${formData.billing === 'monthly' ? 'mo' : 'yr'}</span>
+//   `;
+//   summary.appendChild(totalDiv);
+// }
 
 btnConfirm.addEventListener('click', (e) => {
   e.preventDefault();
   currentStep++;
   updateFormSteps();
 });
+
+updatePricesUI();
+updateFormSteps();
+
 
 
 
