@@ -215,29 +215,36 @@ function buildSummary() {
   let total = 0;
   const suffix = formData.billing === 'monthly' ? 'mo' : 'yr';
 
-  // PLAN PRICE
+  // 🔹 GŁÓWNY SZARY BOX
+  const box = document.createElement('div');
+  box.classList.add('summary-box');
+  summary.appendChild(box);
+
+  // ===== PLAN =====
   const planPrice = prices[formData.plan][formData.billing];
   total += planPrice;
 
-  const planBox = document.createElement('div');
-  planBox.classList.add('summary-plan-box');
+  const planTop = document.createElement('div');
+  planTop.classList.add('summary-plan-top');
 
-  planBox.innerHTML = `
-    <div class="summary-plan-top">
-      <div class="summary-plan-left">
-        <span class="summary-plan-name">
-          ${labels[formData.plan]} (${formData.billing})
-        </span>
-        <button type="button" class="summary-change">Change</button>
-      </div>
-      <span class="summary-plan-price">$${planPrice}/${suffix}</span>
+  planTop.innerHTML = `
+    <div class="summary-plan-left">
+      <span class="summary-plan-name">
+        ${labels[formData.plan]} (${formData.billing})
+      </span>
+      <button type="button" class="summary-change">Change</button>
     </div>
-    <div class="summary-divider"></div>
+    <span class="summary-plan-price">$${planPrice}/${suffix}</span>
   `;
 
-  summary.appendChild(planBox);
+  box.appendChild(planTop);
 
-  // ADD-ONS
+  // 🔹 DIVIDER
+  const divider = document.createElement('div');
+  divider.classList.add('summary-divider');
+  box.appendChild(divider);
+
+  // ===== ADD-ONS =====
   formData.addons.forEach(addon => {
     const addonPrice = prices[addon][formData.billing];
     total += addonPrice;
@@ -249,10 +256,10 @@ function buildSummary() {
       <span>+$${addonPrice}/${suffix}</span>
     `;
 
-    summary.appendChild(addonDiv);
+    box.appendChild(addonDiv); // 👈 TERAZ SĄ W SZARYM BOXIE
   });
 
-  //  TOTAL
+  // ===== TOTAL (POZA SZARYM BOXEM) =====
   const totalDiv = document.createElement('div');
   totalDiv.classList.add('total');
   totalDiv.innerHTML = `
@@ -261,13 +268,71 @@ function buildSummary() {
   `;
 
   summary.appendChild(totalDiv);
-
-  const changeBtn = summary.querySelector('.summary-change');
-  changeBtn.addEventListener('click', () => {
-    currentStep = 2;
-    updateFormSteps();
-  });
 }
+
+
+// function buildSummary() {
+//   if (!formData.plan) return;
+
+//   const summary = document.querySelector('.summary');
+//   summary.innerHTML = '';
+
+//   let total = 0;
+//   const suffix = formData.billing === 'monthly' ? 'mo' : 'yr';
+
+//   // PLAN PRICE
+//   const planPrice = prices[formData.plan][formData.billing];
+//   total += planPrice;
+
+//   const planBox = document.createElement('div');
+//   planBox.classList.add('summary-plan-box');
+
+//   planBox.innerHTML = `
+//     <div class="summary-plan-top">
+//       <div class="summary-plan-left">
+//         <span class="summary-plan-name">
+//           ${labels[formData.plan]} (${formData.billing})
+//         </span>
+//         <button type="button" class="summary-change">Change</button>
+//       </div>
+//       <span class="summary-plan-price">$${planPrice}/${suffix}</span>
+//     </div>
+//     <div class="summary-divider"></div>
+//   `;
+
+//   summary.appendChild(planBox);
+
+//   // ADD-ONS
+//   formData.addons.forEach(addon => {
+//     const addonPrice = prices[addon][formData.billing];
+//     total += addonPrice;
+
+//     const addonDiv = document.createElement('div');
+//     addonDiv.classList.add('summary-addon');
+//     addonDiv.innerHTML = `
+//       <span>${labels[addon]}</span>
+//       <span>+$${addonPrice}/${suffix}</span>
+//     `;
+
+//     summary.appendChild(addonDiv);
+//   });
+
+//  TOTAL
+// const totalDiv = document.createElement('div');
+// totalDiv.classList.add('total');
+// totalDiv.innerHTML = `
+//     <span>Total (per ${formData.billing === 'monthly' ? 'month' : 'year'})</span>
+//     <span>$${total}/${suffix}</span>
+//   `;
+
+// summary.appendChild(totalDiv);
+
+// const changeBtn = summary.querySelector('.summary-change');
+// changeBtn.addEventListener('click', () => {
+//   currentStep = 2;
+//   updateFormSteps();
+// });
+// }
 
 
 // function buildSummary() {
