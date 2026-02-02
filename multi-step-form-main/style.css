@@ -78,16 +78,14 @@ html {
   border-radius: 10px;
   box-shadow: 0 25px 40px rgba(0, 0, 0, 0.1);
   padding: 32px 24px;
-  /* padding-bottom: 100px; */
-  /* miejsce na fixed bar */
   z-index: 1;
 }
 
 .form-step {
   display: none;
+  margin: 0 auto;
   width: 100%;
   max-width: 450px;
-  /* margin: 0 auto; */
 }
 
 .form-step.is-active {
@@ -133,6 +131,7 @@ html {
   border-radius: 4px;
   border: 1px solid var(--grey-light);
   padding: 0 12px;
+  cursor: pointer;
 }
 
 .input::placeholder {
@@ -194,7 +193,7 @@ html {
 }
 
 .btn-next:hover {
-  opacity: 0.9;
+  opacity: 0.7;
 }
 
 .btn-back {
@@ -226,8 +225,9 @@ html {
   background-color: var(--purple);
 }
 
-
-
+.btn-confirm:hover {
+  opacity: 0.7;
+}
 
 .plans {
   display: flex;
@@ -284,13 +284,6 @@ html {
 }
 
 .plan:has(input:checked) {
-  border-color: var(--purple);
-  background-color: var(--very-light-grey);
-}
-
-
-.plan input[type="radio"]:checked+.plan-icon+.plan-info,
-.plan:has(input[type="radio"]:checked) {
   border-color: var(--purple);
   background-color: var(--very-light-grey);
 }
@@ -436,7 +429,6 @@ html {
   flex-direction: column;
   gap: 12px;
   background-color: var(--very-light-grey);
-  background-color: red;
   border-radius: 8px;
   padding: 16px;
 }
@@ -474,7 +466,6 @@ html {
   background: none;
   border: none;
   padding: 0;
-  /* margin-top: 4px; */
   cursor: pointer;
 }
 
@@ -486,7 +477,7 @@ html {
   height: 1px;
   background-color: var(--grey-light);
   margin: 12px 0;
-  /* margin: 16px 0; */
+
 }
 
 .summary-addon {
@@ -495,7 +486,7 @@ html {
   gap: 12px;
   font-size: 1.3rem;
   color: var(--gray);
-  /* margin-bottom: 8px; */
+
 }
 
 .total {
@@ -538,6 +529,30 @@ html {
   margin-bottom: 16px;
 }
 
+.attribution-container {
+  position: fixed;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+  font-size: 1.2rem;
+  color: var(--purple);
+}
+
+.attribution-link:link,
+.attribution-link:visited {
+  color: var(--blue);
+  transition: all 0.2s;
+}
+
+.attribution-link:focus,
+.attribution-link:hover,
+.attribution-link:active {
+  color: var(--red);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 @media (min-width: 768px) {
   .app {
     display: flex;
@@ -556,7 +571,6 @@ html {
   }
 
   .sidebar {
-    /* height: auto; */
     height: 568px;
     background-image: url("assets/images/bg-sidebar-desktop.svg");
     border-radius: 10px;
@@ -596,14 +610,24 @@ html {
   }
 
   .form {
-    min-width: 462px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     position: static;
-    margin: 0;
     box-shadow: none;
-    padding-bottom: 40px;
     padding: 40px 10px 16px 0;
-    /* padding: 40px 56px; */
   }
+
+  .form-step {
+    display: none;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .form-step.is-active {
+    display: flex;
+  }
+
 
   .form-step {
     width: 450px;
@@ -628,12 +652,14 @@ html {
     padding-bottom: 8px;
   }
 
+
   .mobile-actions {
     position: static;
     box-shadow: none;
     padding: 0;
-    margin-top: 95px;
+    margin-top: auto;
   }
+
 
   .btn-next,
   .btn-confirm {
@@ -704,9 +730,6 @@ html {
 }
 
 @media screen and (min-width: 1024px) {
-  .form {
-    /* min-width: 555px; */
-  }
 
   .form-container {
     width: 940px;

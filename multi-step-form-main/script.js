@@ -172,7 +172,9 @@ billingToggle.addEventListener('change', () => {
 addonInputs.forEach(input => {
   input.addEventListener('change', () => {
     if (input.checked) {
-      formData.addons.push(input.value);
+      if (!formData.addons.includes(input.value)) {
+        formData.addons.push(input.value);
+      }
     } else {
       formData.addons = formData.addons.filter(a => a !== input.value);
     }
@@ -197,7 +199,7 @@ const labels = {
 
 
 const prices = {
-  Arcade: { monthly: 9, yearly: 90 },
+  arcade: { monthly: 9, yearly: 90 },
   advanced: { monthly: 12, yearly: 120 },
   pro: { monthly: 15, yearly: 150 },
 
@@ -215,12 +217,11 @@ function buildSummary() {
   let total = 0;
   const suffix = formData.billing === 'monthly' ? 'mo' : 'yr';
 
-  // 🔹 GŁÓWNY SZARY BOX
   const box = document.createElement('div');
   box.classList.add('summary-box');
   summary.appendChild(box);
 
-  // ===== PLAN =====
+  //PLAN 
   const planPrice = prices[formData.plan][formData.billing];
   total += planPrice;
 
@@ -239,12 +240,12 @@ function buildSummary() {
 
   box.appendChild(planTop);
 
-  // 🔹 DIVIDER
+  //  DIVIDER
   const divider = document.createElement('div');
   divider.classList.add('summary-divider');
   box.appendChild(divider);
 
-  // ===== ADD-ONS =====
+  // ADD-ONS 
   formData.addons.forEach(addon => {
     const addonPrice = prices[addon][formData.billing];
     total += addonPrice;
@@ -256,10 +257,9 @@ function buildSummary() {
       <span>+$${addonPrice}/${suffix}</span>
     `;
 
-    box.appendChild(addonDiv); // 👈 TERAZ SĄ W SZARYM BOXIE
+    box.appendChild(addonDiv);
   });
 
-  // ===== TOTAL (POZA SZARYM BOXEM) =====
   const totalDiv = document.createElement('div');
   totalDiv.classList.add('total');
   totalDiv.innerHTML = `
@@ -269,117 +269,20 @@ function buildSummary() {
 
   summary.appendChild(totalDiv);
 }
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('summary-change')) {
+    currentStep = 2;
+    updateFormSteps();
+
+    planInputs.forEach(input => {
+      input.checked = input.value.toLowerCase() === formData.plan.toLowerCase();
+    });
+
+    updatePricesUI();
+  }
+});
 
 
-// function buildSummary() {
-//   if (!formData.plan) return;
-
-//   const summary = document.querySelector('.summary');
-//   summary.innerHTML = '';
-
-//   let total = 0;
-//   const suffix = formData.billing === 'monthly' ? 'mo' : 'yr';
-
-//   // PLAN PRICE
-//   const planPrice = prices[formData.plan][formData.billing];
-//   total += planPrice;
-
-//   const planBox = document.createElement('div');
-//   planBox.classList.add('summary-plan-box');
-
-//   planBox.innerHTML = `
-//     <div class="summary-plan-top">
-//       <div class="summary-plan-left">
-//         <span class="summary-plan-name">
-//           ${labels[formData.plan]} (${formData.billing})
-//         </span>
-//         <button type="button" class="summary-change">Change</button>
-//       </div>
-//       <span class="summary-plan-price">$${planPrice}/${suffix}</span>
-//     </div>
-//     <div class="summary-divider"></div>
-//   `;
-
-//   summary.appendChild(planBox);
-
-//   // ADD-ONS
-//   formData.addons.forEach(addon => {
-//     const addonPrice = prices[addon][formData.billing];
-//     total += addonPrice;
-
-//     const addonDiv = document.createElement('div');
-//     addonDiv.classList.add('summary-addon');
-//     addonDiv.innerHTML = `
-//       <span>${labels[addon]}</span>
-//       <span>+$${addonPrice}/${suffix}</span>
-//     `;
-
-//     summary.appendChild(addonDiv);
-//   });
-
-//  TOTAL
-// const totalDiv = document.createElement('div');
-// totalDiv.classList.add('total');
-// totalDiv.innerHTML = `
-//     <span>Total (per ${formData.billing === 'monthly' ? 'month' : 'year'})</span>
-//     <span>$${total}/${suffix}</span>
-//   `;
-
-// summary.appendChild(totalDiv);
-
-// const changeBtn = summary.querySelector('.summary-change');
-// changeBtn.addEventListener('click', () => {
-//   currentStep = 2;
-//   updateFormSteps();
-// });
-// }
-
-
-// function buildSummary() {
-//   if (!formData.plan) return;
-
-//   const summary = document.querySelector('.summary');
-//   summary.innerHTML = '';
-
-//   let total = 0;
-
-//   // PLAN
-//   const planPrice = prices[formData.plan][formData.billing];
-//   total += planPrice;
-
-//   const planDiv = document.createElement('div');
-//   planDiv.classList.add('summary-item');
-//   planDiv.innerHTML = `
-//     <span>${formData.plan} (${formData.billing})</span>
-//     <span>$${planPrice}/${formData.billing === 'monthly' ? 'mo' : 'yr'}</span>
-//     <span>${labels[formData.plan]} (${formData.billing})</span>
-
-//   `;
-//   summary.appendChild(planDiv);
-
-//   // ADDONS
-//   formData.addons.forEach(addon => {
-//     const addonPrice = prices[addon][formData.billing];
-//     total += addonPrice;
-
-//     const addonDiv = document.createElement('div');
-//     addonDiv.classList.add('summary-item');
-//     addonDiv.innerHTML = `
-//       <span>${labels[addon]}</span>
-//       <span>+$${addonPrice}/${formData.billing === 'monthly' ? 'mo' : 'yr'}</span>
-//     `;
-//     summary.appendChild(addonDiv);
-//   });
-
-//   // TOTAL
-//   const totalDiv = document.createElement('div');
-//   totalDiv.classList.add('total');
-//   totalDiv.innerHTML = `
-//     <span>Total (per ${formData.billing === 'monthly' ? 'month' : 'year'})</span>
-//     <span>$${total}/${formData.billing === 'monthly' ? 'mo' : 'yr'}</span>
-//   `;
-//   summary.appendChild(totalDiv);
-// }
 
 btnConfirm.addEventListener('click', (e) => {
   e.preventDefault();
