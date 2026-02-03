@@ -1,5 +1,4 @@
 
-
 const formSteps = document.querySelectorAll(".form-step");
 const nextBtns = document.querySelectorAll(".btn-next");
 const backBtns = document.querySelectorAll(".btn-back");
@@ -11,11 +10,8 @@ const emailInput = step1.querySelector('#email');
 const phoneInput = step1.querySelector('#phone');
 
 const billingToggle = document.getElementById('billing');
-
 const addonInputs = document.querySelectorAll('input[name="addons"]');
-
 const planInputs = document.querySelectorAll('input[name="plan"]');
-
 const btnConfirm = document.querySelector('.btn-confirm');
 
 const state = {
@@ -43,16 +39,28 @@ const LABELS = {
   profile: "Customizable profile"
 };
 
+function formatPrice(value, billing, isAddon = false) {
+  const suffix = billing === "monthly" ? "mo" : "yr";
+  const sign = isAddon ? "+" : "";
+  return `${sign}$${value}/${suffix}`;
+}
 
+function calculateTotal(state) {
+  if (!state.plan) return 0;
 
+  let total = PRICES[state.plan][state.billing];
+
+  state.addons.forEach(addon => {
+    total += PRICES[addon][state.billing];
+  });
+
+  return total;
+}
+
+// RENDER 
 function renderStep() {
-  formSteps.forEach(step => {
-    step.classList.remove("is-active");
-  });
-
-  stepsSidebar.forEach(step => {
-    step.classList.remove("is-active");
-  });
+  formSteps.forEach(step => step.classList.remove("is-active"));
+  stepsSidebar.forEach(step => step.classList.remove("is-active"));
 
   const activeForm = document.querySelector(`.form-step[data-step="${state.step}"]`);
   const activeSidebar = document.querySelector(`.step[data-step="${state.step}"]`);
@@ -61,44 +69,161 @@ function renderStep() {
   if (activeSidebar) activeSidebar.classList.add("is-active");
 }
 
+function updatePricesUI() {
+  const priceEls = document.querySelectorAll('[data-monthly]');
+  const bonusEls = document.querySelectorAll('.plan-bonus');
 
+  priceEls.forEach(el => {
+    const price = el.dataset[state.billing];
+    const isAddon = el.classList.contains('addon-price');
+    el.textContent = formatPrice(Number(price), state.billing, isAddon);
+  });
 
+  bonusEls.forEach(el => {
+    el.style.display = state.billing === 'yearly' ? 'block' : 'none';
+  });
+}
 
-// Sidebar
+function renderPlans() {
+  planInputs.forEach(input => {
+    input.checked = input.value === state.plan;
+  });
+}
 
-nextBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
+function renderAddons() {
+  addonInputs.forEach(input => {
+    input.checked = state.addons.includes(input.value);
+  });
+}
 
-    if (state.step === 1) {
-      const ok = validateStep1();
-      if (!ok) return;
-    }
+//  SUMMARY 
+function renderSummaryPlan(container) {
+  if (!state.plan) return;
 
-    if (state.step === 2 && !state.plan) {
-      alert('Please select a plan');
+  const planPrice = PRICES[state.plan][state.billing];
+  const planTop = document.createElement('div');
+  planTop.classList.add('summary-plan-top');
+
+  planTop.innerHTML = `
+    <div class="summary-plan-left">
+      <span class="summary-plan-name">
+        ${LABELS[state.plan]} (${state.billing})
+      </span>
+      <button type="button" class="summary-change">Change</button>
+    </div>
+    <span class="summary-plan-price">${formatPrice(planPrice, state.billing)}</span>
+  `;
+  container.appendChild(planTop);
+
+  const divider = document.createElement('div');
+  divider.classList.add('summary-divider');
+  container.appendChild(divider);
+}
+
+function renderSummaryAddons(container) {
+  state.addons.forEach(addon => {
+    const addonPrice = PRICES[addon][state.billing];
+    const addonDiv = document.createElement('div');
+    addonDiv.classList.add('summary-addon');
+    addonDiv.innerHTML = `
+      <span>${LABELS[addon]}</span>
+      <span>${formatPrice(addonPrice, state.billing, true)}</span>
+    `;
+    container.appendChild(addonDiv);
+  });
+}
+
+function renderSummaryTotal(summaryRoot) {
+  const total = calculateTotal(state);
+  const suffix = state.billing === 'monthly' ? 'mo' : 'yr';
+
+  const totalDiv = document.createElement('div');
+  totalDiv.classList.add('total');
+  totalDiv.innerHTML = `
+    <span>Total (per ${state.billing === 'monthly' ? 'month' : 'year'})</span>
+    <span>$${total}/${suffix}</span>
+  `;
+  summaryRoot.appendChild(totalDiv);
+}
+
+function buildSummary() {
+  const summary = document.querySelector('.summary');
+  summary.innerHTML = '';
+
+  const box = document.createElement('div');
+  box.classList.add('summary-box');
+  summary.appendChild(box);
+
+  renderSummaryPlan(box);
+  renderSummaryAddons(box);
+  renderSummaryTotal(summary);
+}
+
+// STEP
+function goToStep(nextStep) {
+  if (state.step === 1 && nextStep > 1) {
+    if (!validateStep1()) return;
+  }
+  if (state.step === 2 && nextStep > 2) {
+    if (!state.plan) {
+      alert("Please select a plan");
       return;
     }
+  }
+  state.step = nextStep;
+  render();
+}
 
-    if (state.step < formSteps.length) {
-      state.step++;
-      render();
-    }
+// EVENTY 
+nextBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    goToStep(state.step + 1);
   });
 });
 
-
-
-backBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    if (state.step > 1) {
-      state.step--;
-      render();
-    }
-
+backBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (state.step > 1) goToStep(state.step - 1);
   });
 });
 
-// Validation Step 1
+billingToggle.addEventListener('change', () => {
+  state.billing = billingToggle.checked ? 'yearly' : 'monthly';
+  render();
+});
+
+addonInputs.forEach(input => {
+  input.addEventListener('change', () => {
+    if (input.checked) {
+      if (!state.addons.includes(input.value)) state.addons.push(input.value);
+    } else {
+      state.addons = state.addons.filter(a => a !== input.value);
+    }
+    render();
+  });
+});
+
+planInputs.forEach(input => {
+  input.addEventListener('change', () => {
+    state.plan = input.value;
+    render();
+  });
+});
+
+btnConfirm.addEventListener('click', e => {
+  e.preventDefault();
+  goToStep(state.step + 1);
+});
+
+document.addEventListener('click', e => {
+  if (e.target.classList.contains('summary-change')) {
+    goToStep(2);
+  }
+});
+
+//  STEP 1
+const phoneRegex = /^[0-9+\s()\-]{6,}$/;
+
 function showFieldError(input, message) {
   const error = input.parentElement.querySelector('.error-message');
   input.classList.add('is-error');
@@ -122,9 +247,7 @@ function validateStep1() {
   }
 
   const emailValue = emailInput.value.trim();
-
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   if (emailValue === '') {
     showFieldError(emailInput, 'Email is required');
     isValid = false;
@@ -134,9 +257,6 @@ function validateStep1() {
   }
 
   const phoneValue = phoneInput.value.trim();
-
-  const phoneRegex = /^[0-9+\s()-]{6,}$/;
-
   if (phoneValue === '') {
     showFieldError(phoneInput, 'Phone number is required');
     isValid = false;
@@ -149,224 +269,17 @@ function validateStep1() {
 }
 
 [nameInput, emailInput, phoneInput].forEach(input => {
-  input.addEventListener('input', () => {
-    clearFieldError(input);
-  });
+  input.addEventListener('input', () => clearFieldError(input));
 });
 
-function updatePricesUI() {
-  const priceEls = document.querySelectorAll('[data-monthly]');
-  const bonusEls = document.querySelectorAll('.plan-bonus');
-
-  priceEls.forEach(el => {
-    const price = el.dataset[state.billing]; // używamy STATE
-    const suffix = state.billing === 'monthly' ? 'mo' : 'yr';
-
-    if (el.classList.contains('addon-price')) {
-      el.textContent = `+$${price}/${suffix}`;
-    } else {
-      el.textContent = `$${price}/${suffix}`;
-    }
-  });
-
-  bonusEls.forEach(el => {
-    el.style.display = state.billing === 'yearly' ? 'block' : 'none';
-  });
-}
-
-// function updatePricesUI() {
-//   const priceEls = document.querySelectorAll('[data-monthly]');
-//   const bonusEls = document.querySelectorAll('.plan-bonus');
-
-//   priceEls.forEach(el => {
-//     const price = el.dataset[formData.billing];
-//     const suffix = formData.billing === 'monthly' ? 'mo' : 'yr';
-
-//     if (el.classList.contains('addon-price')) {
-//       el.textContent = `+$${price}/${suffix}`;
-//     } else {
-//       el.textContent = `$${price}/${suffix}`;
-//     }
-//   });
-
-//   bonusEls.forEach(el => {
-//     el.style.display = formData.billing === 'yearly' ? 'block' : 'none';
-//   });
-// }
-
-billingToggle.addEventListener('change', () => {
-  state.billing = billingToggle.checked ? 'yearly' : 'monthly';
-  render();
-});
-
-
-
-// step 3
-addonInputs.forEach(input => {
-  input.addEventListener('change', () => {
-    if (input.checked) {
-      if (!state.addons.includes(input.value)) {
-        state.addons.push(input.value);
-      }
-    } else {
-      state.addons = state.addons.filter(a => a !== input.value);
-    }
-    render();
-  });
-});
-
-
-planInputs.forEach(input => {
-  input.addEventListener('change', () => {
-    state.plan = input.value;
-    render();
-  });
-});
-
-// 
-// function buildSummary() {
-//   if (!formData.plan) return;
-
-//   const summary = document.querySelector('.summary');
-//   summary.innerHTML = '';
-
-//   let total = 0;
-//   const suffix = formData.billing === 'monthly' ? 'mo' : 'yr';
-
-//   const box = document.createElement('div');
-//   box.classList.add('summary-box');
-//   summary.appendChild(box);
-
-//   //PLAN 
-//   const planPrice = prices[formData.plan][formData.billing];
-//   total += planPrice;
-
-//   const planTop = document.createElement('div');
-//   planTop.classList.add('summary-plan-top');
-
-//   planTop.innerHTML = `
-//     <div class="summary-plan-left">
-//       <span class="summary-plan-name">
-//         ${labels[formData.plan]} (${formData.billing})
-//       </span>
-//       <button type="button" class="summary-change">Change</button>
-//     </div>
-//     <span class="summary-plan-price">$${planPrice}/${suffix}</span>
-//   `;
-
-//   box.appendChild(planTop);
-
-//   //  DIVIDER
-//   const divider = document.createElement('div');
-//   divider.classList.add('summary-divider');
-//   box.appendChild(divider);
-
-//   // ADD-ONS 
-//   formData.addons.forEach(addon => {
-//     const addonPrice = prices[addon][formData.billing];
-//     total += addonPrice;
-
-//     const addonDiv = document.createElement('div');
-//     addonDiv.classList.add('summary-addon');
-//     addonDiv.innerHTML = `
-//       <span>${labels[addon]}</span>
-//       <span>+$${addonPrice}/${suffix}</span>
-//     `;
-
-//     box.appendChild(addonDiv);
-//   });
-
-//   const totalDiv = document.createElement('div');
-//   totalDiv.classList.add('total');
-//   totalDiv.innerHTML = `
-//     <span>Total (per ${formData.billing === 'monthly' ? 'month' : 'year'})</span>
-//     <span>$${total}/${suffix}</span>
-//   `;
-
-//   summary.appendChild(totalDiv);
-// }
-
-function buildSummary() {
-  const summary = document.querySelector('.summary');
-  if (!summary) return;
-
-  summary.innerHTML = '';
-
-  if (!state.plan) return;
-
-  let total = 0;
-  const suffix = state.billing === 'monthly' ? 'mo' : 'yr';
-
-  const box = document.createElement('div');
-  box.classList.add('summary-box');
-  summary.appendChild(box);
-
-  // PLAN
-  const planPrice = PRICES[state.plan][state.billing];
-  total += planPrice;
-
-  const planTop = document.createElement('div');
-  planTop.classList.add('summary-plan-top');
-
-  planTop.innerHTML = `
-    <div class="summary-plan-left">
-      <span class="summary-plan-name">
-        ${LABELS[state.plan]} (${state.billing})
-      </span>
-      <button type="button" class="summary-change">Change</button>
-    </div>
-    <span class="summary-plan-price">$${planPrice}/${suffix}</span>
-  `;
-
-  box.appendChild(planTop);
-
-  const divider = document.createElement('div');
-  divider.classList.add('summary-divider');
-  box.appendChild(divider);
-
-  // ADDONS
-  state.addons.forEach(addon => {
-    const addonPrice = PRICES[addon][state.billing];
-    total += addonPrice;
-
-    const row = document.createElement('div');
-    row.classList.add('summary-addon');
-    row.innerHTML = `
-      <span>${LABELS[addon]}</span>
-      <span>+$${addonPrice}/${suffix}</span>
-    `;
-    box.appendChild(row);
-  });
-
-  // TOTAL
-  const totalDiv = document.createElement('div');
-  totalDiv.classList.add('total');
-  totalDiv.innerHTML = `
-    <span>Total (per ${state.billing === 'monthly' ? 'month' : 'year'})</span>
-    <span>$${total}/${suffix}</span>
-  `;
-
-  summary.appendChild(totalDiv);
-}
-
-
-document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('summary-change')) {
-    state.step = 2;
-    render();
-  }
-});
-
-
-btnConfirm.addEventListener('click', (e) => {
-  e.preventDefault();
-  state.step++;
-  render();
-});
-
+// RENDER 
 function render() {
   renderStep();
   updatePricesUI();
+  renderPlans();
+  renderAddons();
   buildSummary();
 }
 
+//  START
+render();

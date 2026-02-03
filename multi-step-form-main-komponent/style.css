@@ -650,6 +650,7 @@ html {
 
   .mobile-actions {
     position: static;
+    box-shadow: none;
     padding: 0;
     margin-top: auto;
   }
