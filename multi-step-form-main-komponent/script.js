@@ -27,62 +27,15 @@ function goToStep(nextStep) {
   if (state.step === 1 && nextStep > 1) {
     if (!validateStep1()) return;
   }
-  if (state.step === 2 && nextStep > 2) {
-    if (!state.plan) {
-      alert("Please select a plan");
-      return;
-    }
+
+  if (state.step === 2 && nextStep > 2 && !state.plan) {
+    alert("Please select a plan");
+    return;
   }
-  state.step = nextStep;
-  render();
+
+  setState({ step: nextStep });
 }
 
-// EVENTY 
-// nextBtns.forEach(btn => {
-//   btn.addEventListener('click', () => {
-//     goToStep(state.step + 1);
-//   });
-// });
-
-// backBtns.forEach(btn => {
-//   btn.addEventListener('click', () => {
-//     if (state.step > 1) goToStep(state.step - 1);
-//   });
-// });
-
-// billingToggle.addEventListener('change', () => {
-//   state.billing = billingToggle.checked ? 'yearly' : 'monthly';
-//   render();
-// });
-
-// addonInputs.forEach(input => {
-//   input.addEventListener('change', () => {
-//     if (input.checked) {
-//       if (!state.addons.includes(input.value)) state.addons.push(input.value);
-//     } else {
-//       state.addons = state.addons.filter(a => a !== input.value);
-//     }
-//     render();
-//   });
-// });
-
-// planInputs.forEach(input => {
-//   input.addEventListener('change', () => {
-//     state.plan = input.value;
-//     render();
-//   });
-// });
-
-// btnConfirm.addEventListener('click', e => {
-//   e.preventDefault();
-//   goToStep(state.step + 1);
-// });
-
-// document.addEventListener('click', e => {
-//   if (e.target.classList.contains('summary-change')) {
-//     goToStep(2);
-//   }
-// });
 
 //  STEP 1
 const phoneRegex = /^[0-9+\s()\-]{6,}$/;
@@ -131,20 +84,47 @@ function validateStep1() {
   return isValid;
 }
 
-// [nameInput, emailInput, phoneInput].forEach(input => {
-//   input.addEventListener('input', () => clearFieldError(input));
-// });
+let prevState = { ...state };
+
+function setState(patch) {
+  const newState = { ...state, ...patch };
+
+  if (patch.addons) {
+    newState.addons = [...patch.addons];
+  }
+
+  Object.assign(state, newState);
+  render();
+}
+
 
 function render() {
-  renderStep(state, formSteps, stepsSidebar);
-  updatePricesUI(state);
+  if (prevState.step !== state.step) {
+    renderStep(state, formSteps, stepsSidebar);
+  }
 
-  if (state.step === 2) renderPlans(state, planInputs);
-  if (state.step === 3) renderAddons(state, addonInputs);
+  if (prevState.billing !== state.billing) {
+    updatePricesUI(state);
+  }
 
-  if (state.step === 4) {
+  if (prevState.plan !== state.plan) {
+    renderPlans(state, planInputs);
+  }
+
+  if (prevState.addons.join() !== state.addons.join()) {
+    renderAddons(state, addonInputs);
+  }
+
+  if (
+    prevState.step !== state.step ||
+    prevState.plan !== state.plan ||
+    prevState.billing !== state.billing ||
+    prevState.addons.join() !== state.addons.join()
+  ) {
     summaryContainer.innerHTML = SummaryComponent(state);
   }
+
+  prevState = { ...state };
 }
 
 // EVENTY 
@@ -159,7 +139,7 @@ setupEvents({
   emailInput,
   phoneInput,
   goToStep,
-  render,
+  setState,
   validateStep1
 });
 

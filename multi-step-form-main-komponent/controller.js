@@ -11,9 +11,10 @@ export function setupEvents({
   emailInput,
   phoneInput,
   goToStep,
-  render,
+  setState,
   validateStep1
 }) {
+
 
   nextBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -28,27 +29,31 @@ export function setupEvents({
   });
 
   billingToggle.addEventListener('change', () => {
-    state.billing = billingToggle.checked ? 'yearly' : 'monthly';
-    render();
+    setState({ billing: billingToggle.checked ? 'yearly' : 'monthly' });
   });
 
   addonInputs.forEach(input => {
     input.addEventListener('change', () => {
+      let newAddons = [...state.addons];
+
       if (input.checked) {
-        if (!state.addons.includes(input.value)) state.addons.push(input.value);
+        if (!newAddons.includes(input.value)) {
+          newAddons.push(input.value);
+        }
       } else {
-        state.addons = state.addons.filter(a => a !== input.value);
+        newAddons = newAddons.filter(a => a !== input.value);
       }
-      render();
+
+      setState({ addons: newAddons });
     });
   });
 
   planInputs.forEach(input => {
     input.addEventListener('change', () => {
-      state.plan = input.value;
-      render();
+      setState({ plan: input.value });
     });
   });
+
 
   btnConfirm.addEventListener('click', e => {
     e.preventDefault();
