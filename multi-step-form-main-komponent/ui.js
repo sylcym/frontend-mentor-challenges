@@ -12,29 +12,29 @@ export function renderStep(state, formSteps, stepsSidebar) {
 }
 
 
-export function updatePricesUI(state) {
-  const priceEls = document.querySelectorAll('[data-monthly]');
-  const bonusEls = document.querySelectorAll('.plan-bonus');
+// export function updatePricesUI(state) {
+//   const priceEls = document.querySelectorAll('[data-monthly]');
+//   const bonusEls = document.querySelectorAll('.plan-bonus');
 
-  priceEls.forEach(el => {
-    const price = el.dataset[state.billing];
-    const isAddon = el.classList.contains('addon-price');
-    el.textContent = formatPrice(Number(price), state.billing, isAddon);
-  });
+//   priceEls.forEach(el => {
+//     const price = el.dataset[state.billing];
+//     const isAddon = el.classList.contains('addon-price');
+//     el.textContent = formatPrice(Number(price), state.billing, isAddon);
+//   });
 
-  bonusEls.forEach(el => {
-    el.style.display = state.billing === 'yearly' ? 'block' : 'none';
-  });
-}
+//   bonusEls.forEach(el => {
+//     el.style.display = state.billing === 'yearly' ? 'block' : 'none';
+//   });
+// }
 
-export function renderPlans(state, planInputs) {
-  planInputs.forEach(input => {
-    input.checked = input.value === state.plan;
-  });
-}
+// export function renderPlans(state, planInputs) {
+//   planInputs.forEach(input => {
+//     input.checked = input.value === state.plan;
+//   });
+// }
 
-export function renderAddons(state, addonInputs) {
-  addonInputs.forEach(input => {
-    input.checked = state.addons.includes(input.value);
-  });
-}
+// export function renderAddons(state, addonInputs) {
+//   addonInputs.forEach(input => {
+//     input.checked = state.addons.includes(input.value);
+//   });
+// }

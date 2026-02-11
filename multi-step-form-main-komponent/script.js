@@ -1,7 +1,11 @@
 import { state } from './state.js';
-import { SummaryComponent } from './summaryComponent.js';
+import { SummaryComponent } from './SummaryComponent.js';
+import { validateStep1 } from './validation.js';
+import { BillingComponent } from './BillingComponent.js';
+import { PlanSelector } from './PlanSelector.js';
+import { AddonsSelector } from './AddonsSelector.js';
 import { setupEvents } from './controller.js';
-import { renderStep, updatePricesUI, renderPlans, renderAddons } from './ui.js';
+import { renderStep } from './ui.js';
 
 
 
@@ -25,7 +29,7 @@ const summaryContainer = document.querySelector('.summary');
 // STEP
 function goToStep(nextStep) {
   if (state.step === 1 && nextStep > 1) {
-    if (!validateStep1()) return;
+    if (!validateStep1(nameInput, emailInput, phoneInput)) return;
   }
 
   if (state.step === 2 && nextStep > 2 && !state.plan) {
@@ -36,53 +40,6 @@ function goToStep(nextStep) {
   setState({ step: nextStep });
 }
 
-
-//  STEP 1
-const phoneRegex = /^[0-9+\s()\-]{6,}$/;
-
-function showFieldError(input, message) {
-  const error = input.parentElement.querySelector('.error-message');
-  input.classList.add('is-error');
-  error.textContent = message;
-  error.style.display = 'block';
-}
-
-function clearFieldError(input) {
-  const error = input.parentElement.querySelector('.error-message');
-  input.classList.remove('is-error');
-  error.textContent = '';
-  error.style.display = 'none';
-}
-
-function validateStep1() {
-  let isValid = true;
-
-  if (nameInput.value.trim() === '') {
-    showFieldError(nameInput, 'Name is required');
-    isValid = false;
-  }
-
-  const emailValue = emailInput.value.trim();
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (emailValue === '') {
-    showFieldError(emailInput, 'Email is required');
-    isValid = false;
-  } else if (!emailRegex.test(emailValue)) {
-    showFieldError(emailInput, 'Enter a valid email address');
-    isValid = false;
-  }
-
-  const phoneValue = phoneInput.value.trim();
-  if (phoneValue === '') {
-    showFieldError(phoneInput, 'Phone number is required');
-    isValid = false;
-  } else if (!phoneRegex.test(phoneValue)) {
-    showFieldError(phoneInput, 'Enter a valid phone number');
-    isValid = false;
-  }
-
-  return isValid;
-}
 
 let prevState = { ...state };
 
@@ -104,16 +61,18 @@ function render() {
   }
 
   if (prevState.billing !== state.billing) {
-    updatePricesUI(state);
+    BillingComponent(state);
   }
 
   if (prevState.plan !== state.plan) {
-    renderPlans(state, planInputs);
+    PlanSelector(state);
   }
 
   if (prevState.addons.join() !== state.addons.join()) {
-    renderAddons(state, addonInputs);
+    AddonsSelector(state);
   }
+
+
 
   if (
     prevState.step !== state.step ||
@@ -124,7 +83,10 @@ function render() {
     summaryContainer.innerHTML = SummaryComponent(state);
   }
 
-  prevState = { ...state };
+  prevState = {
+    ...state,
+    addons: [...state.addons]
+  };
 }
 
 // EVENTY 
