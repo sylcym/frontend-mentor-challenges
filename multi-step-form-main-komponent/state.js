@@ -2,7 +2,10 @@ export const state = {
   step: 1,
   plan: null,
   billing: "monthly",
-  addons: []
+  addons: [],
+  name: "",
+  email: "",
+  phone: ""
 };
 
 export const PRICES = {

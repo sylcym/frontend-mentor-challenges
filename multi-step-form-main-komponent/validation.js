@@ -1,4 +1,4 @@
-export function validateStep1(nameInput, emailInput, phoneInput) {
+export function validateStep1(nameInputEl, emailInputEl, phoneInputEl) {
   let isValid = true;
 
   const phoneRegex = /^[0-9+\s()\-]{6,}$/;
@@ -11,26 +11,26 @@ export function validateStep1(nameInput, emailInput, phoneInput) {
     error.style.display = 'block';
   }
 
-  if (nameInput.value.trim() === '') {
-    showFieldError(nameInput, 'Name is required');
+  if (nameInputEl.value.trim() === '') {
+    showFieldError(nameInputEl, 'Name is required');
     isValid = false;
   }
 
-  const emailValue = emailInput.value.trim();
+  const emailValue = emailInputEl.value.trim();
   if (emailValue === '') {
-    showFieldError(emailInput, 'Email is required');
+    showFieldError(emailInputEl, 'Email is required');
     isValid = false;
   } else if (!emailRegex.test(emailValue)) {
-    showFieldError(emailInput, 'Enter a valid email address');
+    showFieldError(emailInputEl, 'Enter a valid email address');
     isValid = false;
   }
 
-  const phoneValue = phoneInput.value.trim();
+  const phoneValue = phoneInputEl.value.trim();
   if (phoneValue === '') {
-    showFieldError(phoneInput, 'Phone number is required');
+    showFieldError(phoneInputEl, 'Phone number is required');
     isValid = false;
   } else if (!phoneRegex.test(phoneValue)) {
-    showFieldError(phoneInput, 'Enter a valid phone number');
+    showFieldError(phoneInputEl, 'Enter a valid phone number');
     isValid = false;
   }
 

@@ -7,9 +7,9 @@ export function setupEvents({
   addonInputs,
   planInputs,
   btnConfirm,
-  nameInput,
-  emailInput,
-  phoneInput,
+  nameInputEl,
+  emailInputEl,
+  phoneInputEl,
   goToStep,
   setState,
   validateStep1
@@ -67,7 +67,7 @@ export function setupEvents({
   });
 
   // live validation clear
-  [nameInput, emailInput, phoneInput].forEach(input => {
+  [nameInputEl, emailInputEl, phoneInputEl].forEach(input => {
     input.addEventListener('input', () => {
       const error = input.parentElement.querySelector('.error-message');
       input.classList.remove('is-error');

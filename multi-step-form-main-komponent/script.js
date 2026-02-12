@@ -1,6 +1,7 @@
 import { state } from './state.js';
 import { SummaryComponent } from './SummaryComponent.js';
 import { validateStep1 } from './validation.js';
+import { InputComponent } from './InputComponent.js';
 import { BillingComponent } from './BillingComponent.js';
 import { PlanSelector } from './PlanSelector.js';
 import { AddonsSelector } from './AddonsSelector.js';
@@ -15,9 +16,13 @@ const backBtns = document.querySelectorAll(".btn-back");
 const stepsSidebar = document.querySelectorAll(".step");
 
 const step1 = document.querySelector('.form-step[data-step="1"]');
-const nameInput = step1.querySelector('#name');
-const emailInput = step1.querySelector('#email');
-const phoneInput = step1.querySelector('#phone');
+// const nameInput = step1.querySelector('#name');
+// const emailInput = step1.querySelector('#email');
+// const phoneInput = step1.querySelector('#phone');
+const nameInputEl = step1.querySelector('#name');
+const emailInputEl = step1.querySelector('#email');
+const phoneInputEl = step1.querySelector('#phone');
+
 
 const billingToggle = document.getElementById('billing');
 const addonInputs = document.querySelectorAll('input[name="addons"]');
@@ -25,11 +30,31 @@ const planInputs = document.querySelectorAll('input[name="plan"]');
 const btnConfirm = document.querySelector('.btn-confirm');
 const summaryContainer = document.querySelector('.summary');
 
+const nameInputComponent = InputComponent({
+  inputEl: nameInputEl,
+  stateKey: "name",
+  setState
+});
+
+const emailInputComponent = InputComponent({
+  inputEl: emailInputEl,
+  stateKey: "email",
+  setState
+});
+
+const phoneInputComponent = InputComponent({
+  inputEl: phoneInputEl,
+  stateKey: "phone",
+  setState
+});
+
+
+
 
 // STEP
 function goToStep(nextStep) {
   if (state.step === 1 && nextStep > 1) {
-    if (!validateStep1(nameInput, emailInput, phoneInput)) return;
+    if (!validateStep1(nameInputEl, emailInputEl, phoneInputEl)) return;
   }
 
   if (state.step === 2 && nextStep > 2 && !state.plan) {
@@ -72,7 +97,16 @@ function render() {
     AddonsSelector(state);
   }
 
-
+  // 🔥 INPUT STEP 1
+  if (prevState.name !== state.name) {
+    nameInputComponent.render(state);
+  }
+  if (prevState.email !== state.email) {
+    emailInputComponent.render(state);
+  }
+  if (prevState.phone !== state.phone) {
+    phoneInputComponent.render(state);
+  }
 
   if (
     prevState.step !== state.step ||
@@ -89,6 +123,7 @@ function render() {
   };
 }
 
+
 // EVENTY 
 setupEvents({
   nextBtns,
@@ -97,9 +132,9 @@ setupEvents({
   addonInputs,
   planInputs,
   btnConfirm,
-  nameInput,
-  emailInput,
-  phoneInput,
+  nameInputEl,
+  emailInputEl,
+  phoneInputEl,
   goToStep,
   setState,
   validateStep1
