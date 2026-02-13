@@ -2,9 +2,9 @@ import { state } from './state.js';
 import { SummaryComponent } from './SummaryComponent.js';
 import { validateStep1 } from './validation.js';
 import { InputComponent } from './InputComponent.js';
+import { PlanComponent } from './PlanComponent.js';
+import { AddonComponent } from './AddonComponent.js';
 import { BillingComponent } from './BillingComponent.js';
-import { PlanSelector } from './PlanSelector.js';
-import { AddonsSelector } from './AddonsSelector.js';
 import { setupEvents } from './controller.js';
 import { renderStep } from './ui.js';
 
@@ -16,9 +16,6 @@ const backBtns = document.querySelectorAll(".btn-back");
 const stepsSidebar = document.querySelectorAll(".step");
 
 const step1 = document.querySelector('.form-step[data-step="1"]');
-// const nameInput = step1.querySelector('#name');
-// const emailInput = step1.querySelector('#email');
-// const phoneInput = step1.querySelector('#phone');
 const nameInputEl = step1.querySelector('#name');
 const emailInputEl = step1.querySelector('#email');
 const phoneInputEl = step1.querySelector('#phone');
@@ -26,7 +23,24 @@ const phoneInputEl = step1.querySelector('#phone');
 
 const billingToggle = document.getElementById('billing');
 const addonInputs = document.querySelectorAll('input[name="addons"]');
+const addonComponents = [...addonInputs].map(input =>
+  AddonComponent({
+    inputEl: input,
+    addonName: input.value,
+    setState
+  })
+);
+
+
 const planInputs = document.querySelectorAll('input[name="plan"]');
+const planComponents = [...planInputs].map(input =>
+  PlanComponent({
+    inputEl: input,
+    planName: input.value,
+    setState
+  })
+);
+
 const btnConfirm = document.querySelector('.btn-confirm');
 const summaryContainer = document.querySelector('.summary');
 
@@ -90,12 +104,18 @@ function render() {
   }
 
   if (prevState.plan !== state.plan) {
-    PlanSelector(state);
+    planComponents.forEach(component =>
+      component.render(state)
+    );
   }
 
+
   if (prevState.addons.join() !== state.addons.join()) {
-    AddonsSelector(state);
+    addonComponents.forEach(component =>
+      component.render(state)
+    );
   }
+
 
   // 🔥 INPUT STEP 1
   if (prevState.name !== state.name) {
