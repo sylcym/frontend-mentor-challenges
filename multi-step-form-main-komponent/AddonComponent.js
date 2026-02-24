@@ -1,31 +1,20 @@
+
 export function AddonComponent({ inputEl, addonName, setState }) {
-
-  function onChange(e) {
-    setState(prevState => {
-      const addons = [...prevState.addons];
-
-      if (e.target.checked) {
-        if (!addons.includes(addonName)) {
-          addons.push(addonName);
-        }
+  inputEl.addEventListener('change', () => {
+    setState(prev => {
+      let newAddons = [...prev.addons];
+      if (inputEl.checked) {
+        if (!newAddons.includes(addonName)) newAddons.push(addonName);
       } else {
-        const index = addons.indexOf(addonName);
-        if (index > -1) {
-          addons.splice(index, 1);
-        }
+        newAddons = newAddons.filter(a => a !== addonName);
       }
-
-      return { addons };
+      return { addons: newAddons };
     });
-  }
-
-  inputEl.addEventListener("change", onChange);
-
-  function render(state) {
-    inputEl.checked = state.addons.includes(addonName);
-  }
+  });
 
   return {
-    render
+    render(state, prevState) {
+      inputEl.checked = state.addons.includes(addonName);
+    }
   };
 }

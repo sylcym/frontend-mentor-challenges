@@ -24,7 +24,6 @@ html {
 .app {
   min-height: 100vh;
   background-color: var(--very-light-grey);
-
 }
 
 .form-container {
@@ -91,8 +90,6 @@ html {
   display: block;
 }
 
-
-
 .form-title {
   font-size: 2.4rem;
   color: var(--blue);
@@ -110,7 +107,6 @@ html {
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
-
 }
 
 .form-group label {
@@ -119,7 +115,6 @@ html {
   color: var(--blue);
   padding-bottom: 4px;
 }
-
 
 .input {
   width: 100%;
@@ -177,7 +172,6 @@ html {
   box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
   z-index: 100;
 }
-
 
 .btn-next {
   font-size: 1.4rem;
@@ -241,7 +235,6 @@ html {
   transition: border-color 0.2s, background-color 0.2s;
   cursor: pointer;
 }
-
 
 .plan input[type="radio"] {
   position: absolute;
@@ -439,7 +432,6 @@ html {
   gap: 4px;
 }
 
-
 .summary-plan-name {
   font-size: 1.4rem;
   font-weight: 700;
@@ -472,7 +464,6 @@ html {
   height: 1px;
   background-color: var(--grey-light);
   margin: 12px 0;
-
 }
 
 .summary-addon {
@@ -493,12 +484,10 @@ html {
   color: var(--gray);
 }
 
-
 .total span:last-child {
   color: var(--purple);
   font-size: 2rem;
 }
-
 
 .thank-you {
   display: flex;
@@ -623,7 +612,6 @@ html {
     display: flex;
   }
 
-
   .form-step {
     width: 450px;
   }
@@ -721,11 +709,9 @@ html {
   .addon-price {
     font-size: 1.4rem;
   }
-
 }
 
 @media screen and (min-width: 1024px) {
-
   .form-container {
     width: 940px;
     gap: 100px;

@@ -8,7 +8,7 @@ import { BillingComponent } from './BillingComponent.js';
 import { setupEvents } from './controller.js';
 import { renderStep } from './ui.js';
 
-
+//  DOM REFERENCES
 
 const formSteps = document.querySelectorAll(".form-step");
 const nextBtns = document.querySelectorAll(".btn-next");
@@ -16,33 +16,28 @@ const backBtns = document.querySelectorAll(".btn-back");
 const stepsSidebar = document.querySelectorAll(".step");
 
 const step1 = document.querySelector('.form-step[data-step="1"]');
+
 const nameInputEl = step1.querySelector('#name');
 const emailInputEl = step1.querySelector('#email');
 const phoneInputEl = step1.querySelector('#phone');
 
-
 const billingToggle = document.getElementById('billing');
 const addonInputs = document.querySelectorAll('input[name="addons"]');
-const addonComponents = [...addonInputs].map(input =>
-  AddonComponent({
-    inputEl: input,
-    addonName: input.value,
-    setState
-  })
-);
-
-
 const planInputs = document.querySelectorAll('input[name="plan"]');
-const planComponents = [...planInputs].map(input =>
-  PlanComponent({
-    inputEl: input,
-    planName: input.value,
-    setState
-  })
-);
 
 const btnConfirm = document.querySelector('.btn-confirm');
 const summaryContainer = document.querySelector('.summary');
+
+// COMPONENT SYSTEM
+
+const components = [];
+
+function register(component) {
+  components.push(component);
+}
+
+// COMPONENTS CREATION
+// STEP 1 INPUTS
 
 const nameInputComponent = InputComponent({
   inputEl: nameInputEl,
@@ -62,11 +57,39 @@ const phoneInputComponent = InputComponent({
   setState
 });
 
+// STEP 2 PLANS
 
+const planComponents = [...planInputs].map(input =>
+  PlanComponent({
+    inputEl: input,
+    planName: input.value,
+    setState
+  })
+);
 
+// STEP 3 ADDONS
 
-// STEP
+const addonComponents = [...addonInputs].map(input =>
+  AddonComponent({
+    inputEl: input,
+    addonName: input.value,
+    setState
+
+  })
+);
+// REGISTER COMPONENTS
+
+register(nameInputComponent);
+register(emailInputComponent);
+register(phoneInputComponent);
+
+planComponents.forEach(register);
+addonComponents.forEach(register);
+
+// STEP NAVIGATION
+
 function goToStep(nextStep) {
+
   if (state.step === 1 && nextStep > 1) {
     if (!validateStep1(nameInputEl, emailInputEl, phoneInputEl)) return;
   }
@@ -79,21 +102,29 @@ function goToStep(nextStep) {
   setState({ step: nextStep });
 }
 
+// STATE SYSTEM
 
 let prevState = { ...state };
 
 function setState(patch) {
-  const newState = { ...state, ...patch };
 
-  if (patch.addons) {
-    newState.addons = [...patch.addons];
+
+  const patchObject =
+    typeof patch === "function"
+      ? patch(state)
+      : patch;
+
+  const newState = { ...state, ...patchObject };
+
+  if (patchObject.addons) {
+    newState.addons = [...patchObject.addons];
   }
 
   Object.assign(state, newState);
   render();
 }
 
-
+//  RENDER ENGINE
 function render() {
   if (prevState.step !== state.step) {
     renderStep(state, formSteps, stepsSidebar);
@@ -103,30 +134,13 @@ function render() {
     BillingComponent(state);
   }
 
-  if (prevState.plan !== state.plan) {
-    planComponents.forEach(component =>
-      component.render(state)
-    );
-  }
+  nameInputComponent.render(state);
+  emailInputComponent.render(state);
+  phoneInputComponent.render(state);
 
+  planComponents.forEach(component => component.render(state));
 
-  if (prevState.addons.join() !== state.addons.join()) {
-    addonComponents.forEach(component =>
-      component.render(state)
-    );
-  }
-
-
-  // 🔥 INPUT STEP 1
-  if (prevState.name !== state.name) {
-    nameInputComponent.render(state);
-  }
-  if (prevState.email !== state.email) {
-    emailInputComponent.render(state);
-  }
-  if (prevState.phone !== state.phone) {
-    phoneInputComponent.render(state);
-  }
+  addonComponents.forEach(component => component.render(state));
 
   if (
     prevState.step !== state.step ||
@@ -144,7 +158,6 @@ function render() {
 }
 
 
-// EVENTY 
 setupEvents({
   nextBtns,
   backBtns,
@@ -160,5 +173,6 @@ setupEvents({
   validateStep1
 });
 
-//  START
+// START APP
+
 render();
