@@ -1,16 +1,12 @@
-import { useState } from "react";
 
-function AccordionItem({ question, answer }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
+function AccordionItem({ question, answer, isOpen, onClick }) {
 
   return (
     <li className={`faq__item ${isOpen ? "active" : ""}`}>
       <button
         className="faq__question"
         aria-expanded={isOpen}
-        onClick={toggle}
+        onClick={onClick}
       >
         <span className="faq__question-text">{question}</span>
         <span className="faq__icon faq__icon--plus" aria-hidden="true"></span>
@@ -18,7 +14,9 @@ function AccordionItem({ question, answer }) {
       </button>
 
       <div className="faq__answer">
-        <p>{answer}</p>
+        <div className="faq__answer-inner">
+          <p>{answer}</p>
+        </div>
       </div>
     </li>
   );
