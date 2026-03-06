@@ -1,0 +1,19 @@
+.thankyou-card {
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 400px;
+  margin: 2rem auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.thankyou-card h2 {
+  margin-bottom: 1rem;
+}
+
+.thankyou-card p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}

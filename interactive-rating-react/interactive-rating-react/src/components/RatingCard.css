@@ -1,0 +1,131 @@
+.card {
+  width: 326px;
+  padding: 1.5rem;
+  border-radius: 15px;
+  background: radial-gradient(circle at top, #232a34, #181e27);
+  color: white;
+}
+
+.star {
+  width: 40px;
+  height: 40px;
+  background-color: #262f38;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.star img {
+  width: 14px;
+  height: 14px;
+}
+
+.card h2 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 14px;
+}
+
+.card p {
+  font-size: 14px;
+  text-align: left;
+  line-height: 1.6;
+  color: #969fad;
+  margin-bottom: 20px;
+}
+
+.numbers {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.numbers button {
+  width: 40px;
+  height: 40px;
+  font-size: 0.9rem;
+  border-radius: 50%;
+  border: none;
+  background-color: #262f38;
+  color: #7c8798;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.numbers button:hover {
+  background-color: #fc7614;
+  color: #232a34;
+}
+
+.numbers button.selected {
+  background-color: white;
+  color: #232a34;
+}
+
+.submit {
+  width: 100%;
+  border-radius: 25px;
+  border: none;
+  background-color: #fc7614;
+  font-size: 0.95rem;
+  color: #232a34;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 14px 0;
+}
+
+.submit:hover {
+  background-color: white;
+
+}
+
+.submit.selected {
+  background-color: white;
+}
+
+@media (min-width: 600px) {
+  .card {
+    width: 350px;
+    padding: 2rem;
+    border-radius: 20px;
+  }
+
+  .star {
+    width: 45px;
+    height: 45px;
+  }
+
+  .card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .numbers {
+    margin-bottom: 1.5rem;
+  }
+
+  .numbers button {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+
+  .submit {
+    font-size: 1rem;
+    padding: 0.8rem 0;
+  }
+}
