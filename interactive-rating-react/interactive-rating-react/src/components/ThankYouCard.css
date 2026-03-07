@@ -1,19 +1,42 @@
 .thankyou-card {
-  background-color: #1f1f1f;
-  color: #fff;
-  padding: 2rem;
-  border-radius: 15px;
-  max-width: 400px;
-  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  font-family: Arial, sans-serif;
+}
+
+.thankyou-card img {
+  width: 100px;
+  margin-bottom: 1.5rem;
 }
 
 .thankyou-card h2 {
+  text-align: center;
   margin-bottom: 1rem;
 }
 
 .thankyou-card p {
-  margin-top: 1rem;
-  font-size: 1.1rem;
+  text-align: center;
+  /* font-size: 1.1rem; */
+  margin-top: 1rem;/
+}
+
+.selected-rating {
+  background-color: #262f38;
+  color: #fc7614;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+
+  display: inline-block;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 600px) {
+  .thankyou-card img {
+    width: 140px;
+    margin-bottom: 1.5rem;
+  }
 }
