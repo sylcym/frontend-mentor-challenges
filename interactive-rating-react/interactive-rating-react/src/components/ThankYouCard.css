@@ -4,39 +4,63 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 18px 16px 18px 16px;
 }
 
 .thankyou-card img {
-  width: 100px;
-  margin-bottom: 1.5rem;
-}
-
-.thankyou-card h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.thankyou-card p {
-  text-align: center;
-  /* font-size: 1.1rem; */
-  margin-top: 1rem;/
+  width: 144px;
+  margin-top: 23px;
+  margin-bottom: 28px;
 }
 
 .selected-rating {
   background-color: #262f38;
   color: #fc7614;
-  padding: 0.3rem 0.9rem;
+  padding: 0.35rem 0.9rem;
   border-radius: 20px;
-  font-size: 0.75rem;
-
+  font-size: 14px;
   display: inline-block;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
+  margin-bottom: 15px;
 }
+
+.thankyou-card h2 {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.thankyou-card p {
+  font-size: 14px;
+  text-align: center;
+  /* line-height: 1.5; */
+  /* font-size: 1.1rem; */
+  /* margin-top: 1rem;/ */
+}
+
 
 @media (min-width: 600px) {
   .thankyou-card img {
-    width: 140px;
-    margin-bottom: 1.5rem;
+    width: 162px;
+    margin-bottom: 34px;
+    margin-top: 23px;
+  }
+
+  .selected-rating {
+    font-size: 16px;
+    letter-spacing: 0;
+  }
+
+  .thankyou-card h2 {
+    font-size: 26px;
+    margin-bottom: 5px;
+    margin-top: 23px;
+  }
+
+  .thankyou-card p {
+    font-size: 15px;
+    margin-top: 4px;
+    padding: 0 20px;
   }
 }
