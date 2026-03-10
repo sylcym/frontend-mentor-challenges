@@ -20,7 +20,6 @@
   border-radius: 20px;
   font-size: 14px;
   display: inline-block;
-  /* letter-spacing: 1px; */
   margin-bottom: 15px;
 }
 
@@ -34,11 +33,43 @@
 .thankyou-card p {
   font-size: 14px;
   text-align: center;
-  /* line-height: 1.5; */
-  /* font-size: 1.1rem; */
-  /* margin-top: 1rem;/ */
 }
 
+/* Animation */
+.thankyou-card img {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 32px;
+  color: #fc7614;
+}
+
+.attribution a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
 
 @media (min-width: 600px) {
   .thankyou-card img {

@@ -4,6 +4,11 @@
   border-radius: 15px;
   background: radial-gradient(circle at top, #232a34, #181e27);
   color: white;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
 }
 
 .star {
@@ -54,15 +59,17 @@
   color: #7c8798;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: transform 0.15s ease, background-color 0.2s;
 }
 
 .numbers button:hover {
+  transform: scale(1.2);
   background-color: #fc7614;
   color: #232a34;
 }
 
 .numbers button.selected {
+  transform: scale(1.2);
   background-color: white;
   color: #232a34;
 }
@@ -89,6 +96,39 @@
 
 .submit.selected {
   background-color: white;
+}
+
+/* Animation */
+.card {
+  animation: cardFade 0.4s ease;
+}
+
+@keyframes cardFade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card-animation {
+  animation: cardEnter 0.45s ease;
+}
+
+@keyframes cardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @media (min-width: 600px) {
