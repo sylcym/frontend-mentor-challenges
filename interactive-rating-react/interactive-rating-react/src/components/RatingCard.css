@@ -5,6 +5,7 @@
   background: radial-gradient(circle at top, #232a34, #181e27);
   color: white;
   transition: transform 0.2s ease;
+  margin-top: 30px;
 }
 
 .card:hover {
