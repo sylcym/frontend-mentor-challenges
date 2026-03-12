@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import "./AdviceCard.css";
+import diceIcon from "../assets/icon-dice.svg";
 
 function AdviceCard() {
   const [advice, setAdvice] = useState("It is easy to sit up and take notice.")
@@ -12,12 +14,22 @@ function AdviceCard() {
     setId(data.slip.id)
   }
 
+  useEffect(() => {
+    getAdvice()
+  }, [])
+
   return (
-    <div>
-      <p>Advice #{id}</p>
-      <h2>"{advice}"</h2>
-      <button onClick={getAdvice}>
-        Get Advice
+    <div className="card">
+      <p className="advice-id">ADVICE #{id}</p>
+
+      <h2 className="advice-text">
+        "{advice}"
+      </h2>
+
+      <div className="divider"></div>
+
+      <button className="advice-button" onClick={getAdvice}>
+        <img src={diceIcon} alt="dice icon" />
       </button>
     </div>
   )
