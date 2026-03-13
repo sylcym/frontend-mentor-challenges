@@ -1,26 +1,35 @@
 .card {
   position: relative;
+  min-height: 260px;
   background-color: #313a48;
-  padding: 40px;
+  padding: 30px 20px 60px;
   border-radius: 15px;
-  max-width: 500px;
+  width: 90%;
+  max-width: 350px;
   text-align: center;
   color: white;
+  transition: all 0.25s ease;
+  margin: 0 auto;
 }
 
 .advice-id {
   color: #53ffaa;
   font-size: 12px;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   margin-bottom: 20px;
 }
 
 .advice-text {
-  font-size: 24px;
-  margin: 0;
+  min-height: 80px;
+  font-size: 22px;
+  margin: 20px 0 30px;
+  line-height: 1.4;
 }
 
 .advice-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   bottom: -25px;
   left: 50%;
@@ -30,20 +39,59 @@
   border-radius: 50%;
   border: none;
   background-color: #53ffaa;
+  transition: box-shadow 0.2s ease;
   cursor: pointer;
   font-size: 20px;
 }
 
 .advice-button:hover {
-  box-shadow: 0 0 20px #53ffaa;
+  box-shadow: 0 0 35px #53ffaa;
 }
 
-.divider {
-  height: 1px;
-  background-color: #4f5d74;
-  margin: 30px 0;
+.advice-button:active {
+  transform: translateX(-50%) scale(0.95);
 }
 
 .advice-button img {
-  width: 20px;
+  width: 22px;
+  height: 22px;
+}
+
+.divider {
+  display: block;
+  margin: 30px 0;
+}
+
+.divider img {
+  width: 100%;
+  max-width: 300px;
+}
+
+
+
+.loading img {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) {
+
+  .card {
+    max-width: 540px;
+    padding: 40px 40px 70px;
+  }
+
+  .advice-text {
+    font-size: 28px;
+  }
+
 }
