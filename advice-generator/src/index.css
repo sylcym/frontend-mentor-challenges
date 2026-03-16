@@ -1,3 +1,10 @@
+:root {
+  --dark-blue: #202733;
+  --card-blue: #313a48;
+  --neon-green: #53ffaa;
+  --text-light: #cee3e9;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,41 +16,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #202733;
+  background-color: var(--dark-blue);
   font-family: "Manrope", sans-serif;
 }
-
-/* .card {
-  background-color: #313a48;
-  padding: 40px;
-  border-radius: 15px;
-  max-width: 500px;
-  text-align: center;
-  color: white;
-}
-
-.advice-id {
-  color: #53ffaa;
-  font-size: 12px;
-  letter-spacing: 3px;
-  margin-bottom: 20px;
-}
-
-.advice-text {
-  font-size: 24px;
-  margin: 0;
-}
-
-.advice-button {
-  margin-top: 25px;
-  padding: 12px 25px;
-  border-radius: 30px;
-  border: none;
-  background-color: #53ffaa;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.advice-button:hover {
-  box-shadow: 0 0 20px #53ffaa;
-} */

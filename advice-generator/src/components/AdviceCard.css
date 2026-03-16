@@ -1,29 +1,31 @@
 .card {
   position: relative;
   min-height: 260px;
-  background-color: #313a48;
-  padding: 30px 20px 60px;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 350px;
   text-align: center;
-  color: white;
+  color: var(--text-light);
+  background-color: var(--card-blue);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  max-width: 350px;
   transition: all 0.25s ease;
+  padding: 40px 20px 64px;
   margin: 0 auto;
 }
 
 .advice-id {
-  color: #53ffaa;
-  font-size: 12px;
-  letter-spacing: 4px;
-  margin-bottom: 20px;
+  color: var(--neon-green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3.46px;
+
 }
 
 .advice-text {
   min-height: 80px;
-  font-size: 22px;
-  margin: 20px 0 30px;
-  line-height: 1.4;
+  font-size: 24px;
+  letter-spacing: -0.26px;
+  color: var(--text-light);
+  margin: 24px 0;
 }
 
 .advice-button {
@@ -34,18 +36,18 @@
   bottom: -25px;
   left: 50%;
   transform: translateX(-50%);
-  width: 50px;
-  height: 50px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   border: none;
-  background-color: #53ffaa;
+  background-color: var(--neon-green);
   transition: box-shadow 0.2s ease;
   cursor: pointer;
   font-size: 20px;
 }
 
 .advice-button:hover {
-  box-shadow: 0 0 35px #53ffaa;
+  box-shadow: 0 0 35px var(--neon-green);
 }
 
 .advice-button:active {
@@ -59,12 +61,10 @@
 
 .divider {
   display: block;
-  margin: 30px 0;
 }
 
 .divider img {
   width: 100%;
-  max-width: 300px;
 }
 
 
@@ -83,15 +83,41 @@
   }
 }
 
+.fade {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
 @media (min-width: 768px) {
 
   .card {
     max-width: 540px;
-    padding: 40px 40px 70px;
+    border-radius: 15px;
+    padding: 48px 48px 72px;
+  }
+
+  .advice-id {
+    font-size: 13px;
+    letter-spacing: 4.09px;
   }
 
   .advice-text {
     font-size: 28px;
+    letter-spacing: -0.3px;
+    margin: 24px 0 40px;
   }
 
 }

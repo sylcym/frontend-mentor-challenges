@@ -8,18 +8,67 @@ function AdviceCard() {
   const [advice, setAdvice] = useState("It is easy to sit up and take notice.")
   const [id, setId] = useState(117)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
+  // async function getAdvice() {
+
+  //   setLoading(true)
+  //   setError(null)
+
+  //   try {
+
+  //     const response = await fetch(
+  //       "https://api.adviceslip.com/advice",
+  //       { cache: "no-cache" }
+  //     )
+
+  //     if (!response.ok) {
+  //       throw new Error("Failed to fetch advice")
+  //     }
+
+  //     const data = await response.json()
+
+  //     setAdvice(data.slip.advice)
+  //     setId(data.slip.id)
+
+  //   } catch (err) {
+
+  //     setError("Something went wrong. Try again.")
+
+  //   } finally {
+
+  //     setLoading(false)
+
+  //   }
+  // }
+  async function fetchAdvice() {
+    const response = await fetch("https://api.adviceslip.com/advice", {
+      cache: "no-cache"
+    })
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch advice")
+    }
+
+    const data = await response.json()
+    return data.slip
+  }
 
   async function getAdvice() {
-
     setLoading(true)
+    setError(null)
 
-    const response = await fetch("https://api.adviceslip.com/advice")
-    const data = await response.json()
+    try {
+      const slip = await fetchAdvice()
 
-    setAdvice(data.slip.advice)
-    setId(data.slip.id)
+      setAdvice(slip.advice)
+      setId(slip.id)
 
-    setLoading(false)
+    } catch (err) {
+      setError("Something went wrong. Try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   useEffect(() => {
@@ -30,8 +79,14 @@ function AdviceCard() {
     <div className="card">
       <p className="advice-id">ADVICE #{id}</p>
 
-      <h2 className="advice-text">
-        {loading ? "Loading..." : `"${advice}"`}
+      <h2 className="advice-text fade">
+
+        {loading && "Loading..."}
+
+        {error && error}
+
+        {!loading && !error && `"${advice}"`}
+
       </h2>
 
       <picture className="divider">
@@ -45,13 +100,6 @@ function AdviceCard() {
       >
         <img src={diceIcon} alt="dice icon" />
       </button>
-      {/* <button
-        className="advice-button"
-        onClick={getAdvice}
-        disabled={loading}
-      >
-        {loading ? "..." : <img src={diceIcon} alt="dice" />}
-      </button> */}
     </div>
   )
 }
