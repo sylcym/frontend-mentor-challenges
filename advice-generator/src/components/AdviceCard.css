@@ -101,6 +101,23 @@
 
 }
 
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 32px;
+  color: var(--neon-green);
+}
+
+.attribution a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
 @media (min-width: 768px) {
 
   .card {
