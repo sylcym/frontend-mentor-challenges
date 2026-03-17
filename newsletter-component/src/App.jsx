@@ -1,12 +1,10 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
+// import React from "react";
+import Newsletter from "./components/Newsletter";
 
 function App() {
   return (
     <div className="app">
-      <h1>Newsletter Component</h1>
+      <Newsletter />
     </div>
   );
 }
