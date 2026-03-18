@@ -1,18 +1,18 @@
 
 import { useState, useEffect } from "react";
+import "./Newsletter.css";
 
-function Newsletter() {
-  const [email, setEmail] = useState("");
+function Newsletter({ setSubscribed, setEmail }) {
+  const [email, setEmailInput] = useState("");
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const [showMessage, setShowMessage] = useState(false);
 
-  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validateEmail = (email) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
-    setSuccess("");
     setShowMessage(false);
 
     if (!validateEmail(email)) {
@@ -21,11 +21,11 @@ function Newsletter() {
       return;
     }
 
-    setSuccess(`Thank you! Your email: ${email} has been submitted.`);
-    setEmail("");
-    setShowMessage(true);
+    setEmail(email);        // zapis globalnie
+    setSubscribed(true);    // przejście do ThankYou
   };
 
+  // fade-out tylko dla errora
   useEffect(() => {
     if (showMessage) {
       const timer = setTimeout(() => setShowMessage(false), 3000);
@@ -37,18 +37,19 @@ function Newsletter() {
     <div className="newsletter">
       <h2>Stay Updated!</h2>
       <p>Subscribe to our newsletter to get the latest news and updates.</p>
+
       <form className="newsletter-form" onSubmit={handleSubmit} noValidate>
         <input
           type="email"
           placeholder="Email address"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmailInput(e.target.value)}
         />
         <button type="submit">Subscribe</button>
       </form>
+
       <div className={`message ${showMessage ? "show" : ""}`}>
         {error && <p className="error">{error}</p>}
-        {success && <p className="success">{success}</p>}
       </div>
     </div>
   );
