@@ -1,33 +1,56 @@
+/* Kontener */
 .thank-you {
-  background-color: #fff;
+  background-color: var(--background-color);
   padding: 24px;
-  border-radius: var(--border-radius);
+  border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   max-width: 320px;
   margin: 32px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
+/* Ikona success */
+.thank-you-icon {
+  font-size: 48px;
+  color: var(--main-color);
+}
+
+/* Tytuł */
 .thank-you h2 {
   font-size: 24px;
-  margin-bottom: 12px;
+  margin: 0;
 }
 
+/* Tekst */
 .thank-you p {
   font-size: 16px;
-  margin-bottom: 16px;
+  margin: 0;
 }
 
+/* Przycisk */
 .thank-you button {
   padding: 12px;
   width: 100%;
   background-color: var(--main-color);
-  color: white;
+  color: var(--white);
   border: none;
   border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .thank-you button:hover {
   background-color: var(--main-hover);
+}
+
+/* Desktop / większe ekrany */
+@media (min-width: 600px) {
+  .thank-you {
+    max-width: 400px;
+  }
 }

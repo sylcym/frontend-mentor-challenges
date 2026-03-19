@@ -2,6 +2,7 @@
   --main-color: #4f46e5;
   --main-hover: #4338ca;
   --background-color: #f5f5f5;
+  --body-bg: #1e1e2f;
   --border-radius: 10px;
   --text-error: #ff0000;
   --text-success: #008000;
@@ -17,5 +18,5 @@
 body {
   margin: 0;
   font-family: sans-serif;
-  background-color: var(--background-color);
+  background-color: var(--body-bg);
 }

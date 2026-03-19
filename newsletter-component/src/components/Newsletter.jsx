@@ -1,6 +1,11 @@
 
 import { useState, useEffect } from "react";
 import "./Newsletter.css";
+import bgMobile from "../assets/images/illustration-sign-up-mobile.svg";
+import bgTablet from "../assets/images/illustration-sign-up-tablet.svg";
+import bgDesktop from "../assets/images/illustration-sign-up-desktop.svg";
+import iconSuccess from "../assets/images/icon-success.svg";
+
 
 function Newsletter({ setSubscribed, setEmail }) {
   const [email, setEmailInput] = useState("");
@@ -21,11 +26,10 @@ function Newsletter({ setSubscribed, setEmail }) {
       return;
     }
 
-    setEmail(email);        // zapis globalnie
-    setSubscribed(true);    // przejście do ThankYou
+    setEmail(email);
+    setSubscribed(true);
   };
 
-  // fade-out tylko dla errora
   useEffect(() => {
     if (showMessage) {
       const timer = setTimeout(() => setShowMessage(false), 3000);
@@ -34,25 +38,67 @@ function Newsletter({ setSubscribed, setEmail }) {
   }, [showMessage]);
 
   return (
-    <div className="newsletter">
-      <h2>Stay Updated!</h2>
-      <p>Subscribe to our newsletter to get the latest news and updates.</p>
+    <div className="newsletter-wrapper">
+      <div className="newsletter-bg">
+        <img src={bgMobile} alt="Background" />
+      </div>
+      <div className="newsletter-content">
+        <h2>Stay Updated!</h2>
+        <p className="newsletter-text">
+          Join 60,000+ product managers receiving monthly updates.
+        </p>
+        <div className="success-list">
+          <p><img src={iconSuccess} alt="Success" /> Product discovery & updates</p>
+          <p><img src={iconSuccess} alt="Success" /> Monthly newsletter</p>
+          <p><img src={iconSuccess} alt="Success" />  And much more!</p>
+        </div>
 
-      <form className="newsletter-form" onSubmit={handleSubmit} noValidate>
-        <input
-          type="email"
-          placeholder="Email address"
-          value={email}
-          onChange={(e) => setEmailInput(e.target.value)}
-        />
-        <button type="submit">Subscribe</button>
-      </form>
+        <form className="newsletter-form" onSubmit={handleSubmit} noValidate>
+          <input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmailInput(e.target.value)}
+          />
+          <button type="submit">Subscribe</button>
+        </form>
 
-      <div className={`message ${showMessage ? "show" : ""}`}>
         {error && <p className="error">{error}</p>}
       </div>
+
+
     </div>
   );
 }
 
 export default Newsletter;
+
+// return (
+
+//   <div
+//     className="newsletter"
+//     style={{
+//       backgroundImage: `url(${bgMobile})`,
+//       backgroundSize: "cover",
+//       backgroundPosition: "center"
+//     }}
+//   >
+//     <h2>Stay Updated!</h2>
+//     <p>Subscribe to our newsletter to get the latest news and updates.</p>
+
+//     <form className="newsletter-form" onSubmit={handleSubmit} noValidate>
+//       <input
+//         type="email"
+//         placeholder="Email address"
+//         value={email}
+//         onChange={(e) => setEmailInput(e.target.value)}
+//       />
+//       <button type="submit">Subscribe</button>
+//     </form>
+
+//     <div className={`message ${showMessage ? "show" : ""}`}>
+//       {error && <p className="error">{error}</p>}
+//     </div>
+//   </div>
+// );
+// }
