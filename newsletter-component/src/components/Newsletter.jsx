@@ -36,39 +36,83 @@ function Newsletter({ setSubscribed, setEmail }) {
       return () => clearTimeout(timer);
     }
   }, [showMessage]);
-
   return (
-    <div className="newsletter-wrapper">
-      <div className="newsletter-bg">
-        <img src={bgMobile} alt="Background" />
-      </div>
-      <div className="newsletter-content">
-        <h2>Stay Updated!</h2>
-        <p className="newsletter-text">
-          Join 60,000+ product managers receiving monthly updates.
-        </p>
-        <div className="success-list">
-          <p><img src={iconSuccess} alt="Success" /> Product discovery & updates</p>
-          <p><img src={iconSuccess} alt="Success" /> Monthly newsletter</p>
-          <p><img src={iconSuccess} alt="Success" />  And much more!</p>
+    <div className="newsletter">
+      <div className="newsletter-wrapper">
+        <div className="newsletter-bg">
+          <picture>
+            <source media="(min-width: 1024px)" srcSet={bgDesktop} />
+            <source media="(min-width: 768px)" srcSet={bgTablet} />
+            <img src={bgTablet} alt="Illustration" />
+          </picture>
         </div>
 
-        <form className="newsletter-form" onSubmit={handleSubmit} noValidate>
-          <input
-            type="email"
-            placeholder="Email address"
-            value={email}
-            onChange={(e) => setEmailInput(e.target.value)}
-          />
-          <button type="submit">Subscribe</button>
-        </form>
+        <div className="newsletter-content">
+          <h1 className="newsletter-title">Stay updated!</h1>
 
-        {error && <p className="error">{error}</p>}
+          <p className="newsletter-text">
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+
+          <div className="success-list">
+            <p className="newsletter-paragraph"><img src={iconSuccess} className="icon-success" alt="Success" /> Product discovery and building what matters</p>
+            <p className="newsletter-paragraph"><img src={iconSuccess} className="icon-success" alt="Success" /> Measuring to ensure updates are a success</p>
+            <p className="newsletter-paragraph"><img src={iconSuccess} className="icon-success" alt="Success" /> And much more!</p>
+          </div>
+
+          <form className="newsletter-form" onSubmit={handleSubmit} noValidate>
+            <div className="label-row">
+              <label htmlFor="email">Email address</label>
+              {error && <span className="error">Valid email required</span>}
+            </div>
+            <input
+              className={error ? "input-error" : ""}
+              type="email"
+              placeholder="email@company.com"
+              value={email}
+              onChange={(e) => setEmailInput(e.target.value)}
+            />
+            <button type="submit">Subscribe to monthly newsletter</button>
+          </form>
+
+          {/* {error && <p className="error">{error}</p>} */}
+        </div>
       </div>
-
-
     </div>
   );
+
+  // return (
+  //   <div className="newsletter-wrapper">
+  //     <div className="newsletter-bg">
+  //       <img src={bgMobile} alt="Background" />
+  //     </div>
+  //     <div className="newsletter-content">
+  //       <h2>Stay Updated!</h2>
+  //       <p className="newsletter-text">
+  //         Join 60,000+ product managers receiving monthly updates.
+  //       </p>
+  //       <div className="success-list">
+  //         <p><img src={iconSuccess} alt="Success" /> Product discovery and building what matters</p>
+  //         <p><img src={iconSuccess} alt="Success" /> Measuring to ensure updates are a success</p>
+  //         <p><img src={iconSuccess} alt="Success" />  And much more!</p>
+  //       </div>
+
+  //       <form className="newsletter-form" onSubmit={handleSubmit} noValidate>
+  //         <input
+  //           type="email"
+  //           placeholder="Email address"
+  //           value={email}
+  //           onChange={(e) => setEmailInput(e.target.value)}
+  //         />
+  //         <button type="submit">Subscribe</button>
+  //       </form>
+
+  //       {error && <p className="error">{error}</p>}
+  //     </div>
+
+
+  //   </div>
+  // );
 }
 
 export default Newsletter;

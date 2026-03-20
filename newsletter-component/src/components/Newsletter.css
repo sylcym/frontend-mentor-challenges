@@ -8,7 +8,6 @@
 .newsletter-wrapper {
   display: flex;
   flex-direction: column;
-  /* mobile: kolumna */
   align-items: center;
 }
 
@@ -17,40 +16,94 @@
   display: block;
 }
 
-.newsletter-wrapper {
-  background-color: var(--background-color);
-}
-
 .newsletter {
-  background-color: var(--background-color);
-  padding: 24px;
-  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 375px;
+  background-color: var(--card-bg);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 320px;
-  margin: 32px auto;
+  overflow: hidden;
 }
 
-.newsletter h2 {
-  font-size: 24px;
-  margin-bottom: 8px;
+.newsletter-content {
+  padding: 32px 24px;
+  /* padding: 24px; */
+  display: flex;
+  flex-direction: column;
+  /* gap: 16px; */
+  gap: 20px;
 }
 
-.newsletter p {
+.newsletter-title {
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 700;
+  /* font-size: 40px;
+  padding-bottom: 5px;
+  padding-top: 12px; */
+}
+
+
+.newsletter-text {
   font-size: 16px;
-  margin-bottom: 16px;
+  line-height: 1.5;
+  color: var(--main-color);
+  /* margin-bottom: 16px; */
+}
+
+.success-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* gap: 10px;
+  padding-bottom: 26px;
+  padding-top: 8px; */
+}
+
+.newsletter-paragraph {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: var(--main-color);
+  line-height: 1.5;
+}
+
+.icon-success {
+  width: 22px;
+  height: 22px;
+  margin-top: 3px;
+  /* margin-right: 10px; */
 }
 
 .newsletter-form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  /* gap: 10px; */
+  gap: 16px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  /* margin-bottom: 8px; */
+}
+
+/* .label-row {
+  font-size: 12px;
+  font-weight: 700;
+} */
+.label-row .error {
+  color: var(--text-error);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .newsletter-form input {
-  padding: 12px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  padding: 19px 25px;
+  border-radius: 8px;
+  border: 1px solid var(--grey);
   font-size: 16px;
   /* transition: border 0.2s ease; */
   transition: border 0.2s, box-shadow 0.2s;
@@ -62,21 +115,46 @@
   box-shadow: 0 0 5px var(--main-color);
 }
 
+.newsletter-form input:hover {
+  border: 1px solid var(--main-color);
+}
+
+.newsletter-form input.input-error {
+  border: 1px solid var(--text-error);
+  background-color: rgba(255, 98, 87, 0.225);
+  color: var(--text-error);
+}
 
 .newsletter-form button {
-  padding: 12px;
+  padding: 19px 25px;
   background-color: var(--main-color);
-  color: var(--white);
+  color: var(--card-bg);
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 16px;
+  margin-top: 12px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .newsletter-form button:hover {
-  background-color: var(--main-hover);
+  background: linear-gradient(90deg, #ff6a3a, #ff527b);
+  box-shadow: 0 10px 20px rgba(255, 98, 87, 0.4);
 }
+
+.newsletter-form button:active {
+  transform: scale(0.98);
+}
+
+.newsletter-form input:focus {
+  border: 1px solid var(--main-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(36, 39, 66, 0.2);
+}
+
+/* .newsletter-form button:hover {
+  background-color: var(--main-hover);
+} */
 
 .message {
   height: 20px;
@@ -102,23 +180,51 @@
   font-size: 14px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
+  .newsletter-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+  }
 
   .newsletter {
-    background-image: url("../assets/images/illustration-sign-up-tablet.svg");
+    max-width: 700px;
+    border-radius: 20px;
   }
 
-  .newsletter-form {
-    flex-direction: row;
-  }
-
-  .newsletter-form input {
+  .newsletter-content {
     flex: 1;
+    padding: 40px;
+  }
+
+  .newsletter-bg {
+    height: auto;
+    flex: 1;
+    padding: 24px;
+  }
+
+  .newsletter-bg img {
+    height: 100%;
+    object-fit: cover;
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .newsletter {
-    background-image: url("../assets/images/illustration-sign-up-desktop.svg");
+    max-width: 900px;
   }
+
+  .newsletter-content {
+
+    flex: 1;
+    padding: 45px;
+  }
+
+  .newsletter-bg {
+    flex: 1.2;
+  }
+
+  .newsletter-title {
+    font-size: 48px;
+  }
+
 }

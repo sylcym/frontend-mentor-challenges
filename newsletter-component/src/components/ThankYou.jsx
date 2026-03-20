@@ -3,8 +3,8 @@ import iconSuccess from "../assets/images/icon-success.svg";
 
 function ThankYou({ email, onDismiss }) {
   return (
-    <div className="thank-you">
-      <div className="thank-you-icon">
+    <div className="thank-you ">
+      <div className="thank-you-icon ">
         <img src={iconSuccess} alt="Success icon" />
       </div>
 
