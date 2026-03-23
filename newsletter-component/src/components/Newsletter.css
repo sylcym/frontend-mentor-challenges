@@ -26,10 +26,8 @@
 
 .newsletter-content {
   padding: 32px 24px;
-  /* padding: 24px; */
   display: flex;
   flex-direction: column;
-  /* gap: 16px; */
   gap: 20px;
 }
 
@@ -37,9 +35,6 @@
   font-size: 36px;
   line-height: 1;
   font-weight: 700;
-  /* font-size: 40px;
-  padding-bottom: 5px;
-  padding-top: 12px; */
 }
 
 
@@ -47,16 +42,12 @@
   font-size: 16px;
   line-height: 1.5;
   color: var(--main-color);
-  /* margin-bottom: 16px; */
 }
 
 .success-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  /* gap: 10px;
-  padding-bottom: 26px;
-  padding-top: 8px; */
+  gap: 11px;
 }
 
 .newsletter-paragraph {
@@ -71,13 +62,11 @@
   width: 22px;
   height: 22px;
   margin-top: 3px;
-  /* margin-right: 10px; */
 }
 
 .newsletter-form {
   display: flex;
   flex-direction: column;
-  /* gap: 10px; */
   gap: 16px;
 }
 
@@ -87,13 +76,8 @@
   align-items: center;
   font-size: 12px;
   font-weight: 700;
-  /* margin-bottom: 8px; */
 }
 
-/* .label-row {
-  font-size: 12px;
-  font-weight: 700;
-} */
 .label-row .error {
   color: var(--text-error);
   font-size: 12px;
@@ -105,7 +89,6 @@
   border-radius: 8px;
   border: 1px solid var(--grey);
   font-size: 16px;
-  /* transition: border 0.2s ease; */
   transition: border 0.2s, box-shadow 0.2s;
 }
 
@@ -152,15 +135,10 @@
   box-shadow: 0 0 0 2px rgba(36, 39, 66, 0.2);
 }
 
-/* .newsletter-form button:hover {
-  background-color: var(--main-hover);
-} */
-
 .message {
   height: 20px;
   margin-top: 8px;
   opacity: 0;
-  /* transition: opacity 0.3s; */
   transition: opacity 0.5s ease;
 }
 
@@ -180,6 +158,28 @@
   font-size: 14px;
 }
 
+.attribution {
+  position: fixed;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 11px;
+  color: var(--text-error);
+}
+
+.attribution a {
+  color: var(--grey);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
+
 @media (min-width: 768px) {
   .newsletter-wrapper {
     display: flex;
@@ -193,7 +193,7 @@
 
   .newsletter-content {
     flex: 1;
-    padding: 40px;
+    padding: 45px 45px 45px 65px
   }
 
   .newsletter-bg {
@@ -210,21 +210,23 @@
 
 @media (min-width: 1024px) {
   .newsletter {
-    max-width: 900px;
+    max-width: 930px;
+    max-height: 640px;
+    border-radius: 30px;
   }
 
   .newsletter-content {
 
     flex: 1;
-    padding: 45px;
+    padding: 45px 45px 45px 70px;
   }
 
   .newsletter-bg {
-    flex: 1.2;
+    flex: 1.1;
   }
 
   .newsletter-title {
-    font-size: 48px;
+    font-size: 56px;
   }
 
 }
