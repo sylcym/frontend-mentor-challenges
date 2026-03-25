@@ -1,5 +1,7 @@
 import data from "./data/data.json";
 import Comment from "./components/Comment";
+import { getAvatar } from "./utils/getAvatar.js";
+
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
           content={comment.content}
           username={comment.user?.username || "Unknown"}
           createdAt={comment.createdAt}
+          avatar={getAvatar(comment.user?.image?.png)}
           replies={comment.replies || []}
         />
       ))}
