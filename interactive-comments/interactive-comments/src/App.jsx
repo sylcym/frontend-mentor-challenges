@@ -48,6 +48,36 @@ function App() {
     setComments(updatedComments);
   };
 
+  const deleteComment = (id) => {
+    const removeComment = (commentsArray) => {
+      return commentsArray
+        .filter((comment) => comment.id !== id)
+        .map((comment) => ({
+          ...comment,
+          replies: removeComment(comment.replies || []),
+        }));
+    };
+
+    setComments(removeComment(comments));
+  };
+
+
+  const updateComment = (id, newContent) => {
+    const update = (commentsArray) => {
+      return commentsArray.map((comment) => {
+        if (comment.id === id) {
+          return { ...comment, content: newContent };
+        }
+        return {
+          ...comment,
+          replies: update(comment.replies || []),
+        };
+      });
+    };
+
+    setComments(update(comments));
+  };
+
   return (
     <>
       <div style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}>
@@ -61,6 +91,8 @@ function App() {
             replies={comment.replies || []}
             addReply={addReply}
             commentId={comment.id}
+            deleteComment={deleteComment}
+            updateComment={updateComment}
           />
         ))}
       </div>
