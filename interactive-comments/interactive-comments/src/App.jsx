@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import data from "./data/data.json";
 import Comment from "./components/Comment";
 import { getAvatar } from "./utils/getAvatar.js";
 
 function App() {
-  const [comments, setComments] = useState(data.comments);
+  // const [comments, setComments] = useState(data.comments);
+  const [comments, setComments] = useState(() => {
+    try {
+      const saved = localStorage.getItem("comments");
+      return saved ? JSON.parse(saved) : data.comments;
+    } catch (error) {
+      return data.comments;
+    }
+  });
   const [newComment, setNewComment] = useState("");
 
   const handleAddComment = () => {
@@ -77,6 +85,10 @@ function App() {
 
     setComments(update(comments));
   };
+
+  useEffect(() => {
+    localStorage.setItem("comments", JSON.stringify(comments));
+  }, [comments]);
 
   return (
     <>

@@ -23,7 +23,6 @@ function Comment({ content, username, createdAt, avatar, replies = [], addReply,
         <span style={{ color: "gray" }}>{createdAt}</span>
       </div>
 
-      {/* <p style={{ marginTop: "10px" }}>{content}</p> */}
       {isEditing ? (
         <div>
           <textarea
@@ -70,7 +69,6 @@ function Comment({ content, username, createdAt, avatar, replies = [], addReply,
         </div>
       )}
 
-      {/* REPLIES */}
       {replies.length > 0 && (
         <div style={{ marginLeft: "30px", marginTop: "10px" }}>
           {replies.map((reply) => (
