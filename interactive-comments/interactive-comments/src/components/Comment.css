@@ -1,0 +1,172 @@
+.comment {
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.comment-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding: 16px;
+  margin: 12px 0;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comment-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comment-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment-username {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.comment-time {
+  font-size: 12px;
+  color: gray;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.comment-actions button {
+  background: none;
+  border: none;
+  color: #5457b6;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.comment-content {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+}
+
+.comment-footer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.comment-score {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #f5f6fa;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.comment-score button {
+  border: none;
+  background: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #5457b6;
+  font-weight: bold;
+}
+
+/* liczba */
+.comment-score div {
+  font-weight: 600;
+}
+
+.reply-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reply-box textarea {
+  width: 100%;
+  min-height: 70px;
+  resize: none;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.reply-box button {
+  align-self: flex-end;
+
+  background: #5457b6;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.replies {
+  margin-left: 15px;
+  border-left: 2px solid #eee;
+  padding-left: 12px;
+}
+
+/* 
+.comment-content {
+  margin-top: 10px;
+  color: var(--text-light);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.comment-btn {
+  background: none;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.comment-btn.delete {
+  color: var(--danger);
+} */
+
+@media (min-width: 768px) {
+  .comment-body {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .comment-score {
+    flex-direction: column;
+    width: 40px;
+  }
+
+  .comment-main {
+    flex: 1;
+  }
+}

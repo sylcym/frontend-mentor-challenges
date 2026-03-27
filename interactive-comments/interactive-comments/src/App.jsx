@@ -86,6 +86,26 @@ function App() {
     setComments(update(comments));
   };
 
+  const updateScore = (id, delta) => {
+    const update = (arr) => {
+      return arr.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            score: item.score + delta,
+          };
+        }
+
+        return {
+          ...item,
+          replies: update(item.replies || []),
+        };
+      });
+    };
+
+    setComments(update(comments));
+  };
+
   useEffect(() => {
     localStorage.setItem("comments", JSON.stringify(comments));
   }, [comments]);
@@ -105,6 +125,8 @@ function App() {
             commentId={comment.id}
             deleteComment={deleteComment}
             updateComment={updateComment}
+            updateScore={updateScore}
+            score={comment.score}
           />
         ))}
       </div>
