@@ -3,39 +3,77 @@ import PropTypes from "prop-types";
 import { getAvatar } from "../utils/getAvatar.js";
 import "./Comment.css";
 
-function Comment({ content, username, createdAt, avatar, replies = [], addReply, commentId, updateComment, deleteComment, updateScore, score }) {
+import replyIcon from "../assets/images/icon-reply.svg";
+import editIcon from "../assets/images/icon-edit.svg";
+import deleteIcon from "../assets/images/icon-delete.svg";
+import plusIcon from "../assets/images/icon-plus.svg";
+import minusIcon from "../assets/images/icon-minus.svg";
+
+function Comment({
+  content,
+  username,
+  currentUser,
+  createdAt,
+  avatar,
+  replies = [],
+  addReply,
+  commentId,
+  updateComment,
+  deleteComment,
+  updateScore,
+  score,
+}) {
   const [isReplying, setIsReplying] = useState(false);
   const [replyContent, setReplyContent] = useState("");
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(content);
 
+  const isCurrentUser = username === currentUser.username;
+
   return (
     <div className="comment">
       <div className="comment-layout">
 
+        {/* HEADER */}
         <div className="comment-header">
-          <div className="comment-user">
+
+          <div className="comment-header-left">
             <img src={avatar} alt={username} className="comment-avatar" />
-            <strong className="comment-username">{username}</strong>
+            <div className="comment-user-info">
+              <strong className="comment-username">{username}</strong>
+
+              {isCurrentUser && (
+                <span className="comment-you">you</span>
+              )}
+            </div>
             <span className="comment-time">{createdAt}</span>
+          </div>
+
+          {/* DESKTOP ACTIONS */}
+          <div className="comment-actions-desktop">
+            {isCurrentUser ? (
+              <>
+                <button onClick={() => setIsEditing(!isEditing)}>
+                  <img src={editIcon} alt="edit" />
+                  Edit
+                </button>
+
+                <button onClick={() => deleteComment(commentId)}>
+                  <img src={deleteIcon} alt="delete" />
+                  Delete
+                </button>
+              </>
+            ) : (
+              <button onClick={() => setIsReplying(!isReplying)}>
+                <img src={replyIcon} alt="reply" />
+                Reply
+              </button>
+            )}
           </div>
         </div>
 
-        <div className="comment-actions">
-          <button onClick={() => setIsReplying(!isReplying)}>
-            Reply
-          </button>
-
-          <button onClick={() => setIsEditing(!isEditing)}>
-            Edit
-          </button>
-
-          <button onClick={() => deleteComment(commentId)}>
-            Delete
-          </button>
-        </div>
-
+        {/* CONTENT */}
         {isEditing ? (
           <div className="comment-edit">
             <textarea
@@ -55,14 +93,46 @@ function Comment({ content, username, createdAt, avatar, replies = [], addReply,
           <p className="comment-content">{content}</p>
         )}
 
+        {/* FOOTER (MOBILE) */}
         <div className="comment-footer">
+
           <div className="comment-score">
-            <button onClick={() => updateScore(commentId, 1)}>+</button>
+            <button onClick={() => updateScore(commentId, 1)}>
+              <img src={plusIcon} alt="plus" />
+            </button>
+
             <div>{score}</div>
-            <button onClick={() => updateScore(commentId, -1)}>-</button>
+
+            <button onClick={() => updateScore(commentId, -1)}>
+              <img src={minusIcon} alt="minus" />
+            </button>
           </div>
+
+          {/* MOBILE ACTIONS */}
+          <div className="comment-actions">
+            {isCurrentUser ? (
+              <>
+                <button onClick={() => setIsEditing(!isEditing)}>
+                  <img src={editIcon} alt="edit" />
+                  Edit
+                </button>
+
+                <button onClick={() => deleteComment(commentId)}>
+                  <img src={deleteIcon} alt="delete" />
+                  Delete
+                </button>
+              </>
+            ) : (
+              <button onClick={() => setIsReplying(!isReplying)}>
+                <img src={replyIcon} alt="reply" />
+                Reply
+              </button>
+            )}
+          </div>
+
         </div>
 
+        {/* REPLY BOX */}
         {isReplying && (
           <div className="reply-box">
             <textarea
@@ -82,13 +152,15 @@ function Comment({ content, username, createdAt, avatar, replies = [], addReply,
           </div>
         )}
 
+        {/* REPLIES */}
         {replies.length > 0 && (
           <div className="replies">
             {replies.map((reply) => (
               <Comment
                 key={reply.id}
-                content={reply.content}
+                content={`@${reply.user?.username} ${reply.content}`}
                 username={reply.user?.username || "Unknown"}
+                currentUser={currentUser}
                 createdAt={reply.createdAt}
                 avatar={getAvatar(reply.user?.image?.png)}
                 replies={reply.replies || []}
@@ -106,118 +178,12 @@ function Comment({ content, username, createdAt, avatar, replies = [], addReply,
       </div>
     </div>
   );
-  // <div className="comment">
-  //   <div className="comment-body">
-
-  //     {/* <div className="comment-score">
-  //       <button onClick={() => updateScore(commentId, 1)}>+</button>
-
-  //       <div>{score}</div>
-
-  //       <button onClick={() => updateScore(commentId, -1)}>-</button>
-  //     </div> */}
-
-  //     <div className="comment-main">
-
-  //       <div className="comment-header">
-  //         <img
-  //           src={avatar}
-  //           alt={username}
-  //           className="comment-avatar"
-  //         />
-  //         <strong className="comment-username">{username}</strong>
-  //         <span className="comment-time">{createdAt}</span>
-  //       </div>
-
-  //       {isEditing ? (
-  //         <div>
-  //           <textarea
-  //             value={editedContent}
-  //             onChange={(e) => setEditedContent(e.target.value)}
-  //           />
-  //           <button
-  //             onClick={() => {
-  //               updateComment(commentId, editedContent);
-  //               setIsEditing(false);
-  //             }}
-  //           >
-  //             Save
-  //           </button>
-  //         </div>
-  //       ) : (
-  //         <p className="comment-content">{content}</p>
-  //       )}
-
-  //       <div className="comment-actions">
-  //         <div className="comment-score">
-  //           <button onClick={() => updateScore(commentId, 1)}>+</button>
-
-  //           <div>{score}</div>
-
-  //           <button onClick={() => updateScore(commentId, -1)}>-</button>
-  //         </div>
-  //         <button className="comment-btn" onClick={() => setIsReplying(!isReplying)}>
-  //           Reply
-  //         </button>
-
-  //         {/* <button className="comment-btn delete" onClick={() => deleteComment(commentId)}>
-  //           Delete
-  //         </button>
-
-  //         <button className="comment-btn" onClick={() => setIsEditing(!isEditing)}>
-  //           Edit
-  //         </button> */}
-  //       </div>
-
-  //       {isReplying && (
-  //         <div style={{ marginTop: "10px" }}>
-  //           <textarea
-  //             placeholder={`Reply to ${username}`}
-  //             value={replyContent}
-  //             onChange={(e) => setReplyContent(e.target.value)}
-  //           />
-  //           <button
-  //             onClick={() => {
-  //               addReply(commentId, replyContent);
-  //               setReplyContent("");
-  //               setIsReplying(false);
-  //             }}
-  //           >
-  //             Send Reply
-  //           </button>
-  //         </div>
-  //       )}
-
-  //       {replies.length > 0 && (
-  //         <div style={{ marginLeft: "30px", marginTop: "10px" }}>
-  //           {replies.map((reply) => (
-  //             <Comment
-  //               key={reply.id}
-  //               content={reply.content}
-  //               username={reply.user?.username || "Unknown"}
-  //               createdAt={reply.createdAt}
-  //               avatar={getAvatar(reply.user?.image?.png)}
-  //               replies={reply.replies || []}
-  //               addReply={addReply}
-  //               commentId={reply.id}
-  //               deleteComment={deleteComment}
-  //               updateComment={updateComment}
-  //               updateScore={updateScore}
-  //               score={reply.score}
-  //             />
-  //           ))}
-  //         </div>
-  //       )}
-
-  //     </div>
-  //   </div>
-  // </div>
-  // );
 }
 
 Comment.propTypes = {
   content: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
+  currentUser: PropTypes.object.isRequired,
   createdAt: PropTypes.string.isRequired,
   avatar: PropTypes.string,
   replies: PropTypes.array,

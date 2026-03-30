@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import data from "./data/data.json";
 import Comment from "./components/Comment";
 import { getAvatar } from "./utils/getAvatar.js";
+import "./App.css";
+
 
 function App() {
   // const [comments, setComments] = useState(data.comments);
@@ -27,7 +29,8 @@ function App() {
       replies: [],
     };
 
-    setComments([newItem, ...comments]);
+    // setComments([newItem, ...comments]);
+    setComments(prev => [newItem, ...prev]);
     setNewComment("");
   };
 
@@ -112,13 +115,14 @@ function App() {
 
   return (
     <>
-      <div style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}>
+      <div className="app-container">
         {comments.map((comment) => (
           <Comment
             key={comment.id}
             content={comment.content}
             username={comment.user?.username || "Unknown"}
             createdAt={comment.createdAt}
+            currentUser={data.currentUser}
             avatar={getAvatar(comment.user?.image?.png)}
             replies={comment.replies || []}
             addReply={addReply}
@@ -130,27 +134,36 @@ function App() {
           />
         ))}
       </div>
+      <form
+        className="app-input"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleAddComment();
+        }}
+      >
+        <img
+          src={getAvatar(data.currentUser.image.png)}
+          alt="current user"
+          className="app-avatar"
+        />
 
-      <div style={{ marginTop: "20px" }}>
         <textarea
-          style={{ width: "100%", minHeight: "80px", marginBottom: "10px" }}
+          id="new-comment"
+          name="comment"
+          className="app-textarea"
           placeholder="Add a comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && !e.shiftKey) {
-              e.preventDefault();
-              handleAddComment();
-            }
-          }}
         />
+
         <button
-          onClick={handleAddComment}
+          className="app-button"
+          type="submit"
           disabled={!newComment.trim()}
         >
           Send
         </button>
-      </div>
+      </form>
     </>
   );
 }

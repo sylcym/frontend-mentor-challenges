@@ -1,14 +1,17 @@
 :root {
-  --primary: #5457b6;
-  --danger: #ed6468;
+  --color-primary: #5457b6;
+  --color-primary-light: #c3c4ef;
 
-  --text-dark: #324152;
-  --text-light: #67727e;
+  --color-danger: #ed6468;
+  --color-danger-light: #ffb8bb;
 
-  --bg: #f5f6fa;
-  --white: #ffffff;
+  --color-text-main: #324152;
+  --color-text-secondary: #67727e;
 
-  --border: #e9ebf0;
+  --color-bg: #f5f6fa;
+  --color-white: #ffffff;
+
+  --color-border: #e9ebf0;
 
   --radius: 8px;
 }
@@ -20,7 +23,7 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  font-family: 'Rubik', sans-serif;
   background: var(--bg);
   color: var(--text-dark);
 }
