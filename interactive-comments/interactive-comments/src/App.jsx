@@ -6,7 +6,6 @@ import "./App.css";
 
 
 function App() {
-  // const [comments, setComments] = useState(data.comments);
   const [comments, setComments] = useState(() => {
     try {
       const saved = localStorage.getItem("comments");
@@ -29,7 +28,6 @@ function App() {
       replies: [],
     };
 
-    // setComments([newItem, ...comments]);
     setComments(prev => [newItem, ...prev]);
     setNewComment("");
   };

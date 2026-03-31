@@ -35,7 +35,6 @@ function Comment({
     <div className="comment">
       <div className="comment-layout">
 
-        {/* HEADER */}
         <div className="comment-header">
 
           <div className="comment-header-left">
@@ -50,7 +49,6 @@ function Comment({
             <span className="comment-time">{createdAt}</span>
           </div>
 
-          {/* DESKTOP ACTIONS */}
           <div className="comment-actions-desktop">
             {isCurrentUser ? (
               <>
@@ -73,7 +71,6 @@ function Comment({
           </div>
         </div>
 
-        {/* CONTENT */}
         {isEditing ? (
           <div className="comment-edit">
             <textarea
@@ -93,7 +90,6 @@ function Comment({
           <p className="comment-content">{content}</p>
         )}
 
-        {/* FOOTER (MOBILE) */}
         <div className="comment-footer">
 
           <div className="comment-score">
@@ -108,7 +104,6 @@ function Comment({
             </button>
           </div>
 
-          {/* MOBILE ACTIONS */}
           <div className="comment-actions">
             {isCurrentUser ? (
               <>
@@ -132,7 +127,6 @@ function Comment({
 
         </div>
 
-        {/* REPLY BOX */}
         {isReplying && (
           <div className="reply-box">
             <textarea
@@ -152,7 +146,6 @@ function Comment({
           </div>
         )}
 
-        {/* REPLIES */}
         {replies.length > 0 && (
           <div className="replies">
             {replies.map((reply) => (
