@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { getAvatar } from "../utils/getAvatar";
+import "./ReplyForm.css";
 
 function ReplyForm({
   currentUser,
@@ -10,22 +11,22 @@ function ReplyForm({
   placeholder = "Add a comment...",
 }) {
   return (
-    <form className="reply-box" onSubmit={onSubmit}>
+    <form className="reply-form" onSubmit={onSubmit}>
       <img
         src={getAvatar(currentUser.image.png)}
         alt="current user"
-        className="app-avatar"
+        className="reply-form__avatar"
       />
 
       <textarea
-        className="app-textarea"
+        className="reply-form__textarea"
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
 
       <button
-        className="app-button"
+        className="reply-form__button"
         type="submit"
         disabled={!value.trim()}
       >

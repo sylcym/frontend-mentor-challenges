@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { getAvatar } from "../utils/getAvatar.js";
 import "./Comment.css";
-import ReplyForm from "./ReplyForm";
+import ReplyForm from "./ReplyForm.jsx";
+import Modal from "./Modal";
 
 import replyIcon from "../assets/images/icon-reply.svg";
 import editIcon from "../assets/images/icon-edit.svg";
@@ -33,6 +34,30 @@ function Comment({
   const [showModal, setShowModal] = useState(false);
 
   const isCurrentUser = username === currentUser.username;
+
+  useEffect(() => {
+    if (!showModal) return;
+
+    const handleEsc = (e) => {
+      if (e.key === "Escape") {
+        setShowModal(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [showModal]);
+
+  useEffect(() => {
+    if (!showModal) return;
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showModal]);
 
   return (
     <div className="comment">
@@ -130,39 +155,6 @@ function Comment({
 
         </div>
 
-
-        {/* {isReplying && (
-          <form
-            className="reply-box"
-            onSubmit={(e) => {
-              e.preventDefault();
-              addReply(commentId, replyContent);
-              setReplyContent("");
-              setIsReplying(false);
-            }}
-          >
-            <img
-              src={getAvatar(currentUser.image.png)}
-              alt="current user"
-              className="app-avatar"
-            />
-
-            <textarea
-              className="app-textarea"
-              placeholder={`Reply to ${username}`}
-              value={replyContent}
-              onChange={(e) => setReplyContent(e.target.value)}
-            />
-
-            <button
-              className="app-button"
-              type="submit"
-              disabled={!replyContent.trim()}
-            >
-              Reply
-            </button>
-          </form>
-        )} */}
         {isReplying && (
           <ReplyForm
             currentUser={currentUser}
@@ -202,6 +194,16 @@ function Comment({
         )}
 
         {showModal && (
+          <Modal
+            onCancel={() => setShowModal(false)}
+            onConfirm={() => {
+              deleteComment(commentId);
+              setShowModal(false);
+            }}
+          />
+        )}
+
+        {/* {showModal && (
           <div className="modal-overlay">
             <div className="modal">
               <h3>Delete comment</h3>
@@ -230,7 +232,7 @@ function Comment({
               </div>
             </div>
           </div>
-        )}
+        )} */}
 
       </div>
     </div>

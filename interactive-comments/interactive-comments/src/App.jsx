@@ -133,13 +133,7 @@ function App() {
           />
         ))}
       </div>
-      {/* <form
-        className="app-input"
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleAddComment();
-        }}
-      > */}
+
       <ReplyForm
         currentUser={data.currentUser}
         value={newComment}
@@ -149,28 +143,6 @@ function App() {
           handleAddComment();
         }}
       />
-      <img
-        src={getAvatar(data.currentUser.image.png)}
-        alt="current user"
-        className="app-avatar"
-      />
-
-      <textarea
-        id="new-comment"
-        name="comment"
-        className="app-textarea"
-        placeholder="Add a comment..."
-        value={newComment}
-        onChange={(e) => setNewComment(e.target.value)}
-      />
-
-      <button
-        className="app-button"
-        type="submit"
-        disabled={!newComment.trim()}
-      >
-        Send
-      </button>
     </>
   );
 }
