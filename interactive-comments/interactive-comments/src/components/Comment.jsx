@@ -2,6 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { getAvatar } from "../utils/getAvatar.js";
 import "./Comment.css";
+import ReplyForm from "./ReplyForm";
 
 import replyIcon from "../assets/images/icon-reply.svg";
 import editIcon from "../assets/images/icon-edit.svg";
@@ -28,6 +29,8 @@ function Comment({
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(content);
+
+  const [showModal, setShowModal] = useState(false);
 
   const isCurrentUser = username === currentUser.username;
 
@@ -57,7 +60,7 @@ function Comment({
                   Edit
                 </button>
 
-                <button onClick={() => deleteComment(commentId)}>
+                <button onClick={() => setShowModal(true)}>
                   <img src={deleteIcon} alt="delete" />
                   Delete
                 </button>
@@ -112,7 +115,7 @@ function Comment({
                   Edit
                 </button>
 
-                <button onClick={() => deleteComment(commentId)}>
+                <button onClick={() => setShowModal(true)}>
                   <img src={deleteIcon} alt="delete" />
                   Delete
                 </button>
@@ -127,23 +130,53 @@ function Comment({
 
         </div>
 
-        {isReplying && (
-          <div className="reply-box">
+
+        {/* {isReplying && (
+          <form
+            className="reply-box"
+            onSubmit={(e) => {
+              e.preventDefault();
+              addReply(commentId, replyContent);
+              setReplyContent("");
+              setIsReplying(false);
+            }}
+          >
+            <img
+              src={getAvatar(currentUser.image.png)}
+              alt="current user"
+              className="app-avatar"
+            />
+
             <textarea
+              className="app-textarea"
               placeholder={`Reply to ${username}`}
               value={replyContent}
               onChange={(e) => setReplyContent(e.target.value)}
             />
+
             <button
-              onClick={() => {
-                addReply(commentId, replyContent);
-                setReplyContent("");
-                setIsReplying(false);
-              }}
+              className="app-button"
+              type="submit"
+              disabled={!replyContent.trim()}
             >
-              Send Reply
+              Reply
             </button>
-          </div>
+          </form>
+        )} */}
+        {isReplying && (
+          <ReplyForm
+            currentUser={currentUser}
+            value={replyContent}
+            onChange={setReplyContent}
+            onSubmit={(e) => {
+              e.preventDefault();
+              addReply(commentId, replyContent);
+              setReplyContent("");
+              setIsReplying(false);
+            }}
+            buttonText="Reply"
+            placeholder={`Reply to ${username}`}
+          />
         )}
 
         {replies.length > 0 && (
@@ -165,6 +198,37 @@ function Comment({
                 score={reply.score}
               />
             ))}
+          </div>
+        )}
+
+        {showModal && (
+          <div className="modal-overlay">
+            <div className="modal">
+              <h3>Delete comment</h3>
+              <p>
+                Are you sure you want to delete this comment?
+                This will remove the comment and can't be undone.
+              </p>
+
+              <div className="modal-actions">
+                <button
+                  className="modal-cancel"
+                  onClick={() => setShowModal(false)}
+                >
+                  NO, CANCEL
+                </button>
+
+                <button
+                  className="modal-delete"
+                  onClick={() => {
+                    deleteComment(commentId);
+                    setShowModal(false);
+                  }}
+                >
+                  YES, DELETE
+                </button>
+              </div>
+            </div>
           </div>
         )}
 

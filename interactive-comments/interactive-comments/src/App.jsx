@@ -3,6 +3,7 @@ import data from "./data/data.json";
 import Comment from "./components/Comment";
 import { getAvatar } from "./utils/getAvatar.js";
 import "./App.css";
+import ReplyForm from "./components/ReplyForm";
 
 
 function App() {
@@ -132,36 +133,44 @@ function App() {
           />
         ))}
       </div>
-      <form
+      {/* <form
         className="app-input"
         onSubmit={(e) => {
           e.preventDefault();
           handleAddComment();
         }}
+      > */}
+      <ReplyForm
+        currentUser={data.currentUser}
+        value={newComment}
+        onChange={setNewComment}
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleAddComment();
+        }}
+      />
+      <img
+        src={getAvatar(data.currentUser.image.png)}
+        alt="current user"
+        className="app-avatar"
+      />
+
+      <textarea
+        id="new-comment"
+        name="comment"
+        className="app-textarea"
+        placeholder="Add a comment..."
+        value={newComment}
+        onChange={(e) => setNewComment(e.target.value)}
+      />
+
+      <button
+        className="app-button"
+        type="submit"
+        disabled={!newComment.trim()}
       >
-        <img
-          src={getAvatar(data.currentUser.image.png)}
-          alt="current user"
-          className="app-avatar"
-        />
-
-        <textarea
-          id="new-comment"
-          name="comment"
-          className="app-textarea"
-          placeholder="Add a comment..."
-          value={newComment}
-          onChange={(e) => setNewComment(e.target.value)}
-        />
-
-        <button
-          className="app-button"
-          type="submit"
-          disabled={!newComment.trim()}
-        >
-          Send
-        </button>
-      </form>
+        Send
+      </button>
     </>
   );
 }
