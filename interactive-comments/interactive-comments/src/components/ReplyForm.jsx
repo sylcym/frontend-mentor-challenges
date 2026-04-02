@@ -9,9 +9,11 @@ function ReplyForm({
   onSubmit,
   buttonText = "Send",
   placeholder = "Add a comment...",
+  variant = "default",
 }) {
   return (
-    <form className="reply-form" onSubmit={onSubmit}>
+    <form className={`reply-form ${variant === "nested" ? "reply-form--nested" : ""}`}
+      onSubmit={onSubmit}>
       <img
         src={getAvatar(currentUser.image.png)}
         alt="current user"
@@ -43,6 +45,7 @@ ReplyForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   buttonText: PropTypes.string,
   placeholder: PropTypes.string,
+  variant: PropTypes.oneOf(["default", "nested"]),
 };
 
 export default ReplyForm;

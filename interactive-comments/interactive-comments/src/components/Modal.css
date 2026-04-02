@@ -65,6 +65,14 @@
   color: var(--color-white);
 }
 
+.modal-delete:hover {
+  background: var(--color-danger-light);
+}
+
+.modal-cancel:hover {
+  opacity: 0.8;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

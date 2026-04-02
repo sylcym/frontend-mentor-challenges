@@ -157,6 +157,7 @@ function Comment({
 
         {isReplying && (
           <ReplyForm
+            variant="nested"
             currentUser={currentUser}
             value={replyContent}
             onChange={setReplyContent}

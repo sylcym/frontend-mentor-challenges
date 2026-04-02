@@ -48,6 +48,7 @@
   background: var(--color-primary-light);
 }
 
+
 /* DESKTOP */
 @media (min-width: 768px) {
   .reply-form {
@@ -58,6 +59,67 @@
     padding: 24px;
     margin: 0 auto;
   }
+
+  .reply-form--nested {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "avatar textarea button";
+    align-items: flex-start;
+    /* width: 561px;
+    padding: 0px 24px 0px 0px; */
+    /* max-width: 100%;
+    margin: 0; */
+  }
+
+  /* 
+  .reply-form__textarea {
+    min-width: 0;
+  } */
+
+
+  /* .reply-form {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "avatar textarea button";
+    width: 100%;
+    padding: 24px;
+  } */
+
+  /* 👉 tylko dla głównego */
+  /* .reply-form--main {
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "avatar textarea button";
+    align-items: flex-start;
+    width: 730px;
+    padding: 24px;
+    margin: 0 auto;
+  } */
+
+
+  /* .reply-form {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "avatar textarea button";
+
+    width: 100%;
+    padding: 24px;
+
+    align-items: flex-start;
+  }
+
+  .reply-form__textarea {
+    grid-area: textarea;
+
+    width: 100%;
+    min-width: 0;
+
+    word-break: break-word;
+  } */
+
+
+  /* .reply-form__textarea {
+    width: 100%;
+    min-width: 0;
+  } */
 
 
 
