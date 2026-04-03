@@ -24,6 +24,7 @@ function Comment({
   deleteComment,
   updateScore,
   score,
+  depth = 0,
 }) {
   const [isReplying, setIsReplying] = useState(false);
   const [replyContent, setReplyContent] = useState("");
@@ -157,7 +158,7 @@ function Comment({
 
         {isReplying && (
           <ReplyForm
-            variant="nested"
+            isNested={depth > 0}
             currentUser={currentUser}
             value={replyContent}
             onChange={setReplyContent}
@@ -177,6 +178,7 @@ function Comment({
             {replies.map((reply) => (
               <Comment
                 key={reply.id}
+                depth={depth + 1}
                 content={`@${reply.user?.username} ${reply.content}`}
                 username={reply.user?.username || "Unknown"}
                 currentUser={currentUser}

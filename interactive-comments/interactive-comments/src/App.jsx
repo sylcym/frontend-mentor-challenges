@@ -118,6 +118,7 @@ function App() {
         {comments.map((comment) => (
           <Comment
             key={comment.id}
+            depth={0}
             content={comment.content}
             username={comment.user?.username || "Unknown"}
             createdAt={comment.createdAt}
