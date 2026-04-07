@@ -1,10 +1,10 @@
+
 import { useState, useEffect } from "react";
 import data from "./data/data.json";
 import Comment from "./components/Comment";
 import { getAvatar } from "./utils/getAvatar.js";
 import "./App.css";
 import ReplyForm from "./components/ReplyForm";
-
 
 function App() {
   const [comments, setComments] = useState(() => {
@@ -15,8 +15,10 @@ function App() {
       return data.comments;
     }
   });
+
   const [newComment, setNewComment] = useState("");
 
+  // 1. ADD TOP LEVEL COMMENT
   const handleAddComment = () => {
     if (!newComment.trim()) return;
 
@@ -29,8 +31,25 @@ function App() {
       replies: [],
     };
 
-    setComments(prev => [newItem, ...prev]);
+    setComments((prev) => [newItem, ...prev]);
     setNewComment("");
+  };
+
+  // 2. RECURSIVE ADD REPLY (🔥 FIX)
+  const addReplyRecursive = (commentsArray, parentId, newReply) => {
+    return commentsArray.map((comment) => {
+      if (comment.id === parentId) {
+        return {
+          ...comment,
+          replies: [...(comment.replies || []), newReply],
+        };
+      }
+
+      return {
+        ...comment,
+        replies: addReplyRecursive(comment.replies || [], parentId, newReply),
+      };
+    });
   };
 
   const addReply = (parentId, replyContent) => {
@@ -45,19 +64,12 @@ function App() {
       replies: [],
     };
 
-    const updatedComments = comments.map((comment) => {
-      if (comment.id === parentId) {
-        return {
-          ...comment,
-          replies: [...comment.replies, newReply],
-        };
-      }
-      return comment;
-    });
-
-    setComments(updatedComments);
+    setComments((prev) =>
+      addReplyRecursive(prev, parentId, newReply)
+    );
   };
 
+  // 3. DELETE (OK - already recursive)
   const deleteComment = (id) => {
     const removeComment = (commentsArray) => {
       return commentsArray
@@ -68,10 +80,10 @@ function App() {
         }));
     };
 
-    setComments(removeComment(comments));
+    setComments((prev) => removeComment(prev));
   };
 
-
+  // 4. UPDATE (OK - already recursive)
   const updateComment = (id, newContent) => {
     const update = (commentsArray) => {
       return commentsArray.map((comment) => {
@@ -85,9 +97,10 @@ function App() {
       });
     };
 
-    setComments(update(comments));
+    setComments((prev) => update(prev));
   };
 
+  // 5. SCORE (OK - already recursive)
   const updateScore = (id, delta) => {
     const update = (arr) => {
       return arr.map((item) => {
@@ -105,9 +118,10 @@ function App() {
       });
     };
 
-    setComments(update(comments));
+    setComments((prev) => update(prev));
   };
 
+  // SAVE
   useEffect(() => {
     localStorage.setItem("comments", JSON.stringify(comments));
   }, [comments]);
@@ -136,7 +150,6 @@ function App() {
       </div>
 
       <ReplyForm
-        // className="reply-form--main"
         currentUser={data.currentUser}
         value={newComment}
         onChange={setNewComment}

@@ -62,184 +62,161 @@ function Comment({
 
   return (
     <div className="comment">
+
       <div className="comment-layout">
 
-        <div className="comment-header">
+        <div className="comment-main">
 
-          <div className="comment-header-left">
-            <img src={avatar} alt={username} className="comment-avatar" />
-            <div className="comment-user-info">
-              <strong className="comment-username">{username}</strong>
+          <div className="comment-header">
+            <div className="comment-header-left">
+              <img src={avatar} alt={username} className="comment-avatar" />
 
-              {isCurrentUser && (
-                <span className="comment-you">you</span>
+              <div className="comment-user-info">
+                <strong className="comment-username">{username}</strong>
+
+                {isCurrentUser && (
+                  <span className="comment-you">you</span>
+                )}
+              </div>
+
+              <span className="comment-time">{createdAt}</span>
+            </div>
+
+            <div className="comment-actions-desktop">
+              {isCurrentUser ? (
+                <>
+                  <button onClick={() => setIsEditing(!isEditing)}>
+                    <img src={editIcon} alt="edit" />
+                    Edit
+                  </button>
+
+                  <button onClick={() => setShowModal(true)}>
+                    <img src={deleteIcon} alt="delete" />
+                    Delete
+                  </button>
+                </>
+              ) : (
+                <button onClick={() => setIsReplying(!isReplying)}>
+                  <img src={replyIcon} alt="reply" />
+                  Reply
+                </button>
               )}
             </div>
-            <span className="comment-time">{createdAt}</span>
           </div>
 
-          <div className="comment-actions-desktop">
-            {isCurrentUser ? (
-              <>
-                <button onClick={() => setIsEditing(!isEditing)}>
-                  <img src={editIcon} alt="edit" />
-                  Edit
-                </button>
-
-                <button onClick={() => setShowModal(true)}>
-                  <img src={deleteIcon} alt="delete" />
-                  Delete
-                </button>
-              </>
-            ) : (
-              <button onClick={() => setIsReplying(!isReplying)}>
-                <img src={replyIcon} alt="reply" />
-                Reply
-              </button>
-            )}
-          </div>
-        </div>
-
-        {isEditing ? (
-          <div className="comment-edit">
-            <textarea
-              value={editedContent}
-              onChange={(e) => setEditedContent(e.target.value)}
-            />
-            <button
-              onClick={() => {
-                updateComment(commentId, editedContent);
-                setIsEditing(false);
-              }}
-            >
-              Save
-            </button>
-          </div>
-        ) : (
-          <p className="comment-content">{content}</p>
-        )}
-
-        <div className="comment-footer">
-
-          <div className="comment-score">
-            <button onClick={() => updateScore(commentId, 1)}>
-              <img src={plusIcon} alt="plus" />
-            </button>
-
-            <div>{score}</div>
-
-            <button onClick={() => updateScore(commentId, -1)}>
-              <img src={minusIcon} alt="minus" />
-            </button>
-          </div>
-
-          <div className="comment-actions">
-            {isCurrentUser ? (
-              <>
-                <button onClick={() => setIsEditing(!isEditing)}>
-                  <img src={editIcon} alt="edit" />
-                  Edit
-                </button>
-
-                <button onClick={() => setShowModal(true)}>
-                  <img src={deleteIcon} alt="delete" />
-                  Delete
-                </button>
-              </>
-            ) : (
-              <button onClick={() => setIsReplying(!isReplying)}>
-                <img src={replyIcon} alt="reply" />
-                Reply
-              </button>
-            )}
-          </div>
-
-        </div>
-
-        {isReplying && (
-          <ReplyForm
-            isNested={depth > 0}
-            currentUser={currentUser}
-            value={replyContent}
-            onChange={setReplyContent}
-            onSubmit={(e) => {
-              e.preventDefault();
-              addReply(commentId, replyContent);
-              setReplyContent("");
-              setIsReplying(false);
-            }}
-            buttonText="Reply"
-            placeholder={`Reply to ${username}`}
-          />
-        )}
-
-        {replies.length > 0 && (
-          <div className="replies">
-            {replies.map((reply) => (
-              <Comment
-                key={reply.id}
-                depth={depth + 1}
-                content={`@${reply.user?.username} ${reply.content}`}
-                username={reply.user?.username || "Unknown"}
-                currentUser={currentUser}
-                createdAt={reply.createdAt}
-                avatar={getAvatar(reply.user?.image?.png)}
-                replies={reply.replies || []}
-                addReply={addReply}
-                commentId={reply.id}
-                deleteComment={deleteComment}
-                updateComment={updateComment}
-                updateScore={updateScore}
-                score={reply.score}
+          {isEditing ? (
+            <div className="comment-edit">
+              <textarea
+                value={editedContent}
+                onChange={(e) => setEditedContent(e.target.value)}
               />
-            ))}
-          </div>
-        )}
+              <button
+                onClick={() => {
+                  updateComment(commentId, editedContent);
+                  setIsEditing(false);
+                }}
+              >
+                Save
+              </button>
+            </div>
+          ) : (
+            <p className="comment-content">{content}</p>
+          )}
 
-        {showModal && (
-          <Modal
-            onCancel={() => setShowModal(false)}
-            onConfirm={() => {
-              deleteComment(commentId);
-              setShowModal(false);
-            }}
-          />
-        )}
+          <div className="comment-footer">
+            <div className="comment-score">
+              <button onClick={() => updateScore(commentId, 1)}>
+                <img src={plusIcon} alt="plus" />
+              </button>
 
-        {/* {showModal && (
-          <div className="modal-overlay">
-            <div className="modal">
-              <h3>Delete comment</h3>
-              <p>
-                Are you sure you want to delete this comment?
-                This will remove the comment and can't be undone.
-              </p>
+              <div>{score}</div>
 
-              <div className="modal-actions">
-                <button
-                  className="modal-cancel"
-                  onClick={() => setShowModal(false)}
-                >
-                  NO, CANCEL
+              <button onClick={() => updateScore(commentId, -1)}>
+                <img src={minusIcon} alt="minus" />
+              </button>
+            </div>
+
+            <div className="comment-actions">
+              {isCurrentUser ? (
+                <>
+                  <button onClick={() => setIsEditing(!isEditing)}>
+                    <img src={editIcon} alt="edit" />
+                    Edit
+                  </button>
+
+                  <button onClick={() => setShowModal(true)}>
+                    <img src={deleteIcon} alt="delete" />
+                    Delete
+                  </button>
+                </>
+              ) : (
+                <button onClick={() => setIsReplying(!isReplying)}>
+                  <img src={replyIcon} alt="reply" />
+                  Reply
                 </button>
-
-                <button
-                  className="modal-delete"
-                  onClick={() => {
-                    deleteComment(commentId);
-                    setShowModal(false);
-                  }}
-                >
-                  YES, DELETE
-                </button>
-              </div>
+              )}
             </div>
           </div>
-        )} */}
+
+        </div>
 
       </div>
+
+      {/* ✅ REPLY FORM JEST NA ZEWNĄTRZ COMMENT-HEAD/MAIN */}
+      {isReplying && (
+        <ReplyForm
+          isNested={depth > 0}
+          currentUser={currentUser}
+          value={replyContent}
+          onChange={setReplyContent}
+          onSubmit={(e) => {
+            e.preventDefault();
+            addReply(commentId, replyContent);
+            setReplyContent("");
+            setIsReplying(false);
+          }}
+          buttonText="Reply"
+          placeholder={`Reply to ${username}`}
+        />
+      )}
+
+      {replies.length > 0 && (
+        <div className="replies">
+          {replies.map((reply) => (
+            <Comment
+              key={reply.id}
+              depth={depth + 1}
+              content={`@${reply.user?.username} ${reply.content}`}
+              username={reply.user?.username || "Unknown"}
+              currentUser={currentUser}
+              createdAt={reply.createdAt}
+              avatar={getAvatar(reply.user?.image?.png)}
+              replies={reply.replies || []}
+              addReply={addReply}
+              commentId={reply.id}
+              deleteComment={deleteComment}
+              updateComment={updateComment}
+              updateScore={updateScore}
+              score={reply.score}
+            />
+          ))}
+
+        </div>
+      )}
+
+      {showModal && (
+        <Modal
+          onCancel={() => setShowModal(false)}
+          onConfirm={() => {
+            deleteComment(commentId);
+            setShowModal(false);
+          }}
+        />
+      )}
+
     </div>
   );
+
 }
 
 Comment.propTypes = {
@@ -255,6 +232,7 @@ Comment.propTypes = {
   updateComment: PropTypes.func.isRequired,
   updateScore: PropTypes.func.isRequired,
   score: PropTypes.number.isRequired,
+  depth: PropTypes.number,
 };
 
 export default Comment;
