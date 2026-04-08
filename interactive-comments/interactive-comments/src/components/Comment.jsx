@@ -4,6 +4,7 @@ import { getAvatar } from "../utils/getAvatar.js";
 import "./Comment.css";
 import ReplyForm from "./ReplyForm.jsx";
 import Modal from "./Modal";
+import CommentActions from "./CommentActions.jsx";
 
 import replyIcon from "../assets/images/icon-reply.svg";
 import editIcon from "../assets/images/icon-edit.svg";
@@ -82,7 +83,7 @@ function Comment({
               <span className="comment-time">{createdAt}</span>
             </div>
 
-            <div className="comment-actions-desktop">
+            {/* <div className="comment-actions-desktop">
               {isCurrentUser ? (
                 <>
                   <button onClick={() => setIsEditing(!isEditing)}>
@@ -101,6 +102,14 @@ function Comment({
                   Reply
                 </button>
               )}
+            </div> */}
+            <div className="comment-actions-desktop">
+              <CommentActions
+                isCurrentUser={isCurrentUser}
+                onReply={() => setIsReplying(!isReplying)}
+                onEdit={() => setIsEditing(!isEditing)}
+                onDelete={() => setShowModal(true)}
+              />
             </div>
           </div>
 
@@ -136,7 +145,7 @@ function Comment({
               </button>
             </div>
 
-            <div className="comment-actions">
+            {/* <div className="comment-actions">
               {isCurrentUser ? (
                 <>
                   <button onClick={() => setIsEditing(!isEditing)}>
@@ -155,6 +164,14 @@ function Comment({
                   Reply
                 </button>
               )}
+            </div> */}
+            <div className="comment-actions">
+              <CommentActions
+                isCurrentUser={isCurrentUser}
+                onReply={() => setIsReplying(!isReplying)}
+                onEdit={() => setIsEditing(!isEditing)}
+                onDelete={() => setShowModal(true)}
+              />
             </div>
           </div>
 

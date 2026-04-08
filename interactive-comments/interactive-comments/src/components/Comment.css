@@ -9,6 +9,12 @@
   padding: 16px;
 }
 
+.comment-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .comment-header {
   display: flex;
   align-items: center;
@@ -63,6 +69,8 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+  white-space: pre-wrap;
+  word-break: break-word;
   color: var(--color-text-secondary);
 }
 
@@ -249,6 +257,11 @@ textarea::placeholder {
     grid-column: 2;
   }
 
+  /* .comment-layout>.comment-layout>.comment-avatar {
+    width: 40px;
+    height: 40px;
+
+  } */
 
 
   .comment-main {
@@ -286,6 +299,10 @@ textarea::placeholder {
     gap: 10px;
   }
 
+  .comment-actions-desktop .delete {
+    color: var(--color-danger);
+  }
+
   .comment-actions {
     display: none;
   }
@@ -298,7 +315,8 @@ textarea::placeholder {
 
   .replies {
     grid-column: 2;
-    padding-left: 24px;
+    padding-left: 85px;
+    /* padding-left: 24px; */
   }
 
   .comment-layout>.replies {

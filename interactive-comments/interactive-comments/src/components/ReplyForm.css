@@ -40,13 +40,14 @@
 .reply-form__button {
   grid-area: button;
   justify-self: end;
-
+  font-size: 16px;
+  font-weight: 600;
   background: var(--color-primary);
   color: var(--color-white);
   border: none;
   border-radius: var(--radius);
 
-  padding: 12px 24px;
+  padding: 15px 32.5px;
   cursor: pointer;
 }
 
@@ -83,6 +84,10 @@
     padding: 0;
   }
 
+  .reply-form__avatar {
+    width: 40px;
+    height: 40px;
+  }
 
   .reply-form__textarea {
     min-width: 0;
