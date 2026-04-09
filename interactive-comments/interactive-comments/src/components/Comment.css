@@ -75,7 +75,6 @@
 }
 
 .comment>.reply-form {
-  margin: 0;
   margin-top: 8px;
   padding: 16px;
   max-width: 100%;
@@ -91,18 +90,17 @@
   display: flex;
   align-items: center;
   gap: 12px;
-
   background: var(--color-bg);
   padding: 10.5px 20px;
   border-radius: 10px;
 }
 
 .comment-score button {
+  font-weight: bold;
+  color: var(--color-primary);
   border: none;
   background: none;
   cursor: pointer;
-  color: var(--color-primary);
-  font-weight: bold;
 }
 
 .comment-actions {
@@ -119,10 +117,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
-
   font-size: 16px;
   font-weight: 500;
-
   color: var(--color-primary);
   background: none;
   border: none;
@@ -154,6 +150,7 @@
 }
 
 .replies>.comment .replies {
+  border-left: none;
   padding-left: 0;
   margin-left: 0;
 }
@@ -175,12 +172,20 @@
   display: block;
 }
 
-.comment-score button:hover {
+/* .comment-score button:hover {
   opacity: 0.6;
+} */
+.comment-score button:hover {
+  transform: scale(1.15);
 }
 
 button {
   transition: all 0.3s ease;
+}
+
+button:disabled:hover {
+  opacity: 0.5;
+  transform: none;
 }
 
 button:hover img {
@@ -196,12 +201,17 @@ button:disabled {
   cursor: not-allowed;
 }
 
-
-button:focus,
-textarea:focus {
+button:focus-visible,
+textarea:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
+
+/* button:focus,
+textarea:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+} */
 
 textarea {
   resize: none;
@@ -227,6 +237,7 @@ textarea::placeholder {
   font-size: 14px;
   font-family: inherit;
   resize: none;
+  cursor: pointer;
 }
 
 .comment-edit button {
@@ -244,6 +255,21 @@ textarea::placeholder {
   background: var(--color-primary-light);
 }
 
+.comment-edit>.reply-form__button {
+  grid-area: button;
+  justify-self: end;
+  width: 104px;
+  font-size: 16px;
+  font-weight: 600;
+
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius);
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
 
 
 @media (min-width: 768px) {
@@ -257,9 +283,9 @@ textarea::placeholder {
   }
 
   .comment-layout .reply-form {
+    grid-column: 2;
     max-width: 100%;
     margin: 0;
-    grid-column: 2;
   }
 
   .comment-main {
@@ -313,8 +339,6 @@ textarea::placeholder {
 
   .replies {
     grid-column: 2;
-    /* padding-left: 85px; */
-    padding-left: 24px;
     padding-left: 43px;
     margin-left: 43px;
   }
@@ -323,10 +347,11 @@ textarea::placeholder {
     padding-left: 0;
   }
 
-  .replies>.comment .replies {
+  /* .replies>.comment .replies {
+    border-left: none;
     padding-left: 0;
     margin-left: 0;
-  }
+  } */
 
   /* .replies .comment {
     width: 100%;

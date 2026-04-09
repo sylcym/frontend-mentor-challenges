@@ -11,7 +11,6 @@ import minusIcon from "../assets/images/icon-minus.svg";
 
 function Comment({
   content,
-  // username,
   user,
   currentUser,
   createdAt,
@@ -69,7 +68,6 @@ function Comment({
           <div className="comment-header">
             <div className="comment-header-left">
               <img src={avatar}
-                //  alt={username}
                 alt={user?.username}
                 className="comment-avatar" />
 
@@ -101,12 +99,13 @@ function Comment({
                 onChange={(e) => setEditedContent(e.target.value)}
               />
               <button
+                className="reply-form__button"
                 onClick={() => {
                   updateComment(commentId, editedContent);
                   setIsEditing(false);
                 }}
               >
-                Save
+                Update
               </button>
             </div>
           ) : (
@@ -145,7 +144,6 @@ function Comment({
           isNested={depth > 0}
           currentUser={currentUser}
           value={replyContent}
-          // onChange={setReplyContent}
           onChange={(e) => setReplyContent(e.target.value)}
           onSubmit={(e) => {
             e.preventDefault();
@@ -165,7 +163,6 @@ function Comment({
               key={reply.id}
               depth={depth + 1}
               content={`@${reply.user?.username} ${reply.content}`}
-              // username={reply.user?.username || "Unknown"}
               user={reply.user}
               currentUser={currentUser}
               createdAt={reply.createdAt}
@@ -200,7 +197,6 @@ function Comment({
 
 Comment.propTypes = {
   content: PropTypes.string.isRequired,
-  // username: PropTypes.string.isRequired,
   user: PropTypes.object,
   currentUser: PropTypes.object.isRequired,
   createdAt: PropTypes.string.isRequired,

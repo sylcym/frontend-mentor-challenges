@@ -152,6 +152,26 @@ function App() {
           handleAddComment();
         }}
       />
+
+      <div className="attribution">
+        Challenge by{" "}
+        <a
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Frontend Mentor
+        </a>
+        . Coded by{" "}
+        <a
+          href="https://github.com/sylcym/frontend-mentor-challenges/tree/main/interactive-rating-react"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Sylwia
+        </a>
+        .
+      </div>
     </>
   );
 }
