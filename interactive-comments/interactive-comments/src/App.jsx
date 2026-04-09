@@ -18,7 +18,6 @@ function App() {
 
   const [newComment, setNewComment] = useState("");
 
-  // 1. ADD TOP LEVEL COMMENT
   const handleAddComment = () => {
     if (!newComment.trim()) return;
 
@@ -35,7 +34,6 @@ function App() {
     setNewComment("");
   };
 
-  // 2. RECURSIVE ADD REPLY (🔥 FIX)
   const addReplyRecursive = (commentsArray, parentId, newReply) => {
     return commentsArray.map((comment) => {
       if (comment.id === parentId) {
@@ -69,7 +67,6 @@ function App() {
     );
   };
 
-  // 3. DELETE (OK - already recursive)
   const deleteComment = (id) => {
     const removeComment = (commentsArray) => {
       return commentsArray
@@ -83,7 +80,6 @@ function App() {
     setComments((prev) => removeComment(prev));
   };
 
-  // 4. UPDATE (OK - already recursive)
   const updateComment = (id, newContent) => {
     const update = (commentsArray) => {
       return commentsArray.map((comment) => {
@@ -100,7 +96,6 @@ function App() {
     setComments((prev) => update(prev));
   };
 
-  // 5. SCORE (OK - already recursive)
   const updateScore = (id, delta) => {
     const update = (arr) => {
       return arr.map((item) => {
@@ -121,7 +116,6 @@ function App() {
     setComments((prev) => update(prev));
   };
 
-  // SAVE
   useEffect(() => {
     localStorage.setItem("comments", JSON.stringify(comments));
   }, [comments]);
@@ -134,7 +128,7 @@ function App() {
             key={comment.id}
             depth={0}
             content={comment.content}
-            username={comment.user?.username || "Unknown"}
+            user={comment.user}
             createdAt={comment.createdAt}
             currentUser={data.currentUser}
             avatar={getAvatar(comment.user?.image?.png)}
@@ -152,7 +146,7 @@ function App() {
       <ReplyForm
         currentUser={data.currentUser}
         value={newComment}
-        onChange={setNewComment}
+        onChange={(e) => setNewComment(e.target.value)}
         onSubmit={(e) => {
           e.preventDefault();
           handleAddComment();

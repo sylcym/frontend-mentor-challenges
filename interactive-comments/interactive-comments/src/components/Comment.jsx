@@ -6,15 +6,13 @@ import ReplyForm from "./ReplyForm.jsx";
 import Modal from "./Modal";
 import CommentActions from "./CommentActions.jsx";
 
-import replyIcon from "../assets/images/icon-reply.svg";
-import editIcon from "../assets/images/icon-edit.svg";
-import deleteIcon from "../assets/images/icon-delete.svg";
 import plusIcon from "../assets/images/icon-plus.svg";
 import minusIcon from "../assets/images/icon-minus.svg";
 
 function Comment({
   content,
-  username,
+  // username,
+  user,
   currentUser,
   createdAt,
   avatar,
@@ -35,7 +33,7 @@ function Comment({
 
   const [showModal, setShowModal] = useState(false);
 
-  const isCurrentUser = username === currentUser.username;
+  const isCurrentUser = user?.username === currentUser.username;
 
   useEffect(() => {
     if (!showModal) return;
@@ -70,10 +68,13 @@ function Comment({
 
           <div className="comment-header">
             <div className="comment-header-left">
-              <img src={avatar} alt={username} className="comment-avatar" />
+              <img src={avatar}
+                //  alt={username}
+                alt={user?.username}
+                className="comment-avatar" />
 
               <div className="comment-user-info">
-                <strong className="comment-username">{username}</strong>
+                <strong className="comment-username">{user?.username}</strong>
 
                 {isCurrentUser && (
                   <span className="comment-you">you</span>
@@ -83,26 +84,6 @@ function Comment({
               <span className="comment-time">{createdAt}</span>
             </div>
 
-            {/* <div className="comment-actions-desktop">
-              {isCurrentUser ? (
-                <>
-                  <button onClick={() => setIsEditing(!isEditing)}>
-                    <img src={editIcon} alt="edit" />
-                    Edit
-                  </button>
-
-                  <button onClick={() => setShowModal(true)}>
-                    <img src={deleteIcon} alt="delete" />
-                    Delete
-                  </button>
-                </>
-              ) : (
-                <button onClick={() => setIsReplying(!isReplying)}>
-                  <img src={replyIcon} alt="reply" />
-                  Reply
-                </button>
-              )}
-            </div> */}
             <div className="comment-actions-desktop">
               <CommentActions
                 isCurrentUser={isCurrentUser}
@@ -145,26 +126,6 @@ function Comment({
               </button>
             </div>
 
-            {/* <div className="comment-actions">
-              {isCurrentUser ? (
-                <>
-                  <button onClick={() => setIsEditing(!isEditing)}>
-                    <img src={editIcon} alt="edit" />
-                    Edit
-                  </button>
-
-                  <button onClick={() => setShowModal(true)}>
-                    <img src={deleteIcon} alt="delete" />
-                    Delete
-                  </button>
-                </>
-              ) : (
-                <button onClick={() => setIsReplying(!isReplying)}>
-                  <img src={replyIcon} alt="reply" />
-                  Reply
-                </button>
-              )}
-            </div> */}
             <div className="comment-actions">
               <CommentActions
                 isCurrentUser={isCurrentUser}
@@ -179,13 +140,13 @@ function Comment({
 
       </div>
 
-      {/* ✅ REPLY FORM JEST NA ZEWNĄTRZ COMMENT-HEAD/MAIN */}
       {isReplying && (
         <ReplyForm
           isNested={depth > 0}
           currentUser={currentUser}
           value={replyContent}
-          onChange={setReplyContent}
+          // onChange={setReplyContent}
+          onChange={(e) => setReplyContent(e.target.value)}
           onSubmit={(e) => {
             e.preventDefault();
             addReply(commentId, replyContent);
@@ -193,7 +154,7 @@ function Comment({
             setIsReplying(false);
           }}
           buttonText="Reply"
-          placeholder={`Reply to ${username}`}
+          placeholder={`Reply to ${user?.username}`}
         />
       )}
 
@@ -204,7 +165,8 @@ function Comment({
               key={reply.id}
               depth={depth + 1}
               content={`@${reply.user?.username} ${reply.content}`}
-              username={reply.user?.username || "Unknown"}
+              // username={reply.user?.username || "Unknown"}
+              user={reply.user}
               currentUser={currentUser}
               createdAt={reply.createdAt}
               avatar={getAvatar(reply.user?.image?.png)}
@@ -238,7 +200,8 @@ function Comment({
 
 Comment.propTypes = {
   content: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
+  // username: PropTypes.string.isRequired,
+  user: PropTypes.object,
   currentUser: PropTypes.object.isRequired,
   createdAt: PropTypes.string.isRequired,
   avatar: PropTypes.string,

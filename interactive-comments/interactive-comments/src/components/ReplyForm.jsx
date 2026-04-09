@@ -27,7 +27,7 @@ function ReplyForm({
         className="reply-form__textarea"
         placeholder={placeholder}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={onChange}
       />
 
       <button
@@ -48,7 +48,7 @@ ReplyForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   buttonText: PropTypes.string,
   placeholder: PropTypes.string,
-  isNested: PropTypes.bool, // 👈 zmiana
+  isNested: PropTypes.bool,
 };
 
 export default ReplyForm;
