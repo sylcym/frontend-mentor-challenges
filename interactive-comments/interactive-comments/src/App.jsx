@@ -164,7 +164,7 @@ function App() {
         </a>
         . Coded by{" "}
         <a
-          href="https://github.com/sylcym/frontend-mentor-challenges/tree/main/interactive-rating-react"
+          href="https://github.com/sylcym/frontend-mentor-challenges/tree/main/interactive-comments/interactive-comments"
           target="_blank"
           rel="noreferrer"
         >
