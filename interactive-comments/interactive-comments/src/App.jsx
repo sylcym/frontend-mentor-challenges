@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from "react";
-import data from "./data/data.json";
 import Comment from "./components/Comment";
 import { getAvatar } from "./utils/getAvatar.js";
 import "./App.css";
