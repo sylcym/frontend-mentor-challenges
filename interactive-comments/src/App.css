@@ -1,0 +1,32 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 762px;
+  margin: 0 auto;
+  padding: 32px 16px 16px;
+}
+
+.attribution {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 24px;
+  color: var(--color-danger);
+}
+
+
+.attribution a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    gap: 20px;
+    padding: 64px 16px 20px;
+  }
+}

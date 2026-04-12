@@ -1,0 +1,29 @@
+:root {
+  --color-primary: #5457b6;
+  --color-primary-light: #c3c4ef;
+
+  --color-danger: #ed6468;
+  --color-danger-light: #ffb8bb;
+
+  --color-text-main: #324152;
+  --color-text-secondary: #67727e;
+
+  --color-bg: #f5f6fa;
+  --color-white: #ffffff;
+
+  --color-border: #e9ebf0;
+
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background: var(--color-bg);
+  color: var(--text-dark);
+}
