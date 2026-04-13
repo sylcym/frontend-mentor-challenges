@@ -24,6 +24,8 @@ A fully functional interactive comments section built with React.
 
 ## 🔗 Live Demo
 
+https://sylcym-interactive-comments.netlify.app/
+
 ## 📚 What I learned
 
 - Building recursive components in React
