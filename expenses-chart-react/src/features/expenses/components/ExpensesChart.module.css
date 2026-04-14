@@ -1,0 +1,59 @@
+.card {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* .container {
+  width: 100%;
+  height: 300px;
+} */
+
+.title {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+.chartWrapper {
+  width: 100%;
+  height: 250px;
+}
+
+.divider {
+  height: 1px;
+  background: #f0e6dc;
+  margin: 20px 0;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.summaryText {
+  color: var(--medium-brown);
+  font-size: 14px;
+}
+
+.summaryAmount {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dark-brown);
+}
+
+.summaryRight {
+  text-align: right;
+}
+
+.percent {
+  font-weight: 700;
+  color: var(--dark-brown);
+}
+
+.fromLast {
+  font-size: 14px;
+  color: var(--medium-brown);
+}

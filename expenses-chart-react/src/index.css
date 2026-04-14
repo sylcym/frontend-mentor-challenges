@@ -1,4 +1,13 @@
-:root {}
+:root {
+  --white: #FFFFFF;
+  --card-white: #FFFBF6;
+  --cream-bg: #F8E9DD;
+  --medium-brown: #92857A;
+  --dark-brown: #382314;
+  --cyan: #76B5BC;
+  --red: #EC755D;
+
+}
 
 * {
   box-sizing: border-box;
@@ -8,5 +17,5 @@
 
 body {
   font-family: sans-serif;
-  background-color: #f8f9fa;
+  background-color: var(--cream-bg);
 }

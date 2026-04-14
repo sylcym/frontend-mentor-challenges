@@ -1,0 +1,20 @@
+.card {
+  background-color: var(--red);
+  color: var(--whit);
+  padding: 20px;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.amount {
+  font-size: 24px;
+  font-weight: bold;
+}
