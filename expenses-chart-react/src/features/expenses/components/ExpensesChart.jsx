@@ -7,12 +7,18 @@ import {
   XAxis,
   Tooltip,
   ResponsiveContainer,
+
 } from "recharts";
 import { Cell } from "recharts";
 
 export default function ExpensesChart() {
-  const [data, setData] = useState([]);
   const order = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+  const [data, setData] = useState([]);
+  const total = getTotal(data);
+  const percent = getPercentChange(formatChartData(data));
+  const formattedPercent = percent.toFixed(1);
+  const chartData = formatChartData(data);
+  const today = getToday();
 
   useEffect(() => {
     fetch("/data.json")
@@ -32,6 +38,28 @@ export default function ExpensesChart() {
     const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
     return days[new Date().getDay()];
   }
+  function getTotal(data) {
+    return data.reduce((sum, item) => sum + item.amount, 0);
+  }
+
+  function getPercentChange(data) {
+    if (data.length < 2) return 0;
+
+    const mid = Math.floor(data.length / 2);
+
+    const firstHalf = data.slice(0, mid);
+    const secondHalf = data.slice(mid);
+
+    const sum = (arr) =>
+      arr.reduce((acc, item) => acc + item.amount, 0);
+
+    const firstTotal = sum(firstHalf);
+    const secondTotal = sum(secondHalf);
+
+    if (firstTotal === 0) return 0;
+
+    return ((secondTotal - firstTotal) / firstTotal) * 100;
+  }
 
 
   return (
@@ -40,7 +68,7 @@ export default function ExpensesChart() {
 
       <div className={styles.chartWrapper}>
         <ResponsiveContainer>
-          <BarChart data={formatChartData(data)} barCategoryGap={20}>
+          <BarChart data={chartData}>
             <XAxis
               dataKey="day"
               axisLine={false}
@@ -49,11 +77,11 @@ export default function ExpensesChart() {
             />
             <Tooltip content={<CustomTooltip />} />
             <Bar dataKey="amount">
-              {formatChartData(data).map((entry, index) => (
+              {chartData.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
                   fill={
-                    entry.day === getToday()
+                    entry.day === today
                       ? "var(--cyan)"
                       : "var(--red)"
                   }
@@ -69,11 +97,16 @@ export default function ExpensesChart() {
       <div className={styles.summary}>
         <div>
           <p className={styles.summaryText}>Total this month</p>
-          <h3 className={styles.summaryAmount}>$478.33</h3>
+          <h3 className={styles.summaryAmount}>
+            ${total.toFixed(2)}
+          </h3>
         </div>
 
         <div className={styles.summaryRight}>
-          <p className={styles.percent}>+2.4%</p>
+          <p className={styles.percent}>
+            {percent >= 0 ? "+" : ""}
+            {formattedPercent}%
+          </p>
           <p className={styles.fromLast}>from last month</p>
         </div>
       </div>

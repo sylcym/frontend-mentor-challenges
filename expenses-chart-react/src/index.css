@@ -16,6 +16,27 @@
 }
 
 body {
-  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
   background-color: var(--cream-bg);
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 375px;
+  /* max-width: 540px; */
+  padding: 16px;
+  margin: 0 auto;
+
+}
+
+/* .app {
+  max-width: 400px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+} */

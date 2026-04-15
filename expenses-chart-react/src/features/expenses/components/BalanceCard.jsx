@@ -1,4 +1,5 @@
 import styles from "./BalanceCard.module.css";
+import logo from "../../../assets/logo.svg";
 
 export default function BalanceCard() {
   return (
@@ -8,7 +9,7 @@ export default function BalanceCard() {
         <h2 className={styles.amount}>$921.48</h2>
       </div>
 
-      <div>●●</div> {/* placeholder logo */}
+      <img className={styles.logo} src={logo} alt="logo" />
     </div>
   );
 }

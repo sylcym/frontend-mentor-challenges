@@ -1,20 +1,27 @@
 .card {
-  background-color: var(--red);
-  color: var(--whit);
-  padding: 20px;
-  border-radius: 12px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  background-color: var(--red);
+  color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
 }
 
+
 .text {
-  font-size: 14px;
+  font-size: 15px;
   opacity: 0.8;
+  padding-bottom: 4px;
 }
 
 .amount {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
+}
+
+.logo {
+  width: 60px;
+  height: 40px;
 }

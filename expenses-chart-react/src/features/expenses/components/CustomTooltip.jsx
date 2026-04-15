@@ -1,22 +1,13 @@
 import PropTypes from "prop-types";
+import styles from "./CustomTooltip.module.css";
 
 export default function CustomTooltip({ active, payload, label }) {
   if (!active || !payload || !payload.length) return null;
 
   return (
-    <div
-      style={{
-        background: "#1f1f1f",
-        color: "#fff",
-        padding: "8px 12px",
-        borderRadius: "8px",
-        fontSize: "14px",
-      }}
-    >
-      <p style={{ margin: 0 }}>{label}</p>
-      <p style={{ margin: 0, fontWeight: "bold" }}>
-        ${payload[0].value}
-      </p>
+    <div className={styles.tooltip}>
+      <p className={styles.label}>{label}</p>
+      <p className={styles.value}>${payload[0].value}</p>
     </div>
   );
 
