@@ -15,9 +15,11 @@ export default function ExpensesChart() {
   const order = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
   const [data, setData] = useState([]);
   const total = getTotal(data);
-  const percent = getPercentChange(formatChartData(data));
-  const formattedPercent = percent.toFixed(1);
+  // const percent = getPercentChange(formatChartData(data));
   const chartData = formatChartData(data);
+  const percent = getPercentChange(chartData);
+  const formattedPercent = percent.toFixed(1);
+  // const chartData = formatChartData(data);
   const today = getToday();
 
   useEffect(() => {
@@ -67,7 +69,47 @@ export default function ExpensesChart() {
       <h2 className={styles.title}>Spending - Last 7 days</h2>
 
       <div className={styles.chartWrapper}>
-        <ResponsiveContainer>
+        {/* <ResponsiveContainer> */}
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={chartData} barCategoryGap={20}>
+            <XAxis
+              dataKey="day"
+              axisLine={false}
+              tickLine={false}
+              tick={{ fill: "#92857A", fontSize: 12 }}
+            />
+
+            <Tooltip
+              content={<CustomTooltip />}
+              cursor={{ fill: "transparent" }}
+              // position={{ y: 0 }}
+              // wrapperStyle={{ top: -40 }}
+              wrapperStyle={{ pointerEvents: "none" }}
+              offset={30}
+            />
+
+            <Bar
+              dataKey="amount"
+              barSize={50}
+              radius={[5, 5, 0, 0]}
+              fill="var(--red)"
+              isAnimationActive={false}
+            />
+            {/* <Bar dataKey="amount" barSize={54} radius={5}>
+              {chartData.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={
+                    entry.day === today
+                      ? "var(--cyan)"
+                      : "var(--red)"
+                  }
+                />
+              ))}
+            </Bar> */}
+          </BarChart>
+        </ResponsiveContainer>
+        {/* <ResponsiveContainer>
           <BarChart data={chartData}>
             <XAxis
               dataKey="day"
@@ -75,7 +117,10 @@ export default function ExpensesChart() {
               tickLine={false}
               tick={{ fill: "#92857A", fontSize: 12 }}
             />
-            <Tooltip content={<CustomTooltip />} />
+            <Tooltip
+              content={<CustomTooltip />}
+              cursor={{ fill: "transparent" }}
+            />
             <Bar dataKey="amount">
               {chartData.map((entry, index) => (
                 <Cell
@@ -89,7 +134,7 @@ export default function ExpensesChart() {
               ))}
             </Bar>
           </BarChart>
-        </ResponsiveContainer>
+        </ResponsiveContainer> */}
       </div>
 
       <div className={styles.divider}></div>

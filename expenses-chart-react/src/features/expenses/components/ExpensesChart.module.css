@@ -1,8 +1,8 @@
 .card {
   width: 100%;
   background: var(--white);
-  padding: 16px;
   border-radius: 12px;
+  padding: 24px 20px;
 }
 
 /* .container {
@@ -11,7 +11,7 @@
 } */
 
 .title {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--dark-brown);
   margin-bottom: 16px;
@@ -19,13 +19,14 @@
 
 .chartWrapper {
   width: 100%;
-  height: 250px;
+  height: 213px;
+  min-height: 200px;
 }
 
 .divider {
   height: 1px;
   background: #f0e6dc;
-  margin: 20px 0;
+  margin: 24px 0;
 }
 
 .summary {
@@ -36,11 +37,12 @@
 
 .summaryText {
   color: var(--medium-brown);
-  font-size: 14px;
+  font-size: 15px;
+  padding-bottom: 4px;
 }
 
 .summaryAmount {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
   color: var(--dark-brown);
 }
@@ -50,11 +52,58 @@
 }
 
 .percent {
+  font-size: 15px;
   font-weight: 700;
   color: var(--dark-brown);
 }
 
 .fromLast {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--medium-brown);
+}
+
+@media (min-width: 768px) {
+  .card {
+    border-radius: 20px;
+    padding: 32px 40px 40px;
+  }
+
+  .title {
+    font-size: 32px;
+    margin-bottom: 38px;
+  }
+
+  .chartWrapper {
+    width: 465px;
+    height: 213px;
+  }
+
+  .divider {
+    margin: 27px 0;
+  }
+
+  .summary {
+    padding-top: 2px;
+  }
+
+  .summaryText {
+    font-size: 18px;
+    padding-bottom: 1px;
+  }
+
+  .summaryAmount {
+    font-size: 48px;
+  }
+
+  .summaryRight {
+    padding-bottom: 5px;
+  }
+
+  .percent {
+    font-size: 18px;
+  }
+
+  .fromLast {
+    font-size: 18px;
+  }
 }

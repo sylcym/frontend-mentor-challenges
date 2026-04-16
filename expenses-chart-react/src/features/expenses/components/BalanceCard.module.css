@@ -5,7 +5,7 @@
   width: 100%;
   background-color: var(--red);
   color: var(--white);
-  padding: 20px;
+  padding: 21px;
   border-radius: 10px;
 }
 
@@ -24,4 +24,26 @@
 .logo {
   width: 60px;
   height: 40px;
+}
+
+@media (min-width: 768px) {
+  .card {
+    border-radius: 20px;
+    padding: 26px 39px 25px 32px;
+  }
+
+  .text {
+    font-size: 18px;
+    opacity: 0.8;
+    padding-bottom: 8px;
+  }
+
+  .amount {
+    font-size: 32px;
+  }
+
+  .logo {
+    width: 72px;
+    height: 48px;
+  }
 }

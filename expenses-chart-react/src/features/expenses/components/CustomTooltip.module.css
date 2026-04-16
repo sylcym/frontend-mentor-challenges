@@ -1,9 +1,11 @@
 .tooltip {
-  background: #1f1f1f;
-  color: var(--white);
-  padding: 8px 12px;
-  border-radius: 8px;
+  text-align: center;
   font-size: 14px;
+  font-weight: 700;
+  background: var(--dark-brown);
+  color: var(--white);
+  border-radius: 5px;
+  padding: 4px;
 }
 
 .label {
@@ -13,4 +15,13 @@
 .value {
   margin: 0;
   font-weight: 700;
+}
+
+
+@media (min-width: 768px) {
+  .tooltip {
+    font-size: 18px;
+    padding: 8px;
+
+  }
 }
