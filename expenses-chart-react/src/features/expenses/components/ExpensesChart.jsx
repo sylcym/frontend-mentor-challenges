@@ -1,26 +1,17 @@
+
 import { useEffect, useState } from "react";
-import CustomTooltip from "./CustomTooltip";
 import styles from "./ExpensesChart.module.css";
 import {
   BarChart,
   Bar,
   XAxis,
-  Tooltip,
   ResponsiveContainer,
-
 } from "recharts";
-import { Cell } from "recharts";
 
 export default function ExpensesChart() {
   const order = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
   const [data, setData] = useState([]);
-  const total = getTotal(data);
-  // const percent = getPercentChange(formatChartData(data));
-  const chartData = formatChartData(data);
-  const percent = getPercentChange(chartData);
-  const formattedPercent = percent.toFixed(1);
-  // const chartData = formatChartData(data);
-  const today = getToday();
+  const [tooltipData, setTooltipData] = useState(null);
 
   useEffect(() => {
     fetch("/data.json")
@@ -36,10 +27,12 @@ export default function ExpensesChart() {
         amount: item.amount,
       }));
   }
+
   function getToday() {
     const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
     return days[new Date().getDay()];
   }
+
   function getTotal(data) {
     return data.reduce((sum, item) => sum + item.amount, 0);
   }
@@ -63,78 +56,70 @@ export default function ExpensesChart() {
     return ((secondTotal - firstTotal) / firstTotal) * 100;
   }
 
+  const today = getToday();
+
+  const chartData = formatChartData(data).map((item) => ({
+    ...item,
+    fill:
+      item.day === today
+        ? "var(--cyan)"
+        : "var(--red)",
+  }));
+
+  const total = getTotal(data);
+  const percent = getPercentChange(chartData);
+  const formattedPercent = percent.toFixed(1);
 
   return (
     <div className={styles.card}>
       <h2 className={styles.title}>Spending - Last 7 days</h2>
 
       <div className={styles.chartWrapper}>
-        {/* <ResponsiveContainer> */}
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={chartData} barCategoryGap={20}>
-            <XAxis
-              dataKey="day"
-              axisLine={false}
-              tickLine={false}
-              tick={{ fill: "#92857A", fontSize: 12 }}
-            />
+        <div className={styles.chartInner}>
 
-            <Tooltip
-              content={<CustomTooltip />}
-              cursor={{ fill: "transparent" }}
-              // position={{ y: 0 }}
-              // wrapperStyle={{ top: -40 }}
-              wrapperStyle={{ pointerEvents: "none" }}
-              offset={30}
-            />
+          {tooltipData && (
+            <div
+              className={styles.customTooltip}
+              style={{
+                left: `${tooltipData.x}px`,
+                top: "0px",
+              }}
+            >
+              ${chartData[tooltipData.index].amount}
+            </div>
+          )}
 
-            <Bar
-              dataKey="amount"
-              barSize={50}
-              radius={[5, 5, 0, 0]}
-              fill="var(--red)"
-              isAnimationActive={false}
-            />
-            {/* <Bar dataKey="amount" barSize={54} radius={5}>
-              {chartData.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={
-                    entry.day === today
-                      ? "var(--cyan)"
-                      : "var(--red)"
-                  }
-                />
-              ))}
-            </Bar> */}
-          </BarChart>
-        </ResponsiveContainer>
-        {/* <ResponsiveContainer>
-          <BarChart data={chartData}>
-            <XAxis
-              dataKey="day"
-              axisLine={false}
-              tickLine={false}
-              tick={{ fill: "#92857A", fontSize: 12 }}
-            />
-            <Tooltip
-              content={<CustomTooltip />}
-              cursor={{ fill: "transparent" }}
-            />
-            <Bar dataKey="amount">
-              {chartData.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={
-                    entry.day === today
-                      ? "var(--cyan)"
-                      : "var(--red)"
-                  }
-                />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer> */}
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              data={chartData}
+              barCategoryGap={18}
+              onMouseMove={(state) => {
+                if (state?.isTooltipActive && state?.activeCoordinate) {
+                  setTooltipData({
+                    index: state.activeTooltipIndex,
+                    x: state.activeCoordinate.x,
+                  });
+                }
+              }}
+              onMouseLeave={() => setTooltipData(null)}
+            >
+              <XAxis
+                dataKey="day"
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: "#92857A", fontSize: 12 }}
+              />
+
+              <Bar
+                dataKey="amount"
+                barSize={50}
+                radius={5}
+                isAnimationActive={false}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+
+        </div>
       </div>
 
       <div className={styles.divider}></div>
