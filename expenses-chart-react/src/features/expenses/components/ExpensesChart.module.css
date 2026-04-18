@@ -117,22 +117,6 @@ svg {
   color: var(--medium-brown);
 }
 
-.attribution {
-  font-size: 10px;
-  text-align: center;
-  margin-top: 24px;
-  color: var(--color-danger);
-}
-
-
-.attribution a {
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-.attribution a:hover {
-  text-decoration: underline;
-}
 
 @media (min-width: 768px) {
   .card {
