@@ -35,6 +35,23 @@ body {
 
 }
 
+.attribution {
+  font-size: 15px;
+  text-align: center;
+  margin-top: 24px;
+  color: var(--dark-brown);
+}
+
+
+.attribution a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
 @media (min-width: 768px) {
 
   .app {

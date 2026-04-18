@@ -115,6 +115,7 @@ export default function ExpensesChart() {
                 barSize={50}
                 radius={5}
                 isAnimationActive={false}
+                activeBar={false}
               />
             </BarChart>
           </ResponsiveContainer>
