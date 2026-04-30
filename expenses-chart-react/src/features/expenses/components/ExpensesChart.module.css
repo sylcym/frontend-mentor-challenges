@@ -35,6 +35,10 @@
   transition: fill 0.2s ease;
 }
 
+.recharts-rectangle:hover {
+  opacity: 0.8;
+}
+
 .recharts-wrapper:focus {
   outline: none;
 }
