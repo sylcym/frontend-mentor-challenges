@@ -1,8 +1,60 @@
-# React + Vite
+# 💸 Expenses Chart App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive expenses chart built with React and Recharts, based on a Frontend Mentor challenge.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 https://sylcym-expenses-chart-react.netlify.app/
+
+## 📸 Preview
+
+![App Preview](./image.png)
+
+## 🛠️ Built with
+
+- React (Vite)
+- Recharts
+- CSS Modules
+- Mobile-first workflow
+
+## ✨ Features
+
+- Interactive bar chart
+- Custom tooltip (fully controlled, no Recharts default)
+- Highlight current day (cyan color)
+- Dynamic calculations:
+  - total monthly spending
+  - percentage change
+
+- Smooth hover effects & micro-interactions
+- Fully responsive layout
+
+## 🧠 What I learned
+
+- How to customize Recharts beyond default behavior
+- Managing UI state for interactive charts
+- Handling tricky SVG behaviors (tooltip, overlays, cursor issues)
+- Structuring scalable React components
+
+## ⚙️ Setup
+
+```bash
+npm install
+npm run dev
+```
+
+## 📦 Build
+
+```bash
+npm run build
+```
+
+## 📚 Source
+
+Challenge from Frontend Mentor
+
+---
+
+## 👩‍💻 Author
+
+GitHub: [https://github.com/sylcym]
