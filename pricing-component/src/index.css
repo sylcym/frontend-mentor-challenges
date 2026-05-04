@@ -1,0 +1,18 @@
+:root {
+  --bg: #f9faff;
+  --dark: #293356;
+  --accent: #10d5c2;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: var(--bg);
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
