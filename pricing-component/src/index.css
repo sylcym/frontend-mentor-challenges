@@ -5,6 +5,13 @@
   --gradient: linear-gradient(135deg, #a3a8f0, #696fdd);
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   min-height: 100vh;
   display: flex;

@@ -1,5 +1,6 @@
-import styles from "./PricingCard.module.css";
 import { useState } from "react";
+import styles from "./PricingCard.module.css";
+import PricingPlan from "./PricingPlan";
 
 export default function PricingCard() {
   const [isYearly, setIsYearly] = useState(true);
@@ -21,6 +22,12 @@ export default function PricingCard() {
       yearly: 399.99,
     },
   };
+
+  const plans = [
+    { name: "Basic", ...pricing.basic },
+    { name: "Professional", ...pricing.professional, featured: true },
+    { name: "Master", ...pricing.master },
+  ];
 
   function togglePricing() {
     setIsYearly((prev) => !prev);
@@ -57,56 +64,14 @@ export default function PricingCard() {
       </div>
 
       <div className={styles.cardsWrapper}>
-        <div className={styles.plan}>
-          <h3 className={styles.planName}>Basic</h3>
-
-          <p className={styles.price}>
-            <span className={styles.currency}>$</span>
-            {getPrice(pricing.basic)}
-          </p>
-
-          <ul className={styles.features}>
-            <li>500 GB Storage</li>
-            <li>2 Users Allowed</li>
-            <li>Send up to 3 GB</li>
-          </ul>
-
-          <button className={styles.button}>Learn More</button>
-        </div>
-        <div className={styles.planFeatured} >
-          <h3 className={styles.planName}>Professional</h3>
-
-          <p className={styles.price}>
-            <span className={styles.currency}>$</span>
-            {getPrice(pricing.basic)}
-          </p>
-
-          <ul className={styles.features}>
-            <li>500 GB Storage</li>
-            <li>2 Users Allowed</li>
-            <li>Send up to 3 GB</li>
-          </ul>
-
-          <button className={styles.button}>Learn More</button>
-        </div>
-
-        {/* <div className={styles.plan}>Master</div> */}
-        <div className={styles.plan}>
-          <h3 className={styles.planName}>Master</h3>
-
-          <p className={styles.price}>
-            <span className={styles.currency}>$</span>
-            {getPrice(pricing.basic)}
-          </p>
-
-          <ul className={styles.features}>
-            <li>500 GB Storage</li>
-            <li>2 Users Allowed</li>
-            <li>Send up to 3 GB</li>
-          </ul>
-
-          <button className={styles.button}>Learn More</button>
-        </div>
+        {plans.map((plan) => (
+          <PricingPlan
+            key={plan.name}
+            name={plan.name}
+            price={getPrice(plan)}
+            isFeatured={plan.featured}
+          />
+        ))}
       </div>
     </div>
   );
