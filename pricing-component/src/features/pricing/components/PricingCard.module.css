@@ -17,14 +17,37 @@
   margin-bottom: 40px;
 }
 
+.toggle span {
+  cursor: pointer;
+}
+
 .switch {
+  position: relative;
   width: 56px;
   height: 32px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #a3a8f0, #696fdd);
+  background: var(--gradient);
   border: none;
+  padding: 4px;
   cursor: pointer;
 }
+
+.switch:hover {
+  opacity: 0.9;
+}
+
+.thumb {
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.thumbRight {
+  transform: translateX(24px);
+}
+
 
 .cardsWrapper {
   display: flex;
@@ -40,12 +63,14 @@
 }
 
 .plan {
-  background: white;
-  padding: 32px;
-  border-radius: 12px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
   text-align: center;
-
+  background: white;
+  border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  padding: 32px;
 }
 
 .planName {
@@ -55,10 +80,11 @@
 }
 
 .price {
+  min-width: 120px;
+  font-variant-numeric: tabular-nums;
   font-size: 48px;
   font-weight: 700;
   color: var(--dark);
-
   margin-bottom: 24px;
 }
 
@@ -68,8 +94,11 @@
 }
 
 .features {
+  text-align: center;
   list-style: none;
   margin-bottom: 32px;
+  padding: 0;
+
 }
 
 .features li {
@@ -118,6 +147,11 @@
 
 .button:hover {
   opacity: 0.85;
+}
+
+.active {
+  color: var(--dark);
+  font-weight: 700;
 }
 
 @media (min-width: 768px) {
