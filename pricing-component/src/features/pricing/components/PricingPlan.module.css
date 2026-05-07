@@ -39,8 +39,14 @@
 .currency {
   font-size: 40px;
   letter-spacing: -1.2px;
-  /* margin-right: 8px; */
+  margin-right: 8px;
 }
+
+.planFeatured .currency,
+.planFeatured .price {
+  color: var(--light);
+}
+
 
 .features {
   font-size: 15px;
@@ -67,12 +73,19 @@
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 1.4px;
+  text-transform: uppercase;
   border-radius: 6px;
   background: var(--gradient);
   border: none;
   color: white;
   padding: 14px;
   cursor: pointer;
+}
+
+.button:hover {
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  background: white;
 }
 
 .planFeatured {
@@ -93,12 +106,18 @@
 
 .planFeatured .button {
   background: white;
-  color: #696fdd;
+  color: var(--blue);
 }
 
-.button:hover {
-  opacity: 0.85;
+.planFeatured .button:hover {
+  color: white;
+  border: 1px solid white;
+  background: transparent;
 }
+
+/* .button:hover {
+  opacity: 0.85;
+} */
 
 @media (min-width: 1024px) {
 

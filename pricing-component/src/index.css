@@ -2,6 +2,7 @@
   --gray: #6e728e;
   --dark: #494c5f;
   --light: #f7f7ff;
+  --blue: #696fdd;
   --gradient: linear-gradient(135deg, #a3a8f0, #696fdd);
 }
 
@@ -35,8 +36,24 @@ body {
   /* min-width: 375px; */
   font-family: 'Montserrat', sans-serif;
   padding: 64px 24px;
-  margin: 0 auto;
 }
+
+.attribution {
+  font-size: 12px;
+  text-align: center;
+  color: var(--gray);
+  padding-bottom: 24px;
+}
+
+.attribution a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
 
 @media (min-width: 1024px) {
   body {
