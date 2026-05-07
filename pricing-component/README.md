@@ -10,7 +10,7 @@ This is my solution to the [Pricing Component with Toggle challenge on Frontend 
 
 ## 🔗 Links
 
-- Live Site: [Pricing Component Live Demo](https://sylcym-expenses-chart-react.netlify.app/?utm_source=chatgpt.com)
+- Live Site: [Pricing Component Live Demo](https://sylcym-pricing-component.netlify.app/)
 - Solution URL: [GitHub Repository](https://github.com/sylcym/frontend-mentor-challenges/tree/main/pricing-component?utm_source=chatgpt.com)
 - Challenge: [Frontend Mentor Challenge](https://www.frontendmentor.io/challenges/pricing-component-with-toggle-8vPwRMIC?utm_source=chatgpt.com)
 
