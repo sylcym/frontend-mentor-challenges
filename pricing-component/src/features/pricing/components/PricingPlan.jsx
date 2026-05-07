@@ -1,4 +1,5 @@
-import styles from "./PricingCard.module.css";
+// import styles from "./PricingCard.module.css";
+import styles from "./PricingPlan.module.css";
 import PropTypes from "prop-types";
 
 export default function PricingPlan({
@@ -6,6 +7,13 @@ export default function PricingPlan({
   price,
   isFeatured,
 }) {
+
+  const features = [
+    "500 GB Storage",
+    "2 Users Allowed",
+    "Send up to 3 GB",
+  ];
+
   return (
     <div
       className={
@@ -16,14 +24,26 @@ export default function PricingPlan({
 
       <p className={styles.price}>
         <span className={styles.currency}>$</span>
-        {price}
+        {/* {
+          new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+          }).format(price)
+        } */}
+        {price.toFixed(2)}
       </p>
 
       <ul className={styles.features}>
+        {features.map((f) => (
+          <li key={f}>{f}</li>
+        ))}
+      </ul>
+
+      {/* <ul className={styles.features}>
         <li>500 GB Storage</li>
         <li>2 Users Allowed</li>
         <li>Send up to 3 GB</li>
-      </ul>
+      </ul> */}
 
       <button className={styles.button}>
         Learn More

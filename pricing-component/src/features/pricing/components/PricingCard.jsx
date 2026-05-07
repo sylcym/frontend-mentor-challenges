@@ -5,8 +5,8 @@ import PricingPlan from "./PricingPlan";
 export default function PricingCard() {
   const [isYearly, setIsYearly] = useState(true);
 
-  const getPrice = (plan) =>
-    isYearly ? plan.yearly : plan.monthly;
+  // const getPrice = (plan) =>
+  //   isYearly ? plan.yearly : plan.monthly;
 
   const pricing = {
     basic: {
@@ -47,6 +47,7 @@ export default function PricingCard() {
 
         <button
           className={styles.switch}
+          aria-label="Toggle pricing"
           onClick={togglePricing}
         >
           <div
@@ -68,7 +69,8 @@ export default function PricingCard() {
           <PricingPlan
             key={plan.name}
             name={plan.name}
-            price={getPrice(plan)}
+            // price={getPrice(plan)}
+            price={isYearly ? plan.yearly : plan.monthly}
             isFeatured={plan.featured}
           />
         ))}

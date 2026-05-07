@@ -5,19 +5,21 @@
 .title {
   font-size: 32px;
   font-weight: 700;
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
+  padding-bottom: 40px;
 }
 
 .toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-
-  margin-bottom: 40px;
+  gap: 24px;
+  margin-bottom: 80px;
 }
 
 .toggle span {
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
 }
 
@@ -52,112 +54,26 @@
 .cardsWrapper {
   display: flex;
   flex-direction: column;
-  /* gap: 24px; */
+  gap: 34px;
   align-items: center;
 }
 
-.plan,
-.planFeatured {
-  width: 100%;
-  max-width: 320px;
-}
-
-.plan {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
-  text-align: center;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-  padding: 32px;
-}
-
-.planName {
-  font-size: 18px;
-  color: var(--gray);
-  margin-bottom: 24px;
-}
-
-.price {
-  min-width: 120px;
-  font-variant-numeric: tabular-nums;
-  font-size: 48px;
-  font-weight: 700;
-  color: var(--dark);
-  margin-bottom: 24px;
-}
-
-.currency {
-  font-size: 24px;
-  margin-right: 4px;
-}
-
-.features {
-  text-align: center;
-  list-style: none;
-  margin-bottom: 32px;
-  /* padding: 0; */
-
-}
-
-.features li {
-  padding: 12px 0;
-  border-top: 1px solid #e4e4f0;
-  color: var(--gray);
-}
-
-.features li:last-child {
-  border-bottom: 1px solid #e4e4f0;
-}
-
-.button {
-  width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: none;
-
-  background: var(--gradient);
-  color: white;
-
-  font-weight: 700;
-  letter-spacing: 1px;
-  cursor: pointer;
-}
-
-.planFeatured {
-  position: relative;
-  z-index: 1;
-  background: var(--gradient);
-  color: white;
-  border-radius: 12px;
-  padding: 48px 32px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.planFeatured .planName,
-.planFeatured .features li {
-  color: white;
-}
-
-.planFeatured .button {
-  background: white;
-  color: #696fdd;
-}
-
-.button:hover {
-  opacity: 0.85;
-}
 
 .active {
   color: var(--dark);
   font-weight: 700;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .cardsWrapper {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 0;
+  }
+
+  .toggle {
+    gap: 24px;
+    margin-bottom: 64px;
   }
 }
