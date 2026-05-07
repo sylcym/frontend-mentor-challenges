@@ -18,7 +18,7 @@ function App() {
         </a>
         . Coded by{" "}
         <a
-          href=""
+          href="https://github.com/sylcym/frontend-mentor-challenges/tree/main/pricing-component"
           target="_blank"
           rel="noreferrer"
         >
