@@ -1,0 +1,28 @@
+:root {}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 300px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+}
+
+.main {
+  flex: 1;
+  padding: 40px;
+}
