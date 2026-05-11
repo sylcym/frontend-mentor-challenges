@@ -1,10 +1,14 @@
+import PropTypes from 'prop-types';
 import steps from '../../data/steps'
 
-function Sidebar() {
+function Sidebar({ currentStep }) {
   return (
     <div>
       {steps.map((step) => (
-        <div key={step.id}>
+        <div
+          key={step.id}
+          className={currentStep === step.id ? 'active-step' : ''}
+        >
           <p>STEP {step.id}</p>
           <h3>{step.title}</h3>
         </div>
@@ -13,4 +17,7 @@ function Sidebar() {
   )
 }
 
+Sidebar.propTypes = {
+  currentStep: PropTypes.number
+}
 export default Sidebar

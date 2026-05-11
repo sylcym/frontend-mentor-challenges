@@ -11,18 +11,49 @@ body {
 }
 
 .layout {
-  display: flex;
   min-height: 100vh;
 }
 
 .sidebar {
-  width: 300px;
   background: #2c3e50;
   color: white;
   padding: 20px;
 }
 
 .main {
-  flex: 1;
-  padding: 40px;
+  padding: 20px;
+}
+
+.active-step {
+  background: rgb(255, 255, 255);
+  color: black;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    display: flex;
+  }
+
+  .sidebar {
+    width: 300px;
+    min-height: 100vh;
+  }
+
+  .main {
+    flex: 1;
+    padding: 40px;
+  }
 }
