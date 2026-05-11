@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
+import Sidebar from './Sidebar';
 
 function MainLayout({ children }) {
   return (
     <div className="layout">
       <aside className="sidebar">
-        Sidebar
+        <Sidebar />
       </aside>
 
       <main className="main">
