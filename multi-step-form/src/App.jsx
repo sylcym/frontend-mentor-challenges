@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import MainLayout from './components/layout/MainLayout'
+import MainLayout from './components/layout/MainLayout';
+import StepOne from './components/form/StepOne';
+import StepTwo from './components/form/StepTwo';
+import StepThree from './components/form/StepThree';
+import StepFour from './components/form/StepFour';
 
 function App() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -9,7 +13,10 @@ function App() {
       currentStep={currentStep}
       setCurrentStep={setCurrentStep}
     >
-      <h1>Multi Step Form</h1>
+      {currentStep === 1 && <StepOne />}
+      {currentStep === 2 && <StepTwo />}
+      {currentStep === 3 && <StepThree />}
+      {currentStep === 4 && <StepFour />}
     </MainLayout>
   )
 }
