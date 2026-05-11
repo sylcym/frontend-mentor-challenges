@@ -6,14 +6,26 @@ import StepThree from './components/form/StepThree';
 import StepFour from './components/form/StepFour';
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
 
   return (
     <MainLayout
       currentStep={currentStep}
       setCurrentStep={setCurrentStep}
     >
-      {currentStep === 1 && <StepOne />}
+      {/* {currentStep === 1 && <StepOne />} */}
+      {currentStep === 1 && (
+        <StepOne
+          formData={formData}
+          setFormData={setFormData}
+        />
+      )}
+
       {currentStep === 2 && <StepTwo />}
       {currentStep === 3 && <StepThree />}
       {currentStep === 4 && <StepFour />}
