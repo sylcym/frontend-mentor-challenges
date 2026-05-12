@@ -43,7 +43,10 @@ function App() {
           setFormData={setFormData}
         />
       )}
-      {currentStep === 4 && <StepFour />}
+      {/* {currentStep === 4 && <StepFour />} */}
+      {currentStep === 4 && (
+        <StepFour formData={formData} />
+      )}
     </MainLayout>
   )
 }

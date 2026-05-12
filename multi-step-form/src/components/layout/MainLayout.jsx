@@ -14,20 +14,24 @@ function MainLayout({
 
       <main className="main">
         {children}
-        <div className="buttons">
-          <button
-            onClick={() => setCurrentStep(currentStep - 1)}
-            disabled={currentStep === 1}
-          >
-            Go Back
-          </button>
+        <div className="buttons-wrapper">
+          <div className="buttons">
+            <button
+              className="btn-go-back"
+              onClick={() => setCurrentStep(currentStep - 1)}
+              disabled={currentStep === 1}
+            >
+              Go Back
+            </button>
 
-          <button
-            onClick={() => setCurrentStep(currentStep + 1)}
-            disabled={currentStep === 4}
-          >
-            Next Step
-          </button>
+            <button
+              className="btn-next"
+              onClick={() => setCurrentStep(currentStep + 1)}
+              disabled={currentStep === 4}
+            >
+              Next Step
+            </button>
+          </div>
         </div>
       </main>
     </div>

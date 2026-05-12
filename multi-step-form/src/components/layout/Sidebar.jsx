@@ -3,8 +3,20 @@ import steps from '../../data/steps'
 
 function Sidebar({ currentStep }) {
   return (
-    <div>
+    <div className="sidebar-content">
       {steps.map((step) => (
+        <div
+          key={step.id}
+          className={
+            currentStep === step.id
+              ? 'step-circle active-step'
+              : 'step-circle'
+          }
+        >
+          {step.id}
+        </div>
+      ))}
+      {/* {steps.map((step) => (
         <div
           key={step.id}
           className={currentStep === step.id ? 'active-step' : ''}
@@ -12,7 +24,7 @@ function Sidebar({ currentStep }) {
           <p>STEP {step.id}</p>
           <h3>{step.title}</h3>
         </div>
-      ))}
+      ))} */}
     </div>
   )
 }

@@ -33,8 +33,12 @@ function StepOne({ formData, setFormData, errors, setErrors }) {
   }
 
   return (
-    <div>
+    <div className="form-step">
       <h1>Personal Info</h1>
+      <p className="step-description">
+        Please provide your name, email address,
+        and phone number.
+      </p>
       <Input
         label="Name"
         type="text"
