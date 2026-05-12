@@ -8,10 +8,11 @@ function Input({
   onChange,
 }) {
   return (
-    <div>
-      <label>{label}</label>
+    <div className="input-group">
+      <label className="input-label">{label}</label>
 
       <input
+        className="input-field"
         type={type}
         name={name}
         value={value}

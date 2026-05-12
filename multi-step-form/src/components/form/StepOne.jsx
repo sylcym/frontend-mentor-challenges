@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Input from '../ui/Input';
 
 
-function StepOne({ formData, setFormData }) {
+function StepOne({ formData, setFormData, errors, setErrors }) {
   const handleChange = (event) => {
     const { name, value } = event.target
 
@@ -10,6 +10,26 @@ function StepOne({ formData, setFormData }) {
       ...formData,
       [name]: value,
     })
+  }
+
+  const validate = () => {
+    const newErrors = {}
+
+    if (!formData.name) {
+      newErrors.name = 'Name is required'
+    }
+
+    if (!formData.email) {
+      newErrors.email = 'Email is required'
+    }
+
+    if (!formData.phone) {
+      newErrors.phone = 'Phone is required'
+    }
+
+    setErrors(newErrors)
+
+    return Object.keys(newErrors).length === 0
   }
 
   return (
