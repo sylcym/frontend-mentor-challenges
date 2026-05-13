@@ -1,34 +1,33 @@
 import PropTypes from 'prop-types';
-import steps from '../../data/steps'
+import steps from '../../data/steps';
+// import sidebarBg from '../../assets/images/bg-sidebar-mobile.svg'
+// import sidebarBg from '../../assets/images/bg-sidebar-desktop.svg'
+
 
 function Sidebar({ currentStep }) {
   return (
     <div className="sidebar-content">
       {steps.map((step) => (
-        <div
-          key={step.id}
-          className={
-            currentStep === step.id
-              ? 'step-circle active-step'
-              : 'step-circle'
-          }
-        >
-          {step.id}
+        <div key={step.id} className="step-item">
+          <div
+            className={
+              currentStep === step.id
+                ? 'step-circle active-step'
+                : 'step-circle'
+            }
+          >
+            {step.id}
+          </div>
+
+          <div className="step-text">
+            <p className="step-number">STEP {step.id}</p>
+            <h3 className="step-title">{step.title}</h3>
+          </div>
         </div>
       ))}
-      {/* {steps.map((step) => (
-        <div
-          key={step.id}
-          className={currentStep === step.id ? 'active-step' : ''}
-        >
-          <p>STEP {step.id}</p>
-          <h3>{step.title}</h3>
-        </div>
-      ))} */}
     </div>
   )
 }
-
 Sidebar.propTypes = {
   currentStep: PropTypes.number
 }

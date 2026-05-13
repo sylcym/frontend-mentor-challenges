@@ -10,27 +10,13 @@ function StepOne({ formData, setFormData, errors, setErrors }) {
       ...formData,
       [name]: value,
     })
+
+    setErrors({
+      ...errors,
+      [name]: false,
+    })
   }
 
-  const validate = () => {
-    const newErrors = {}
-
-    if (!formData.name) {
-      newErrors.name = 'Name is required'
-    }
-
-    if (!formData.email) {
-      newErrors.email = 'Email is required'
-    }
-
-    if (!formData.phone) {
-      newErrors.phone = 'Phone is required'
-    }
-
-    setErrors(newErrors)
-
-    return Object.keys(newErrors).length === 0
-  }
 
   return (
     <div className="form-step">
@@ -45,6 +31,8 @@ function StepOne({ formData, setFormData, errors, setErrors }) {
         name="name"
         value={formData.name}
         onChange={handleChange}
+        placeholder="e.g. Stephen King"
+        error={errors.name}
       />
 
       <Input
@@ -53,6 +41,8 @@ function StepOne({ formData, setFormData, errors, setErrors }) {
         name="email"
         value={formData.email}
         onChange={handleChange}
+        placeholder="e.g. stephenking@lorem.com"
+        error={errors.email}
       />
 
       <Input
@@ -61,6 +51,8 @@ function StepOne({ formData, setFormData, errors, setErrors }) {
         name="phone"
         value={formData.phone}
         onChange={handleChange}
+        placeholder="e.g. +1 234 567 890"
+        error={errors.phone}
       />
 
     </div>
@@ -70,6 +62,8 @@ function StepOne({ formData, setFormData, errors, setErrors }) {
 StepOne.propTypes = {
   formData: PropTypes.object,
   setFormData: PropTypes.func,
+  errors: PropTypes.object,
+  setErrors: PropTypes.func,
 }
 
 export default StepOne

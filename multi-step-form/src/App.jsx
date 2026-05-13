@@ -16,34 +16,61 @@ function App() {
   });
   const [errors, setErrors] = useState({})
 
+  const handleNextStep = () => {
+    if (currentStep === 1) {
+      const newErrors = {}
+
+      if (!formData.name.trim()) {
+        newErrors.name = true
+      }
+
+      if (!formData.email.trim()) {
+        newErrors.email = true
+      }
+
+      if (!formData.phone.trim()) {
+        newErrors.phone = true
+      }
+
+      setErrors(newErrors)
+
+      if (Object.keys(newErrors).length > 0) {
+        return
+      }
+    }
+
+    setCurrentStep(currentStep + 1)
+  }
+
   return (
     <MainLayout
       currentStep={currentStep}
       setCurrentStep={setCurrentStep}
+      handleNextStep={handleNextStep}
     >
-      {/* {currentStep === 1 && <StepOne />} */}
-      <StepOne
-        formData={formData}
-        setFormData={setFormData}
-        errors={errors}
-        setErrors={setErrors}
-      />
+      {currentStep === 1 && (
+        <StepOne
+          formData={formData}
+          setFormData={setFormData}
+          errors={errors}
+          setErrors={setErrors}
+        />
+      )}
 
-      {/* {currentStep === 2 && <StepTwo />} */}
       {currentStep === 2 && (
         <StepTwo
           formData={formData}
           setFormData={setFormData}
         />
       )}
-      {/* {currentStep === 3 && <StepThree />} */}
+
       {currentStep === 3 && (
         <StepThree
           formData={formData}
           setFormData={setFormData}
         />
       )}
-      {/* {currentStep === 4 && <StepFour />} */}
+
       {currentStep === 4 && (
         <StepFour formData={formData} />
       )}
