@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Sidebar from './Sidebar';
+import '../../styles/MainLayout.css'
 
 
 function MainLayout({

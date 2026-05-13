@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import '../../styles/step.css';
 
 function StepThree({ formData, setFormData }) {
   const addonsList = [

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import steps from '../../data/steps';
-// import sidebarBg from '../../assets/images/bg-sidebar-mobile.svg'
-// import sidebarBg from '../../assets/images/bg-sidebar-desktop.svg'
+import '../../styles/Sidebar.css';
 
 
 function Sidebar({ currentStep }) {

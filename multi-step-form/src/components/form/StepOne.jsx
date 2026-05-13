@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Input from '../ui/Input';
+import '../../styles/step.css';
 
 
 function StepOne({ formData, setFormData, errors, setErrors }) {

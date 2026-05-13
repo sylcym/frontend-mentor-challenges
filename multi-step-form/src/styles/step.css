@@ -1,0 +1,28 @@
+.plan {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.plan.active {
+  border: 2px solid #483eff;
+  background: #f0f4ff;
+}
+
+.form-step {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form-step h1 {
+  margin-bottom: 10px;
+}
+
+.step-description {
+  color: #777;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}

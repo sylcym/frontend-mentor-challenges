@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import '../../styles/Input.css';
 
 function Input({
   label,
