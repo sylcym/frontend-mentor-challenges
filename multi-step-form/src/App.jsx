@@ -12,6 +12,7 @@ function App() {
     email: '',
     phone: '',
     plan: '',
+    billing: 'monthly',
     addons: [],
   });
   const [errors, setErrors] = useState({})

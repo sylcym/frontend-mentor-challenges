@@ -1,4 +1,4 @@
-:root {}
+/* :root {} */
 
 * {
   margin: 0;
@@ -8,14 +8,14 @@
 
 body {
   background: #eef5ff;
-  font-family: sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
-.layout {
+/* .layout {
   min-height: 100vh;
-}
+} */
 
-.sidebar {
+/* .sidebar {
   display: flex;
   justify-content: center;
   height: 170px;
@@ -31,9 +31,9 @@ body {
   justify-content: center;
   gap: 16px;
   /* padding-top: 30px; */
-}
+/* } */
 
-.step-text {
+/* .step-text {
   display: none;
 }
 
@@ -66,9 +66,9 @@ body {
   background: #bfe2fd;
   color: black;
   border-color: #bfe2fd;
-}
+}  */
 
-.main {
+/* .main {
   background: white;
 
   margin: -70px 16px 0;
@@ -124,10 +124,10 @@ body {
   color: #666;
   font-weight: 500;
   cursor: pointer;
-}
+} */
 
 
-.input-group {
+/* .input-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
@@ -172,9 +172,9 @@ body {
   font-size: 12px;
   margin-top: 4px;
   font-weight: 500;
-}
+} */
 
-.plan {
+/* .plan {
   border: 1px solid #ccc;
   padding: 15px;
   margin-bottom: 10px;
@@ -201,10 +201,10 @@ body {
   color: #777;
   margin-bottom: 24px;
   line-height: 1.5;
-}
+} */
 
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .layout {
     display: flex;
   }
@@ -218,4 +218,4 @@ body {
     flex: 1;
     padding: 40px;
   }
-}
+} */

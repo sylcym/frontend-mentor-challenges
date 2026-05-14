@@ -21,7 +21,7 @@ function StepOne({ formData, setFormData, errors, setErrors }) {
 
   return (
     <div className="form-step">
-      <h1>Personal Info</h1>
+      <h1 className="title">Personal info</h1>
       <p className="step-description">
         Please provide your name, email address,
         and phone number.
@@ -37,7 +37,7 @@ function StepOne({ formData, setFormData, errors, setErrors }) {
       />
 
       <Input
-        label="Email"
+        label="Email Address"
         type="email"
         name="email"
         value={formData.email}
@@ -47,7 +47,7 @@ function StepOne({ formData, setFormData, errors, setErrors }) {
       />
 
       <Input
-        label="Phone"
+        label="Phone Number"
         type="tel"
         name="phone"
         value={formData.phone}
