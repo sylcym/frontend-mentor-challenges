@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../../styles/step.css';
+import '../../styles/StepTwo.css';
 
 function StepTwo({ formData, setFormData }) {
   const selectPlan = (plan) => {
@@ -17,10 +17,8 @@ function StepTwo({ formData, setFormData }) {
         You have the option of monthly or yearly billing.
       </p>
 
-      {/* PLANS */}
       <div className="plans">
 
-        {/* Arcade */}
         <div
           onClick={() => selectPlan('arcade')}
           className={formData.plan === 'arcade' ? 'plan active' : 'plan'}
@@ -28,14 +26,13 @@ function StepTwo({ formData, setFormData }) {
           <img src="/src/assets/icons/icon-arcade.svg" alt="Arcade" />
 
           <div>
-            <h3>Arcade</h3>
-            <p>
+            <h3 className="plan-title">Arcade</h3>
+            <p className="plan-price">
               {formData.billing === 'monthly' ? '$9/mo' : '$90/yr'}
             </p>
           </div>
         </div>
 
-        {/* Advanced */}
         <div
           onClick={() => selectPlan('advanced')}
           className={formData.plan === 'advanced' ? 'plan active' : 'plan'}
@@ -43,14 +40,13 @@ function StepTwo({ formData, setFormData }) {
           <img src="/src/assets/icons/icon-advanced.svg" alt="Advanced" />
 
           <div>
-            <h3>Advanced</h3>
-            <p>
+            <h3 className="plan-title">Advanced</h3>
+            <p className="plan-price">
               {formData.billing === 'monthly' ? '$12/mo' : '$120/yr'}
             </p>
           </div>
         </div>
 
-        {/* Pro */}
         <div
           onClick={() => selectPlan('pro')}
           className={formData.plan === 'pro' ? 'plan active' : 'plan'}
@@ -58,8 +54,8 @@ function StepTwo({ formData, setFormData }) {
           <img src="/src/assets/icons/icon-pro.svg" alt="Pro" />
 
           <div>
-            <h3>Pro</h3>
-            <p>
+            <h3 className="plan-title">Pro</h3>
+            <p className="plan-price">
               {formData.billing === 'monthly' ? '$15/mo' : '$150/yr'}
             </p>
           </div>
@@ -67,7 +63,6 @@ function StepTwo({ formData, setFormData }) {
 
       </div>
 
-      {/* TOGGLE */}
       <div className="toggle">
         <span
           className={

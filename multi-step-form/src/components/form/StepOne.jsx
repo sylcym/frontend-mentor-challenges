@@ -3,6 +3,7 @@ import Input from '../ui/Input';
 import '../../styles/step.css';
 
 
+
 function StepOne({ formData, setFormData, errors, setErrors }) {
   const handleChange = (event) => {
     const { name, value } = event.target

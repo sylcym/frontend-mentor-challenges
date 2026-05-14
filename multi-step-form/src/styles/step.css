@@ -1,0 +1,20 @@
+.form-step {
+  background: white;
+  /* padding: 20px; */
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #022959;
+  margin-bottom: 9px;
+}
+
+.step-description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #9699AA;
+  margin-bottom: 22px;
+}
