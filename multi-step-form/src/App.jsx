@@ -4,9 +4,11 @@ import StepOne from './components/form/StepOne';
 import StepTwo from './components/form/StepTwo';
 import StepThree from './components/form/StepThree';
 import StepFour from './components/form/StepFour';
+import ThankYou from './components/form/ThankYou';
 
 function App() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -48,6 +50,8 @@ function App() {
       currentStep={currentStep}
       setCurrentStep={setCurrentStep}
       handleNextStep={handleNextStep}
+      isSubmitted={isSubmitted}
+      setIsSubmitted={setIsSubmitted}
     >
       {currentStep === 1 && (
         <StepOne
@@ -72,9 +76,14 @@ function App() {
         />
       )}
 
-      {currentStep === 4 && (
+      {/* {currentStep === 4 && (
+        <StepFour formData={formData} />
+      )} */}
+      {currentStep === 4 && !isSubmitted && (
         <StepFour formData={formData} />
       )}
+
+      {isSubmitted && <ThankYou />}
     </MainLayout>
   )
 }
