@@ -1,0 +1,78 @@
+.summary {
+  background: #f8f9ff;
+  border-radius: 8px;
+  padding: 18px 16px;
+}
+
+.summary-plan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d6d9e6;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.summary-plan-title {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #022959;
+  margin-bottom: 4px;
+}
+
+.change-btn {
+  font-size: 14px;
+  text-decoration: underline;
+  color: #9699aa;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.summary-plan-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #022959;
+}
+
+.summary-addons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-addon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.summary-addon-name {
+  font-size: 14px;
+  color: #9699aa;
+}
+
+.summary-addon-price {
+  font-size: 14px;
+  color: #022959;
+}
+
+.summary-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 16px 0;
+}
+
+.summary-total-text {
+  font-size: 14px;
+  color: #9699aa;
+}
+
+.summary-total-price {
+  font-size: 16px;
+  font-weight: 700;
+
+  color: #483eff;
+}
