@@ -108,3 +108,21 @@
 .switch input:checked+.slider {
   background-color: #483eff;
 }
+
+@media (min-width: 1024px) {
+  .plans {
+    flex-direction: row;
+  }
+
+  .plan {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 140px;
+    min-height: 160px;
+  }
+
+  .toggle {
+    margin-top: 32px;
+  }
+}

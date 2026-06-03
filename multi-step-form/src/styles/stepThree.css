@@ -69,3 +69,22 @@
   background: #483eff;
   border-color: #483eff;
 }
+
+@media (min-width: 1024px) {
+  .addon {
+    padding: 18px 24px;
+  }
+
+  .addon-title {
+    font-size: 16px;
+    margin-bottom: 7px;
+  }
+
+  .addon-description {
+    font-size: 14px;
+  }
+
+  .addon-price {
+    font-size: 14px;
+  }
+}

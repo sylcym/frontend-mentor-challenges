@@ -18,3 +18,14 @@
   color: #9699AA;
   margin-bottom: 22px;
 }
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 32px;
+    margin-bottom: 11px;
+  }
+
+  .step-description {
+    margin-bottom: 36px;
+  }
+}

@@ -35,7 +35,12 @@ function MainLayout({
               )}
 
               <button
-                className="btn-next"
+                // className="btn-next"
+                className={
+                  currentStep === 4
+                    ? 'btn-next btn-confirm'
+                    : 'btn-next'
+                }
                 onClick={() => {
                   if (currentStep === 4) {
                     setIsSubmitted(true)

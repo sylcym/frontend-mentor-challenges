@@ -8,6 +8,15 @@ function StepTwo({ formData, setFormData }) {
       plan,
     })
   }
+  const toggleBilling = () => {
+    setFormData({
+      ...formData,
+      billing:
+        formData.billing === 'monthly'
+          ? 'yearly'
+          : 'monthly',
+    })
+  }
 
   return (
     <div className="form-step">
@@ -70,21 +79,32 @@ function StepTwo({ formData, setFormData }) {
               ? 'toggle-label active'
               : 'toggle-label'
           }
+          onClick={toggleBilling}
         >
           Monthly
         </span>
+        {/* <span
+          className={
+            formData.billing === 'monthly'
+              ? 'toggle-label active'
+              : 'toggle-label'
+          }
+        >
+          Monthly
+        </span> */}
 
         <label className="switch">
           <input
             type="checkbox"
             checked={formData.billing === 'yearly'}
-            onChange={() =>
-              setFormData({
-                ...formData,
-                billing:
-                  formData.billing === 'monthly' ? 'yearly' : 'monthly',
-              })
-            }
+            onChange={toggleBilling}
+          // onChange={() =>
+          //   setFormData({
+          //     ...formData,
+          //     billing:
+          //       formData.billing === 'monthly' ? 'yearly' : 'monthly',
+          //   })
+          // }
           />
 
           <span className="slider"></span>
@@ -96,9 +116,20 @@ function StepTwo({ formData, setFormData }) {
               ? 'toggle-label active'
               : 'toggle-label'
           }
+          onClick={toggleBilling}
         >
           Yearly
         </span>
+
+        {/* <span
+          className={
+            formData.billing === 'yearly'
+              ? 'toggle-label active'
+              : 'toggle-label'
+          }
+        >
+          Yearly
+        </span> */}
       </div>
     </div>
   )

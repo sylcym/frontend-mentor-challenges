@@ -76,3 +76,35 @@
 
   color: #483eff;
 }
+
+@media (min-width: 1024px) {
+  .summary {
+    padding: 18px 24px 24px;
+  }
+
+  .summary-addons {
+    gap: 16px;
+  }
+
+  .summary-plan-title {
+    font-size: 16px;
+    margin-bottom: 7px;
+  }
+
+  .summary-plan-price {
+    font-size: 16px;
+  }
+
+  .summary-plan {
+    padding-bottom: 24px;
+    margin-bottom: 16px;
+  }
+
+  .summary-total {
+    padding: 24px 24px 0;
+  }
+
+  .summary-total-price {
+    font-size: 20px;
+  }
+}
