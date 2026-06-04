@@ -46,45 +46,65 @@ function App() {
   }
 
   return (
-    <MainLayout
-      currentStep={currentStep}
-      setCurrentStep={setCurrentStep}
-      handleNextStep={handleNextStep}
-      isSubmitted={isSubmitted}
-      setIsSubmitted={setIsSubmitted}
-    >
-      {currentStep === 1 && (
-        <StepOne
-          formData={formData}
-          setFormData={setFormData}
-          errors={errors}
-          setErrors={setErrors}
-        />
-      )}
+    <>
+      <MainLayout
+        currentStep={currentStep}
+        setCurrentStep={setCurrentStep}
+        handleNextStep={handleNextStep}
+        isSubmitted={isSubmitted}
+        setIsSubmitted={setIsSubmitted}
+      >
+        {currentStep === 1 && (
+          <StepOne
+            formData={formData}
+            setFormData={setFormData}
+            errors={errors}
+            setErrors={setErrors}
+          />
+        )}
 
-      {currentStep === 2 && (
-        <StepTwo
-          formData={formData}
-          setFormData={setFormData}
-        />
-      )}
+        {currentStep === 2 && (
+          <StepTwo
+            formData={formData}
+            setFormData={setFormData}
+          />
+        )}
 
-      {currentStep === 3 && (
-        <StepThree
-          formData={formData}
-          setFormData={setFormData}
-        />
-      )}
+        {currentStep === 3 && (
+          <StepThree
+            formData={formData}
+            setFormData={setFormData}
+          />
+        )}
 
-      {currentStep === 4 && !isSubmitted && (
-        <StepFour
-          formData={formData}
-          setCurrentStep={setCurrentStep}
-        />
-      )}
+        {currentStep === 4 && !isSubmitted && (
+          <StepFour
+            formData={formData}
+            setCurrentStep={setCurrentStep}
+          />
+        )}
 
-      {isSubmitted && <ThankYou />}
-    </MainLayout>
+        {isSubmitted && <ThankYou />}
+      </MainLayout>
+      <div className="attribution">
+        Challenge by{" "}
+        <a
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Frontend Mentor
+        </a>
+        . Coded by{" "}
+        <a
+          href=""
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          sylcym
+        </a>
+      </div>
+    </>
   )
 }
 

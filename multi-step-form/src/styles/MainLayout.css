@@ -80,6 +80,26 @@ button:focus {
   background: #6259ff;
 }
 
+.attribution {
+  font-size: 15px;
+  text-align: center;
+  margin-top: 24px;
+  color: #022959;
+}
+
+.attribution a {
+  color: #6259ff;
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
+.recharts-zIndex-layer_300 {
+  outline: none !important;
+}
+
 
 @media (min-width: 1024px) {
   .layout {
