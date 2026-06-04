@@ -76,11 +76,11 @@ function App() {
         />
       )}
 
-      {/* {currentStep === 4 && (
-        <StepFour formData={formData} />
-      )} */}
       {currentStep === 4 && !isSubmitted && (
-        <StepFour formData={formData} />
+        <StepFour
+          formData={formData}
+          setCurrentStep={setCurrentStep}
+        />
       )}
 
       {isSubmitted && <ThankYou />}

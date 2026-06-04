@@ -25,6 +25,7 @@ function MainLayout({
             <div className={`buttons step-${currentStep}`}>
               {currentStep !== 1 && (
                 <button
+                  type="button"
                   className="btn-go-back"
                   onClick={() =>
                     setCurrentStep(currentStep - 1)
@@ -35,7 +36,7 @@ function MainLayout({
               )}
 
               <button
-                // className="btn-next"
+                type="button"
                 className={
                   currentStep === 4
                     ? 'btn-next btn-confirm'

@@ -102,7 +102,9 @@ function StepThree({ formData, setFormData }) {
       </div>
     </div>
   )
-};
+}
+
+
 
 StepThree.propTypes = {
   formData: PropTypes.object,

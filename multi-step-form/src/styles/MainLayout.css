@@ -27,6 +27,15 @@
   gap: 12px;
 }
 
+button {
+  transition: 0.2s ease;
+}
+
+button:focus {
+  outline: 2px solid #483eff;
+  outline-offset: 2px;
+}
+
 .step-1.buttons {
   justify-content: flex-end;
 }
@@ -47,12 +56,20 @@
   cursor: pointer;
 }
 
+.btn-next:hover {
+  background: #164a8a;
+}
+
 .btn-go-back {
   background: transparent;
   border: none;
   color: #666;
   font-weight: 500;
   cursor: pointer;
+}
+
+.btn-go-back:hover {
+  color: #022959;
 }
 
 .btn-confirm {
@@ -63,47 +80,31 @@
   background: #6259ff;
 }
 
-/* @media (min-width: 768px) {
-  .layout {
-    display: flex;
-  }
-
-  .main {
-    flex: 1;
-    padding: 40px;
-  }
-} */
 
 @media (min-width: 1024px) {
   .layout {
     display: flex;
-
     width: 940px;
     min-height: 600px;
-
+    border-radius: 16px;
     background: white;
-
     padding: 16px;
 
-    border-radius: 16px;
   }
 
   .main {
     flex: 1;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     margin: 0;
-    padding: 56px 84px 32px 100px;
+    /* padding: 56px 84px 32px 100px; */
+    padding: 41px 84px 18px 100px;
   }
 
   .buttons-wrapper {
     position: static;
-
     padding: 0;
-
     margin-top: 40px;
   }
 
@@ -115,5 +116,5 @@
 
   .btn-go-back {
     font-size: 16px;
-
   }
+}

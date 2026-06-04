@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import '../../styles/stepFour.css';
 
-function StepFour({ formData }) {
+function StepFour({
+  formData,
+  setCurrentStep,
+}) {
   const planPrices = {
     arcade: {
       monthly: 9,
@@ -68,7 +71,11 @@ function StepFour({ formData }) {
               )
             </h3>
 
-            <button className="change-btn">
+            <button
+              type="button"
+              className="change-btn"
+              onClick={() => setCurrentStep(2)}
+            >
               Change
             </button>
           </div>
@@ -125,6 +132,7 @@ function StepFour({ formData }) {
 
 StepFour.propTypes = {
   formData: PropTypes.object,
+  setCurrentStep: PropTypes.func,
 }
 
 export default StepFour
