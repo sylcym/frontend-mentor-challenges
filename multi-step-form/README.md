@@ -45,7 +45,7 @@ The application includes validation, dynamic pricing, responsive layouts, and a 
 
 ### Desktop
 
-_Add desktop screenshot here_
+![Desktop Preview](image.png)
 
 ---
 
@@ -124,4 +124,4 @@ During this project I practiced:
 Frontend Mentor challenge completed by [Sylwia].
 
 - Frontend Mentor - https://www.frontendmentor.io/
-- GitHub - https://github.com/sylcym
+- GitHub - https://github.com/sylcym/frontend-mentor-challenges/tree/main/multi-step-form

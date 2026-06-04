@@ -97,7 +97,7 @@ function App() {
         </a>
         . Coded by{" "}
         <a
-          href=""
+          href="https://github.com/sylcym/frontend-mentor-challenges/tree/main/multi-step-form"
           target="_blank"
           rel="noopener noreferrer"
         >
