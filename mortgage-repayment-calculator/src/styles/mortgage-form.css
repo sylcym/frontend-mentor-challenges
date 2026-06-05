@@ -1,0 +1,35 @@
+.form-section {
+  background-color: white;
+  padding: 2rem;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-header h1 {
+  font-size: 1.5rem;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  padding: 0;
+
+  width: fit-content;
+
+  cursor: pointer;
+
+  color: #4e6e7e;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .form-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

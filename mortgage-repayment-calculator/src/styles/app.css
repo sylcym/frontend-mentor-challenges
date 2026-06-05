@@ -1,0 +1,38 @@
+.app {
+  min-height: 100vh;
+}
+
+.calculator {
+  background-color: white;
+}
+
+.form-section,
+.results-section {
+  padding: 2rem;
+}
+
+.results-section {
+  background-color: #133040;
+  color: white;
+}
+
+.form-section,
+.results-section {
+  min-height: 500px;
+}
+
+@media (min-width: 900px) {
+  .app {
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+  }
+
+  .calculator {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1000px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+  }
+}
