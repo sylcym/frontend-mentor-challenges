@@ -16,6 +16,11 @@ select {
 }
 
 body {
+  min-height: 100vh;
   font-family: sans-serif;
+  background-color: #e3f4fc;
+}
+
+.app {
   min-height: 100vh;
 }

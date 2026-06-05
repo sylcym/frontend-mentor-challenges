@@ -1,10 +1,13 @@
+import MortgageForm from './components/MortgageForm'
+import Results from './components/Results'
+
 function App() {
   return (
-    <main>
-      <h1>Mortgage Repayment Calculator</h1>
+    <main className="app">
+      <MortgageForm />
+      <Results />
     </main>
   )
 }
 
 export default App
-
