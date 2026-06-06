@@ -44,10 +44,8 @@
 .input-wrapper {
   display: flex;
   align-items: center;
-
   border: 1px solid #9abed5;
   border-radius: 0.3rem;
-
   overflow: hidden;
 }
 
@@ -59,18 +57,12 @@
 }
 
 .input-wrapper input {
+  flex: 1;
   font-size: 18px;
   line-height: 1.2;
   border: none;
   outline: none;
   padding: 14px 16px;
-  /* 
-  width: 100%;
-
-  padding: 1rem;
-
-  font-weight: 700;
-  font-size: 1rem; */
 }
 
 .input-wrapper:focus-within {
@@ -94,6 +86,60 @@ input::-webkit-inner-spin-button {
   background-color: #e3f4fc;
   color: #4e6e7e;
   padding: 14px 16px;
+}
+
+.input-label {
+  color: #4e6e7e;
+  padding-top: 23px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid #9abed5;
+  border-radius: 6px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+
+.radio-option span {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.radio-option input {
+  accent-color: #d8db2f;
+
+  width: 20px;
+  height: 20px;
+}
+
+.radio-option:hover {
+  border-color: #d8db2f;
+}
+
+.calculate-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 999px;
+  background-color: #d8db2f;
+  padding: 16px 24px;
+  margin-top: 20px;
+  cursor: pointer;
+
 }
 
 @media (min-width: 768px) {

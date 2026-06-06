@@ -1,4 +1,5 @@
 import './../styles/mortgage-form.css'
+import calculatorIcon from '../assets/images/icon-calculator.svg'
 
 function MortgageForm() {
   return (
@@ -53,6 +54,38 @@ function MortgageForm() {
             </div>
           </div>
         </div>
+        <div className="input-group">
+          <p className="input-label">Mortgage Type</p>
+
+          <div className="radio-group">
+            <label className="radio-option">
+              <input
+                type="radio"
+                name="mortgage-type"
+              />
+
+              <span>Repayment</span>
+            </label>
+
+            <label className="radio-option">
+              <input
+                type="radio"
+                name="mortgage-type"
+              />
+
+              <span>Interest Only</span>
+            </label>
+          </div>
+        </div>
+
+        <button className="calculate-btn" type="submit">
+          <img
+            src={calculatorIcon}
+            alt=""
+          />
+
+          <span>Calculate Repayments</span>
+        </button>
       </form>
     </section>
   )
