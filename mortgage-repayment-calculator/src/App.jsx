@@ -1,6 +1,6 @@
 import MortgageForm from './components/MortgageForm'
 import Results from './components/Results'
-import './styles/app.css'
+import './../src/styles/index.css'
 
 function App() {
   return (

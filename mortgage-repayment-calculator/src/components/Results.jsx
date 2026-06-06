@@ -3,7 +3,7 @@ import './../styles/results.css'
 function Results() {
   return (
     <section className="results-section">
-      <h2>Results</h2>
+      <h2 className='results-title'>Results</h2>
     </section>
   )
 }
