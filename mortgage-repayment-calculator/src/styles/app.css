@@ -12,8 +12,10 @@
 }
 
 .results-section {
+  display: flex;
   background-color: #133040;
   color: white;
+  border-bottom-left-radius: 80px;
 }
 
 .form-section,
