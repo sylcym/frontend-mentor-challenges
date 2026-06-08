@@ -1,16 +1,51 @@
+
 import './../styles/mortgage-form.css'
 import calculatorIcon from '../assets/images/icon-calculator.svg'
+import PropTypes from 'prop-types'
 
-function MortgageForm() {
+function MortgageForm({ formData, setFormData }) {
+
+  function handleChange(event) {
+    const { name, value } = event.target
+
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value,
+    }))
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+
+    console.log(formData)
+  }
+
+  function clearForm() {
+    setFormData({
+      amount: '',
+      term: '',
+      rate: '',
+      type: '',
+    })
+  }
+
   return (
     <section className="form-section">
       <div className="form-header">
         <h1 className="form-title">Mortgage Calculator</h1>
 
-        <button className="clear-btn">Clear All</button>
+        <button
+          type="button"
+          className="clear-btn"
+          onClick={clearForm}
+        >
+          Clear All
+        </button>
       </div>
 
-      <form className="mortgage-form">
+      <form className="mortgage-form"
+        onSubmit={handleSubmit}
+      >
         <div className="input-group">
           <label htmlFor="amount">Mortgage Amount</label>
 
@@ -20,6 +55,9 @@ function MortgageForm() {
             <input
               type="number"
               id="amount"
+              name="amount"
+              value={formData.amount}
+              onChange={handleChange}
               placeholder="300000"
             />
           </div>
@@ -31,6 +69,9 @@ function MortgageForm() {
 
             <div className="input-wrapper">
               <input
+                name="term"
+                value={formData.term}
+                onChange={handleChange}
                 type="number"
                 id="term"
                 placeholder="25"
@@ -45,6 +86,9 @@ function MortgageForm() {
 
             <div className="input-wrapper">
               <input
+                name="rate"
+                value={formData.rate}
+                onChange={handleChange}
                 type="number"
                 id="rate"
                 placeholder="5.25"
@@ -61,7 +105,10 @@ function MortgageForm() {
             <label className="radio-option">
               <input
                 type="radio"
-                name="mortgage-type"
+                name="type"
+                value="repayment"
+                checked={formData.type === 'repayment'}
+                onChange={handleChange}
               />
 
               <span>Repayment</span>
@@ -70,7 +117,10 @@ function MortgageForm() {
             <label className="radio-option">
               <input
                 type="radio"
-                name="mortgage-type"
+                name="type"
+                value="interest-only"
+                checked={formData.type === 'interest-only'}
+                onChange={handleChange}
               />
 
               <span>Interest Only</span>
@@ -89,7 +139,12 @@ function MortgageForm() {
       </form>
     </section>
   )
+
 }
 
+MortgageForm.propTypes = {
+  formData: PropTypes.object.isRequired,
+  setFormData: PropTypes.func.isRequired,
+}
 
 export default MortgageForm
