@@ -3,7 +3,11 @@ import './../styles/mortgage-form.css'
 import calculatorIcon from '../assets/images/icon-calculator.svg'
 import PropTypes from 'prop-types'
 
-function MortgageForm({ formData, setFormData }) {
+function MortgageForm({
+  formData,
+  setFormData,
+  setResults,
+}) {
 
   function handleChange(event) {
     const { name, value } = event.target
@@ -17,7 +21,27 @@ function MortgageForm({ formData, setFormData }) {
   function handleSubmit(event) {
     event.preventDefault()
 
-    console.log(formData)
+    const amount = Number(formData.amount)
+    const term = Number(formData.term)
+    const rate = Number(formData.rate)
+
+    const monthlyRate = rate / 100 / 12
+    const totalPayments = term * 12
+
+    const monthlyRepayment =
+      (amount *
+        monthlyRate *
+        Math.pow(1 + monthlyRate, totalPayments)) /
+      (Math.pow(1 + monthlyRate, totalPayments) - 1)
+
+    const totalRepayment =
+      monthlyRepayment * totalPayments
+
+    setResults({
+      monthlyRepayment,
+      totalRepayment,
+    })
+
   }
 
   function clearForm() {
@@ -145,6 +169,8 @@ function MortgageForm({ formData, setFormData }) {
 MortgageForm.propTypes = {
   formData: PropTypes.object.isRequired,
   setFormData: PropTypes.func.isRequired,
+  setResults: PropTypes.func,
+  // results:PropTypes.bool
 }
 
 export default MortgageForm

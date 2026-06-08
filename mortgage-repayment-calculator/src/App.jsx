@@ -11,14 +11,18 @@ function App() {
     rate: '',
     type: '',
   })
+
+  const [results, setResults] = useState(null)
+
   return (
     <main className="app">
       <div className="calculator">
         <MortgageForm
           formData={formData}
           setFormData={setFormData}
+          setResults={setResults}
         />
-        <Results />
+        <Results results={results} />
       </div>
     </main>
   )
