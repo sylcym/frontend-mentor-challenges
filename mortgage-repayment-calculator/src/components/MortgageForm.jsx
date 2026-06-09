@@ -170,7 +170,6 @@ MortgageForm.propTypes = {
   formData: PropTypes.object.isRequired,
   setFormData: PropTypes.func.isRequired,
   setResults: PropTypes.func,
-  // results:PropTypes.bool
 }
 
 export default MortgageForm

@@ -27,3 +27,53 @@
   font-weight: 500;
   line-height: 1.5;
 }
+
+.results-completed {
+  display: flex;
+  flex-direction: column;
+
+  gap: 32px;
+}
+
+.repayment-card {
+  background-color: #0e2431;
+
+  border-top: 4px solid #d8db2f;
+  border-radius: 8px;
+
+  padding: 24px;
+}
+
+.monthly-result,
+.total-result {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.result-label {
+  color: #9abed5;
+
+  line-height: 1.5;
+}
+
+.monthly-amount {
+  color: #d8db2f;
+
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.divider {
+  height: 1px;
+
+  background-color: rgba(154, 190, 213, 0.2);
+
+  margin: 32px 0;
+}
+
+.total-amount {
+  font-size: 24px;
+  font-weight: 700;
+}

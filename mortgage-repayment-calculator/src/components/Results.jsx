@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import './../styles/results.css'
 import emptyIllustration from '../assets/images/illustration-empty.svg'
 
@@ -28,19 +29,61 @@ function Results({ results }) {
 
   return (
     <section className="results-section">
-      <h2>Your results</h2>
+      <div className="results-completed">
+        <h2 className="results-title">
+          Your results
+        </h2>
 
-      <p>
-        Monthly:
-        {results.monthlyRepayment.toFixed(2)}
-      </p>
+        <p className="results-description">
+          Your results are shown below based on
+          the information you provided. To adjust
+          the results, edit the form and click
+          “calculate repayments” again.
+        </p>
 
-      <p>
-        Total:
-        {results.totalRepayment.toFixed(2)}
-      </p>
+        <div className="repayment-card">
+          <div className="monthly-result">
+            <p className="result-label">
+              Your monthly repayments
+            </p>
+
+            <h3 className="monthly-amount">
+              £
+              {results.monthlyRepayment.toLocaleString(
+                'en-GB',
+                {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }
+              )}
+            </h3>
+          </div>
+
+          <div className="divider"></div>
+
+          <div className="total-result">
+            <p className="result-label">
+              Total you'll repay over the term
+            </p>
+
+            <p className="total-amount">
+              £
+              {results.totalRepayment.toLocaleString(
+                'en-GB',
+                {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                }
+              )}
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
   )
+}
+Results.propTypes = {
+  results: PropTypes.object,
 }
 
 
