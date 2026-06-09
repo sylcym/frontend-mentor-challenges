@@ -14,6 +14,8 @@ function App() {
 
   const [results, setResults] = useState(null)
 
+  const [errors, setErrors] = useState({})
+
   return (
     <main className="app">
       <div className="calculator">
@@ -21,6 +23,8 @@ function App() {
           formData={formData}
           setFormData={setFormData}
           setResults={setResults}
+          errors={errors}
+          setErrors={setErrors}
         />
         <Results results={results} />
       </div>

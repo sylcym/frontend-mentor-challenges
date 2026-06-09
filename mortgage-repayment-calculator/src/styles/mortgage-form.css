@@ -74,6 +74,10 @@ input::-webkit-inner-spin-button {
   appearance: none;
 }
 
+input::placeholder {
+  color: #9abed5;
+}
+
 .form-row {
   display: flex;
   flex-direction: column;
@@ -139,7 +143,29 @@ input::-webkit-inner-spin-button {
   padding: 16px 24px;
   margin-top: 20px;
   cursor: pointer;
+}
 
+.error-message {
+  color: #d73328;
+
+  font-size: 14px;
+
+  margin-top: 4px;
+}
+
+.input-error {
+  border-color: #d73328;
+}
+
+.input-error .input-prefix,
+.input-error .input-suffix {
+  background-color: #d73328;
+
+  color: white;
+}
+
+.radio-error {
+  border-color: #d73328;
 }
 
 @media (min-width: 768px) {
