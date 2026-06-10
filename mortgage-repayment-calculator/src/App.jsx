@@ -16,6 +16,8 @@ function App() {
 
   const [errors, setErrors] = useState({})
 
+  const [loading, setLoading] = useState(false)
+
   return (
     <main className="app">
       <div className="calculator">
@@ -25,8 +27,10 @@ function App() {
           setResults={setResults}
           errors={errors}
           setErrors={setErrors}
+          loading={loading}
+          setLoading={setLoading}
         />
-        <Results results={results} />
+        <Results results={results} loading={loading} />
       </div>
     </main>
   )

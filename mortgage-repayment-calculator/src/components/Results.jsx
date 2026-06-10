@@ -2,7 +2,16 @@ import PropTypes from 'prop-types'
 import './../styles/results.css'
 import emptyIllustration from '../assets/images/illustration-empty.svg'
 
-function Results({ results }) {
+function Results({ results, loading }) {
+
+  if (loading) {
+    return (
+      <section className="results-section">
+        <p>Calculating results...</p>
+      </section>
+    )
+  }
+
   if (!results) {
     return (
       <section className="results-section">
@@ -84,6 +93,7 @@ function Results({ results }) {
 }
 Results.propTypes = {
   results: PropTypes.object,
+  loading: PropTypes.bool.isRequired,
 }
 
 

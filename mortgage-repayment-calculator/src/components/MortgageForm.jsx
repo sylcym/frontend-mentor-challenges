@@ -10,7 +10,15 @@ function MortgageForm({
   setResults,
   errors,
   setErrors,
+  setLoading,
+  loading,
 }) {
+  const isFormInvalid =
+    !formData.amount ||
+    !formData.term ||
+    !formData.rate ||
+    !formData.type
+
   function handleChange(event) {
     const { name, value } = event.target
 
@@ -22,6 +30,8 @@ function MortgageForm({
 
   function handleSubmit(event) {
     event.preventDefault()
+
+    setLoading(true)
 
     const newErrors = {}
 
@@ -48,33 +58,31 @@ function MortgageForm({
 
     setErrors({})
 
-    const amount = Number(formData.amount)
-    const term = Number(formData.term)
-    const rate = Number(formData.rate)
+    setTimeout(() => {
 
-    const monthlyRate = rate / 100 / 12
-    const totalPayments = term * 12
+      const amount = Number(formData.amount)
+      const term = Number(formData.term)
+      const rate = Number(formData.rate)
 
-    const monthlyRepayment =
-      (amount *
-        monthlyRate *
-        Math.pow(
-          1 + monthlyRate,
-          totalPayments
-        )) /
-      (Math.pow(
-        1 + monthlyRate,
-        totalPayments
-      ) -
-        1)
+      const monthlyRate = rate / 100 / 12
+      const totalPayments = term * 12
 
-    const totalRepayment =
-      monthlyRepayment * totalPayments
+      const monthlyRepayment =
+        (amount *
+          monthlyRate *
+          Math.pow(1 + monthlyRate, totalPayments)) /
+        (Math.pow(1 + monthlyRate, totalPayments) - 1)
 
-    setResults({
-      monthlyRepayment,
-      totalRepayment,
-    })
+      const totalRepayment =
+        monthlyRepayment * totalPayments
+
+      setResults({
+        monthlyRepayment,
+        totalRepayment,
+      })
+
+      setLoading(false)
+    }, 800)
   }
 
   function clearForm() {
@@ -107,6 +115,7 @@ function MortgageForm({
 
       <form
         className="mortgage-form"
+        loading={loading}
         onSubmit={handleSubmit}
       >
         <div className="input-group">
@@ -221,7 +230,10 @@ function MortgageForm({
             Mortgage Type
           </p>
 
-          <div className="radio-group">
+          <div
+            className={`radio-group ${errors.type ? 'input-error' : ''
+              }`}
+          >
             <label
               className={`radio-option ${errors.type
                 ? 'radio-error'
@@ -272,6 +284,7 @@ function MortgageForm({
         <button
           className="calculate-btn"
           type="submit"
+          disabled={isFormInvalid || loading}
         >
           <img
             src={calculatorIcon}
@@ -279,7 +292,9 @@ function MortgageForm({
           />
 
           <span>
-            Calculate Repayments
+            {loading
+              ? 'Calculating...'
+              : 'Calculate Repayments'}
           </span>
         </button>
       </form>
@@ -287,12 +302,16 @@ function MortgageForm({
   )
 }
 
+
 MortgageForm.propTypes = {
   formData: PropTypes.object.isRequired,
   setFormData: PropTypes.func.isRequired,
   setResults: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   setErrors: PropTypes.func.isRequired,
+  // results: PropTypes.object,
+  loading: PropTypes.bool.isRequired,
+  setLoading: PropTypes.func.isRequired,
 }
 
 export default MortgageForm

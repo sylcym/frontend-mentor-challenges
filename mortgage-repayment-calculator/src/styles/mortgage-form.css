@@ -78,6 +78,11 @@ input::placeholder {
   color: #9abed5;
 }
 
+input:focus {
+  outline: 2px solid #d8db2f;
+  outline-offset: 2px;
+}
+
 .form-row {
   display: flex;
   flex-direction: column;
@@ -145,11 +150,18 @@ input::placeholder {
   cursor: pointer;
 }
 
+.calculate-btn:hover {
+  background-color: #e3e63a;
+}
+
+.calculate-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .error-message {
-  color: #d73328;
-
   font-size: 14px;
-
+  color: #d73328;
   margin-top: 4px;
 }
 
@@ -160,7 +172,6 @@ input::placeholder {
 .input-error .input-prefix,
 .input-error .input-suffix {
   background-color: #d73328;
-
   color: white;
 }
 
