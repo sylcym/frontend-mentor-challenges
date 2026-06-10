@@ -191,6 +191,12 @@ input:focus {
   }
 
   .form-row .input-group {
-    width: 100%;
+
+    flex: 1;
+    min-width: 0;
+  }
+
+  .form-section {
+    min-height: 500px;
   }
 }

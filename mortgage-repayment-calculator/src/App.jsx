@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import MortgageForm from './components/MortgageForm'
 import Results from './components/Results'
-import './../src/styles/index.css'
+// import './../src/styles/index.css'
+import './../src/styles/app.css'
 
 
 function App() {
@@ -30,7 +31,11 @@ function App() {
           loading={loading}
           setLoading={setLoading}
         />
-        <Results results={results} loading={loading} />
+        <Results
+          results={results}
+          loading={loading}
+
+        />
       </div>
     </main>
   )

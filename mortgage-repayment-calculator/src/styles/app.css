@@ -1,4 +1,6 @@
 .app {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
@@ -6,35 +8,24 @@
   background-color: white;
 }
 
-.form-section,
-.results-section {
-  padding: 2rem;
-}
-
-.results-section {
-  display: flex;
-  background-color: #133040;
-  color: white;
-  border-bottom-left-radius: 80px;
-}
-
-.form-section,
-.results-section {
-  min-height: 500px;
-}
 
 @media (min-width: 900px) {
+
   .app {
     display: grid;
+    min-height: 100vh;
     place-items: center;
     padding: 2rem;
   }
 
+
   .calculator {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr; */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     max-width: 1000px;
-    border-radius: 1.5rem;
+    width: 100%;
+    border-radius: 24px;
     overflow: hidden;
   }
 }
