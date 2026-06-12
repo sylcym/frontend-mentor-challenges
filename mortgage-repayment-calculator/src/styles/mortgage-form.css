@@ -15,16 +15,13 @@
 }
 
 .clear-btn {
+  width: fit-content;
   background: none;
   border: none;
   padding: 0;
-
-  width: fit-content;
-
-  cursor: pointer;
-
   color: #4e6e7e;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .mortgage-form {
@@ -47,6 +44,12 @@
   border: 1px solid #9abed5;
   border-radius: 0.3rem;
   overflow: hidden;
+  transition: border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.input-wrapper:hover {
+  border-color: #7fa8c4;
 }
 
 .input-prefix {
@@ -64,10 +67,17 @@
   border: none;
   outline: none;
   padding: 14px 16px;
+  cursor: pointer;
 }
 
 .input-wrapper:focus-within {
   border-color: #d8db2f;
+}
+
+.input-wrapper:focus-within .input-prefix,
+.input-wrapper:focus-within .input-suffix {
+  background-color: #d8db2f;
+  /* color: white; */
 }
 
 input::-webkit-outer-spin-button,
@@ -98,6 +108,7 @@ input:focus {
   padding: 14px 16px;
 }
 
+
 .input-label {
   color: #4e6e7e;
   padding-top: 23px;
@@ -116,6 +127,7 @@ input:focus {
   border: 1px solid #9abed5;
   border-radius: 6px;
   padding: 13px 16px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
   cursor: pointer;
 }
 
@@ -126,13 +138,14 @@ input:focus {
 
 .radio-option input {
   accent-color: #d8db2f;
-
+  border-radius: 50%;
   width: 20px;
   height: 20px;
 }
 
 .radio-option:hover {
   border-color: #d8db2f;
+  background-color: rgba(216, 219, 47, 0.08);
 }
 
 .calculate-btn {
@@ -148,7 +161,7 @@ input:focus {
   background-color: #d8db2f;
   padding: 16px 24px;
   margin-top: 20px;
-  transition: background-color 0.2s ease opacity 0.2s ease;
+  transition: background-color 0.2s ease;
   cursor: pointer;
 }
 
@@ -191,12 +204,19 @@ input:focus {
   .form-row {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     margin-top: 0;
   }
 
   .form-row .input-group {
     flex: 1;
     min-width: 0;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 
   /* .input-suffix {

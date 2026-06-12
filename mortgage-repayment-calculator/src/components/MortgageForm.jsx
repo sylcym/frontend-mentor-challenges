@@ -216,13 +216,13 @@ function MortgageForm({
                 %
               </span>
             </div>
+            {errors.rate && (
+              <p className="error-message">
+                This field is required
+              </p>
+            )}
           </div>
 
-          {errors.rate && (
-            <p className="error-message">
-              This field is required
-            </p>
-          )}
         </div>
 
         <div className="input-group">
@@ -284,7 +284,8 @@ function MortgageForm({
         <button
           className="calculate-btn"
           type="submit"
-          disabled={isFormInvalid || loading}
+          // disabled={isFormInvalid || loading}
+          disabled={loading}
         >
           <img
             src={calculatorIcon}
