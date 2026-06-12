@@ -77,7 +77,6 @@
 .input-wrapper:focus-within .input-prefix,
 .input-wrapper:focus-within .input-suffix {
   background-color: #d8db2f;
-  /* color: white; */
 }
 
 input::-webkit-outer-spin-button,

@@ -5,8 +5,8 @@
 }
 
 .calculator {
+  position: relative;
   background-color: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -25,7 +25,28 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     max-width: 1100px;
     width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     border-radius: 24px;
     overflow: hidden;
   }
+
+  .attribution {
+    font-size: 15px;
+    text-align: center;
+    color: #133040;
+  }
+
+  .attribution a {
+    color: #d8db2f;
+    text-decoration: none;
+  }
+
+  .attribution a:hover {
+    text-decoration: underline;
+  }
+
+  .recharts-zIndex-layer_300 {
+    outline: none !important;
+  }
+
 }

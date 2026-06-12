@@ -37,6 +37,24 @@ function App() {
 
         />
       </div>
+      <div className="attribution">
+        Challenge by{" "}
+        <a
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Frontend Mentor
+        </a>
+        . Coded by{" "}
+        <a
+          href=""
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          sylcym
+        </a>
+      </div>
     </main>
   )
 }
