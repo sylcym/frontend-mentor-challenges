@@ -44,13 +44,7 @@ The application includes form validation, dynamic calculations, responsive layou
 
 ### Desktop
 
-_Add desktop screenshot here_
-
-### Mobile
-
-_Add mobile screenshot here_
-
----
+![Mortgage-calculator](image.png)
 
 ## Getting Started
 
@@ -125,5 +119,12 @@ During this project I practiced:
 
 Frontend Mentor challenge completed by Sylwia.
 
-- Frontend Mentor: https://www.frontendmentor.io/
-- GitHub: https://github.com/sylcym/frontend-mentor-challenges
+## Links
+
+- Solution URL: https://github.com/sylcym/frontend-mentor-challenges/tree/main/mortgage-repayment-calculator
+
+- Live Site URL: https://sylcym-mortgage-repayment-calculator.netlify.app/
+
+- Frontend Mentor: https://www.frontendmentor.io/profile/sylcym
+
+- GitHub: https://github.com/sylcym
