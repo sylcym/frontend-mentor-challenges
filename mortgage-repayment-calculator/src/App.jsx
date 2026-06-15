@@ -40,7 +40,7 @@ function App() {
       <div className="attribution">
         Challenge by{" "}
         <a
-          href="https://www.frontendmentor.io?ref=challenge"
+          href="https://github.com/sylcym/frontend-mentor-challenges/tree/main/mortgage-repayment-calculator"
           target="_blank"
           rel="noreferrer"
         >
