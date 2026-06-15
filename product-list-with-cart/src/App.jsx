@@ -1,7 +1,10 @@
+import ProductsPage from "./pages/ProductsPage"
+
 function App() {
   return (
-    <h1>Hello</h1>
+    <ProductsPage />
   )
 }
 
 export default App
+
