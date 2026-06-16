@@ -20,3 +20,20 @@
   color: #c73b0f;
   margin-top: 8px;
 }
+
+.product-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 999px;
+  background-color: #c73b0f;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
