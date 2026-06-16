@@ -6,18 +6,21 @@ const products = [
   {
     id: 1,
     name: 'Waffle',
+    category: 'Waffle',
     price: 6.5,
     image: waffleImage,
   },
   {
     id: 2,
     name: 'Creme Brulee',
+    category: 'Creme Brulee',
     price: 7,
     image: cremeBruleeImage,
   },
   {
     id: 3,
     name: 'Macaron',
+    category: 'Macaron',
     price: 8,
     image: macaronImage,
   },
