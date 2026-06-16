@@ -1,10 +1,11 @@
 import products from "../data/products"
 import ProductCard from "../components/ProductCard"
+import '../styles/ProductsPage.css'
 
 function ProductsPage() {
   console.log(products)
   return (
-    <div>
+    <div className="products-container">
       {products.map((product) => (
         <ProductCard
           key={product.id}

@@ -1,0 +1,22 @@
+.product-card {
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  background-color: white;
+  padding: 16px;
+}
+
+.product-card:hover {
+  border-color: #c73b0f;
+}
+
+.product-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.product-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #c73b0f;
+  margin-top: 8px;
+}

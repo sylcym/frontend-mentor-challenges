@@ -1,0 +1,21 @@
+.products-container {
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+}
+
+@media (min-width: 768px) {
+
+  .products-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  .products-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+}

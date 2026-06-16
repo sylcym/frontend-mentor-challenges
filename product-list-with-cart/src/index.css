@@ -3,3 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-color: #fcf8f5;
+  font-family: Arial, sans-serif;
+}
