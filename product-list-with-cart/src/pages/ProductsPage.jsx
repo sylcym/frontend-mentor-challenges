@@ -5,12 +5,14 @@ import '../styles/ProductsPage.css'
 import emptyCartImage from '../assets/images/illustration-empty-cart.svg'
 
 function ProductsPage() {
-  const [cartCount, setCartCount] = useState(0)
   const [cartItems, setCartItems] = useState([])
 
-  function addToCart(productName) {
+  const cartCount = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  )
 
-    setCartCount(cartCount + 1)
+  function addToCart(productName) {
 
     const existingItem = cartItems.find(
       (item) => item.name === productName
@@ -44,6 +46,16 @@ function ProductsPage() {
       ])
 
     }
+
+  }
+
+  function removeItem(productName) {
+
+    const filteredItems = cartItems.filter(
+      (item) => item.name !== productName
+    )
+
+    setCartItems(filteredItems)
 
   }
 
@@ -90,9 +102,23 @@ function ProductsPage() {
 
             {cartItems.map((item, index) => (
 
-              <p key={index}>
-                {item.name} x{item.quantity}
-              </p>
+              <div
+                key={index}
+                className="cart-item"
+              >
+
+                <p>
+                  {item.name} x{item.quantity}
+                </p>
+
+                <button
+                  className="remove-item-btn"
+                  onClick={() => removeItem(item.name)}
+                >
+                  X
+                </button>
+
+              </div>
 
             ))}
 

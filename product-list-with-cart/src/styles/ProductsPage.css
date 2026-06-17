@@ -40,6 +40,19 @@
   margin-top: 16px;
 }
 
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove-item-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
 @media (min-width: 768px) {
 
   .products-container {
