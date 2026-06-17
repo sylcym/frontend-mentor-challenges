@@ -1,10 +1,52 @@
+import { useState } from 'react'
 import products from "../data/products"
 import ProductCard from "../components/ProductCard"
 import '../styles/ProductsPage.css'
 import emptyCartImage from '../assets/images/illustration-empty-cart.svg'
 
 function ProductsPage() {
-  console.log(products)
+  const [cartCount, setCartCount] = useState(0)
+  const [cartItems, setCartItems] = useState([])
+
+  function addToCart(productName) {
+
+    setCartCount(cartCount + 1)
+
+    const existingItem = cartItems.find(
+      (item) => item.name === productName
+    )
+
+    if (existingItem) {
+
+      const updatedCartItems = cartItems.map((item) => {
+
+        if (item.name === productName) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          }
+        }
+
+        return item
+
+      })
+
+      setCartItems(updatedCartItems)
+
+    } else {
+
+      setCartItems([
+        ...cartItems,
+        {
+          name: productName,
+          quantity: 1,
+        },
+      ])
+
+    }
+
+  }
+
   return (
     <main className="products-page">
 
@@ -16,29 +58,47 @@ function ProductsPage() {
             category={product.category}
             price={product.price}
             image={product.image}
+            addToCart={addToCart}
           />
         ))}
       </div>
 
       <aside className="cart-container">
         <h2 className="cart-title">
-          Your Cart (0)
+          Your Cart ({cartCount})
         </h2>
 
-        <div className="empty-cart">
+        {cartItems.length === 0 ? (
 
-          <img
-            // src="/src/assets/images/illustration-empty-cart.svg"
-            src={emptyCartImage}
-            alt="Empty cart"
-            className="empty-cart-image"
-          />
+          <div className="empty-cart">
 
-          <p className="empty-cart-text">
-            Your added items will appear here
-          </p>
+            <img
+              src={emptyCartImage}
+              alt="Empty cart"
+              className="empty-cart-image"
+            />
 
-        </div>
+            <p className="empty-cart-text">
+              Your added items will appear here
+            </p>
+
+          </div>
+
+        ) : (
+
+          <div className="cart-items">
+
+            {cartItems.map((item, index) => (
+
+              <p key={index}>
+                {item.name} x{item.quantity}
+              </p>
+
+            ))}
+
+          </div>
+
+        )}
       </aside>
 
     </main>

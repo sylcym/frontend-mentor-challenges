@@ -1,7 +1,13 @@
 import PropTypes from 'prop-types'
 import '../styles/ProductCard.css'
 
-function ProductCard({ name, category, price, image }) {
+function ProductCard({
+  name,
+  category,
+  price,
+  image,
+  addToCart,
+}) {
 
   return (
     <div className="product-card">
@@ -13,7 +19,9 @@ function ProductCard({ name, category, price, image }) {
           className="product-image"
         />
 
-        <button className="add-to-cart-btn">
+        <button className="add-to-cart-btn"
+          onClick={() => addToCart(name)}
+        >
           Add to Cart
         </button>
 
@@ -37,6 +45,7 @@ ProductCard.propTypes = {
   price: PropTypes.number,
   image: PropTypes.string,
   category: PropTypes.string,
+  addToCart: PropTypes.func,
 }
 
 export default ProductCard
