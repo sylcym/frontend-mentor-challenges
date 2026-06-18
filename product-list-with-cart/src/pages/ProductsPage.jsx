@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import products from "../data/products"
 import ProductCard from "../components/ProductCard"
-import CartItem from '../components/CartItem'
+import Cart from '../components/Cart'
 import '../styles/ProductsPage.css'
 import emptyCartImage from '../assets/images/illustration-empty-cart.svg'
 
@@ -95,71 +95,35 @@ function ProductsPage() {
     <main className="products-page">
 
       <div className="products-container">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            name={product.name}
-            category={product.category}
-            price={product.price}
-            image={product.image}
-            addToCart={addToCart}
+        {products.map((product) => {
 
-          />
-        ))}
+          const cartItem = cartItems.find(
+            (item) => item.name === product.name
+          )
+
+          return (
+            <ProductCard
+              quantity={cartItem ? cartItem.quantity : 0}
+              key={product.id}
+              name={product.name}
+              category={product.category}
+              price={product.price}
+              image={product.image}
+              addToCart={addToCart}
+              removeItem={removeItem}
+
+            />
+          )
+        })}
       </div>
 
-      <aside className="cart-container">
-        <h2 className="cart-title">
-          Your Cart ({cartCount})
-        </h2>
-
-        {cartItems.length === 0 ? (
-
-          <div className="empty-cart">
-
-            <img
-              src={emptyCartImage}
-              alt="Empty cart"
-              className="empty-cart-image"
-            />
-
-            <p className="empty-cart-text">
-              Your added items will appear here
-            </p>
-
-          </div>
-
-        ) : (
-
-          <div className="cart-items">
-
-            <div className="order-total">
-
-              <p>Order Total</p>
-
-              <h3>
-                ${orderTotal.toFixed(2)}
-              </h3>
-
-            </div>
-
-            {cartItems.map((item, index) => (
-
-              <CartItem
-                key={index}
-                name={item.name}
-                quantity={item.quantity}
-                removeItem={removeItem}
-                price={item.price}
-              />
-
-            ))}
-
-          </div>
-
-
-        )}
-      </aside>
+      <Cart
+        cartItems={cartItems}
+        cartCount={cartCount}
+        orderTotal={orderTotal}
+        removeItem={removeItem}
+        emptyCartImage={emptyCartImage}
+      />
 
     </main>
   )

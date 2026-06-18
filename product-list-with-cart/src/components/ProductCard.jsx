@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import '../styles/ProductCard.css'
+import addToCartIcon from '../assets/images/icon-add-to-cart.svg'
 
 function ProductCard({
   name,
@@ -7,26 +8,84 @@ function ProductCard({
   price,
   image,
   addToCart,
+  quantity,
+  removeItem,
 }) {
 
   return (
     <div className="product-card">
       <div className="product-image-wrapper">
 
-        <img
-          src={image}
-          alt={name}
-          className="product-image"
-        />
+        <picture>
 
-        <button className="add-to-cart-btn"
-          onClick={() => addToCart({
-            name,
-            price,
-          })}
-        >
-          Add to Cart
-        </button>
+          <source
+            media="(min-width: 1024px)"
+            srcSet={image.desktop}
+          />
+
+          <source
+            media="(min-width: 768px)"
+            srcSet={image.tablet}
+          />
+
+          <img
+            src={image.mobile}
+            alt={name}
+            className={
+              quantity > 0
+                ? 'product-image active'
+                : 'product-image'
+            }
+          />
+
+        </picture>
+
+        {quantity === 0 ? (
+
+          <button
+            className="add-to-cart-btn"
+            onClick={() => addToCart({
+              name,
+              price,
+            })}
+          >
+            <img
+              src={addToCartIcon}
+              alt=""
+              className="cart-icon"
+            />
+
+            Add to Cart
+          </button>
+
+        ) : (
+
+          <div className="quantity-controls">
+
+            <button
+              className="quantity-btn"
+              onClick={() => removeItem(name)}
+            >
+              -
+            </button>
+
+            <p className="quantity-value">
+              {quantity}
+            </p>
+
+            <button
+              className="quantity-btn"
+              onClick={() => addToCart({
+                name,
+                price,
+              })}
+            >
+              +
+            </button>
+
+          </div>
+
+        )}
 
       </div>
       <p className="product-category">
@@ -49,6 +108,8 @@ ProductCard.propTypes = {
   image: PropTypes.string,
   category: PropTypes.string,
   addToCart: PropTypes.func,
+  quantity: PropTypes.number,
+  removeItem: PropTypes.func,
 }
 
 export default ProductCard

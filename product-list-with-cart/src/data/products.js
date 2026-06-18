@@ -1,4 +1,6 @@
-import waffleImage from '../assets/images/image-waffle-mobile.jpg'
+import waffleMobile from '../assets/images/image-waffle-mobile.jpg'
+import waffleTablet from '../assets/images/image-waffle-tablet.jpg'
+import waffleDesktop from '../assets/images/image-waffle-desktop.jpg'
 import cremeBruleeImage from '../assets/images/image-creme-brulee-mobile.jpg'
 import macaronImage from '../assets/images/image-macaron-mobile.jpg'
 
@@ -8,21 +10,33 @@ const products = [
     name: 'Waffle',
     category: 'Waffle',
     price: 6.5,
-    image: waffleImage,
+    image: {
+      mobile: waffleMobile,
+      tablet: waffleTablet,
+      desktop: waffleDesktop,
+    }
   },
   {
     id: 2,
     name: 'Creme Brulee',
     category: 'Creme Brulee',
     price: 7,
-    image: cremeBruleeImage,
+    image: {
+      mobile: waffleMobile,
+      tablet: waffleTablet,
+      desktop: waffleDesktop,
+    }
   },
   {
     id: 3,
     name: 'Macaron',
     category: 'Macaron',
     price: 8,
-    image: macaronImage,
+    image: {
+      mobile: waffleMobile,
+      tablet: waffleTablet,
+      desktop: waffleDesktop,
+    }
   },
 ]
 
