@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import products from "../data/products"
 import ProductCard from "../components/ProductCard"
+import CartItem from '../components/CartItem'
 import '../styles/ProductsPage.css'
 import emptyCartImage from '../assets/images/illustration-empty-cart.svg'
 
@@ -12,17 +13,22 @@ function ProductsPage() {
     0
   )
 
-  function addToCart(productName) {
+  const orderTotal = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  )
+
+  function addToCart(product) {
 
     const existingItem = cartItems.find(
-      (item) => item.name === productName
+      (item) => item.name === product.name
     )
 
     if (existingItem) {
 
       const updatedCartItems = cartItems.map((item) => {
 
-        if (item.name === productName) {
+        if (item.name === product.name) {
           return {
             ...item,
             quantity: item.quantity + 1,
@@ -40,7 +46,8 @@ function ProductsPage() {
       setCartItems([
         ...cartItems,
         {
-          name: productName,
+          name: product.name,
+          price: product.price,
           quantity: 1,
         },
       ])
@@ -51,11 +58,36 @@ function ProductsPage() {
 
   function removeItem(productName) {
 
-    const filteredItems = cartItems.filter(
-      (item) => item.name !== productName
+    const existingItem = cartItems.find(
+      (item) => item.name === productName
     )
 
-    setCartItems(filteredItems)
+    if (existingItem.quantity === 1) {
+
+      const filteredItems = cartItems.filter(
+        (item) => item.name !== productName
+      )
+
+      setCartItems(filteredItems)
+
+    } else {
+
+      const updatedCartItems = cartItems.map((item) => {
+
+        if (item.name === productName) {
+          return {
+            ...item,
+            quantity: item.quantity - 1,
+          }
+        }
+
+        return item
+
+      })
+
+      setCartItems(updatedCartItems)
+
+    }
 
   }
 
@@ -71,6 +103,7 @@ function ProductsPage() {
             price={product.price}
             image={product.image}
             addToCart={addToCart}
+
           />
         ))}
       </div>
@@ -100,29 +133,30 @@ function ProductsPage() {
 
           <div className="cart-items">
 
+            <div className="order-total">
+
+              <p>Order Total</p>
+
+              <h3>
+                ${orderTotal.toFixed(2)}
+              </h3>
+
+            </div>
+
             {cartItems.map((item, index) => (
 
-              <div
+              <CartItem
                 key={index}
-                className="cart-item"
-              >
-
-                <p>
-                  {item.name} x{item.quantity}
-                </p>
-
-                <button
-                  className="remove-item-btn"
-                  onClick={() => removeItem(item.name)}
-                >
-                  X
-                </button>
-
-              </div>
+                name={item.name}
+                quantity={item.quantity}
+                removeItem={removeItem}
+                price={item.price}
+              />
 
             ))}
 
           </div>
+
 
         )}
       </aside>

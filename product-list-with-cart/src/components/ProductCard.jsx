@@ -20,7 +20,10 @@ function ProductCard({
         />
 
         <button className="add-to-cart-btn"
-          onClick={() => addToCart(name)}
+          onClick={() => addToCart({
+            name,
+            price,
+          })}
         >
           Add to Cart
         </button>
