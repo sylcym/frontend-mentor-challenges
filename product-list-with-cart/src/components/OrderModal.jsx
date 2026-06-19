@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import '../styles/OrderModal.css'
 import confirmedIcon from '../assets/images/icon-order-confirmed.svg'
@@ -22,6 +23,15 @@ function OrderModal({
     setIsModalOpen(false)
 
   }
+  useEffect(() => {
+
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+
+  }, [])
 
   return (
     <div className="modal-overlay">

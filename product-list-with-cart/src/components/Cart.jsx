@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import CartItem from './CartItem'
 import '../styles/Cart.css'
+import carbonNeutralIcon from '../assets/images/icon-carbon-neutral.svg'
 
 function Cart({
   cartItems,
@@ -40,15 +41,6 @@ function Cart({
 
           <div className="cart-items">
 
-            <div className="order-total">
-
-              <p>Order Total</p>
-
-              <h3>
-                ${orderTotal.toFixed(2)}
-              </h3>
-
-            </div>
 
             {cartItems.map((item, index) => (
 
@@ -62,6 +54,29 @@ function Cart({
 
             ))}
 
+            <div className="order-total">
+
+              <p>Order Total</p>
+
+              <h3>
+                ${orderTotal.toFixed(2)}
+              </h3>
+
+            </div>
+
+            <div className="carbon-neutral">
+
+              <img
+                src={carbonNeutralIcon}
+                alt=""
+                className="carbon-neutral-icon"
+              />
+
+              <p className="carbon-neutral-text">
+                This is a <strong>carbon-neutral</strong> delivery
+              </p>
+
+            </div>
           </div>
 
           <button

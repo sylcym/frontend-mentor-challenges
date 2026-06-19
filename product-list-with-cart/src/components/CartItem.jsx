@@ -39,7 +39,7 @@ function CartItem({
         className="remove-item-btn"
         onClick={() => removeItem(name)}
       >
-        -
+        x
       </button>
 
     </div>

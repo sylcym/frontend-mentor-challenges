@@ -1,13 +1,3 @@
-/* .cart-item {
-  padding: 16px 0;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  border-bottom: 1px solid #f5eeec;
-} */
-
 .cart-item-name {
   font-size: 14px;
 }
@@ -34,8 +24,13 @@
 }
 
 .remove-item-btn {
-  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ad8a85;
+  border-radius: 50%;
   background: none;
   cursor: pointer;
-  font-weight: 700;
 }
