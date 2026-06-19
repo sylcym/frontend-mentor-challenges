@@ -1,0 +1,102 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 24px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 600px;
+
+  padding: 32px;
+
+  border-radius: 12px;
+
+  background-color: white;
+}
+
+.confirmed-icon {
+  width: 48px;
+  height: 48px;
+
+  margin-bottom: 24px;
+}
+
+.modal-title {
+  font-size: 40px;
+  line-height: 1.1;
+}
+
+.modal-description {
+  margin-top: 8px;
+
+  color: #87635a;
+}
+
+.modal-item {
+  gap: 16px;
+}
+
+.modal-thumbnail {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 8px;
+}
+
+.start-new-order-btn {
+  width: 100%;
+  margin-top: 32px;
+  padding: 16px;
+
+  border: none;
+  border-radius: 999px;
+
+  background-color: #c73b0f;
+  color: white;
+
+  cursor: pointer;
+}
+
+.modal-items {
+  margin-top: 32px;
+}
+
+.modal-item {
+  padding: 16px 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: 1px solid #f5eeec;
+}
+
+.modal-item-name {
+  font-size: 14px;
+}
+
+.modal-item-details {
+  margin-top: 4px;
+
+  color: #87635a;
+}
+
+.modal-item-total {
+  font-weight: 700;
+}
+
+.modal-order-total {
+  margin-top: 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

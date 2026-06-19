@@ -8,6 +8,7 @@ function Cart({
   orderTotal,
   removeItem,
   emptyCartImage,
+  setIsModalOpen,
 }) {
 
   return (
@@ -35,31 +36,42 @@ function Cart({
 
       ) : (
 
-        <div className="cart-items">
+        <>
 
-          <div className="order-total">
+          <div className="cart-items">
 
-            <p>Order Total</p>
+            <div className="order-total">
 
-            <h3>
-              ${orderTotal.toFixed(2)}
-            </h3>
+              <p>Order Total</p>
+
+              <h3>
+                ${orderTotal.toFixed(2)}
+              </h3>
+
+            </div>
+
+            {cartItems.map((item, index) => (
+
+              <CartItem
+                key={index}
+                name={item.name}
+                quantity={item.quantity}
+                price={item.price}
+                removeItem={removeItem}
+              />
+
+            ))}
 
           </div>
 
-          {cartItems.map((item, index) => (
+          <button
+            className="confirm-order-btn"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Confirm Order
+          </button>
 
-            <CartItem
-              key={index}
-              name={item.name}
-              quantity={item.quantity}
-              price={item.price}
-              removeItem={removeItem}
-            />
-
-          ))}
-
-        </div>
+        </>
 
       )}
 
@@ -73,6 +85,7 @@ Cart.propTypes = {
   orderTotal: PropTypes.number,
   removeItem: PropTypes.func,
   emptyCartImage: PropTypes.string,
+  setIsModalOpen: PropTypes.func,
 }
 
 export default Cart

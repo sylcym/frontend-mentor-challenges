@@ -2,11 +2,13 @@ import { useState } from 'react'
 import products from "../data/products"
 import ProductCard from "../components/ProductCard"
 import Cart from '../components/Cart'
+import OrderModal from '../components/OrderModal'
 import '../styles/ProductsPage.css'
 import emptyCartImage from '../assets/images/illustration-empty-cart.svg'
 
 function ProductsPage() {
   const [cartItems, setCartItems] = useState([])
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const cartCount = cartItems.reduce(
     (total, item) => total + item.quantity,
@@ -48,8 +50,9 @@ function ProductsPage() {
         {
           name: product.name,
           price: product.price,
+          thumbnail: product.thumbnail,
           quantity: 1,
-        },
+        }
       ])
 
     }
@@ -123,6 +126,14 @@ function ProductsPage() {
         orderTotal={orderTotal}
         removeItem={removeItem}
         emptyCartImage={emptyCartImage}
+        setIsModalOpen={setIsModalOpen}
+      />
+      <OrderModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        setCartItems={setCartItems}
+        cartItems={cartItems}
+        orderTotal={orderTotal}
       />
 
     </main>

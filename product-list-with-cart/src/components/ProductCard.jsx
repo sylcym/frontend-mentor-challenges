@@ -47,6 +47,7 @@ function ProductCard({
             onClick={() => addToCart({
               name,
               price,
+              thumbnail: image.thumbnail,
             })}
           >
             <img
@@ -78,6 +79,7 @@ function ProductCard({
               onClick={() => addToCart({
                 name,
                 price,
+                thumbnail: image.thumbnail,
               })}
             >
               +
@@ -105,7 +107,8 @@ function ProductCard({
 ProductCard.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
-  image: PropTypes.string,
+  // image: PropTypes.string,
+  image: PropTypes.object,
   category: PropTypes.string,
   addToCart: PropTypes.func,
   quantity: PropTypes.number,

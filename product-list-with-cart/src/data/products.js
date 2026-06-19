@@ -1,6 +1,7 @@
 import waffleMobile from '../assets/images/image-waffle-mobile.jpg'
 import waffleTablet from '../assets/images/image-waffle-tablet.jpg'
 import waffleDesktop from '../assets/images/image-waffle-desktop.jpg'
+import waffleThumbnail from '../assets/images/image-waffle-thumbnail.jpg'
 import cremeBruleeImage from '../assets/images/image-creme-brulee-mobile.jpg'
 import macaronImage from '../assets/images/image-macaron-mobile.jpg'
 
@@ -14,6 +15,7 @@ const products = [
       mobile: waffleMobile,
       tablet: waffleTablet,
       desktop: waffleDesktop,
+      thumbnail: waffleThumbnail
     }
   },
   {
@@ -25,6 +27,7 @@ const products = [
       mobile: waffleMobile,
       tablet: waffleTablet,
       desktop: waffleDesktop,
+      thumbnail: waffleThumbnail
     }
   },
   {
@@ -36,6 +39,7 @@ const products = [
       mobile: waffleMobile,
       tablet: waffleTablet,
       desktop: waffleDesktop,
+      thumbnail: waffleThumbnail
     }
   },
 ]
