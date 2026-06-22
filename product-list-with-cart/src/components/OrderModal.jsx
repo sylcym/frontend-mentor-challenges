@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import '../styles/OrderModal.css'
-import confirmedIcon from '../assets/images/icon-order-confirmed.svg'
+// import confirmedIcon from '../assets/images/icon-order-confirmed.svg'
 
 function OrderModal({
   isModalOpen,
@@ -23,6 +23,7 @@ function OrderModal({
     setIsModalOpen(false)
 
   }
+
   useEffect(() => {
 
     document.body.style.overflow = 'hidden'
@@ -39,7 +40,7 @@ function OrderModal({
       <div className="modal">
 
         <img
-          src={confirmedIcon}
+          src="/assets/images/icon-order-confirmed.svg"
           alt=""
           className="confirmed-icon"
         />

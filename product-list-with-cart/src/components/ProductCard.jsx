@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import '../styles/ProductCard.css'
-import addToCartIcon from '../assets/images/icon-add-to-cart.svg'
+// import addToCartIcon from '../assets/images/icon-add-to-cart.svg'
 
 function ProductCard({
   name,
@@ -51,7 +51,7 @@ function ProductCard({
             })}
           >
             <img
-              src={addToCartIcon}
+              src="/assets/images/icon-add-to-cart.svg"
               alt=""
               className="cart-icon"
             />

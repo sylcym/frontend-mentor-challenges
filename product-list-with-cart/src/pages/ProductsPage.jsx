@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import products from "../data/products"
+import products from '../data/data.json'
 import ProductCard from "../components/ProductCard"
 import Cart from '../components/Cart'
 import OrderModal from '../components/OrderModal'
 import '../styles/ProductsPage.css'
-import emptyCartImage from '../assets/images/illustration-empty-cart.svg'
+// import emptyCartImage from '../assets/images/illustration-empty-cart.svg'
 
 function ProductsPage() {
   const [cartItems, setCartItems] = useState([])
@@ -96,7 +96,9 @@ function ProductsPage() {
 
   return (
     <main className="products-page">
-
+      <h1 className="page-title">
+        Desserts
+      </h1>
       <div className="products-container">
         {products.map((product) => {
 
@@ -125,7 +127,8 @@ function ProductsPage() {
         cartCount={cartCount}
         orderTotal={orderTotal}
         removeItem={removeItem}
-        emptyCartImage={emptyCartImage}
+        // emptyCartImage={emptyCartImage}
+        emptyCartImage="/assets/images/illustration-empty-cart.svg"
         setIsModalOpen={setIsModalOpen}
       />
       <OrderModal
