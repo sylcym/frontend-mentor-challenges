@@ -10,6 +10,15 @@ function OrderModal({
   cartItems,
   orderTotal,
 }) {
+  useEffect(() => {
+
+    document.body.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+
+  }, [])
 
   if (!isModalOpen) {
 
@@ -24,15 +33,7 @@ function OrderModal({
 
   }
 
-  useEffect(() => {
 
-    document.body.style.overflow = 'hidden'
-
-    return () => {
-      document.body.style.overflow = 'auto'
-    }
-
-  }, [])
 
   return (
     <div className="modal-overlay">
@@ -88,17 +89,26 @@ function OrderModal({
 
 
           ))}
+          <div className="modal-order-total">
+
+            <p className="modal-order-total-text">Order Total</p>
+
+            <h2 className='modal-order-total-price'>
+              ${orderTotal.toFixed(2)}
+            </h2>
+
+          </div>
 
         </div>
-        <div className="modal-order-total">
+        {/* <div className="modal-order-total">
 
-          <p>Order Total</p>
+          <p className="modal-order-total-text">Order Total</p>
 
-          <h2>
+          <h2 className='modal-order-total-price'>
             ${orderTotal.toFixed(2)}
           </h2>
 
-        </div>
+        </div> */}
 
         <button
           className="start-new-order-btn"

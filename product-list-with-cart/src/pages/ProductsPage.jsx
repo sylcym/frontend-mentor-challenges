@@ -110,7 +110,7 @@ function ProductsPage() {
             return (
               <ProductCard
                 quantity={cartItem ? cartItem.quantity : 0}
-                key={product.id}
+                key={product.name}
                 name={product.name}
                 category={product.category}
                 price={product.price}

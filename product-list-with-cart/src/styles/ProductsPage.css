@@ -37,9 +37,9 @@
   .products-page {
     flex-direction: row;
     align-items: flex-start;
-    gap: 0;
+    /* gap: 0; */
     width: 100%;
-    max-width: 1224px;
+    max-width: 1247px;
     padding-top: 88px;
     /* padding: 88px 40px; */
     margin: 0 auto;
