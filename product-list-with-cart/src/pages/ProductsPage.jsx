@@ -96,38 +96,38 @@ function ProductsPage() {
 
   return (
     <main className="products-page">
-      <h1 className="page-title">
-        Desserts
-      </h1>
-      <div className="products-container">
-        {products.map((product) => {
+      <div className="products-section">
+        <h1 className="page-title">
+          Desserts
+        </h1>
+        <div className="products-container">
+          {products.map((product) => {
 
-          const cartItem = cartItems.find(
-            (item) => item.name === product.name
-          )
+            const cartItem = cartItems.find(
+              (item) => item.name === product.name
+            )
 
-          return (
-            <ProductCard
-              quantity={cartItem ? cartItem.quantity : 0}
-              key={product.id}
-              name={product.name}
-              category={product.category}
-              price={product.price}
-              image={product.image}
-              addToCart={addToCart}
-              removeItem={removeItem}
+            return (
+              <ProductCard
+                quantity={cartItem ? cartItem.quantity : 0}
+                key={product.id}
+                name={product.name}
+                category={product.category}
+                price={product.price}
+                image={product.image}
+                addToCart={addToCart}
+                removeItem={removeItem}
 
-            />
-          )
-        })}
+              />
+            )
+          })}
+        </div>
       </div>
-
       <Cart
         cartItems={cartItems}
         cartCount={cartCount}
         orderTotal={orderTotal}
         removeItem={removeItem}
-        // emptyCartImage={emptyCartImage}
         emptyCartImage="/assets/images/illustration-empty-cart.svg"
         setIsModalOpen={setIsModalOpen}
       />

@@ -75,3 +75,13 @@
 .confirm-order-btn:hover {
   background-color: #952c0c;
 }
+
+
+@media (min-width: 1024px) {
+
+  .cart-container {
+    width: 385px;
+    flex-shrink: 0;
+    margin: 0 17px 24px 0px;
+  }
+}

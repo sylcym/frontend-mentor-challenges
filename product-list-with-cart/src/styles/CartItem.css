@@ -32,5 +32,11 @@
   border: 1px solid #ad8a85;
   border-radius: 50%;
   background: none;
+  transition: border-color 0.2s, color 0.2s;
   cursor: pointer;
+}
+
+.remove-item-btn:hover {
+  border-color: #260f08;
+  color: #260f08;
 }
