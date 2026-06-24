@@ -36,7 +36,7 @@
 }
 
 .order-total-price {
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 700;
 }
 
@@ -87,9 +87,7 @@
   .cart-container {
     width: 385px;
     flex-shrink: 0;
-    padding: 22px 31px 20px 18px;
-    margin: 0 17px 24px 0px;
-    /* margin: 0 17px 24px 0px; */
+    padding: 24px 24px 32px;
   }
 
   .cart-items {
