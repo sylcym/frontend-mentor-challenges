@@ -2,9 +2,13 @@
 
 This is a solution to the Product List with Cart challenge on Frontend Mentor.
 
-Live Site
-Live URL: https://twoj-netlify-link.netlify.app
-Screenshot
+## Live Site
+
+Live URL:
+
+## Screenshot
+
+![Project screenshot](image.png)
 
 ## Overview
 
