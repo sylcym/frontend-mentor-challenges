@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import '../styles/OrderModal.css'
-// import confirmedIcon from '../assets/images/icon-order-confirmed.svg'
 
 function OrderModal({
   isModalOpen,
@@ -10,18 +9,22 @@ function OrderModal({
   cartItems,
   orderTotal,
 }) {
+
   useEffect(() => {
 
-    document.body.style.overflow = 'hidden'
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
 
     return () => {
       document.body.style.overflow = 'auto'
     }
 
-  }, [])
+  }, [isModalOpen])
 
   if (!isModalOpen) {
-
     return null
   }
 
@@ -33,16 +36,19 @@ function OrderModal({
 
   }
 
-
-
   return (
     <div className="modal-overlay">
 
-      <div className="modal">
+      <div
+        className="modal"
+        role="dialog"
+        aria-modal="true"
+      >
 
         <img
           src="/assets/images/icon-order-confirmed.svg"
           alt=""
+          aria-hidden="true"
           className="confirmed-icon"
         />
 
@@ -56,16 +62,17 @@ function OrderModal({
 
         <div className="modal-items">
 
-          {cartItems.map((item, index) => (
+          {cartItems.map((item) => (
 
             <div
-              key={index}
+              key={item.name}
               className="modal-item"
             >
 
               <img
                 src={item.thumbnail}
                 alt=""
+                aria-hidden="true"
                 className="modal-thumbnail"
               />
 
@@ -87,30 +94,24 @@ function OrderModal({
 
             </div>
 
-
           ))}
+
           <div className="modal-order-total">
 
-            <p className="modal-order-total-text">Order Total</p>
+            <p className="modal-order-total-text">
+              Order Total
+            </p>
 
-            <h2 className='modal-order-total-price'>
+            <h2 className="modal-order-total-price">
               ${orderTotal.toFixed(2)}
             </h2>
 
           </div>
 
         </div>
-        {/* <div className="modal-order-total">
-
-          <p className="modal-order-total-text">Order Total</p>
-
-          <h2 className='modal-order-total-price'>
-            ${orderTotal.toFixed(2)}
-          </h2>
-
-        </div> */}
 
         <button
+          type="button"
           className="start-new-order-btn"
           onClick={startNewOrder}
         >

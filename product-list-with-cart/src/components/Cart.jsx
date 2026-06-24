@@ -84,6 +84,7 @@ function Cart({
           </div>
 
           <button
+            type="button"
             className="confirm-order-btn"
             onClick={() => setIsModalOpen(true)}
           >

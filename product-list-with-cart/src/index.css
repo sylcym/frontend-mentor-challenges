@@ -8,3 +8,19 @@ body {
   background-color: #fcf8f5;
   font-family: 'Red Hat Text', sans-serif;
 }
+
+.attribution {
+  font-size: 14px;
+  text-align: center;
+  color: #87635a;
+  margin: 40px 0 24px;
+}
+
+.attribution a {
+  color: #c73b0f;
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}

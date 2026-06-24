@@ -31,12 +31,14 @@
 
   .products-section {
     flex: 1;
+    padding-left: 10px;
   }
 
 
   .products-page {
     flex-direction: row;
     align-items: flex-start;
+    gap: 20px;
     width: 100%;
     max-width: 1247px;
     padding-top: 88px;
@@ -48,7 +50,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 30px;
     column-gap: 18px;
-    padding: 32px 0px 2px;
+    padding: 32px 0px 2px 0px;
   }
 
   .page-title {
@@ -56,4 +58,15 @@
 
   }
 
+}
+
+@media (min-width: 1260px) {
+  .products-page {
+    gap: 32px;
+
+  }
+
+  .products-section {
+    padding-left: 0;
+  }
 }

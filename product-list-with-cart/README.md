@@ -1,8 +1,51 @@
-# React + Vite
+# Frontend Mentor - Product List with Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the Product List with Cart challenge on Frontend Mentor.
 
-Currently, two official plugins are available:
+Live Site
+Live URL: https://twoj-netlify-link.netlify.app
+Screenshot
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
+
+Users can:
+
+- Add products to the cart
+- Increase and decrease product quantity
+- Remove items from the cart
+- See the order total update dynamically
+- Confirm the order in a modal window
+- View responsive layouts for mobile, tablet, and desktop
+
+## Built with
+
+- React
+- Vite
+- CSS
+- Flexbox
+- CSS Grid
+
+## Features
+
+- Responsive product gallery
+- Shopping cart functionality
+- Order confirmation modal
+- Accessible buttons with aria-labels
+- Responsive images using the picture element
+
+## What I learned
+
+During this project I practiced:
+
+- React state management with useState
+- Conditional rendering
+- Working with JSON data
+- Responsive layouts
+- Component structure
+- Accessibility basics
+- Using the picture element for responsive images
+
+## Author
+
+- Frontend Mentor - https://www.frontendmentor.io/profile/sylcym
+- GitHub - https://github.com/sylcym

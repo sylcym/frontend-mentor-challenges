@@ -43,12 +43,14 @@ function ProductCard({
         {quantity === 0 ? (
 
           <button
+            type="button"
             className="add-to-cart-btn"
             onClick={() => addToCart({
               name,
               price,
               thumbnail: image.thumbnail,
             })}
+            aria-label={`Add ${name} to cart`}
           >
             <img
               src="/assets/images/icon-add-to-cart.svg"
@@ -66,6 +68,7 @@ function ProductCard({
             <button
               className="quantity-btn"
               onClick={() => removeItem(name)}
+              aria-label={`Remove one ${name}`}
             >
               -
             </button>
@@ -75,12 +78,14 @@ function ProductCard({
             </p>
 
             <button
+              type="button"
               className="quantity-btn"
               onClick={() => addToCart({
                 name,
                 price,
                 thumbnail: image.thumbnail,
               })}
+              aria-label={`Add one more ${name}`}
             >
               +
             </button>

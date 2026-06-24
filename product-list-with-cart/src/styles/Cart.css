@@ -85,7 +85,7 @@
 @media (min-width: 1024px) {
 
   .cart-container {
-    width: 385px;
+    /* width: 385px; */
     flex-shrink: 0;
     padding: 24px 24px 32px;
   }
@@ -102,6 +102,13 @@
   .confirm-order-btn {
     margin-top: 22px;
     padding: 18px;
+
+  }
+}
+
+@media (min-width: 1260px) {
+  .cart-container {
+    width: 385px;
 
   }
 }

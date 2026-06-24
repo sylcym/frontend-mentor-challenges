@@ -36,6 +36,7 @@ function CartItem({
       </div>
 
       <button
+        type="button"
         className="remove-item-btn"
         onClick={() => removeItem(name)}
       >
