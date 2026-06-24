@@ -52,4 +52,4 @@ During this project I practiced:
 ## Author
 
 - Frontend Mentor - https://www.frontendmentor.io/profile/sylcym
-- GitHub - https://github.com/sylcym
+- GitHub - https://github.com/sylcym/frontend-mentor-challenges/tree/main/product-list-with-cart

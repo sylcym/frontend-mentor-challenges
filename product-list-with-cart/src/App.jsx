@@ -19,7 +19,7 @@ function App() {
         . Coded by{' Sylwia'}
 
         <a
-          href=""
+          href="https://github.com/sylcym/frontend-mentor-challenges/tree/main/product-list-with-cart"
           target="_blank"
           rel="noopener noreferrer"
         >
