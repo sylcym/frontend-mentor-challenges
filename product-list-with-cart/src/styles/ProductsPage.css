@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin-top: 25px;
+  padding-top: 24px;
 }
 
 .page-title {
@@ -37,7 +37,6 @@
   .products-page {
     flex-direction: row;
     align-items: flex-start;
-    /* gap: 0; */
     width: 100%;
     max-width: 1247px;
     padding-top: 88px;
@@ -46,7 +45,6 @@
   }
 
   .products-container {
-    flex: 1;
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 30px;
     column-gap: 18px;
