@@ -28,7 +28,7 @@ function InvoiceCard({
         {total}
       </p>
 
-      <div className="invoice-status">
+      <div className={`invoice-status ${status.toLowerCase()}`}>
         {status}
       </div>
     </article>
