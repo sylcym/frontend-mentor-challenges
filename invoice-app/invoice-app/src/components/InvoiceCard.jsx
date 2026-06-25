@@ -1,31 +1,46 @@
+import PropTypes from 'prop-types'
 import '../styles/InvoiceCard.css'
 
-function InvoiceCard() {
+function InvoiceCard({
+  id,
+  client,
+  dueDate,
+  total,
+  status,
+}) {
   return (
     <article className="invoice-card">
       <div className="invoice-card-top">
         <h2 className="invoice-id">
-          #RT3080
+          {id}
         </h2>
 
         <p className="invoice-client">
-          Jensen Huang
+          {client}
         </p>
       </div>
 
       <p className="invoice-date">
-        Due 19 Aug 2021
+        Due {dueDate}
       </p>
 
       <p className="invoice-price">
-        £1,800.90
+        {total}
       </p>
 
       <div className="invoice-status">
-        Paid
+        {status}
       </div>
     </article>
   )
+}
+
+InvoiceCard.propTypes = {
+  id: PropTypes.string,
+  client: PropTypes.string,
+  dueDate: PropTypes.string,
+  total: PropTypes.string,
+  status: PropTypes.string,
 }
 
 export default InvoiceCard

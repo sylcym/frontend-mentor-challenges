@@ -1,4 +1,4 @@
-import InvoiceCard from '../components/InvoiceCard'
+// import InvoiceCard from '../components/InvoiceCard'
 import "../styles/Header.css"
 
 function Header() {
@@ -18,7 +18,7 @@ function Header() {
           New
         </button>
       </header>
-      <InvoiceCard />
+
     </>
   )
 }
