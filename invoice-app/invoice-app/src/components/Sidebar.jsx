@@ -1,6 +1,8 @@
+import "../styles/Sidebar.css"
+
 function Sidebar() {
   return (
-    <aside>
+    <aside className="aside">
       Sidebar
     </aside>
   )

@@ -1,8 +1,10 @@
 import Sidebar from './Sidebar'
+import "../styles/Layout.css"
+import PropTypes from 'prop-types'
 
 function Layout({ children }) {
   return (
-    <div>
+    <div className="layout">
       <Sidebar />
 
       <main>
@@ -11,5 +13,7 @@ function Layout({ children }) {
     </div>
   )
 }
-
+Layout.propTypes = {
+  children: PropTypes.node,
+}
 export default Layout

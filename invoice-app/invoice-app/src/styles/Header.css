@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.header-description {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.add-button {
+  border: none;
+  background-color: #7c5dfa;
+  color: white;
+  padding: 1rem 1.25rem;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+}
