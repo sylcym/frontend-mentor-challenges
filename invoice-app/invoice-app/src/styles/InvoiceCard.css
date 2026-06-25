@@ -1,0 +1,42 @@
+.invoice-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.invoice-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.invoice-id {
+  font-size: 0.9rem;
+}
+
+.invoice-client {
+  color: #858bb2;
+  font-size: 0.9rem;
+}
+
+.invoice-date {
+  color: #7e88c3;
+  font-size: 0.9rem;
+}
+
+.invoice-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.invoice-status {
+  background-color: rgba(51, 214, 159, 0.1);
+  color: #33d69f;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
