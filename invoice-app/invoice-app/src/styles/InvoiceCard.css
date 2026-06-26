@@ -1,10 +1,11 @@
 .invoice-card {
-  background-color: white;
-  border-radius: 8px;
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 24px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+
 }
 
 .invoice-card-top {
@@ -14,29 +15,39 @@
 }
 
 .invoice-id {
-  font-size: 0.9rem;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .invoice-client {
+  font-size: 12px;
   color: #858bb2;
-  font-size: 0.9rem;
+}
+
+.invoice-card-middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .invoice-date {
+  font-size: 12px;
   color: #7e88c3;
-  font-size: 0.9rem;
+  margin-bottom: 8px;
 }
 
 .invoice-price {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .invoice-status {
-  padding: 12px;
-  border-radius: 6px;
-  font-weight: bold;
+  min-width: 104px;
   text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 14px;
 }
 
 .paid {

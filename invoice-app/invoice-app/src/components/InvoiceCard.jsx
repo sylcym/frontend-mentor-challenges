@@ -12,7 +12,7 @@ function InvoiceCard({
     <article className="invoice-card">
       <div className="invoice-card-top">
         <h2 className="invoice-id">
-          {id}
+          #{id}
         </h2>
 
         <p className="invoice-client">
@@ -20,16 +20,20 @@ function InvoiceCard({
         </p>
       </div>
 
-      <p className="invoice-date">
-        Due {dueDate}
-      </p>
+      <div className="invoice-card-middle">
+        <div>
+          <p className="invoice-date">
+            Due {dueDate}
+          </p>
 
-      <p className="invoice-price">
-        {total}
-      </p>
+          <p className="invoice-price">
+            {total}
+          </p>
+        </div>
 
-      <div className={`invoice-status ${status.toLowerCase()}`}>
-        {status}
+        <div className={`invoice-status ${status.toLowerCase()}`}>
+          {status}
+        </div>
       </div>
     </article>
   )
