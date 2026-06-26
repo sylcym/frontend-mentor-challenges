@@ -2,25 +2,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
 }
 
 .header-title {
-  font-size: 1.5rem;
-  margin-bottom: 0.25rem;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 
 .header-description {
-  color: #888;
-  font-size: 0.9rem;
+  font-size: 12px;
+  color: #888eb0;
 }
 
 .add-button {
+  font-size: 12px;
+  font-weight: 700;
   border: none;
+  border-radius: 24px;
   background-color: #7c5dfa;
   color: white;
-  padding: 1rem 1.25rem;
-  border-radius: 999px;
-  font-weight: bold;
+  padding: 15px 24px;
   cursor: pointer;
 }
