@@ -1,8 +1,14 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import '../styles/Header.css'
 
-function Header() {
+function Header({
+  selectedStatus,
+  setSelectedStatus,
+}) {
   const [showFilters, setShowFilters] = useState(false)
+
+
   return (
     <header className="header">
       <div>
@@ -26,20 +32,33 @@ function Header() {
 
           {showFilters && (
             <div className="filter-dropdown">
-              <label className="filter-option">
-                <input type="checkbox" />
+              <button
+                className="filter-option"
+                onClick={() => setSelectedStatus('draft')}
+              >
                 Draft
-              </label>
+              </button>
 
-              <label className="filter-option">
-                <input type="checkbox" />
+              <button
+                className="filter-option"
+                onClick={() => setSelectedStatus('pending')}
+              >
                 Pending
-              </label>
+              </button>
 
-              <label className="filter-option">
-                <input type="checkbox" />
+              <button
+                className="filter-option"
+                onClick={() => setSelectedStatus('paid')}
+              >
                 Paid
-              </label>
+              </button>
+
+              <button
+                className="filter-option"
+                onClick={() => setSelectedStatus('')}
+              >
+                Clear Filter
+              </button>
             </div>
           )}
         </div>
@@ -50,6 +69,11 @@ function Header() {
       </div>
     </header>
   )
+}
+
+Header.propTypes = {
+  selectedStatus: PropTypes.string,
+  setSelectedStatus: PropTypes.func,
 }
 
 export default Header

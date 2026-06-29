@@ -1,18 +1,31 @@
+
+import { useState } from 'react'
 import Header from '../components/Header'
 import InvoiceCard from '../components/InvoiceCard'
 import invoices from '../data/invoices'
 import '../styles/Home.css'
 
 function Home() {
+  const [selectedStatus, setSelectedStatus] = useState('')
+  const filteredInvoices = selectedStatus
+    ? invoices.filter(
+      (invoice) =>
+        invoice.status.toLowerCase() === selectedStatus
+    )
+    : invoices
+
   return (
     <div>
-      <Header />
+      <Header
+        selectedStatus={selectedStatus}
+        setSelectedStatus={setSelectedStatus}
+      />
 
       <div className="invoices-list">
-        {invoices.map((invoice) => (
+        {filteredInvoices.map((invoice) => (
           <InvoiceCard
             key={invoice.id}
-            id={invoice.id + 1}
+            id={invoice.id}
             client={invoice.client}
             dueDate={invoice.dueDate}
             total={invoice.total}
