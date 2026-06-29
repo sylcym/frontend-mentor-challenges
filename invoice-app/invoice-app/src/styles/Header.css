@@ -63,9 +63,15 @@
 
 .filter-option {
   display: flex;
-  align-items: center;
+  text-align: left;
   gap: 12px;
-
   font-size: 12px;
   font-weight: 700;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.active-filter {
+  color: #7c5dfa;
 }

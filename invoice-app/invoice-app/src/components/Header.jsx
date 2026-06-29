@@ -33,28 +33,34 @@ function Header({
           {showFilters && (
             <div className="filter-dropdown">
               <button
-                className="filter-option"
+                className={`filter-option ${selectedStatus === 'draft' ? 'active-filter' : ''
+                  }`}
                 onClick={() => setSelectedStatus('draft')}
               >
                 Draft
               </button>
 
               <button
-                className="filter-option"
+                className={`filter-option ${selectedStatus === 'pending' ? 'active-filter' : ''
+                  }`}
                 onClick={() => setSelectedStatus('pending')}
+
               >
                 Pending
               </button>
 
               <button
-                className="filter-option"
+                className={`filter-option ${selectedStatus === 'paid' ? 'active-filter' : ''
+                  }`}
                 onClick={() => setSelectedStatus('paid')}
+
               >
                 Paid
               </button>
 
               <button
-                className="filter-option"
+                className={`filter-option ${selectedStatus === '' ? 'active-filter' : ''
+                  }`}
                 onClick={() => setSelectedStatus('')}
               >
                 Clear Filter
