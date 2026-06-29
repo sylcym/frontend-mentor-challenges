@@ -5,6 +5,7 @@ import '../styles/Header.css'
 function Header({
   selectedStatus,
   setSelectedStatus,
+  invoiceCount,
 }) {
   const [showFilters, setShowFilters] = useState(false)
 
@@ -17,7 +18,11 @@ function Header({
         </h1>
 
         <p className="header-description">
-          7 invoices
+          {invoiceCount === 0
+            ? 'No invoices'
+            : invoiceCount === 1
+              ? '1 invoice'
+              : `${invoiceCount} invoices`}
         </p>
       </div>
 
@@ -80,6 +85,7 @@ function Header({
 Header.propTypes = {
   selectedStatus: PropTypes.string,
   setSelectedStatus: PropTypes.func,
+  invoiceCount: PropTypes.number,
 }
 
 export default Header

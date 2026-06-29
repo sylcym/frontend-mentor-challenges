@@ -19,6 +19,7 @@ function Home() {
       <Header
         selectedStatus={selectedStatus}
         setSelectedStatus={setSelectedStatus}
+        invoiceCount={filteredInvoices.length}
       />
 
       <div className="invoices-list">
