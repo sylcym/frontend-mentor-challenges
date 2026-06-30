@@ -40,7 +40,10 @@ function Header({
               <button
                 className={`filter-option ${selectedStatus === 'draft' ? 'active-filter' : ''
                   }`}
-                onClick={() => setSelectedStatus('draft')}
+                onClick={() => {
+                  setSelectedStatus('draft')
+                  setShowFilters(false)
+                }}
               >
                 Draft
               </button>
@@ -48,7 +51,11 @@ function Header({
               <button
                 className={`filter-option ${selectedStatus === 'pending' ? 'active-filter' : ''
                   }`}
-                onClick={() => setSelectedStatus('pending')}
+                onClick={() => {
+                  setSelectedStatus('pending')
+                  setShowFilters(false)
+                }}
+
 
               >
                 Pending
@@ -57,7 +64,11 @@ function Header({
               <button
                 className={`filter-option ${selectedStatus === 'paid' ? 'active-filter' : ''
                   }`}
-                onClick={() => setSelectedStatus('paid')}
+                onClick={() => {
+                  setSelectedStatus('paid')
+                  setShowFilters(false)
+                }}
+
 
               >
                 Paid
@@ -66,7 +77,12 @@ function Header({
               <button
                 className={`filter-option ${selectedStatus === '' ? 'active-filter' : ''
                   }`}
-                onClick={() => setSelectedStatus('')}
+
+                onClick={() => {
+                  setSelectedStatus('')
+                  setShowFilters(false)
+                }}
+
               >
                 Clear Filter
               </button>
