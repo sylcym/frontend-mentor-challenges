@@ -28,3 +28,40 @@
   font-size: 24px;
   font-weight: 700;
 }
+
+.invoice-form-content {
+  margin-top: 40px;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7c5dfa;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-label {
+  font-size: 12px;
+  color: #7e88c3;
+}
+
+.form-input {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #dfe3fa;
+  border-radius: 4px;
+  padding: 18px 20px;
+
+}
