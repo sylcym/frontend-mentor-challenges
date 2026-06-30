@@ -1,8 +1,24 @@
+import { useState } from 'react'
 import PropTypes from 'prop-types'
-
 import '../styles/InvoiceForm.css'
 
 function InvoiceForm({ setShowInvoiceForm }) {
+  const [formData, setFormData] = useState({
+    street: '',
+    city: '',
+    postCode: '',
+    country: ''
+  })
+
+  function handleChange(e) {
+    const { name, value } = e.target
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
   return (
     <>
       <div
@@ -36,6 +52,9 @@ function InvoiceForm({ setShowInvoiceForm }) {
               <input
                 className="form-input"
                 type="text"
+                name="street"
+                value={formData.street}
+                onChange={handleChange}
               />
             </div>
 
@@ -47,6 +66,9 @@ function InvoiceForm({ setShowInvoiceForm }) {
               <input
                 className="form-input"
                 type="text"
+                name="city"
+                value={formData.city}
+                onChange={handleChange}
               />
             </div>
 
@@ -58,6 +80,9 @@ function InvoiceForm({ setShowInvoiceForm }) {
               <input
                 className="form-input"
                 type="text"
+                name="postCode"
+                value={formData.postCode}
+                onChange={handleChange}
               />
             </div>
 
@@ -69,6 +94,9 @@ function InvoiceForm({ setShowInvoiceForm }) {
               <input
                 className="form-input"
                 type="text"
+                name="country"
+                value={formData.country}
+                onChange={handleChange}
               />
             </div>
           </section>
