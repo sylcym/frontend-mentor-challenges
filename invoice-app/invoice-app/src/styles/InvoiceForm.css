@@ -1,0 +1,30 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+.invoice-form {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 72px);
+  background-color: white;
+  padding: 32px 24px;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.close-button {
+  border: none;
+  background: transparent;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: 700;
+}

@@ -6,6 +6,7 @@ function Header({
   selectedStatus,
   setSelectedStatus,
   invoiceCount,
+  setShowInvoiceForm,
 }) {
   const [showFilters, setShowFilters] = useState(false)
 
@@ -90,7 +91,10 @@ function Header({
           )}
         </div>
 
-        <button className="add-button">
+        <button
+          className="add-button"
+          onClick={() => setShowInvoiceForm(true)}
+        >
           + New
         </button>
       </div>
@@ -102,6 +106,7 @@ Header.propTypes = {
   selectedStatus: PropTypes.string,
   setSelectedStatus: PropTypes.func,
   invoiceCount: PropTypes.number,
+  setShowInvoiceForm: PropTypes.func,
 }
 
 export default Header
