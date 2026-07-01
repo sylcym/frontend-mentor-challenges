@@ -58,32 +58,34 @@ function InvoiceForm({ setShowInvoiceForm }) {
               />
             </div>
 
-            <div className="form-group">
-              <label className="form-label">
-                City
-              </label>
+            <div className="form-row">
+              <div className="form-group">
+                <label className="form-label">
+                  City
+                </label>
 
-              <input
-                className="form-input"
-                type="text"
-                name="city"
-                value={formData.city}
-                onChange={handleChange}
-              />
-            </div>
+                <input
+                  className="form-input"
+                  type="text"
+                  name="city"
+                  value={formData.city}
+                  onChange={handleChange}
+                />
+              </div>
 
-            <div className="form-group">
-              <label className="form-label">
-                Post Code
-              </label>
+              <div className="form-group">
+                <label className="form-label">
+                  Post Code
+                </label>
 
-              <input
-                className="form-input"
-                type="text"
-                name="postCode"
-                value={formData.postCode}
-                onChange={handleChange}
-              />
+                <input
+                  className="form-input"
+                  type="text"
+                  name="postCode"
+                  value={formData.postCode}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
 
             <div className="form-group">
