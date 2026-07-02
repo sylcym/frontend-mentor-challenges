@@ -47,6 +47,30 @@ function InvoiceForm({ setShowInvoiceForm }) {
     }))
   }
 
+  function addNewItem() {
+    const newItem = {
+      name: '',
+      quantity: 1,
+      price: 0,
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      items: [...prev.items, newItem],
+    }))
+  }
+
+  function removeItem(indexToRemove) {
+    const updatedItems = formData.items.filter(
+      (_, index) => index !== indexToRemove
+    )
+
+    setFormData((prev) => ({
+      ...prev,
+      items: updatedItems,
+    }))
+  }
+
 
   return (
     <>
@@ -361,9 +385,31 @@ function InvoiceForm({ setShowInvoiceForm }) {
                       {(item.quantity * item.price).toFixed(2)}
                     </p>
                   </div>
+
+                  <div className="form-group">
+                    <label className="form-label">
+                      Delete
+                    </label>
+
+                    <button
+                      type="button"
+                      className="delete-button"
+                      onClick={() => removeItem(index)}
+                    >
+                      X
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
+
+            <button
+              type="button"
+              className="add-item-button"
+              onClick={addNewItem}
+            >
+              + Add New Item
+            </button>
           </section>
         </form>
       </aside>
