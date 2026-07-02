@@ -411,6 +411,32 @@ function InvoiceForm({ setShowInvoiceForm }) {
               + Add New Item
             </button>
           </section>
+
+          <div className="form-footer">
+            <button
+              type="button"
+              className="discard-button"
+              onClick={() => setShowInvoiceForm(false)}
+            >
+              Discard
+            </button>
+
+            <div className="form-footer-right">
+              <button
+                type="button"
+                className="draft-button"
+              >
+                Save as Draft
+              </button>
+
+              <button
+                type="submit"
+                className="save-button"
+              >
+                Save & Send
+              </button>
+            </div>
+          </div>
         </form>
       </aside>
     </>

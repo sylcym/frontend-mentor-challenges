@@ -123,3 +123,43 @@ select.form-input {
   padding-top: 18px;
   cursor: pointer;
 }
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin-top: 40px;
+}
+
+.form-footer-right {
+  display: flex;
+  gap: 8px;
+}
+
+.discard-button,
+.draft-button,
+.save-button {
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  border-radius: 24px;
+  padding: 16px 24px;
+  cursor: pointer;
+}
+
+.discard-button {
+  background-color: #f9fafe;
+  color: #7e88c3;
+}
+
+.draft-button {
+  background-color: #373b53;
+  color: #888eb0;
+}
+
+.save-button {
+  background-color: #7c5dfa;
+  color: white;
+}
