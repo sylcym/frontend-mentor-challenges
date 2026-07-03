@@ -2,7 +2,10 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import '../styles/InvoiceForm.css'
 
-function InvoiceForm({ setShowInvoiceForm }) {
+function InvoiceForm({
+  setShowInvoiceForm,
+  setInvoiceList,
+}) {
   const [formData, setFormData] = useState({
     street: '',
     city: '',
@@ -71,6 +74,32 @@ function InvoiceForm({ setShowInvoiceForm }) {
     }))
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+
+    const newInvoice = {
+      id: crypto.randomUUID().slice(0, 6),
+
+      client: formData.clientName,
+
+      dueDate: formData.invoiceDate,
+
+      total: formData.items.reduce(
+        (acc, item) =>
+          acc + item.quantity * item.price,
+        0
+      ),
+
+      status: 'pending',
+    }
+
+    setInvoiceList((prev) => [
+      newInvoice,
+      ...prev,
+    ])
+
+    setShowInvoiceForm(false)
+  }
 
   return (
     <>
@@ -91,7 +120,10 @@ function InvoiceForm({ setShowInvoiceForm }) {
           New Invoice
         </h2>
 
-        <form className="invoice-form-content">
+        <form
+          className="invoice-form-content"
+          onSubmit={handleSubmit}
+        >
           <section className="form-section">
             <h3 className="section-title">
               Bill From
@@ -445,6 +477,7 @@ function InvoiceForm({ setShowInvoiceForm }) {
 
 InvoiceForm.propTypes = {
   setShowInvoiceForm: PropTypes.func,
+  setInvoiceList: PropTypes.func,
 }
 
 export default InvoiceForm

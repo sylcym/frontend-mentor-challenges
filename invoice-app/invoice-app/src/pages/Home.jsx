@@ -10,12 +10,20 @@ import '../styles/Home.css'
 function Home() {
   const [selectedStatus, setSelectedStatus] = useState('')
   const [showInvoiceForm, setShowInvoiceForm] = useState(false)
+  const [invoiceList, setInvoiceList] = useState(invoices)
+
   const filteredInvoices = selectedStatus
-    ? invoices.filter(
+    ? invoiceList.filter(
       (invoice) =>
         invoice.status.toLowerCase() === selectedStatus
     )
-    : invoices
+    : invoiceList
+  // const filteredInvoices = selectedStatus
+  //   ? invoices.filter(
+  //     (invoice) =>
+  //       invoice.status.toLowerCase() === selectedStatus
+  //   )
+  //   : invoices
 
   return (
     <div>
@@ -29,6 +37,7 @@ function Home() {
       {showInvoiceForm && (
         <InvoiceForm
           setShowInvoiceForm={setShowInvoiceForm}
+          setInvoiceList={setInvoiceList}
         />
       )}
 

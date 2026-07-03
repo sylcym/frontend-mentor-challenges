@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types'
 import Sidebar from './Sidebar'
 import "../styles/Layout.css"
-import PropTypes from 'prop-types'
 
 function Layout({ children }) {
   return (
