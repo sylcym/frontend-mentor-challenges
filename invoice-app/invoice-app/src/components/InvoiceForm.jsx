@@ -76,6 +76,33 @@ function InvoiceForm({
     }))
   }
 
+  function resetForm() {
+    setFormData({
+      street: '',
+      city: '',
+      postCode: '',
+      country: '',
+      clientName: '',
+      clientEmail: '',
+      clientStreet: '',
+      clientCity: '',
+      clientPostCode: '',
+      clientCountry: '',
+      invoiceDate: '',
+      paymentTerms: '30',
+      projectDescription: '',
+      items: [
+        {
+          name: '',
+          quantity: 1,
+          price: 0,
+        },
+      ],
+    })
+
+    setErrors({})
+  }
+
   function validateForm() {
     const newErrors = {}
 
@@ -87,6 +114,16 @@ function InvoiceForm({
     setErrors(newErrors)
 
     return Object.keys(newErrors).length === 0
+  }
+
+  function isFormEmpty() {
+    return (
+      !formData.clientName.trim() &&
+      !formData.clientEmail.trim() &&
+      !formData.invoiceDate &&
+      formData.items.length === 1 &&
+      !formData.items[0].name.trim()
+    )
   }
 
   function handleSubmit(e) {
@@ -120,6 +157,7 @@ function InvoiceForm({
     ])
 
     setShowInvoiceForm(false)
+    resetForm()
   }
 
   return (
@@ -492,6 +530,7 @@ function InvoiceForm({
               <button
                 type="submit"
                 className="save-button"
+                disabled={isFormEmpty()}
               >
                 Save & Send
               </button>

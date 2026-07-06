@@ -164,6 +164,11 @@ select.form-input {
   color: white;
 }
 
+.save-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .error-message {
   margin-top: 4px;
 
