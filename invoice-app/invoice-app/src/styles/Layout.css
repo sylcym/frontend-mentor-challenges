@@ -8,3 +8,9 @@ main {
   flex-direction: column;
   min-height: 100vh;
 }
+
+@media (min-width: 768px) {
+  .layout {
+    padding: 48px;
+  }
+}

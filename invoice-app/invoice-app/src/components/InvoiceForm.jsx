@@ -29,6 +29,8 @@ function InvoiceForm({
     ],
   })
 
+  const [errors, setErrors] = useState({})
+
   function handleChange(e) {
     const { name, value } = e.target
 
@@ -74,8 +76,27 @@ function InvoiceForm({
     }))
   }
 
+  function validateForm() {
+    const newErrors = {}
+
+    if (!formData.clientName.trim()) {
+      newErrors.clientName =
+        'Client name is required'
+    }
+
+    setErrors(newErrors)
+
+    return Object.keys(newErrors).length === 0
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
+    const isValid = validateForm()
+
+    if (!isValid) {
+      return
+    }
+
 
     const newInvoice = {
       id: crypto.randomUUID().slice(0, 6),
@@ -210,6 +231,13 @@ function InvoiceForm({
                 value={formData.clientName}
                 onChange={handleChange}
               />
+
+              {errors.clientName && (
+                <p className="error-message">
+                  {errors.clientName}
+                </p>
+              )}
+
             </div>
 
             <div className="form-group">

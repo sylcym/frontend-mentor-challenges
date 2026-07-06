@@ -75,3 +75,17 @@
 .active-filter {
   color: #7c5dfa;
 }
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: 56px;
+  }
+
+  .header-title {
+    font-size: 32px;
+  }
+
+  .header-description {
+    font-size: 14px;
+  }
+}
