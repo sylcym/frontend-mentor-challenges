@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 function BillFromSection({ formData, handleChange }) {
   return (
     <section className="form-section">
@@ -35,6 +37,11 @@ function BillFromSection({ formData, handleChange }) {
       />
     </section>
   )
+}
+
+BillFromSection.propTypes = {
+  formData: PropTypes.object,
+  handleChange: PropTypes.func,
 }
 
 export default BillFromSection
