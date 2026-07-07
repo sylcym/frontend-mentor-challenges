@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
-import '../styles/InvoiceForm.css'
+import BillFromSection from './BillFromSection'
+// import '../styles/InvoiceForm.css'
+import '../../styles/InvoiceForm.css'
 
 function InvoiceForm({
   setShowInvoiceForm,
@@ -183,7 +185,12 @@ function InvoiceForm({
           className="invoice-form-content"
           onSubmit={handleSubmit}
         >
-          <section className="form-section">
+
+          <BillFromSection
+            formData={formData}
+            handleChange={handleChange}
+          />
+          {/* <section className="form-section">
             <h3 className="section-title">
               Bill From
             </h3>
@@ -249,7 +256,7 @@ function InvoiceForm({
                 onChange={handleChange}
               />
             </div>
-          </section>
+          </section> */}
 
           <section className="form-section">
             <h3 className="section-title">
