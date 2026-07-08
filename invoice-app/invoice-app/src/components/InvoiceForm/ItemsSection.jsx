@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 function ItemsSection({
   formData,
   handleItemChange,
-  addNewItem,
+  // addNewItem,
   removeItem,
 }) {
   return (
