@@ -1,31 +1,25 @@
 .aside {
-  width: 100%;
-  height: 72px;
-
-  background-color: #373b53;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  height: 72px;
+  background-color: #373b53;
 }
 
 .sidebar-logo {
-  width: 72px;
-  height: 72px;
-
-  background-color: #7c5dfa;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 72px;
+  height: 72px;
+  background-color: #7c5dfa;
 }
 
 .logo-circle {
   width: 28px;
   height: 28px;
-
   border-radius: 50%;
-
   background-color: white;
 }
 
@@ -36,6 +30,5 @@
 .sidebar-avatar img {
   width: 32px;
   height: 32px;
-
   border-radius: 50%;
 }

@@ -64,3 +64,9 @@
   background-color: rgba(55, 59, 83, 0.1);
   color: #373b53;
 }
+
+@media (min-width: 768px) {
+  .invoice-card {
+    padding: 24px 32px;
+  }
+}

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import BillFromSection from './BillFromSection'
 import BillToSection from './BillToSection'
+import ItemsSection from './ItemsSection'
 // import '../styles/InvoiceForm.css'
 import '../../styles/InvoiceForm.css'
 
@@ -260,97 +261,12 @@ function InvoiceForm({
             </div>
           </section>
 
-          <section className="form-section">
-            <h3 className="items-title">
-              Item List
-            </h3>
-
-            {formData.items.map((item, index) => (
-              <div
-                className="item-row"
-                key={index}
-              >
-                <div className="form-group">
-                  <label className="form-label">
-                    Item Name
-                  </label>
-
-                  <input
-                    className="form-input"
-                    type="text"
-                    name="name"
-                    value={item.name}
-                    onChange={(e) => handleItemChange(index, e)}
-                    placeholder="Banner Design"
-                  />
-                </div>
-
-                <div className="item-grid">
-                  <div className="form-group">
-                    <label className="form-label">
-                      Qty.
-                    </label>
-
-                    <input
-                      className="form-input"
-                      type="number"
-                      name="quantity"
-                      value={item.quantity}
-                      onChange={(e) => handleItemChange(index, e)}
-                      placeholder="1"
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">
-                      Price
-                    </label>
-
-                    <input
-                      className="form-input"
-                      type="number"
-                      name="price"
-                      value={item.price}
-                      onChange={(e) => handleItemChange(index, e)}
-                      placeholder="100.00"
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">
-                      Total
-                    </label>
-
-                    <p className="item-total">
-                      {(item.quantity * item.price).toFixed(2)}
-                    </p>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label">
-                      Delete
-                    </label>
-
-                    <button
-                      type="button"
-                      className="delete-button"
-                      onClick={() => removeItem(index)}
-                    >
-                      X
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            <button
-              type="button"
-              className="add-item-button"
-              onClick={addNewItem}
-            >
-              + Add New Item
-            </button>
-          </section>
+          <ItemsSection
+            formData={formData}
+            handleItemChange={handleItemChange}
+            addNewItem={addNewItem}
+            removeItem={removeItem}
+          />
 
           <div className="form-footer">
             <button
