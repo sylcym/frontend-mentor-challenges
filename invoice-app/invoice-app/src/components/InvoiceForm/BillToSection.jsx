@@ -45,6 +45,12 @@ function BillToSection({
           value={formData.clientEmail}
           onChange={handleChange}
         />
+
+        {errors.clientEmail && (
+          <p className="error-message">
+            {errors.clientEmail}
+          </p>
+        )}
       </div>
 
       <div className="form-group">

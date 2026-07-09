@@ -11,7 +11,8 @@ function InvoiceForm({
   setShowInvoiceForm,
   setInvoiceList,
 }) {
-  const [formData, setFormData] = useState({
+
+  const initialFormData = {
     street: '',
     city: '',
     postCode: '',
@@ -32,7 +33,34 @@ function InvoiceForm({
         price: 0,
       },
     ],
-  })
+  }
+
+  const [formData, setFormData] =
+    useState(initialFormData)
+
+
+  // const [formData, setFormData] = useState({
+  //   street: '',
+  //   city: '',
+  //   postCode: '',
+  //   country: '',
+  //   clientName: '',
+  //   clientEmail: '',
+  //   clientStreet: '',
+  //   clientCity: '',
+  //   clientPostCode: '',
+  //   clientCountry: '',
+  //   invoiceDate: '',
+  //   paymentTerms: '30',
+  //   projectDescription: '',
+  //   items: [
+  //     {
+  //       name: '',
+  //       quantity: 1,
+  //       price: 0,
+  //     },
+  //   ],
+  // })
 
   const [errors, setErrors] = useState({})
 
@@ -82,28 +110,30 @@ function InvoiceForm({
   }
 
   function resetForm() {
-    setFormData({
-      street: '',
-      city: '',
-      postCode: '',
-      country: '',
-      clientName: '',
-      clientEmail: '',
-      clientStreet: '',
-      clientCity: '',
-      clientPostCode: '',
-      clientCountry: '',
-      invoiceDate: '',
-      paymentTerms: '30',
-      projectDescription: '',
-      items: [
-        {
-          name: '',
-          quantity: 1,
-          price: 0,
-        },
-      ],
-    })
+    // setFormData({
+    //   street: '',
+    //   city: '',
+    //   postCode: '',
+    //   country: '',
+    //   clientName: '',
+    //   clientEmail: '',
+    //   clientStreet: '',
+    //   clientCity: '',
+    //   clientPostCode: '',
+    //   clientCountry: '',
+    //   invoiceDate: '',
+    //   paymentTerms: '30',
+    //   projectDescription: '',
+    //   items: [
+    //     {
+    //       name: '',
+    //       quantity: 1,
+    //       price: 0,
+    //     },
+    //   ],
+    // })
+
+    setFormData(initialFormData)
 
     setErrors({})
   }
@@ -116,20 +146,45 @@ function InvoiceForm({
         'Client name is required'
     }
 
+    if (!formData.clientEmail.trim()) {
+      newErrors.clientEmail = 'Client email is required'
+    }
+
+    if (!formData.invoiceDate) {
+      newErrors.invoiceDate = 'Invoice date is required'
+    }
+
+    if (!formData.projectDescription.trim()) {
+      newErrors.projectDescription =
+        'Project description is required'
+    }
+
+    if (formData.items.length === 0) {
+      newErrors.items = 'At least one item is required'
+    } else {
+      const hasEmptyItemName = formData.items.some(
+        (item) => !item.name.trim()
+      )
+
+      if (hasEmptyItemName) {
+        newErrors.items = 'Every item must have a name'
+      }
+    }
+
     setErrors(newErrors)
 
     return Object.keys(newErrors).length === 0
   }
 
-  function isFormEmpty() {
-    return (
-      !formData.clientName.trim() &&
-      !formData.clientEmail.trim() &&
-      !formData.invoiceDate &&
-      formData.items.length === 1 &&
-      !formData.items[0].name.trim()
-    )
-  }
+  // function isFormEmpty() {
+  //   return (
+  //     !formData.clientName.trim() &&
+  //     !formData.clientEmail.trim() &&
+  //     !formData.invoiceDate &&
+  //     formData.items.length === 1 &&
+  //     !formData.items[0].name.trim()
+  //   )
+  // }
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -203,6 +258,7 @@ function InvoiceForm({
           <InvoiceDetailsSection
             formData={formData}
             handleChange={handleChange}
+            errors={errors}
           />
 
           <ItemsSection
@@ -210,6 +266,7 @@ function InvoiceForm({
             handleItemChange={handleItemChange}
             addNewItem={addNewItem}
             removeItem={removeItem}
+            errors={errors}
           />
 
           <div className="form-footer">
@@ -232,7 +289,7 @@ function InvoiceForm({
               <button
                 type="submit"
                 className="save-button"
-                disabled={isFormEmpty()}
+              // disabled={isFormEmpty()}
               >
                 Save & Send
               </button>

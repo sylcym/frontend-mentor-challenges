@@ -6,25 +6,48 @@
 }
 
 .header-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
+  letter-spacing: -0.63px;
+  color: #0C0E16;
   margin-bottom: 4px;
 }
 
 .header-description {
   font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  line-height: 1.5;
   color: #888eb0;
 }
 
 .add-button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 8px;
   font-size: 12px;
   font-weight: 700;
+  letter-spacing: -0.25px;
+  /* line-height: 15px; */
   border: none;
   border-radius: 24px;
   background-color: #7c5dfa;
   color: white;
-  padding: 15px 24px;
+  padding: 6px 14px 6px 6px;
   cursor: pointer;
+}
+
+.add-button-plus {
+  display: block;
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
+  /* line-height: 1.5; */
+  text-align: center;
+  border-radius: 50%;
+  color: #7c5dfa;
+  background-color: white;
 }
 
 .header-actions {
@@ -40,6 +63,7 @@
 .filter-button {
   font-size: 12px;
   font-weight: 700;
+  color: #0C0E16;
   border: none;
   background: transparent;
   cursor: pointer;

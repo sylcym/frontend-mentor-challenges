@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 function InvoiceDetailsSection({
   formData,
   handleChange,
+  errors,
 }) {
   return (
     <section className="form-section">
@@ -18,6 +19,12 @@ function InvoiceDetailsSection({
           value={formData.invoiceDate}
           onChange={handleChange}
         />
+
+        {errors.invoiceDate && (
+          <p className="error-message">
+            {errors.invoiceDate}
+          </p>
+        )}
       </div>
 
       <div className="form-group">
@@ -51,6 +58,12 @@ function InvoiceDetailsSection({
           onChange={handleChange}
           placeholder="e.g. Graphic Design Service"
         />
+
+        {errors.projectDescription && (
+          <p className="error-message">
+            {errors.projectDescription}
+          </p>
+        )}
       </div>
     </section>
   )
@@ -59,6 +72,7 @@ function InvoiceDetailsSection({
 InvoiceDetailsSection.propTypes = {
   formData: PropTypes.object,
   handleChange: PropTypes.func,
+  errors: PropTypes.object,
 }
 
 export default InvoiceDetailsSection

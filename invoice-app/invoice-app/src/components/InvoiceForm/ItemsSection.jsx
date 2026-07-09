@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 function ItemsSection({
   formData,
   handleItemChange,
-  // addNewItem,
+  addNewItem,
   removeItem,
+  errors,
 }) {
   return (
     <section className="form-section">
@@ -27,9 +28,7 @@ function ItemsSection({
               type="text"
               name="name"
               value={item.name}
-              onChange={(e) =>
-                handleItemChange(index, e)
-              }
+              onChange={(e) => handleItemChange(index, e)}
               placeholder="Banner Design"
             />
           </div>
@@ -90,9 +89,21 @@ function ItemsSection({
             </div>
           </div>
         </div>
-
       ))}
 
+      <button
+        type="button"
+        className="add-item-button"
+        onClick={addNewItem}
+      >
+        + Add New Item
+      </button>
+
+      {errors.items && (
+        <p className="error-message">
+          {errors.items}
+        </p>
+      )}
     </section>
   )
 }
@@ -102,6 +113,7 @@ ItemsSection.propTypes = {
   handleItemChange: PropTypes.func,
   addNewItem: PropTypes.func,
   removeItem: PropTypes.func,
+  errors: PropTypes.object,
 }
 
 export default ItemsSection

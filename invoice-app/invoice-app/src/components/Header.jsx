@@ -95,7 +95,8 @@ function Header({
           className="add-button"
           onClick={() => setShowInvoiceForm(true)}
         >
-          + New
+          <span className='add-button-plus'>+</span>
+          New
         </button>
       </div>
     </header>

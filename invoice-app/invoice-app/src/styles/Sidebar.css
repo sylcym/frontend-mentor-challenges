@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 72px;
+  /* height: 72px; */
   background-color: #373b53;
 }
 
@@ -14,6 +14,8 @@
   width: 72px;
   height: 72px;
   background-color: #7c5dfa;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .logo-circle {
