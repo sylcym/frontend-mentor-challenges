@@ -29,7 +29,6 @@
   font-size: 12px;
   font-weight: 700;
   letter-spacing: -0.25px;
-  /* line-height: 15px; */
   border: none;
   border-radius: 24px;
   background-color: #7c5dfa;
@@ -44,7 +43,6 @@
   align-items: center;
   width: 32px;
   height: 32px;
-  font-size: 24px;
   border-radius: 50%;
   background: white;
 }
@@ -66,18 +64,6 @@
 .desktop-text {
   display: none;
 }
-
-/* .add-button-plus {
-  display: block;
-  width: 32px;
-  height: 32px;
-  font-size: 24px;
-
-  text-align: center;
-  border-radius: 50%;
-  color: #7c5dfa;
-  background-color: white;
-} */
 
 .header-actions {
   display: flex;

@@ -6,10 +6,8 @@
 }
 
 .empty-image {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background-color: #dfe3fa;
+  width: 194px;
+  height: auto;
   margin-bottom: 40px;
 }
 

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import DeleteIcon from '../../assets/icons/icon-delete.svg'
 
 function ItemsSection({
   formData,
@@ -84,7 +85,11 @@ function ItemsSection({
                 className="delete-button"
                 onClick={() => removeItem(index)}
               >
-                X
+                <img
+                  src={DeleteIcon}
+                  alt=""
+                  className="delete-icon"
+                />
               </button>
             </div>
           </div>
