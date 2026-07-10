@@ -18,19 +18,47 @@
   border-bottom-right-radius: 20px;
 }
 
-.logo-circle {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background-color: white;
+/* .logo-image {
+  width: 40px;
+  height: 40px;
+} */
+.sidebar-actions {
+  margin-left: auto;
+}
+
+.theme-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 24px;
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+  transition: opacity 0.2s ease;
 }
 
 .sidebar-avatar {
-  padding-right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid #494e6e;
+  padding: 24px;
 }
 
 .sidebar-avatar img {
   width: 32px;
   height: 32px;
+  display: block;
   border-radius: 50%;
+}
+
+.theme-button:hover .theme-icon {
+  opacity: 0.8;
+}
+
+.theme-button:focus-visible {
+  outline: 2px solid #7c5dfa;
+  outline-offset: 4px;
 }

@@ -1,3 +1,4 @@
+import EmptyStateImage from '../assets/images/empty-state.svg'
 import '../styles/EmptyState.css'
 
 function EmptyState() {

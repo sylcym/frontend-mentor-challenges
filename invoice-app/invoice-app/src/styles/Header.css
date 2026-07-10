@@ -38,17 +38,46 @@
   cursor: pointer;
 }
 
-.add-button-plus {
+.add-button-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
+  border-radius: 50%;
+  background: white;
+}
+
+.plus-icon {
+  width: 10px;
+  height: 10px;
+}
+
+.add-button-text {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-text {
+  display: inline;
+}
+
+.desktop-text {
+  display: none;
+}
+
+/* .add-button-plus {
   display: block;
   width: 32px;
   height: 32px;
   font-size: 24px;
-  /* line-height: 1.5; */
+
   text-align: center;
   border-radius: 50%;
   color: #7c5dfa;
   background-color: white;
-}
+} */
 
 .header-actions {
   display: flex;
@@ -61,12 +90,24 @@
 }
 
 .filter-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 12px;
   font-weight: 700;
   color: #0C0E16;
   border: none;
   background: transparent;
   cursor: pointer;
+}
+
+.filter-arrow {
+  width: 10px;
+  transition: transform 0.2s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
 }
 
 .filter-dropdown {

@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
+import ArrowDown from '../assets/icons/icon-arrow-down.svg'
+import PlusIcon from '../assets/icons/icon-plus.svg'
 import '../styles/Header.css'
 
 function Header({
@@ -33,7 +35,14 @@ function Header({
             className="filter-button"
             onClick={() => setShowFilters(!showFilters)}
           >
-            Filter
+            <span>Filter</span>
+
+            <img
+              src={ArrowDown}
+              alt=""
+              className={`filter-arrow ${showFilters ? 'rotate' : ''
+                }`}
+            />
           </button>
 
           {showFilters && (
@@ -95,9 +104,32 @@ function Header({
           className="add-button"
           onClick={() => setShowInvoiceForm(true)}
         >
+          <span className="add-button-icon">
+            <img
+              src={PlusIcon}
+              alt=""
+              className="plus-icon"
+            />
+          </span>
+
+          <span className="add-button-text">
+            <span className="mobile-text">
+              New
+            </span>
+
+            <span className="desktop-text">
+              New Invoice
+            </span>
+          </span>
+        </button>
+
+        {/* <button
+          className="add-button"
+          onClick={() => setShowInvoiceForm(true)}
+        >
           <span className='add-button-plus'>+</span>
           New
-        </button>
+        </button> */}
       </div>
     </header>
   )

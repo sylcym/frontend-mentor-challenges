@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import ArrowRight from '../assets/icons/icon-arrow-right.svg'
 import '../styles/InvoiceCard.css'
 
 function InvoiceCard({
@@ -27,7 +28,7 @@ function InvoiceCard({
           </p>
 
           <p className="invoice-price">
-            {total}
+            £ {Number(total).toFixed(2)}
           </p>
         </div>
 
@@ -35,6 +36,12 @@ function InvoiceCard({
           {status}
         </div>
       </div>
+
+      <img
+        src={ArrowRight}
+        alt=""
+        className="invoice-arrow"
+      />
     </article>
   )
 }
