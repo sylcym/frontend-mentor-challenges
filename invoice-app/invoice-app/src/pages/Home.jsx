@@ -5,6 +5,7 @@ import InvoiceCard from '../components/InvoiceCard'
 import EmptyState from '../components/EmptyState'
 // import InvoiceForm from '../components/InvoiceForm'
 import InvoiceForm from '../components/InvoiceForm/InvoiceForm'
+import InvoiceDetails from '../components/InvoiceDetails/InvoiceDetails'
 import invoices from '../data/invoices'
 import '../styles/Home.css'
 
@@ -12,6 +13,7 @@ function Home() {
   const [selectedStatus, setSelectedStatus] = useState('')
   const [showInvoiceForm, setShowInvoiceForm] = useState(false)
   const [invoiceList, setInvoiceList] = useState(invoices)
+  const [selectedInvoice, setSelectedInvoice] = useState(null)
 
   const filteredInvoices = selectedStatus
     ? invoiceList.filter(
@@ -19,14 +21,9 @@ function Home() {
         invoice.status.toLowerCase() === selectedStatus
     )
     : invoiceList
-  // const filteredInvoices = selectedStatus
-  //   ? invoices.filter(
-  //     (invoice) =>
-  //       invoice.status.toLowerCase() === selectedStatus
-  //   )
-  //   : invoices
 
   return (
+
     <div>
       <Header
         selectedStatus={selectedStatus}
@@ -35,15 +32,19 @@ function Home() {
         setShowInvoiceForm={setShowInvoiceForm}
       />
 
-      {showInvoiceForm && (
-        <InvoiceForm
-          setShowInvoiceForm={setShowInvoiceForm}
-          setInvoiceList={setInvoiceList}
-        />
-      )}
+      {
+        showInvoiceForm && (
+          <InvoiceForm
+            setShowInvoiceForm={setShowInvoiceForm}
+            setInvoiceList={setInvoiceList}
+          />
+        )
+      }
 
 
-      {filteredInvoices.length === 0 ? (
+      {selectedInvoice ? (
+        <InvoiceDetails />
+      ) : filteredInvoices.length === 0 ? (
         <EmptyState />
       ) : (
         <div className="invoices-list">
@@ -55,6 +56,8 @@ function Home() {
               dueDate={invoice.dueDate}
               total={invoice.total}
               status={invoice.status}
+              invoice={invoice}
+              setSelectedInvoice={setSelectedInvoice}
             />
           ))}
         </div>
@@ -63,5 +66,6 @@ function Home() {
 
   )
 }
+
 
 export default Home

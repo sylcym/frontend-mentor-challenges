@@ -123,13 +123,6 @@ function Header({
           </span>
         </button>
 
-        {/* <button
-          className="add-button"
-          onClick={() => setShowInvoiceForm(true)}
-        >
-          <span className='add-button-plus'>+</span>
-          New
-        </button> */}
       </div>
     </header>
   )

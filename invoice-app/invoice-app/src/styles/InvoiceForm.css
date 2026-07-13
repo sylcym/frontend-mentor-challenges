@@ -119,21 +119,12 @@ select.form-input {
   display: flex;
   justify-content: center;
   align-items: center;
-
   border: none;
   background: transparent;
   padding: 18px;
   cursor: pointer;
 }
 
-/* .delete-button {
-  font-size: 12px;
-  font-weight: 700;
-  border: none;
-  background: transparent;
-  padding-top: 18px;
-  cursor: pointer;
-} */
 .delete-icon {
   display: block;
 }
@@ -161,9 +152,10 @@ select.form-input {
 .save-button {
   font-size: 12px;
   font-weight: 700;
+  letter-spacing: -0.25px;
   border: none;
   border-radius: 24px;
-  padding: 16px 24px;
+  padding: 17px 21px;
   cursor: pointer;
 }
 

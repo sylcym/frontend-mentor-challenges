@@ -8,9 +8,14 @@ function InvoiceCard({
   dueDate,
   total,
   status,
+  invoice,
+  setSelectedInvoice,
 }) {
   return (
-    <article className="invoice-card">
+    <article
+      className="invoice-card"
+      onClick={() => setSelectedInvoice(invoice)}
+    >
       <div className="invoice-card-top">
         <h2 className="invoice-id">
           #{id}
@@ -28,8 +33,14 @@ function InvoiceCard({
           </p>
 
           <p className="invoice-price">
-            £ {Number(total).toFixed(2)}
+            {new Intl.NumberFormat('en-GB', {
+              style: 'currency',
+              currency: 'GBP',
+            }).format(total)}
           </p>
+          {/* <p className="invoice-price">
+            £ {Number(total).toFixed(2)}
+          </p> */}
         </div>
 
         <div className={`invoice-status ${status.toLowerCase()}`}>
@@ -50,8 +61,14 @@ InvoiceCard.propTypes = {
   id: PropTypes.string,
   client: PropTypes.string,
   dueDate: PropTypes.string,
-  total: PropTypes.string,
+  // total: PropTypes.number,
+  total: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   status: PropTypes.string,
+  invoice: PropTypes.object,
+  setSelectedInvoice: PropTypes.func,
 }
 
 export default InvoiceCard
