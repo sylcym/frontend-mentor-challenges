@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import StatusBadge from './StatusBadge'
 import ActionButtons from './ActionButtons'
+import InvoiceItemsTable from './InvoiceItemsTable'
+import InvoiceInfo from './InvoiceInfo'
 
 function InvoiceDetails({
   invoice,
@@ -40,7 +42,11 @@ function InvoiceDetails({
           />
         </div>
 
-        <div className="sender-address">
+        <InvoiceInfo
+          invoice={invoice}
+        />
+
+        {/* <div className="sender-address">
           <p>
             {invoice.senderAddress.street}
           </p>
@@ -58,6 +64,62 @@ function InvoiceDetails({
           </p>
         </div>
 
+        <div className="bill-to-section">
+          <p className="section-label">
+            Bill To
+          </p>
+
+          <h3>
+            {invoice.client}
+          </h3>
+
+          <p>
+            {invoice.clientAddress.email}
+          </p>
+
+          <p>
+            {invoice.clientAddress.street}
+          </p>
+
+          <p>
+            {invoice.clientAddress.city}
+          </p>
+
+          <p>
+            {invoice.clientAddress.postCode}
+          </p>
+
+          <p>
+            {invoice.clientAddress.country}
+          </p>
+        </div>
+        <div className="invoice-dates">
+
+          <div>
+            <p className="section-label">
+              Invoice Date
+            </p>
+
+            <h3>
+              {invoice.dueDate}
+            </h3>
+          </div>
+
+
+          <div>
+            <p className="section-label">
+              Payment Due
+            </p>
+
+            <h3>
+              {invoice.dueDate}
+            </h3>
+          </div>
+
+        </div> */}
+        <InvoiceItemsTable
+          items={invoice.items}
+        />
 
       </div>
 
