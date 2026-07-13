@@ -43,7 +43,10 @@ function Home() {
 
 
       {selectedInvoice ? (
-        <InvoiceDetails />
+        <InvoiceDetails
+          invoice={selectedInvoice}
+          onGoBack={() => setSelectedInvoice(null)}
+        />
       ) : filteredInvoices.length === 0 ? (
         <EmptyState />
       ) : (

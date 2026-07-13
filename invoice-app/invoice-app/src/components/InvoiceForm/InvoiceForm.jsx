@@ -7,60 +7,36 @@ import InvoiceDetailsSection from './InvoiceDetailsSection'
 // import '../styles/InvoiceForm.css'
 import '../../styles/InvoiceForm.css'
 
+const initialFormData = {
+  street: '',
+  city: '',
+  postCode: '',
+  country: '',
+  clientName: '',
+  clientEmail: '',
+  clientStreet: '',
+  clientCity: '',
+  clientPostCode: '',
+  clientCountry: '',
+  invoiceDate: '',
+  paymentTerms: '30',
+  projectDescription: '',
+  items: [
+    {
+      name: '',
+      quantity: 1,
+      price: 0,
+    },
+  ],
+}
+
 function InvoiceForm({
   setShowInvoiceForm,
   setInvoiceList,
 }) {
 
-  const initialFormData = {
-    street: '',
-    city: '',
-    postCode: '',
-    country: '',
-    clientName: '',
-    clientEmail: '',
-    clientStreet: '',
-    clientCity: '',
-    clientPostCode: '',
-    clientCountry: '',
-    invoiceDate: '',
-    paymentTerms: '30',
-    projectDescription: '',
-    items: [
-      {
-        name: '',
-        quantity: 1,
-        price: 0,
-      },
-    ],
-  }
-
   const [formData, setFormData] =
     useState(initialFormData)
-
-
-  // const [formData, setFormData] = useState({
-  //   street: '',
-  //   city: '',
-  //   postCode: '',
-  //   country: '',
-  //   clientName: '',
-  //   clientEmail: '',
-  //   clientStreet: '',
-  //   clientCity: '',
-  //   clientPostCode: '',
-  //   clientCountry: '',
-  //   invoiceDate: '',
-  //   paymentTerms: '30',
-  //   projectDescription: '',
-  //   items: [
-  //     {
-  //       name: '',
-  //       quantity: 1,
-  //       price: 0,
-  //     },
-  //   ],
-  // })
 
   const [errors, setErrors] = useState({})
 
@@ -110,29 +86,6 @@ function InvoiceForm({
   }
 
   function resetForm() {
-    // setFormData({
-    //   street: '',
-    //   city: '',
-    //   postCode: '',
-    //   country: '',
-    //   clientName: '',
-    //   clientEmail: '',
-    //   clientStreet: '',
-    //   clientCity: '',
-    //   clientPostCode: '',
-    //   clientCountry: '',
-    //   invoiceDate: '',
-    //   paymentTerms: '30',
-    //   projectDescription: '',
-    //   items: [
-    //     {
-    //       name: '',
-    //       quantity: 1,
-    //       price: 0,
-    //     },
-    //   ],
-    // })
-
     setFormData(initialFormData)
 
     setErrors({})
