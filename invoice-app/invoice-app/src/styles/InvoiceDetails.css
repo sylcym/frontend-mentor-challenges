@@ -8,13 +8,8 @@
   padding: 32px 24px 56px;
 }
 
-.invoice-details-header {
-  background: white;
-  padding: 24px;
-  border-radius: 8px;
-}
 
-/* .invoice-details-header {
+.invoice-details-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +18,7 @@
   border-radius: 8px;
 
   padding: 24px;
-} */
+}
 
 .invoice-details-card {
   display: flex;
@@ -39,7 +34,9 @@
 .invoice-details-status {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
+  flex: 1;
 }
 
 .invoice-details-status p {
@@ -51,16 +48,32 @@
   display: flex;
   align-items: center;
   gap: 12px;
-
   width: fit-content;
-
-  border: none;
-  background: transparent;
-
   font-size: 15px;
   font-weight: 700;
-
+  border: none;
+  background: transparent;
   cursor: pointer;
+}
+
+.go-back-button:hover {
+  color: #7C5DFA;
+}
+
+.go-back-button img {
+  width: 7px;
+  height: 10px;
+}
+
+.invoice-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: white;
+  border-radius: 8px;
+
+  padding: 24px;
 }
 
 .invoice-details-title {

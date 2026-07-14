@@ -6,7 +6,7 @@
   background-color: white;
   border-radius: 8px;
   padding: 24px;
-
+  cursor: pointer;
 }
 
 .invoice-card-top {
@@ -42,6 +42,7 @@
   font-weight: 700;
 }
 
+/* 
 .invoice-status {
   min-width: 104px;
   text-align: center;
@@ -64,7 +65,7 @@
 .draft {
   background-color: rgba(55, 59, 83, 0.1);
   color: #373b53;
-}
+} */
 
 .invoice-arrow {
   display: none;

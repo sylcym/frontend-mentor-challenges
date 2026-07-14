@@ -21,7 +21,7 @@
 .item-info {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 }
 
 .item-info h4 {
@@ -42,22 +42,21 @@
   color: #0C0E16;
 }
 
-.amount-due {
+.grand-total {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 24px;
-
   background: #373B53;
   color: white;
+  padding: 24px;
+  border-radius: 0 0 8px 8px;
 }
 
-.amount-due p {
+.grand-total p {
   font-size: 11px;
 }
 
-.amount-due h3 {
+.grand-total h3 {
   font-size: 24px;
   font-weight: 700;
 }

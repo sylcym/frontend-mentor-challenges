@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import '../../styles/ActionButtons.css'
 
 function ActionButtons({
   onEdit,
@@ -6,7 +7,7 @@ function ActionButtons({
   onMarkPaid,
 }) {
   return (
-    <div className="action-buttons">
+    <footer className="action-buttons">
 
       <button
         type="button"
@@ -18,7 +19,7 @@ function ActionButtons({
 
       <button
         type="button"
-        className="delete-button"
+        className="action-delete-button"
         onClick={onDelete}
       >
         Delete
@@ -32,7 +33,7 @@ function ActionButtons({
         Mark as Paid
       </button>
 
-    </div>
+    </footer>
   )
 }
 

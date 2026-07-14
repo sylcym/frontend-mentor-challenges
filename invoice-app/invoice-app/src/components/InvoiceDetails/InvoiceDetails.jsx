@@ -3,13 +3,13 @@ import StatusBadge from './StatusBadge'
 import ActionButtons from './ActionButtons'
 import InvoiceItemsTable from './InvoiceItemsTable'
 import InvoiceInfo from './InvoiceInfo'
+import ArrowLeft from '../../assets/icons/icon-arrow-left.svg'
 import '../../styles/InvoiceDetails.css'
 
 function InvoiceDetails({
   invoice,
   onGoBack,
 }) {
-  console.log(invoice)
   return (
     <section className="invoice-details">
 
@@ -17,7 +17,12 @@ function InvoiceDetails({
         className="go-back-button"
         onClick={onGoBack}
       >
-        ← Go back
+        <img
+          src={ArrowLeft}
+          alt=""
+        />
+
+        Go back
       </button>
 
       <div className="invoice-details-header">
@@ -69,54 +74,6 @@ function InvoiceDetails({
 
     </section>
   )
-  // return (
-  //   <section className="invoice-details">
-
-  //     <button
-  //       className="go-back-button"
-  //       onClick={onGoBack}
-  //     >
-  //       ← Go back
-  //     </button>
-
-  //     <div className="invoice-details-header">
-
-  //       <div className="invoice-details-title">
-  //         <h2>
-  //           #{invoice.id}
-  //         </h2>
-
-  //         <p>
-  //           {invoice.projectDescription}
-  //         </p>
-  //       </div>
-
-  //       <div className="invoice-details-status">
-  //         <p>Status</p>
-
-  //         <StatusBadge
-  //           status={invoice.status}
-  //         />
-  //       </div>
-
-  //     </div>
-
-  //     <InvoiceInfo
-  //       invoice={invoice}
-  //     />
-
-  //     <InvoiceItemsTable
-  //       items={invoice.items}
-  //     />
-
-  //     <ActionButtons
-  //       onEdit={() => console.log('edit')}
-  //       onDelete={() => console.log('delete')}
-  //       onMarkPaid={() => console.log('paid')}
-  //     />
-
-  //   </section>
-  // )
 
 }
 

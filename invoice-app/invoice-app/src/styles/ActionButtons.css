@@ -1,0 +1,50 @@
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+
+  margin-top: 56px;
+  padding: 20px 24px;
+
+  background: white;
+}
+
+.action-buttons button {
+  height: 48px;
+  padding: 0 24px;
+
+  border: none;
+  border-radius: 24px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.edit-button {
+  background: #F9FAFE;
+  color: #7E88C3;
+}
+
+.edit-button:hover {
+  background: #DFE3FA;
+}
+
+.action-delete-button {
+  background: #EC5757;
+  color: white;
+}
+
+.action-delete-button:hover {
+  background: #FF9797;
+}
+
+.paid-button {
+  background: #7C5DFA;
+  color: white;
+}
+
+.paid-button:hover {
+  background: #9277FF;
+}

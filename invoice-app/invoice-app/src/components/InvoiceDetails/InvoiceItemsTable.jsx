@@ -13,10 +13,10 @@ function InvoiceItemsTable({ items }) {
 
       <div className="items-list">
 
-        {items.map((item, index) => (
+        {items.map((item) => (
           <div
             className="invoice-item-row"
-            key={index}
+            key={item.name}
           >
 
             <div className="item-info">
@@ -36,7 +36,7 @@ function InvoiceItemsTable({ items }) {
 
       </div>
 
-      <div className="amount-due">
+      <div className="grand-total">
 
         <p>Grand Total</p>
 
@@ -53,5 +53,6 @@ function InvoiceItemsTable({ items }) {
 InvoiceItemsTable.propTypes = {
   items: PropTypes.array,
 }
+
 
 export default InvoiceItemsTable

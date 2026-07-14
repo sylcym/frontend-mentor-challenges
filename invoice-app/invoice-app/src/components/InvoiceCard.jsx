@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import ArrowRight from '../assets/icons/icon-arrow-right.svg'
 import '../styles/InvoiceCard.css'
 import { formatCurrency } from '../utils/formatCurrency'
+import StatusBadge from './InvoiceDetails/StatusBadge'
 
 function InvoiceCard({
   id,
@@ -46,9 +47,9 @@ function InvoiceCard({
           </p> */}
         </div>
 
-        <div className={`invoice-status ${status.toLowerCase()}`}>
-          {status}
-        </div>
+        <StatusBadge
+          status={status}
+        />
       </div>
 
       <img
