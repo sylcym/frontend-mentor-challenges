@@ -1,63 +1,57 @@
 import PropTypes from 'prop-types'
+import '../../styles/InvoiceItemsTable.css'
+import { formatCurrency } from '../../utils/formatCurrency'
 
-function InvoiceItemsTable({
-  items,
-}) {
+function InvoiceItemsTable({ items }) {
+  const total = items.reduce(
+    (acc, item) => acc + item.quantity * item.price,
+    0
+  )
+
   return (
     <section className="invoice-items">
 
-      <div className="items-header">
-        <p>
-          Item Name
-        </p>
+      <div className="items-list">
 
-        <p>
-          Qty.
-        </p>
+        {items.map((item, index) => (
+          <div
+            className="invoice-item-row"
+            key={index}
+          >
 
-        <p>
-          Price
-        </p>
+            <div className="item-info">
+              <h4>{item.name}</h4>
 
-        <p>
-          Total
-        </p>
+              <p className="item-details">
+                {item.quantity} x {formatCurrency(item.price)}
+              </p>
+            </div>
+
+            <p className="item-total">
+              {formatCurrency(item.quantity * item.price)}
+            </p>
+
+          </div>
+        ))}
+
       </div>
 
+      <div className="amount-due">
 
-      {items.map((item, index) => (
-        <div
-          className="invoice-item-row"
-          key={index}
-        >
+        <p>Grand Total</p>
 
-          <p>
-            {item.name}
-          </p>
+        <h3>
+          {formatCurrency(total)}
+        </h3>
 
-          <p>
-            {item.quantity}
-          </p>
-
-          <p>
-            £{item.price.toFixed(2)}
-          </p>
-
-          <p>
-            £{(item.quantity * item.price).toFixed(2)}
-          </p>
-
-        </div>
-      ))}
+      </div>
 
     </section>
   )
 }
 
-
 InvoiceItemsTable.propTypes = {
   items: PropTypes.array,
 }
-
 
 export default InvoiceItemsTable

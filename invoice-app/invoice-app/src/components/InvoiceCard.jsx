@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import ArrowRight from '../assets/icons/icon-arrow-right.svg'
 import '../styles/InvoiceCard.css'
+import { formatCurrency } from '../utils/formatCurrency'
 
 function InvoiceCard({
   id,
@@ -31,13 +32,15 @@ function InvoiceCard({
           <p className="invoice-date">
             Due {dueDate}
           </p>
-
           <p className="invoice-price">
+            {formatCurrency(total)}
+          </p>
+          {/* <p className="invoice-price">
             {new Intl.NumberFormat('en-GB', {
               style: 'currency',
               currency: 'GBP',
             }).format(total)}
-          </p>
+          </p> */}
           {/* <p className="invoice-price">
             £ {Number(total).toFixed(2)}
           </p> */}

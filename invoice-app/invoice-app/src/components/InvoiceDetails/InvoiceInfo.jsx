@@ -1,58 +1,9 @@
 import PropTypes from 'prop-types'
+import '../../styles/InvoiceInfo.css'
 
 function InvoiceInfo({ invoice }) {
   return (
     <section className="invoice-info">
-
-      <div className="sender-address">
-        <p>
-          {invoice.senderAddress.street}
-        </p>
-
-        <p>
-          {invoice.senderAddress.city}
-        </p>
-
-        <p>
-          {invoice.senderAddress.postCode}
-        </p>
-
-        <p>
-          {invoice.senderAddress.country}
-        </p>
-      </div>
-
-
-      <div className="bill-to-section">
-        <p className="section-label">
-          Bill To
-        </p>
-
-        <h3>
-          {invoice.client}
-        </h3>
-
-        <p>
-          {invoice.clientAddress.email}
-        </p>
-
-        <p>
-          {invoice.clientAddress.street}
-        </p>
-
-        <p>
-          {invoice.clientAddress.city}
-        </p>
-
-        <p>
-          {invoice.clientAddress.postCode}
-        </p>
-
-        <p>
-          {invoice.clientAddress.country}
-        </p>
-      </div>
-
 
       <div className="invoice-dates">
 
@@ -76,6 +27,31 @@ function InvoiceInfo({ invoice }) {
           </h3>
         </div>
 
+      </div>
+
+      <div className="bill-to-section">
+        <p className="section-label">
+          Bill To
+        </p>
+
+        <h3>
+          {invoice.client}
+        </h3>
+
+        <p>{invoice.clientAddress.street}</p>
+        <p>{invoice.clientAddress.city}</p>
+        <p>{invoice.clientAddress.postCode}</p>
+        <p>{invoice.clientAddress.country}</p>
+      </div>
+
+      <div className="send-to-section">
+        <p className="section-label">
+          Send To
+        </p>
+
+        <p>
+          {invoice.clientAddress.email}
+        </p>
       </div>
 
     </section>

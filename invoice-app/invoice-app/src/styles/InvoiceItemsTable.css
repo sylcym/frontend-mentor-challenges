@@ -1,0 +1,63 @@
+.invoice-items {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 32px;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #F9FAFE;
+  padding: 24px;
+}
+
+.invoice-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-info h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0C0E16;
+}
+
+.item-details {
+  font-size: 12px;
+  font-weight: 700;
+  color: #7E88C3;
+}
+
+.item-total {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0C0E16;
+}
+
+.amount-due {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 24px;
+
+  background: #373B53;
+  color: white;
+}
+
+.amount-due p {
+  font-size: 11px;
+}
+
+.amount-due h3 {
+  font-size: 24px;
+  font-weight: 700;
+}

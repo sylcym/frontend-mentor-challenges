@@ -153,7 +153,26 @@ function InvoiceForm({
 
       client: formData.clientName,
 
+      projectDescription: formData.projectDescription,
+
       dueDate: formData.invoiceDate,
+
+      senderAddress: {
+        street: formData.street,
+        city: formData.city,
+        postCode: formData.postCode,
+        country: formData.country,
+      },
+
+      clientAddress: {
+        email: formData.clientEmail,
+        street: formData.clientStreet,
+        city: formData.clientCity,
+        postCode: formData.clientPostCode,
+        country: formData.clientCountry,
+      },
+
+      items: formData.items,
 
       total: formData.items.reduce(
         (acc, item) =>
@@ -161,7 +180,7 @@ function InvoiceForm({
         0
       ),
 
-      status: 'pending',
+      status: 'Pending',
     }
 
     setInvoiceList((prev) => [

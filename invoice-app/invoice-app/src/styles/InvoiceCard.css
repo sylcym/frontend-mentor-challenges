@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
   background-color: white;
   border-radius: 8px;
   padding: 24px;
@@ -65,8 +66,16 @@
   color: #373b53;
 }
 
+.invoice-arrow {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .invoice-card {
     padding: 24px 32px;
+  }
+
+  .invoice-arrow {
+    display: block;
   }
 }
