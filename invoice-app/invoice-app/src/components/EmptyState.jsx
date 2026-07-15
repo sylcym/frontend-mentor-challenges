@@ -15,8 +15,8 @@ function EmptyState() {
       </h2>
 
       <p className="empty-description">
-        Create an invoice by clicking the
-        <strong> New Invoice</strong> button and get started.
+        Create an invoice by clicking the{' '}
+        <strong>New Invoice</strong> button and get started.
       </p>
     </section>
   )

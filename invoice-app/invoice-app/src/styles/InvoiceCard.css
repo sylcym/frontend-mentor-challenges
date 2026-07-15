@@ -5,8 +5,14 @@
   position: relative;
   background-color: white;
   border-radius: 8px;
+  border: 1px solid transparent;
+  transition: border 0.2s ease;
   padding: 24px;
   cursor: pointer;
+}
+
+.invoice-card:hover {
+  border: 1px solid #7C5DFA;
 }
 
 .invoice-card-top {
@@ -42,30 +48,6 @@
   font-weight: 700;
 }
 
-/* 
-.invoice-status {
-  min-width: 104px;
-  text-align: center;
-  font-size: 12px;
-  font-weight: 700;
-  border-radius: 6px;
-  padding: 14px;
-}
-
-.paid {
-  background-color: rgba(51, 214, 159, 0.1);
-  color: #33d69f;
-}
-
-.pending {
-  background-color: rgba(255, 143, 0, 0.1);
-  color: #ff8f00;
-}
-
-.draft {
-  background-color: rgba(55, 59, 83, 0.1);
-  color: #373b53;
-} */
 
 .invoice-arrow {
   display: none;

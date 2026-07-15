@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import PropTypes from 'prop-types'
+import ConfirmDelete from '../ConfirmDeleteModal'
 import StatusBadge from './StatusBadge'
 import ActionButtons from './ActionButtons'
 import InvoiceItemsTable from './InvoiceItemsTable'
@@ -10,6 +12,10 @@ function InvoiceDetails({
   invoice,
   onGoBack,
 }) {
+
+  const [showDeleteModal, setShowDeleteModal] =
+    useState(false)
+
   return (
     <>
       <section className="invoice-details">
@@ -70,9 +76,18 @@ function InvoiceDetails({
       </section>
       <ActionButtons
         onEdit={() => console.log('edit')}
-        onDelete={() => console.log('delete')}
+        // onDelete={() => console.log('delete')}
+        onDelete={() => setShowDeleteModal(true)}
         onMarkPaid={() => console.log('paid')}
       />
+
+      {showDeleteModal && (
+        <ConfirmDelete
+          invoiceId={invoice.id}
+          onCancel={() => setShowDeleteModal(false)}
+          onDelete={() => console.log('delete')}
+        />
+      )}
     </>
   )
 
