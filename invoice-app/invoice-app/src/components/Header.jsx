@@ -12,6 +12,11 @@ function Header({
 }) {
   const [showFilters, setShowFilters] = useState(false)
 
+  function handleFilter(status) {
+    setSelectedStatus(status)
+    setShowFilters(false)
+  }
+
 
   return (
     <header className="header">
@@ -50,10 +55,7 @@ function Header({
               <button
                 className={`filter-option ${selectedStatus === 'draft' ? 'active-filter' : ''
                   }`}
-                onClick={() => {
-                  setSelectedStatus('draft')
-                  setShowFilters(false)
-                }}
+                onClick={() => handleFilter('draft')}
               >
                 Draft
               </button>
@@ -61,12 +63,7 @@ function Header({
               <button
                 className={`filter-option ${selectedStatus === 'pending' ? 'active-filter' : ''
                   }`}
-                onClick={() => {
-                  setSelectedStatus('pending')
-                  setShowFilters(false)
-                }}
-
-
+                onClick={() => handleFilter('pending')}
               >
                 Pending
               </button>
@@ -74,12 +71,7 @@ function Header({
               <button
                 className={`filter-option ${selectedStatus === 'paid' ? 'active-filter' : ''
                   }`}
-                onClick={() => {
-                  setSelectedStatus('paid')
-                  setShowFilters(false)
-                }}
-
-
+                onClick={() => handleFilter('paid')}
               >
                 Paid
               </button>
@@ -87,12 +79,7 @@ function Header({
               <button
                 className={`filter-option ${selectedStatus === '' ? 'active-filter' : ''
                   }`}
-
-                onClick={() => {
-                  setSelectedStatus('')
-                  setShowFilters(false)
-                }}
-
+                onClick={() => handleFilter('')}
               >
                 Clear Filter
               </button>

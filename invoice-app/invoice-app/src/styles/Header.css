@@ -6,9 +6,9 @@
 }
 
 .header-title {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
-  letter-spacing: -0.63px;
+  letter-spacing: -0.75px;
   color: #0C0E16;
   margin-bottom: 4px;
 }
@@ -17,7 +17,7 @@
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.25px;
-  line-height: 1.5;
+  line-height: 15px;
   color: #888eb0;
 }
 
@@ -33,8 +33,7 @@
   border-radius: 24px;
   background-color: #7c5dfa;
   color: white;
-  padding: 6px 14px 6px 6px;
-  cursor: pointer;
+  padding: 6px 8px 6px 6px;
 }
 
 .add-button-icon {
@@ -45,6 +44,10 @@
   height: 32px;
   border-radius: 50%;
   background: white;
+}
+
+.add-button:hover {
+  background: #9277FF;
 }
 
 .plus-icon {
@@ -68,7 +71,7 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
 }
 
 .filter-container {
@@ -85,6 +88,10 @@
   border: none;
   background: transparent;
   cursor: pointer;
+}
+
+.filter-button:hover {
+  color: #7C5DFA;
 }
 
 .filter-arrow {
@@ -108,7 +115,7 @@
   border-radius: 8px;
   box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
   padding: 24px;
-
+  z-index: 5;
 
 }
 

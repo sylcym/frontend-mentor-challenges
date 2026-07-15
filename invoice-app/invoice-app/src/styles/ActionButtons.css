@@ -1,24 +1,40 @@
-.action-buttons {
+/* .action-buttons {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 8px;
-
+  width: 100%;
+  background: white;
+  background-color: red;
   margin-top: 56px;
   padding: 20px 24px;
 
+} */
+.action-buttons {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
   background: white;
+  box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.05);
+  padding: 20px 24px;
+  z-index: 10;
 }
 
 .action-buttons button {
+
+  flex: 1;
   height: 48px;
-  padding: 0 24px;
-
-  border: none;
-  border-radius: 24px;
-
+  white-space: nowrap;
   font-size: 12px;
   font-weight: 700;
-
+  border: none;
+  border-radius: 24px;
+  padding: 0 24px;
   cursor: pointer;
 }
 
@@ -47,4 +63,10 @@
 
 .paid-button:hover {
   background: #9277FF;
+}
+
+@media (min-width: 768px) {
+  .action-buttons button {
+    flex: 0;
+  }
 }
