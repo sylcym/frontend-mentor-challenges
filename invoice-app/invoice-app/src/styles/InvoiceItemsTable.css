@@ -60,3 +60,96 @@
   font-size: 24px;
   font-weight: 700;
 }
+
+.invoice-items-mobile {
+  display: block;
+}
+
+.invoice-items-table {
+  display: none;
+}
+
+@media (min-width: 768px) {
+
+  .invoice-items-mobile {
+    display: none;
+  }
+
+  .invoice-items-table {
+    display: table;
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: #F9FAFE;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .invoice-items-table th {
+    padding: 32px;
+
+    font-size: 11px;
+    font-weight: 500;
+    color: #7E88C3;
+  }
+
+  .invoice-items-table th:first-child {
+    text-align: left;
+  }
+
+  .invoice-items-table th:not(:first-child) {
+    text-align: right;
+  }
+
+  .invoice-items-table td {
+    padding: 0 32px 24px;
+
+    font-size: 12px;
+  }
+
+  .invoice-items-table td:first-child {
+    font-size: 12px;
+    font-weight: 700;
+    color: #0C0E16;
+
+    text-align: left;
+  }
+
+  .invoice-items-table td:nth-child(2),
+  .invoice-items-table td:nth-child(3) {
+    color: #7E88C3;
+    text-align: right;
+  }
+
+  .invoice-items-table td:last-child {
+    font-weight: 700;
+    color: #0C0E16;
+
+    text-align: right;
+  }
+
+  .invoice-items-table tfoot td {
+    padding: 24px 32px;
+    background: #373B53;
+    color: white;
+  }
+
+  .invoice-items-table tfoot td:first-child {
+    font-size: 11px;
+    font-weight: 500;
+    color: white;
+  }
+
+  .invoice-items-table tfoot td:last-child {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    text-align: right;
+  }
+
+  .invoice-items-table tbody tr:last-child td {
+    padding-bottom: 32px;
+  }
+
+}

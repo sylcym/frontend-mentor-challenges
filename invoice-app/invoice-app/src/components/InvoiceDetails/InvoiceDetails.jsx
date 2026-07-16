@@ -46,23 +46,25 @@ function InvoiceDetails({
 
         <div className="invoice-details-card">
 
-          <div className="invoice-details-title">
-            <h2>
-              #{invoice.id}
-            </h2>
+          <div className="invoice-details-top">
 
-            <p>
-              {invoice.projectDescription}
-            </p>
+            <div className="invoice-details-title">
+              <h2>
+                #{invoice.id}
+              </h2>
+
+              <p>
+                {invoice.projectDescription}
+              </p>
+            </div>
+
+            <div className="sender-address">
+              <p>{invoice.senderAddress.street}</p>
+              <p>{invoice.senderAddress.city}</p>
+              <p>{invoice.senderAddress.postCode}</p>
+              <p>{invoice.senderAddress.country}</p>
+            </div>
           </div>
-
-          <div className="sender-address">
-            <p>{invoice.senderAddress.street}</p>
-            <p>{invoice.senderAddress.city}</p>
-            <p>{invoice.senderAddress.postCode}</p>
-            <p>{invoice.senderAddress.country}</p>
-          </div>
-
           <InvoiceInfo
             invoice={invoice}
           />

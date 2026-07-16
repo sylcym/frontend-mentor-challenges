@@ -59,3 +59,18 @@
   color: #0C0E16;
   margin-top: 8px;
 }
+
+@media (min-width: 768px) {
+
+  .invoice-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .send-to-section {
+    grid-column: auto;
+  }
+
+}

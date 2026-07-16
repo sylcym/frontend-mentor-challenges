@@ -14,10 +14,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   background: white;
   border-radius: 8px;
-
   padding: 24px;
 }
 
@@ -101,4 +99,34 @@
   font-size: 11px;
   line-height: 18px;
   color: #7E88C3;
+}
+
+@media (min-width: 768px) {
+
+  .invoice-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 32px;
+  }
+
+  .invoice-details-card {
+    padding: 32px;
+  }
+
+  @media (min-width:768px) {
+
+    .invoice-details-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .sender-address {
+      margin-top: 0px;
+    }
+
+  }
+
 }

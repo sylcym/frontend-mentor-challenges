@@ -8,46 +8,135 @@ function InvoiceItemsTable({ items }) {
     0
   )
 
+
   return (
     <section className="invoice-items">
 
-      <div className="items-list">
+      {/* Mobile */}
+      <div className="invoice-items-mobile">
 
-        {items.map((item) => (
-          <div
-            className="invoice-item-row"
-            key={item.name}
-          >
+        <div className="items-list">
 
-            <div className="item-info">
-              <h4>{item.name}</h4>
+          {items.map((item) => (
+            <div
+              className="invoice-item-row"
+              key={item.id}
+            >
 
-              <p className="item-details">
-                {item.quantity} x {formatCurrency(item.price)}
+              <div className="item-info">
+                <h4>{item.name}</h4>
+
+                <p className="item-details">
+                  {item.quantity} x {formatCurrency(item.price)}
+                </p>
+              </div>
+
+              <p className="item-total">
+                {formatCurrency(item.quantity * item.price)}
               </p>
+
             </div>
+          ))}
 
-            <p className="item-total">
-              {formatCurrency(item.quantity * item.price)}
-            </p>
+        </div>
 
-          </div>
-        ))}
+        <div className="grand-total">
 
-      </div>
+          <p>Grand Total</p>
 
-      <div className="grand-total">
+          <h3>
+            {formatCurrency(total)}
+          </h3>
 
-        <p>Grand Total</p>
-
-        <h3>
-          {formatCurrency(total)}
-        </h3>
+        </div>
 
       </div>
 
-    </section>
+      {/* Tablet / Desktop */}
+      <table className="invoice-items-table">
+
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>QTY.</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          {items.map((item) => (
+            <tr key={item.id}>
+
+              <td>{item.name}</td>
+
+              <td>{item.quantity}</td>
+
+              <td>{formatCurrency(item.price)}</td>
+
+              <td>{formatCurrency(item.quantity * item.price)}</td>
+            </tr>
+          ))}
+
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td colSpan="3">
+              Amount Due
+            </td>
+
+            <td>
+              {formatCurrency(total)}
+            </td>
+          </tr>
+        </tfoot>
+
+      </table>
+
+    </section >
   )
+  //   return (
+  //     <section className="invoice-items">
+
+  //       <div className="items-list">
+
+  //         {items.map((item) => (
+  //           <div
+  //             className="invoice-item-row"
+  //             key={item.name}
+  //           >
+
+  //             <div className="item-info">
+  //               <h4>{item.name}</h4>
+
+  //               <p className="item-details">
+  //                 {item.quantity} x {formatCurrency(item.price)}
+  //               </p>
+  //             </div>
+
+  //             <p className="item-total">
+  //               {formatCurrency(item.quantity * item.price)}
+  //             </p>
+
+  //           </div>
+  //         ))}
+
+  //       </div>
+
+  //       <div className="grand-total">
+
+  //         <p>Grand Total</p>
+
+  //         <h3>
+  //           {formatCurrency(total)}
+  //         </h3>
+
+  //       </div>
+
+  //     </section>
+  //   )
 }
 
 InvoiceItemsTable.propTypes = {
