@@ -34,6 +34,8 @@
   background-color: #7c5dfa;
   color: white;
   padding: 6px 8px 6px 6px;
+  transition: background-color .2s ease;
+  cursor: pointer;
 }
 
 .add-button-icon {
@@ -121,8 +123,9 @@
 
 .filter-option {
   display: flex;
-  text-align: left;
+  align-items: center;
   gap: 12px;
+
   font-size: 12px;
   font-weight: 700;
   border: none;
@@ -130,11 +133,27 @@
   cursor: pointer;
 }
 
-.active-filter {
-  color: #7c5dfa;
+.filter-option input {
+  width: 16px;
+  height: 16px;
+  accent-color: #7C5DFA;
+  cursor: pointer;
 }
 
+.filter-option:hover {
+  color: #7C5DFA;
+}
+
+
 @media (min-width: 768px) {
+  .desktop-text {
+    display: inline;
+  }
+
+  .mobile-text {
+    display: none;
+  }
+
   .header {
     margin-bottom: 56px;
   }
@@ -144,6 +163,6 @@
   }
 
   .header-description {
-    font-size: 14px;
+    font-size: 13px;
   }
 }

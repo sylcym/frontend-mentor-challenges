@@ -12,7 +12,7 @@
 }
 
 .invoice-card:hover {
-  border: 1px solid #7C5DFA;
+  border-color: #7C5DFA;
 }
 
 .invoice-card-top {
@@ -24,10 +24,15 @@
 .invoice-id {
   font-size: 12px;
   font-weight: 700;
+  line-height: 15px;
+  letter-spacing: -0.25px;
 }
 
 .invoice-client {
   font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: -0.25px;
   color: #858bb2;
 }
 
@@ -54,6 +59,79 @@
 }
 
 @media (min-width: 768px) {
+
+  .invoice-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 37px;
+  }
+
+  .invoice-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex: 2; */
+    gap: 27px;
+  }
+
+  .invoice-card-middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex: 3;
+    gap: 32px; */
+    flex: 1;
+    gap: 40px;
+
+  }
+
+  .invoice-summary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 47px;
+  }
+
+  .invoice-date {
+    margin-bottom: 0;
+  }
+
+  .invoice-arrow {
+    display: block;
+    width: 8px;
+  }
+
+}
+
+/* @media (min-width: 768px) {
+
+  .invoice-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .invoice-card-middle {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .invoice-summary {
+    display: flex;
+    flex-direction: row;
+  }
+
+} */
+
+/* .invoice-summary {
+    display: flex;
+    flex-direction: column;
+  } */
+
+
+
+/* @media (min-width: 768px) {
   .invoice-card {
     padding: 24px 32px;
   }
@@ -61,4 +139,4 @@
   .invoice-arrow {
     display: block;
   }
-}
+} */

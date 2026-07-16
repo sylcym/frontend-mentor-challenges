@@ -29,27 +29,21 @@ function InvoiceCard({
       </div>
 
       <div className="invoice-card-middle">
-        <div>
+
+        <div className="invoice-summary">
           <p className="invoice-date">
             Due {dueDate}
           </p>
+
           <p className="invoice-price">
             {formatCurrency(total)}
           </p>
-          {/* <p className="invoice-price">
-            {new Intl.NumberFormat('en-GB', {
-              style: 'currency',
-              currency: 'GBP',
-            }).format(total)}
-          </p> */}
-          {/* <p className="invoice-price">
-            £ {Number(total).toFixed(2)}
-          </p> */}
         </div>
 
         <StatusBadge
           status={status}
         />
+
       </div>
 
       <img

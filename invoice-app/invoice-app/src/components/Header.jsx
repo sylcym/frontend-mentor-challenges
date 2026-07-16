@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import ArrowDown from '../assets/icons/icon-arrow-down.svg'
 import PlusIcon from '../assets/icons/icon-plus.svg'
@@ -11,12 +11,40 @@ function Header({
   setShowInvoiceForm,
 }) {
   const [showFilters, setShowFilters] = useState(false)
+  const filterRef = useRef(null)
 
   function handleFilter(status) {
-    setSelectedStatus(status)
+    if (selectedStatus === status) {
+      setSelectedStatus('')
+    } else {
+      setSelectedStatus(status)
+    }
+
     setShowFilters(false)
   }
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        filterRef.current &&
+        !filterRef.current.contains(event.target)
+      ) {
+        setShowFilters(false)
+      }
+    }
+
+    document.addEventListener(
+      'mousedown',
+      handleClickOutside
+    )
+
+    return () => {
+      document.removeEventListener(
+        'mousedown',
+        handleClickOutside
+      )
+    }
+  }, [])
 
   return (
     <header className="header">
@@ -35,7 +63,10 @@ function Header({
       </div>
 
       <div className="header-actions">
-        <div className="filter-container">
+        <div
+          className="filter-container"
+          ref={filterRef}
+        >
           <button
             className="filter-button"
             onClick={() => setShowFilters(!showFilters)}
@@ -52,37 +83,69 @@ function Header({
 
           {showFilters && (
             <div className="filter-dropdown">
-              <button
+              <label className="filter-option">
+                <input
+                  type="checkbox"
+                  checked={selectedStatus === 'draft'}
+                  onChange={() => handleFilter('draft')}
+                />
+
+                <span>Draft</span>
+              </label>
+              {/* <button
                 className={`filter-option ${selectedStatus === 'draft' ? 'active-filter' : ''
                   }`}
                 onClick={() => handleFilter('draft')}
               >
                 Draft
-              </button>
+              </button> */}
+              <label className="filter-option">
+                <input
+                  type="checkbox"
+                  checked={selectedStatus === 'pending'}
+                  onChange={() => handleFilter('pending')}
+                />
 
-              <button
+                <span>Pending</span>
+              </label>
+
+              {/* <button
                 className={`filter-option ${selectedStatus === 'pending' ? 'active-filter' : ''
                   }`}
                 onClick={() => handleFilter('pending')}
               >
                 Pending
-              </button>
+              </button> */}
+              <label className="filter-option">
+                <input
+                  type="checkbox"
+                  checked={selectedStatus === 'paid'}
+                  onChange={() => handleFilter('paid')}
+                />
 
-              <button
+                <span>Paid</span>
+              </label>
+
+              {/* <button
                 className={`filter-option ${selectedStatus === 'paid' ? 'active-filter' : ''
                   }`}
                 onClick={() => handleFilter('paid')}
               >
                 Paid
-              </button>
-
+              </button> */}
               <button
+                className="filter-option "
+                onClick={() => handleFilter('')}
+              >
+                Clear Filter
+              </button>
+              {/* <button
                 className={`filter-option ${selectedStatus === '' ? 'active-filter' : ''
                   }`}
                 onClick={() => handleFilter('')}
               >
                 Clear Filter
-              </button>
+              </button> */}
             </div>
           )}
         </div>

@@ -10,7 +10,14 @@ main {
 }
 
 @media (min-width: 768px) {
-  .layout {
+
+  main {
     padding: 48px;
   }
+
 }
+
+/* .layout {
+    flex-direction: row;
+    padding: 48px;
+  } */
