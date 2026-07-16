@@ -101,6 +101,14 @@
   color: #7E88C3;
 }
 
+.invoice-details-actions-desktop {
+  display: none;
+}
+
+.invoice-details-actions-mobile {
+  display: block;
+}
+
 @media (min-width: 768px) {
 
   .invoice-details-header {
@@ -115,7 +123,37 @@
     padding: 32px;
   }
 
-  @media (min-width:768px) {
+  .invoice-details-status {
+    justify-content: flex-start;
+    flex: 0;
+  }
+
+  .invoice-details-actions-mobile {
+    display: none;
+  }
+
+  .invoice-details-actions-desktop {
+    display: block;
+    display: flex;
+    align-items: center;
+  }
+
+  .invoice-details-actions-desktop .action-buttons {
+    position: static;
+
+    width: auto;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+    box-shadow: none;
+  }
+
+
+
+  /* @media (min-width:768px) {
 
     .invoice-details-top {
       display: flex;
@@ -127,6 +165,6 @@
       margin-top: 0px;
     }
 
-  }
+  }*/
 
 }

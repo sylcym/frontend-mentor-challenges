@@ -42,7 +42,29 @@ function InvoiceDetails({
             />
           </div>
 
+          <div className="invoice-details-actions-desktop">
+
+            <ActionButtons
+              onEdit={() => console.log('edit')}
+              onDelete={() => setShowDeleteModal(true)}
+              onMarkPaid={() => console.log('paid')}
+            />
+
+          </div>
+
         </div>
+
+        {/* <div className="invoice-details-header">
+
+          <div className="invoice-details-status">
+            <p>Status</p>
+
+            <StatusBadge
+              status={invoice.status}
+            />
+          </div>
+
+        </div> */}
 
         <div className="invoice-details-card">
 
@@ -76,12 +98,14 @@ function InvoiceDetails({
         </div>
 
       </section>
-      <ActionButtons
-        onEdit={() => console.log('edit')}
-        // onDelete={() => console.log('delete')}
-        onDelete={() => setShowDeleteModal(true)}
-        onMarkPaid={() => console.log('paid')}
-      />
+      <div className="invoice-details-actions-mobile">
+        <ActionButtons
+          onEdit={() => console.log('edit')}
+          // onDelete={() => console.log('delete')}
+          onDelete={() => setShowDeleteModal(true)}
+          onMarkPaid={() => console.log('paid')}
+        />
+      </div>
 
       {showDeleteModal && (
         <ConfirmDelete

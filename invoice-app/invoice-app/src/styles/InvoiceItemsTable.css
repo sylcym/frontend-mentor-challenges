@@ -132,7 +132,7 @@
   .invoice-items-table tfoot td {
     padding: 24px 32px;
     background: #373B53;
-    color: white;
+    /* color: white; */
   }
 
   .invoice-items-table tfoot td:first-child {
