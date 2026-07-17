@@ -8,7 +8,7 @@ function Header({
   selectedStatus,
   setSelectedStatus,
   invoiceCount,
-  setShowInvoiceForm,
+  onOpenInvoiceForm,
 }) {
   const [showFilters, setShowFilters] = useState(false)
   const filterRef = useRef(null)
@@ -152,7 +152,7 @@ function Header({
 
         <button
           className="add-button"
-          onClick={() => setShowInvoiceForm(true)}
+          onClick={onOpenInvoiceForm}
         >
           <span className="add-button-icon">
             <img
@@ -182,7 +182,7 @@ Header.propTypes = {
   selectedStatus: PropTypes.string,
   setSelectedStatus: PropTypes.func,
   invoiceCount: PropTypes.number,
-  setShowInvoiceForm: PropTypes.func,
+  onOpenInvoiceForm: PropTypes.func,
 }
 
 export default Header

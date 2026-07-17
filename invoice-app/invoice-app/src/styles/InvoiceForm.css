@@ -115,7 +115,7 @@ select.form-input {
   cursor: pointer;
 }
 
-.delete-button {
+.item-delete-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,11 +125,21 @@ select.form-input {
   cursor: pointer;
 }
 
+/* .delete-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: transparent;
+  padding: 18px;
+  cursor: pointer;
+} */
+
 .delete-icon {
   display: block;
 }
 
-.delete-button:hover .delete-icon {
+.item-delete-button :hover .delete-icon {
   filter: brightness(0) saturate(100%) invert(37%) sepia(92%) saturate(632%) hue-rotate(326deg) brightness(99%) contrast(101%);
 }
 

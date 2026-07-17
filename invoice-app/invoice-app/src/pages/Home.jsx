@@ -15,6 +15,11 @@ function Home() {
   const [invoiceList, setInvoiceList] = useState(invoices)
   const [selectedInvoice, setSelectedInvoice] = useState(null)
 
+  function handleOpenInvoiceForm() {
+    setSelectedInvoice(null)
+    setShowInvoiceForm(true)
+  }
+
   const filteredInvoices = selectedStatus
     ? invoiceList.filter(
       (invoice) =>
@@ -29,10 +34,48 @@ function Home() {
         selectedStatus={selectedStatus}
         setSelectedStatus={setSelectedStatus}
         invoiceCount={filteredInvoices.length}
-        setShowInvoiceForm={setShowInvoiceForm}
+        // setShowInvoiceForm={setShowInvoiceForm}
+        onOpenInvoiceForm={handleOpenInvoiceForm}
       />
 
-      {
+      {showInvoiceForm ? (
+
+        <InvoiceForm
+          setShowInvoiceForm={setShowInvoiceForm}
+          setInvoiceList={setInvoiceList}
+        />
+
+      ) : selectedInvoice ? (
+
+        <InvoiceDetails
+          invoice={selectedInvoice}
+          onGoBack={() => setSelectedInvoice(null)}
+        />
+
+      ) : filteredInvoices.length === 0 ? (
+
+        <EmptyState />
+
+      ) : (
+
+        <div className="invoices-list">
+          {filteredInvoices.map((invoice) => (
+            <InvoiceCard
+              key={invoice.id}
+              id={invoice.id}
+              client={invoice.client}
+              dueDate={invoice.dueDate}
+              total={invoice.total}
+              status={invoice.status}
+              invoice={invoice}
+              setSelectedInvoice={setSelectedInvoice}
+            />
+          ))}
+        </div>
+
+      )}
+
+      {/* {
         showInvoiceForm && (
           <InvoiceForm
             setShowInvoiceForm={setShowInvoiceForm}
@@ -64,7 +107,7 @@ function Home() {
             />
           ))}
         </div>
-      )}
+      )} */}
     </div>
 
   )

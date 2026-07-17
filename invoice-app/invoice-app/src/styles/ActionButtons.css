@@ -58,7 +58,6 @@
   .action-buttons {
     position: static;
 
-    flex: 0;
     justify-content: flex-end;
 
     max-width: 730px;
@@ -70,8 +69,4 @@
     box-shadow: none;
   }
 
-}
-
-@media (min-width: 768px) {
-  .action-buttons button {}
 }

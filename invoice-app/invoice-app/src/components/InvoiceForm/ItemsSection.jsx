@@ -82,7 +82,8 @@ function ItemsSection({
 
               <button
                 type="button"
-                className="delete-button"
+                // className="delete-button"
+                className="item-delete-button"
                 onClick={() => removeItem(index)}
               >
                 <img
