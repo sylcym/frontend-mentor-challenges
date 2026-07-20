@@ -74,6 +74,10 @@
   gap: 16px;
 }
 
+.country-group {
+  grid-column: 1 / -1;
+}
+
 select.form-input {
   cursor: pointer;
 }
@@ -195,4 +199,18 @@ select.form-input {
   font-size: 12px;
 
   color: #ec5757;
+}
+
+@media (min-width: 768px) {
+
+  .invoice-form {
+    width: 616px;
+    max-width: 616px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .form-row-three {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

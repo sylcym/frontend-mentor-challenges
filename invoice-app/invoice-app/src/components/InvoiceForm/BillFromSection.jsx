@@ -24,7 +24,7 @@ function BillFromSection({
         />
       </div>
 
-      <div className="form-row">
+      <div className="form-row form-row-three">
         <div className="form-group">
           <label className="form-label">
             City
@@ -52,20 +52,21 @@ function BillFromSection({
             onChange={handleChange}
           />
         </div>
-      </div>
+        {/* </div> */}
 
-      <div className="form-group">
-        <label className="form-label">
-          Country
-        </label>
+        <div className="form-group country-group">
+          <label className="form-label">
+            Country
+          </label>
 
-        <input
-          className="form-input"
-          type="text"
-          name="country"
-          value={formData.country}
-          onChange={handleChange}
-        />
+          <input
+            className="form-input"
+            type="text"
+            name="country"
+            value={formData.country}
+            onChange={handleChange}
+          />
+        </div>
       </div>
     </section>
   )
