@@ -16,7 +16,7 @@ function ItemsSection({
 
       {formData.items.map((item, index) => (
         <div
-          className="item-row"
+          className="item-row item-row-tablet"
           key={index}
         >
           <div className="form-group">
@@ -76,7 +76,7 @@ function ItemsSection({
             </div>
 
             <div className="form-group">
-              <label className="form-label">
+              <label className="form-label delete-label">
                 Delete
               </label>
 

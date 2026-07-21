@@ -143,6 +143,10 @@ select.form-input {
   display: block;
 }
 
+.delete-label {
+  visibility: hidden;
+}
+
 .item-delete-button :hover .delete-icon {
   filter: brightness(0) saturate(100%) invert(37%) sepia(92%) saturate(632%) hue-rotate(326deg) brightness(99%) contrast(101%);
 }
@@ -217,4 +221,15 @@ select.form-input {
   .country-group {
     grid-column: auto;
   }
+
+  .item-row-tablet {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: end;
+    gap: 16px;
+  }
+
+  /* .item-grid {
+    align-items: end;
+  } */
 }
