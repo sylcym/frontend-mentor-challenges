@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-
   max-width: 730px;
   margin: 0 auto;
   /* padding: 32px 0px 56px; */
@@ -23,10 +22,8 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-
   background: white;
   border-radius: 8px;
-
   padding: 24px;
 }
 
@@ -64,16 +61,6 @@
   height: 10px;
 }
 
-.invoice-details-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: white;
-  border-radius: 8px;
-
-  padding: 24px;
-}
 
 .invoice-details-title {
   display: flex;
@@ -133,7 +120,6 @@
   }
 
   .invoice-details-actions-desktop {
-    display: block;
     display: flex;
     align-items: center;
   }

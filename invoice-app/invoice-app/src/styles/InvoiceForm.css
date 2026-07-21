@@ -213,4 +213,8 @@ select.form-input {
   .form-row-three {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .country-group {
+    grid-column: auto;
+  }
 }
