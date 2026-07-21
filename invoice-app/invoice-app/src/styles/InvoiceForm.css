@@ -155,9 +155,14 @@ select.form-input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 24px;
+  background-color: white;
+  box-shadow: 0 -30px 40px rgba(0, 0, 0, 0.08);
+
+  margin: 40px -24px -32px;
+  padding: 24px;
+  /* padding-top: 24px;
   padding-bottom: 24px;
-  margin-top: 40px;
+  margin-top: 40px; */
 }
 
 .form-footer-right {
@@ -229,7 +234,10 @@ select.form-input {
     gap: 16px;
   }
 
-  /* .item-grid {
-    align-items: end;
-  } */
+  .form-footer {
+    box-shadow: none;
+    margin: 40px -32px -32px;
+    padding: 24px 32px 32px;
+  }
+
 }
