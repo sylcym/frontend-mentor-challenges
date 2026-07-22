@@ -17,6 +17,18 @@ main {
 
 }
 
+@media (min-width: 1024px) {
+
+  .layout {
+    flex-direction: row;
+  }
+
+  main {
+    padding: 72px 48px 48px;
+  }
+
+}
+
 /* .layout {
     flex-direction: row;
     padding: 48px;

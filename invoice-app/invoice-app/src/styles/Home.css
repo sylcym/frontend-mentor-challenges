@@ -3,3 +3,9 @@
   flex-direction: column;
   gap: 16px;
 }
+
+.home-content {
+  width: 100%;
+  max-width: 730px;
+  margin: 0 auto;
+}

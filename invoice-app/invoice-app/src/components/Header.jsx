@@ -54,12 +54,31 @@ function Header({
         </h1>
 
         <p className="header-description">
+
+          <span className="mobile-description">
+            {invoiceCount === 0
+              ? 'No invoices'
+              : invoiceCount === 1
+                ? '1 invoice'
+                : `${invoiceCount} invoices`}
+          </span>
+
+          <span className="desktop-description">
+            {invoiceCount === 0
+              ? 'No invoices'
+              : selectedStatus
+                ? `There are ${invoiceCount} ${selectedStatus} invoices`
+                : `There are ${invoiceCount} total invoices`}
+          </span>
+
+        </p>
+        {/* <p className="header-description">
           {invoiceCount === 0
             ? 'No invoices'
             : invoiceCount === 1
               ? '1 invoice'
               : `${invoiceCount} invoices`}
-        </p>
+        </p> */}
       </div>
 
       <div className="header-actions">
@@ -71,7 +90,14 @@ function Header({
             className="filter-button"
             onClick={() => setShowFilters(!showFilters)}
           >
-            <span>Filter</span>
+            {/* <span>Filter</span> */}
+            <span className="filter-mobile">
+              Filter
+            </span>
+
+            <span className="filter-tablet">
+              Filter by status
+            </span>
 
             <img
               src={ArrowDown}
@@ -92,13 +118,7 @@ function Header({
 
                 <span>Draft</span>
               </label>
-              {/* <button
-                className={`filter-option ${selectedStatus === 'draft' ? 'active-filter' : ''
-                  }`}
-                onClick={() => handleFilter('draft')}
-              >
-                Draft
-              </button> */}
+
               <label className="filter-option">
                 <input
                   type="checkbox"
@@ -109,13 +129,6 @@ function Header({
                 <span>Pending</span>
               </label>
 
-              {/* <button
-                className={`filter-option ${selectedStatus === 'pending' ? 'active-filter' : ''
-                  }`}
-                onClick={() => handleFilter('pending')}
-              >
-                Pending
-              </button> */}
               <label className="filter-option">
                 <input
                   type="checkbox"
@@ -126,26 +139,13 @@ function Header({
                 <span>Paid</span>
               </label>
 
-              {/* <button
-                className={`filter-option ${selectedStatus === 'paid' ? 'active-filter' : ''
-                  }`}
-                onClick={() => handleFilter('paid')}
-              >
-                Paid
-              </button> */}
               <button
                 className="filter-option "
                 onClick={() => handleFilter('')}
               >
                 Clear Filter
               </button>
-              {/* <button
-                className={`filter-option ${selectedStatus === '' ? 'active-filter' : ''
-                  }`}
-                onClick={() => handleFilter('')}
-              >
-                Clear Filter
-              </button> */}
+
             </div>
           )}
         </div>

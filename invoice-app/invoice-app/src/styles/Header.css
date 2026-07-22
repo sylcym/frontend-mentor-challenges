@@ -21,6 +21,14 @@
   color: #888eb0;
 }
 
+.mobile-description {
+  display: inline;
+}
+
+.desktop-description {
+  display: none;
+}
+
 .add-button {
   display: flex;
   justify-content: space-around;
@@ -78,6 +86,14 @@
 
 .filter-container {
   position: relative;
+}
+
+.filter-mobile {
+  display: inline;
+}
+
+.filter-tablet {
+  display: none;
 }
 
 .filter-button {
@@ -146,6 +162,8 @@
 
 
 @media (min-width: 768px) {
+
+
   .desktop-text {
     display: inline;
   }
@@ -163,6 +181,43 @@
   }
 
   .header-description {
-    font-size: 13px;
+    font-size: 12px;
+    letter-spacing: -0.25px;
+  }
+
+  .filter-mobile {
+    display: none;
+  }
+
+  .filter-tablet {
+    display: inline;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .mobile-description {
+    display: none;
+  }
+
+  .desktop-description {
+    display: inline;
+  }
+
+  .header-actions {
+    gap: 40px;
+  }
+
+  .add-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 8px 18px 8px 12px;
+  }
+
+  .filter-dropdown {
+    top: 30px;
+    left: -48px;
   }
 }

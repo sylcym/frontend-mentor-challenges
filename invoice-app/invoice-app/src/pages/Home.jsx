@@ -30,13 +30,6 @@ function Home() {
   return (
 
     <div>
-      <Header
-        selectedStatus={selectedStatus}
-        setSelectedStatus={setSelectedStatus}
-        invoiceCount={filteredInvoices.length}
-        // setShowInvoiceForm={setShowInvoiceForm}
-        onOpenInvoiceForm={handleOpenInvoiceForm}
-      />
 
       {showInvoiceForm ? (
 
@@ -52,65 +45,98 @@ function Home() {
           onGoBack={() => setSelectedInvoice(null)}
         />
 
-      ) : filteredInvoices.length === 0 ? (
-
-        <EmptyState />
-
       ) : (
 
-        <div className="invoices-list">
-          {filteredInvoices.map((invoice) => (
-            <InvoiceCard
-              key={invoice.id}
-              id={invoice.id}
-              client={invoice.client}
-              dueDate={invoice.dueDate}
-              total={invoice.total}
-              status={invoice.status}
-              invoice={invoice}
-              setSelectedInvoice={setSelectedInvoice}
-            />
-          ))}
+        <div className="home-content">
+
+          <Header
+            selectedStatus={selectedStatus}
+            setSelectedStatus={setSelectedStatus}
+            invoiceCount={filteredInvoices.length}
+            onOpenInvoiceForm={handleOpenInvoiceForm}
+          />
+
+          {filteredInvoices.length === 0 ? (
+
+            <EmptyState />
+
+          ) : (
+
+            <div className="invoices-list">
+              {filteredInvoices.map((invoice) => (
+                <InvoiceCard
+                  key={invoice.id}
+                  id={invoice.id}
+                  client={invoice.client}
+                  dueDate={invoice.dueDate}
+                  total={invoice.total}
+                  status={invoice.status}
+                  invoice={invoice}
+                  setSelectedInvoice={setSelectedInvoice}
+                />
+              ))}
+            </div>
+
+          )}
+
         </div>
 
       )}
 
-      {/* {
-        showInvoiceForm && (
-          <InvoiceForm
-            setShowInvoiceForm={setShowInvoiceForm}
-            setInvoiceList={setInvoiceList}
-          />
-        )
-      }
-
-
-      {selectedInvoice ? (
-        <InvoiceDetails
-          invoice={selectedInvoice}
-          onGoBack={() => setSelectedInvoice(null)}
-        />
-      ) : filteredInvoices.length === 0 ? (
-        <EmptyState />
-      ) : (
-        <div className="invoices-list">
-          {filteredInvoices.map((invoice) => (
-            <InvoiceCard
-              key={invoice.id}
-              id={invoice.id}
-              client={invoice.client}
-              dueDate={invoice.dueDate}
-              total={invoice.total}
-              status={invoice.status}
-              invoice={invoice}
-              setSelectedInvoice={setSelectedInvoice}
-            />
-          ))}
-        </div>
-      )} */}
     </div>
 
   )
+
+  // return (
+
+  //   <div>
+  //     <Header
+  //       selectedStatus={selectedStatus}
+  //       setSelectedStatus={setSelectedStatus}
+  //       invoiceCount={filteredInvoices.length}
+  //       // setShowInvoiceForm={setShowInvoiceForm}
+  //       onOpenInvoiceForm={handleOpenInvoiceForm}
+  //     />
+
+  //     {showInvoiceForm ? (
+
+  //       <InvoiceForm
+  //         setShowInvoiceForm={setShowInvoiceForm}
+  //         setInvoiceList={setInvoiceList}
+  //       />
+
+  //     ) : selectedInvoice ? (
+
+  //       <InvoiceDetails
+  //         invoice={selectedInvoice}
+  //         onGoBack={() => setSelectedInvoice(null)}
+  //       />
+
+  //     ) : filteredInvoices.length === 0 ? (
+
+  //       <EmptyState />
+
+  //     ) : (
+
+  //       <div className="invoices-list">
+  //         {filteredInvoices.map((invoice) => (
+  //           <InvoiceCard
+  //             key={invoice.id}
+  //             id={invoice.id}
+  //             client={invoice.client}
+  //             dueDate={invoice.dueDate}
+  //             total={invoice.total}
+  //             status={invoice.status}
+  //             invoice={invoice}
+  //             setSelectedInvoice={setSelectedInvoice}
+  //           />
+  //         ))}
+  //       </div>
+
+  //     )}
+  //   </div>
+
+  // )
 }
 
 
