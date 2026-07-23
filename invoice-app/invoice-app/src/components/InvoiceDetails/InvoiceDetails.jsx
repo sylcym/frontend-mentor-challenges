@@ -12,6 +12,8 @@ function InvoiceDetails({
   invoice,
   onGoBack,
   onEdit,
+  onMarkPaid,
+  onDelete,
 }) {
   const [showDeleteModal, setShowDeleteModal] =
     useState(false)
@@ -47,7 +49,7 @@ function InvoiceDetails({
             <ActionButtons
               onEdit={onEdit}
               onDelete={() => setShowDeleteModal(true)}
-              onMarkPaid={() => console.log('paid')}
+              onMarkPaid={onMarkPaid}
             />
 
           </div>
@@ -91,7 +93,7 @@ function InvoiceDetails({
           onEdit={onEdit}
           // onDelete={() => console.log('delete')}
           onDelete={() => setShowDeleteModal(true)}
-          onMarkPaid={() => console.log('paid')}
+          onMarkPaid={onMarkPaid}
         />
       </div>
 
@@ -99,7 +101,7 @@ function InvoiceDetails({
         <ConfirmDelete
           invoiceId={invoice.id}
           onCancel={() => setShowDeleteModal(false)}
-          onDelete={() => console.log('delete')}
+          onDelete={onDelete}
         />
       )}
     </>
@@ -112,6 +114,8 @@ InvoiceDetails.propTypes = {
   invoice: PropTypes.object,
   onGoBack: PropTypes.func,
   onEdit: PropTypes.func,
+  onMarkPaid: PropTypes.func,
+  onDelete: PropTypes.func.isRequired,
 }
 
 

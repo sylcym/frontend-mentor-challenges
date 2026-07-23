@@ -27,6 +27,27 @@ function Home() {
     setShowInvoiceForm(true)
   }
 
+  function handleMarkAsPaid(invoice) {
+    setInvoiceList((prev) =>
+      prev.map((item) =>
+        item.id === invoice.id
+          ? {
+            ...item,
+            status: 'paid',
+          }
+          : item
+      )
+    )
+  }
+
+  function handleDeleteInvoice(invoice) {
+    setInvoiceList((prev) =>
+      prev.filter((item) => item.id !== invoice.id)
+    )
+
+    setSelectedInvoice(null)
+  }
+
   const filteredInvoices = selectedStatus
     ? invoiceList.filter(
       (invoice) =>
@@ -52,6 +73,8 @@ function Home() {
           invoice={selectedInvoice}
           onGoBack={() => setSelectedInvoice(null)}
           onEdit={() => handleEditInvoice(selectedInvoice)}
+          onMarkPaid={() => handleMarkAsPaid(selectedInvoice)}
+          onDelete={() => handleDeleteInvoice(selectedInvoice)}
         />
 
       ) : (
