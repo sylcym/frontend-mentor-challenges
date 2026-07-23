@@ -11,8 +11,8 @@ import '../../styles/InvoiceDetails.css'
 function InvoiceDetails({
   invoice,
   onGoBack,
+  onEdit,
 }) {
-
   const [showDeleteModal, setShowDeleteModal] =
     useState(false)
 
@@ -45,7 +45,7 @@ function InvoiceDetails({
           <div className="invoice-details-actions-desktop">
 
             <ActionButtons
-              onEdit={() => console.log('edit')}
+              onEdit={onEdit}
               onDelete={() => setShowDeleteModal(true)}
               onMarkPaid={() => console.log('paid')}
             />
@@ -53,18 +53,6 @@ function InvoiceDetails({
           </div>
 
         </div>
-
-        {/* <div className="invoice-details-header">
-
-          <div className="invoice-details-status">
-            <p>Status</p>
-
-            <StatusBadge
-              status={invoice.status}
-            />
-          </div>
-
-        </div> */}
 
         <div className="invoice-details-card">
 
@@ -100,7 +88,7 @@ function InvoiceDetails({
       </section>
       <div className="invoice-details-actions-mobile">
         <ActionButtons
-          onEdit={() => console.log('edit')}
+          onEdit={onEdit}
           // onDelete={() => console.log('delete')}
           onDelete={() => setShowDeleteModal(true)}
           onMarkPaid={() => console.log('paid')}
@@ -123,6 +111,7 @@ function InvoiceDetails({
 InvoiceDetails.propTypes = {
   invoice: PropTypes.object,
   onGoBack: PropTypes.func,
+  onEdit: PropTypes.func,
 }
 
 

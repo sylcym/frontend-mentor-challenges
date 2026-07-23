@@ -241,3 +241,13 @@ select.form-input {
   }
 
 }
+
+@media (min-width: 1024px) {
+
+  .invoice-form {
+    top: 0;
+    left: 103px;
+    height: 100vh;
+  }
+
+}

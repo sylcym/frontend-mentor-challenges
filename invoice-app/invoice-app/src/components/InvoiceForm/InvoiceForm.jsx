@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import BillFromSection from './BillFromSection'
 import BillToSection from './BillToSection'
 import ItemsSection from './ItemsSection'
 import InvoiceDetailsSection from './InvoiceDetailsSection'
 // import '../styles/InvoiceForm.css'
+
 import '../../styles/InvoiceForm.css'
 
 const initialFormData = {
@@ -33,12 +34,41 @@ const initialFormData = {
 function InvoiceForm({
   setShowInvoiceForm,
   setInvoiceList,
+  invoiceToEdit,
+  setInvoiceToEdit,
 }) {
 
   const [formData, setFormData] =
     useState(initialFormData)
 
   const [errors, setErrors] = useState({})
+
+  useEffect(() => {
+    if (!invoiceToEdit) {
+      return
+    }
+
+    setFormData({
+      street: invoiceToEdit.senderAddress.street,
+      city: invoiceToEdit.senderAddress.city,
+      postCode: invoiceToEdit.senderAddress.postCode,
+      country: invoiceToEdit.senderAddress.country,
+
+      clientName: invoiceToEdit.client,
+      clientEmail: invoiceToEdit.clientAddress.email,
+      clientStreet: invoiceToEdit.clientAddress.street,
+      clientCity: invoiceToEdit.clientAddress.city,
+      clientPostCode: invoiceToEdit.clientAddress.postCode,
+      clientCountry: invoiceToEdit.clientAddress.country,
+
+      invoiceDate: invoiceToEdit.dueDate,
+      paymentTerms: '30',
+
+      projectDescription: invoiceToEdit.projectDescription,
+
+      items: invoiceToEdit.items,
+    })
+  }, [invoiceToEdit])
 
   function handleChange(e) {
     const { name, value } = e.target
@@ -147,7 +177,6 @@ function InvoiceForm({
       return
     }
 
-
     const newInvoice = {
       id: crypto.randomUUID().slice(0, 6),
 
@@ -183,12 +212,35 @@ function InvoiceForm({
       status: 'Pending',
     }
 
-    setInvoiceList((prev) => [
-      newInvoice,
-      ...prev,
-    ])
+
+    if (invoiceToEdit) {
+
+      setInvoiceList((prev) => {
+        const updated = prev.map((invoice) =>
+          invoice.id === invoiceToEdit.id
+            ? {
+              ...newInvoice,
+              id: invoice.id,
+              status: invoice.status,
+            }
+            : invoice
+        )
+
+        return updated
+      })
+
+    } else {
+
+      setInvoiceList((prev) => [
+        newInvoice,
+        ...prev,
+      ])
+
+    }
+
 
     setShowInvoiceForm(false)
+    setInvoiceToEdit(null)
     resetForm()
   }
 
@@ -208,7 +260,9 @@ function InvoiceForm({
         </button>
 
         <h2 className="form-title">
-          New Invoice
+          {invoiceToEdit
+            ? `Edit #${invoiceToEdit.id}`
+            : 'New Invoice'}
         </h2>
 
         <form
@@ -274,8 +328,39 @@ function InvoiceForm({
 }
 
 InvoiceForm.propTypes = {
-  setShowInvoiceForm: PropTypes.func,
-  setInvoiceList: PropTypes.func,
+  setShowInvoiceForm: PropTypes.func.isRequired,
+  setInvoiceList: PropTypes.func.isRequired,
+  setInvoiceToEdit: PropTypes.func.isRequired,
+
+  invoiceToEdit: PropTypes.shape({
+    id: PropTypes.string,
+    client: PropTypes.string,
+    projectDescription: PropTypes.string,
+    dueDate: PropTypes.string,
+
+    senderAddress: PropTypes.shape({
+      street: PropTypes.string,
+      city: PropTypes.string,
+      postCode: PropTypes.string,
+      country: PropTypes.string,
+    }),
+
+    clientAddress: PropTypes.shape({
+      email: PropTypes.string,
+      street: PropTypes.string,
+      city: PropTypes.string,
+      postCode: PropTypes.string,
+      country: PropTypes.string,
+    }),
+
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+        quantity: PropTypes.number,
+        price: PropTypes.number,
+      })
+    ),
+  }),
 }
 
 export default InvoiceForm

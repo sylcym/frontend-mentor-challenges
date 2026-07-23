@@ -14,8 +14,15 @@ function Home() {
   const [showInvoiceForm, setShowInvoiceForm] = useState(false)
   const [invoiceList, setInvoiceList] = useState(invoices)
   const [selectedInvoice, setSelectedInvoice] = useState(null)
+  const [invoiceToEdit, setInvoiceToEdit] = useState(null)
 
   function handleOpenInvoiceForm() {
+    setSelectedInvoice(null)
+    setShowInvoiceForm(true)
+  }
+
+  function handleEditInvoice(invoice) {
+    setInvoiceToEdit(invoice)
     setSelectedInvoice(null)
     setShowInvoiceForm(true)
   }
@@ -36,13 +43,15 @@ function Home() {
         <InvoiceForm
           setShowInvoiceForm={setShowInvoiceForm}
           setInvoiceList={setInvoiceList}
+          invoiceToEdit={invoiceToEdit}
+          setInvoiceToEdit={setInvoiceToEdit}
         />
-
       ) : selectedInvoice ? (
 
         <InvoiceDetails
           invoice={selectedInvoice}
           onGoBack={() => setSelectedInvoice(null)}
+          onEdit={() => handleEditInvoice(selectedInvoice)}
         />
 
       ) : (
@@ -87,56 +96,6 @@ function Home() {
 
   )
 
-  // return (
-
-  //   <div>
-  //     <Header
-  //       selectedStatus={selectedStatus}
-  //       setSelectedStatus={setSelectedStatus}
-  //       invoiceCount={filteredInvoices.length}
-  //       // setShowInvoiceForm={setShowInvoiceForm}
-  //       onOpenInvoiceForm={handleOpenInvoiceForm}
-  //     />
-
-  //     {showInvoiceForm ? (
-
-  //       <InvoiceForm
-  //         setShowInvoiceForm={setShowInvoiceForm}
-  //         setInvoiceList={setInvoiceList}
-  //       />
-
-  //     ) : selectedInvoice ? (
-
-  //       <InvoiceDetails
-  //         invoice={selectedInvoice}
-  //         onGoBack={() => setSelectedInvoice(null)}
-  //       />
-
-  //     ) : filteredInvoices.length === 0 ? (
-
-  //       <EmptyState />
-
-  //     ) : (
-
-  //       <div className="invoices-list">
-  //         {filteredInvoices.map((invoice) => (
-  //           <InvoiceCard
-  //             key={invoice.id}
-  //             id={invoice.id}
-  //             client={invoice.client}
-  //             dueDate={invoice.dueDate}
-  //             total={invoice.total}
-  //             status={invoice.status}
-  //             invoice={invoice}
-  //             setSelectedInvoice={setSelectedInvoice}
-  //           />
-  //         ))}
-  //       </div>
-
-  //     )}
-  //   </div>
-
-  // )
 }
 
 

@@ -16,7 +16,11 @@ function InvoiceCard({
   return (
     <article
       className="invoice-card"
-      onClick={() => setSelectedInvoice(invoice)}
+      // onClick={() => setSelectedInvoice(invoice)}
+      onClick={() => {
+        console.log(invoice)
+        setSelectedInvoice(invoice)
+      }}
     >
       <div className="invoice-card-top">
         <h2 className="invoice-id">
