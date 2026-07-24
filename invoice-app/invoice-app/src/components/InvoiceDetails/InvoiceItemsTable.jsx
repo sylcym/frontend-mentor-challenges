@@ -17,10 +17,10 @@ function InvoiceItemsTable({ items }) {
 
         <div className="items-list">
 
-          {items.map((item) => (
+          {items.map((item, index) => (
             <div
               className="invoice-item-row"
-              key={item.id}
+              key={index}
             >
 
               <div className="item-info">
@@ -66,8 +66,8 @@ function InvoiceItemsTable({ items }) {
 
         <tbody>
 
-          {items.map((item) => (
-            <tr key={item.id}>
+          {items.map((item, index) => (
+            <tr key={index}>
 
               <td>{item.name}</td>
 
