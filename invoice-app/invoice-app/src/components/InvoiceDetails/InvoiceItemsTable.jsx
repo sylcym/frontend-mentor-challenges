@@ -97,46 +97,7 @@ function InvoiceItemsTable({ items }) {
 
     </section >
   )
-  //   return (
-  //     <section className="invoice-items">
 
-  //       <div className="items-list">
-
-  //         {items.map((item) => (
-  //           <div
-  //             className="invoice-item-row"
-  //             key={item.name}
-  //           >
-
-  //             <div className="item-info">
-  //               <h4>{item.name}</h4>
-
-  //               <p className="item-details">
-  //                 {item.quantity} x {formatCurrency(item.price)}
-  //               </p>
-  //             </div>
-
-  //             <p className="item-total">
-  //               {formatCurrency(item.quantity * item.price)}
-  //             </p>
-
-  //           </div>
-  //         ))}
-
-  //       </div>
-
-  //       <div className="grand-total">
-
-  //         <p>Grand Total</p>
-
-  //         <h3>
-  //           {formatCurrency(total)}
-  //         </h3>
-
-  //       </div>
-
-  //     </section>
-  //   )
 }
 
 InvoiceItemsTable.propTypes = {

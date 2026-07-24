@@ -169,15 +169,8 @@ function InvoiceForm({
   //   )
   // }
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    const isValid = validateForm()
-
-    if (!isValid) {
-      return
-    }
-
-    const newInvoice = {
+  function createInvoice(status) {
+    return {
       id: crypto.randomUUID().slice(0, 6),
 
       client: formData.clientName,
@@ -209,25 +202,26 @@ function InvoiceForm({
         0
       ),
 
-      status: 'Pending',
+      status,
     }
+  }
 
+  function saveInvoice(status) {
+    const newInvoice = createInvoice(status)
 
     if (invoiceToEdit) {
 
-      setInvoiceList((prev) => {
-        const updated = prev.map((invoice) =>
+      setInvoiceList((prev) =>
+        prev.map((invoice) =>
           invoice.id === invoiceToEdit.id
             ? {
               ...newInvoice,
               id: invoice.id,
-              status: invoice.status,
+              status,
             }
             : invoice
         )
-
-        return updated
-      })
+      )
 
     } else {
 
@@ -238,7 +232,27 @@ function InvoiceForm({
 
     }
 
+    setShowInvoiceForm(false)
+    setInvoiceToEdit(null)
+    resetForm()
+  }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    const isValid = validateForm()
+
+    if (!isValid) {
+      return
+    }
+    saveInvoice('pending')
+
+  }
+
+  function handleSaveDraft() {
+    saveInvoice('draft')
+  }
+
+  function closeForm() {
     setShowInvoiceForm(false)
     setInvoiceToEdit(null)
     resetForm()
@@ -248,13 +262,13 @@ function InvoiceForm({
     <>
       <div
         className="overlay"
-        onClick={() => setShowInvoiceForm(false)}
+        onClick={closeForm}
       ></div>
 
       <aside className="invoice-form">
         <button
           className="close-button"
-          onClick={() => setShowInvoiceForm(false)}
+          onClick={closeForm}
         >
           Close
         </button>
@@ -296,31 +310,51 @@ function InvoiceForm({
           />
 
           <div className="form-footer">
+
             <button
               type="button"
               className="discard-button"
-              onClick={() => setShowInvoiceForm(false)}
+              onClick={closeForm}
             >
-              Discard
+              {invoiceToEdit ? 'Cancel' : 'Discard'}
             </button>
 
             <div className="form-footer-right">
-              <button
-                type="button"
-                className="draft-button"
-              >
-                Save as Draft
-              </button>
 
-              <button
-                type="submit"
-                className="save-button"
-              // disabled={isFormEmpty()}
-              >
-                Save & Send
-              </button>
+              {invoiceToEdit ? (
+
+                <button
+                  type="submit"
+                  className="save-button"
+                >
+                  Save Changes
+                </button>
+
+              ) : (
+
+                <>
+                  <button
+                    type="button"
+                    className="draft-button"
+                    onClick={handleSaveDraft}
+                  >
+                    Save as Draft
+                  </button>
+
+                  <button
+                    type="submit"
+                    className="save-button"
+                  >
+                    Save & Send
+                  </button>
+                </>
+
+              )}
+
             </div>
+
           </div>
+
         </form>
       </aside>
     </>
