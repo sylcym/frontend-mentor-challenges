@@ -31,7 +31,7 @@
 
 .add-button {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   gap: 8px;
   font-size: 12px;
@@ -133,7 +133,7 @@
   border-radius: 8px;
   box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
   padding: 24px;
-  z-index: 5;
+  z-index: 10;
 
 }
 
@@ -162,7 +162,13 @@
 
 
 @media (min-width: 768px) {
+  .mobile-description {
+    display: none;
+  }
 
+  .desktop-description {
+    display: inline;
+  }
 
   .desktop-text {
     display: inline;
@@ -181,7 +187,6 @@
   }
 
   .header-description {
-    font-size: 12px;
     letter-spacing: -0.25px;
   }
 
@@ -195,15 +200,6 @@
 }
 
 @media (min-width: 1024px) {
-
-  .mobile-description {
-    display: none;
-  }
-
-  .desktop-description {
-    display: inline;
-  }
-
   .header-actions {
     gap: 40px;
   }

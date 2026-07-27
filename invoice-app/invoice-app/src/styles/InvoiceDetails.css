@@ -137,20 +137,12 @@
     box-shadow: none;
   }
 
+  .invoice-details-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 
-
-  /* @media (min-width:768px) {
-
-    .invoice-details-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .sender-address {
-      margin-top: 0px;
-    }
-
-  }*/
-
-}
+  .sender-address {
+    margin-top: 0px;
+  }

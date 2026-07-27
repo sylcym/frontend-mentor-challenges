@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import '../../styles/ActionButtons.css'
 
 function ActionButtons({
+  status,
   onEdit,
   onDelete,
   onMarkPaid,
@@ -25,19 +26,29 @@ function ActionButtons({
         Delete
       </button>
 
-      <button
+      {/* <button
         type="button"
         className="paid-button"
         onClick={onMarkPaid}
       >
         Mark as Paid
-      </button>
+      </button> */}
+      {status === 'Pending' && (
+        <button
+          type="button"
+          className="paid-button"
+          onClick={onMarkPaid}
+        >
+          Mark as Paid
+        </button>
+      )}
 
     </footer>
   )
 }
 
 ActionButtons.propTypes = {
+  status: PropTypes.string,
   onEdit: PropTypes.func,
   onDelete: PropTypes.func,
   onMarkPaid: PropTypes.func,

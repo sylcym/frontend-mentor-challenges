@@ -160,13 +160,11 @@ select.form-input {
 
   margin: 40px -24px -32px;
   padding: 24px;
-  /* padding-top: 24px;
-  padding-bottom: 24px;
-  margin-top: 40px; */
 }
 
 .form-footer-right {
   display: flex;
+  align-items: center;
   gap: 8px;
 }
 
@@ -240,11 +238,6 @@ select.form-input {
     padding: 24px 32px 32px;
   }
 
-  .form-footer-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
 
 }
 

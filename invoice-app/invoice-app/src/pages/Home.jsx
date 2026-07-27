@@ -28,16 +28,20 @@ function Home() {
   }
 
   function handleMarkAsPaid(invoice) {
+    const updatedInvoice = {
+      ...invoice,
+      status: 'paid',
+    }
+
     setInvoiceList((prev) =>
       prev.map((item) =>
         item.id === invoice.id
-          ? {
-            ...item,
-            status: 'paid',
-          }
+          ? updatedInvoice
           : item
       )
     )
+
+    setSelectedInvoice(updatedInvoice)
   }
 
   function handleDeleteInvoice(invoice) {

@@ -47,6 +47,7 @@ function InvoiceDetails({
           <div className="invoice-details-actions-desktop">
 
             <ActionButtons
+              status={invoice.status}
               onEdit={onEdit}
               onDelete={() => setShowDeleteModal(true)}
               onMarkPaid={onMarkPaid}
@@ -90,8 +91,8 @@ function InvoiceDetails({
       </section>
       <div className="invoice-details-actions-mobile">
         <ActionButtons
+          status={invoice.status}
           onEdit={onEdit}
-          // onDelete={() => console.log('delete')}
           onDelete={() => setShowDeleteModal(true)}
           onMarkPaid={onMarkPaid}
         />

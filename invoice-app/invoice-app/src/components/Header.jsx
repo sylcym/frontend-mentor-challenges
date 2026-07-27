@@ -66,19 +66,16 @@ function Header({
           <span className="desktop-description">
             {invoiceCount === 0
               ? 'No invoices'
-              : selectedStatus
-                ? `There are ${invoiceCount} ${selectedStatus} invoices`
-                : `There are ${invoiceCount} total invoices`}
+              : invoiceCount === 1
+                ? selectedStatus
+                  ? `There is 1 ${selectedStatus} invoice`
+                  : 'There is 1 total invoice'
+                : selectedStatus
+                  ? `There are ${invoiceCount} ${selectedStatus} invoices`
+                  : `There are ${invoiceCount} total invoices`}
           </span>
 
         </p>
-        {/* <p className="header-description">
-          {invoiceCount === 0
-            ? 'No invoices'
-            : invoiceCount === 1
-              ? '1 invoice'
-              : `${invoiceCount} invoices`}
-        </p> */}
       </div>
 
       <div className="header-actions">
@@ -90,7 +87,7 @@ function Header({
             className="filter-button"
             onClick={() => setShowFilters(!showFilters)}
           >
-            {/* <span>Filter</span> */}
+
             <span className="filter-mobile">
               Filter
             </span>
