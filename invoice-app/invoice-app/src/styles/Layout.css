@@ -24,12 +24,12 @@ main {
   }
 
   main {
+    margin-left: 103px;
     padding: 72px 48px 48px;
   }
 
-}
-
-/* .layout {
-    flex-direction: row;
-    padding: 48px;
+  /* main {
+    padding: 72px 48px 48px;
   } */
+
+}

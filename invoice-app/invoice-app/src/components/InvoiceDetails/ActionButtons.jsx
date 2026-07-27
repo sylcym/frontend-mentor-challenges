@@ -26,13 +26,6 @@ function ActionButtons({
         Delete
       </button>
 
-      {/* <button
-        type="button"
-        className="paid-button"
-        onClick={onMarkPaid}
-      >
-        Mark as Paid
-      </button> */}
       {status === 'Pending' && (
         <button
           type="button"

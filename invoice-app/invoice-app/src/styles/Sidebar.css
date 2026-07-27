@@ -18,7 +18,7 @@
   border-bottom-right-radius: 20px;
 }
 
-bar-actions {
+.sidebar-actions {
   margin-left: auto;
 }
 
@@ -63,7 +63,9 @@ bar-actions {
   .aside {
     flex-direction: column;
     justify-content: space-between;
-
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 103px;
     height: 100vh;
     border-top-right-radius: 20px;
@@ -101,26 +103,4 @@ bar-actions {
     height: 40px;
 
   }
-
-
-
-  /* .aside {
-    flex-direction: column;
-    justify-content: space-between;
-
-    width: 80px;
-    height: 100vh;
-
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-  } */
-
-  /* .sidebar-logo {
-    width: 80px;
-    height: 80px;
-  }
-.sidebar-avatar {
-  border-left: none;
-  border-top: 1px solid #494e6e;
-} */
 }
