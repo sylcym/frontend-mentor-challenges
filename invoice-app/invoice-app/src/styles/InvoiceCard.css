@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 24px;
   position: relative;
-  background-color: white;
+  background-color: var(--color-surface);
   border-radius: 8px;
   border: 1px solid transparent;
   transition: border 0.2s ease;
@@ -12,7 +12,7 @@
 }
 
 .invoice-card:hover {
-  border-color: #7C5DFA;
+  border-color: var(--color-primary);
 }
 
 .invoice-card-top {
@@ -33,7 +33,7 @@
   font-weight: 500;
   line-height: 15px;
   letter-spacing: -0.25px;
-  color: #858bb2;
+  color: var(--color-status);
 }
 
 .invoice-card-middle {
@@ -44,7 +44,7 @@
 
 .invoice-date {
   font-size: 12px;
-  color: #7e88c3;
+  color: var(--color-text-secondary);
   margin-bottom: 8px;
 }
 

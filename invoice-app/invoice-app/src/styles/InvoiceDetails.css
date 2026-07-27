@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background-color: var(--color-surface);
   border-radius: 8px;
   padding: 24px;
 }
@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  background: white;
+  background-color: var(--color-surface);
   border-radius: 8px;
   padding: 24px;
 }
@@ -37,7 +37,7 @@
 
 .invoice-details-status p {
   font-size: 13px;
-  color: #858bb2;
+  color: var(--color-status);
 }
 
 .go-back-button {
@@ -53,7 +53,7 @@
 }
 
 .go-back-button:hover {
-  color: #7C5DFA;
+  color: var(--color-primary);
 }
 
 .go-back-button img {
@@ -75,7 +75,7 @@
 
 .invoice-details-title p {
   font-size: 13px;
-  color: #7e88c3;
+  color: var(--color-text-secondary);
 }
 
 .sender-address {
@@ -85,7 +85,7 @@
 .sender-address p {
   font-size: 11px;
   line-height: 18px;
-  color: #7E88C3;
+  color: var(--color-text-secondary);
 }
 
 .invoice-details-actions-desktop {
@@ -146,3 +146,4 @@
   .sender-address {
     margin-top: 0px;
   }
+}

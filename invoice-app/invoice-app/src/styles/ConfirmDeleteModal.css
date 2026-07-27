@@ -12,7 +12,7 @@
   transform: translate(-50%, -50%);
   width: calc(100% - 48px);
   max-width: 327px;
-  background: white;
+  background: var(--color-surface);
   border-radius: 8px;
   padding: 32px;
   z-index: 201;
@@ -21,14 +21,14 @@
 .confirm-delete h2 {
   font-size: 24px;
   font-weight: 700;
-  color: #0C0E16;
+  color: var(--color-text);
   margin-bottom: 8px;
 }
 
 .confirm-delete p {
   font-size: 13px;
   line-height: 22px;
-  color: #888EB0;
+  color: var(--color-text-muted);
   margin-bottom: 24px;
 }
 
@@ -44,8 +44,8 @@
   font-weight: 700;
   border: none;
   border-radius: 24px;
-  background: #F9FAFE;
-  color: #7E88C3;
+  background-color: (--color-bcg-table);
+  color: var(--color-text-secondary);
   padding: 0 24px;
   cursor: pointer;
 }
@@ -56,16 +56,16 @@
   font-weight: 700;
   border: none;
   border-radius: 24px;
-  background-color: red;
-  color: white;
+  background-color: var(--color-danger);
+  color: var(--color-surface);
   padding: 0 24px;
   cursor: pointer;
 }
 
 .cancel-button:hover {
-  background: #DFE3FA;
+  background-color: var(--color-border);
 }
 
 .delete-button:hover {
-  background: #FF9797;
+  background: var(--color-danger-hover);
 }

@@ -17,28 +17,28 @@
 }
 
 .paid {
-  background: rgba(51, 214, 159, 0.1);
-  color: #33D69F;
+  background-color: var(--color-paid-bg);
+  color: var(--color-paid);
 }
 
 .paid .status-dot {
-  background: #33D69F;
+  background-color: var(--color-paid);
 }
 
 .pending {
-  background: rgba(255, 143, 0, 0.1);
-  color: #FF8F00;
+  background-color: var(--color-pending-bg);
+  color: var(--color-pending);
 }
 
 .pending .status-dot {
-  background: #FF8F00;
+  background-color: var(--color-pending);
 }
 
 .draft {
-  background: rgba(55, 59, 83, 0.1);
-  color: #373B53;
+  background-color: var(--color-draft-bg);
+  color: var(--color-draft);
 }
 
 .draft .status-dot {
-  background: #373B53;
+  background: var(--color-draft);
 }

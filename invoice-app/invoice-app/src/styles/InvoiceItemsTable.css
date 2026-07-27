@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  background: #F9FAFE;
+  background: var(--color-bcg-table);
   padding: 24px;
 }
 
@@ -27,27 +27,27 @@
 .item-info h4 {
   font-size: 15px;
   font-weight: 700;
-  color: #0C0E16;
+  color: var(--color-text);
 }
 
 .item-details {
   font-size: 12px;
   font-weight: 700;
-  color: #7E88C3;
+  color: var(--color-text-secondary);
 }
 
 .item-total {
   font-size: 15px;
   font-weight: 700;
-  color: #0C0E16;
+  color: var(--color-text);
 }
 
 .grand-total {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #373B53;
-  color: white;
+  background-color: var(--color-sidebar);
+  color: var(--color-surface);
   padding: 24px;
   border-radius: 0 0 8px 8px;
 }
@@ -81,7 +81,7 @@
 
     border-collapse: collapse;
 
-    background: #F9FAFE;
+    background: var(--color-bcg-table);
     border-radius: 8px;
     overflow: hidden;
   }
@@ -91,7 +91,7 @@
 
     font-size: 11px;
     font-weight: 500;
-    color: #7E88C3;
+    color: var(--color-text-secondary);
   }
 
   .invoice-items-table th:first-child {
@@ -111,40 +111,40 @@
   .invoice-items-table td:first-child {
     font-size: 12px;
     font-weight: 700;
-    color: #0C0E16;
+    color: var(--color-text);
 
     text-align: left;
   }
 
   .invoice-items-table td:nth-child(2),
   .invoice-items-table td:nth-child(3) {
-    color: #7E88C3;
+    color: var(--color-text-secondary);
     text-align: right;
   }
 
   .invoice-items-table td:last-child {
     font-weight: 700;
-    color: #0C0E16;
+    color: var(--color-text);
 
     text-align: right;
   }
 
   .invoice-items-table tfoot td {
     padding: 24px 32px;
-    background: #373B53;
+    background-color: var(--color-sidebar);
     /* color: white; */
   }
 
   .invoice-items-table tfoot td:first-child {
     font-size: 11px;
     font-weight: 500;
-    color: white;
+    color: var(--color-surface);
   }
 
   .invoice-items-table tfoot td:last-child {
     font-size: 24px;
     font-weight: 700;
-    color: white;
+    color: var(--color-surface);
     text-align: right;
   }
 

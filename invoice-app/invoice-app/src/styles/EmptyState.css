@@ -22,7 +22,7 @@
   font-size: 12px;
   text-align: center;
   line-height: 22px;
-  color: #888eb0;
+  color: var(--color-text-muted);
 }
 
 .empty-description strong {

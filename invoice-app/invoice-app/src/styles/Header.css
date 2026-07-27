@@ -9,7 +9,7 @@
   font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.75px;
-  color: #0C0E16;
+  color: var(--color-text);
   margin-bottom: 4px;
 }
 
@@ -18,7 +18,7 @@
   font-weight: 500;
   letter-spacing: 0.25px;
   line-height: 15px;
-  color: #888eb0;
+  color: var(--color-text-muted);
 }
 
 .mobile-description {
@@ -39,8 +39,8 @@
   letter-spacing: -0.25px;
   border: none;
   border-radius: 24px;
-  background-color: #7c5dfa;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
   padding: 6px 8px 6px 6px;
   transition: background-color .2s ease;
   cursor: pointer;
@@ -53,11 +53,11 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: white;
+  background: var(--color-surface);
 }
 
 .add-button:hover {
-  background: #9277FF;
+  background: var(--color-primary-hover);
 }
 
 .plus-icon {
@@ -102,14 +102,14 @@
   gap: 8px;
   font-size: 12px;
   font-weight: 700;
-  color: #0C0E16;
+  color: var(--color-text);
   border: none;
   background: transparent;
   cursor: pointer;
 }
 
 .filter-button:hover {
-  color: #7C5DFA;
+  color: var(--color-primary);
 }
 
 .filter-arrow {
@@ -129,7 +129,7 @@
   top: 40px;
   left: -40px;
   width: 192px;
-  background-color: white;
+  background-color: var(--color-surface);
   border-radius: 8px;
   box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
   padding: 24px;
@@ -152,12 +152,12 @@
 .filter-option input {
   width: 16px;
   height: 16px;
-  accent-color: #7C5DFA;
+  accent-color: var(--color-primary);
   cursor: pointer;
 }
 
 .filter-option:hover {
-  color: #7C5DFA;
+  color: var(--color-primary);
 }
 
 

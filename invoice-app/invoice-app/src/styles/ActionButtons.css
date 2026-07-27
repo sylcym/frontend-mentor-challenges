@@ -7,7 +7,7 @@
   justify-content: flex-end;
   align-items: center;
   gap: 8px;
-  background: white;
+  background-color: var(--color-surface);
   box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.05);
   padding: 20px 24px;
   z-index: 10;
@@ -27,30 +27,30 @@
 }
 
 .edit-button {
-  background: #F9FAFE;
-  color: #7E88C3;
+  background-color: var(--color-bcg-table);
+  color: var(--color-text-secondary);
 }
 
 .edit-button:hover {
-  background: #DFE3FA;
+  background-color: var(--color-border);
 }
 
 .action-delete-button {
-  background: #EC5757;
-  color: white;
+  background: var(--color-danger);
+  color: var(--color-surface);
 }
 
 .action-delete-button:hover {
-  background: #FF9797;
+  background: var(--color-danger-hover);
 }
 
 .paid-button {
-  background: #7C5DFA;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-surface);
 }
 
 .paid-button:hover {
-  background: #9277FF;
+  background: var(--color-primary-hover);
 }
 
 @media (min-width: 768px) {

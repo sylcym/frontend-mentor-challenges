@@ -19,7 +19,7 @@
 .section-label {
   font-size: 12px;
   font-weight: 500;
-  color: #7E88C3;
+  color: var(--color-text-secondary);
   margin-bottom: 12px;
 }
 
@@ -31,14 +31,14 @@
 .bill-to-section h3 {
   font-size: 15px;
   font-weight: 700;
-  color: #0C0E16;
+  color: var(--color-text);
   margin-bottom: 8px;
 }
 
 .bill-to-section p:not(.section-label) {
   font-size: 11px;
   line-height: 18px;
-  color: #7E88C3;
+  color: var(--color-text-secondary);
 }
 
 .send-to-section {
@@ -50,13 +50,13 @@
 .send-to-section p:last-child {
   font-size: 15px;
   font-weight: 700;
-  color: #0C0E16;
+  color: var(--color-text);
 }
 
 .invoice-dates h3 {
   font-size: 15px;
   font-weight: 700;
-  color: #0C0E16;
+  color: var(--color-text);
   margin-top: 8px;
 }
 
