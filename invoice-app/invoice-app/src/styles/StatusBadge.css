@@ -17,7 +17,7 @@
 }
 
 .paid {
-  background-color: var(--color-paid-bg);
+  background-color: var(--color-paid-background);
   color: var(--color-paid);
 }
 
@@ -26,7 +26,7 @@
 }
 
 .pending {
-  background-color: var(--color-pending-bg);
+  background-color: var(--color-pending-background);
   color: var(--color-pending);
 }
 
@@ -35,7 +35,7 @@
 }
 
 .draft {
-  background-color: var(--color-draft-bg);
+  background-color: var(--color-draft-background);
   color: var(--color-draft);
 }
 

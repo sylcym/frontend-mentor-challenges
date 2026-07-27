@@ -10,7 +10,8 @@
   /* Background */
   --color-background: #F8F8FB;
   --color-surface: #FFFFFF;
-  --color-bcg-table: #F9FAFE;
+  --color-table-background: #F9FAFE;
+
 
   /* Sidebar */
   --color-sidebar: #373B53;
@@ -20,54 +21,61 @@
   --color-text: #0C0E16;
   --color-text-secondary: #7E88C3;
   --color-text-muted: #888EB0;
-  --color-items-title: #777f98;
-  --color-status: #858bb2;
+  --color-item-title: #777f98;
+  --color-status-label: #858bb2;
 
   /* Borders */
   --color-border: #DFE3FA;
 
   /* Status colors */
   --color-paid: #33D69F;
-  --color-paid-bg: rgba(51, 214, 159, 0.06);
+  --color-paid-background: rgba(51, 214, 159, 0.06);
 
   --color-pending: #FF8F00;
-  --color-pending-bg: rgba(255, 143, 0, 0.06);
+  --color-pending-background: rgba(255, 143, 0, 0.06);
 
   --color-draft: #373B53;
-  --color-draft-bg: rgba(55, 59, 83, 0.06);
+  --color-draft-background: rgba(55, 59, 83, 0.06);
 
   /* Danger */
   --color-danger: #EC5757;
   --color-danger-hover: #FF9797;
+
+  /* Effects */
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-shadow: rgba(72, 84, 159, 0.25);
 }
 
 .dark {
+  /* Background */
   --color-background: #141625;
   --color-surface: #1E2139;
+  --color-table-background: #252945;
 
+  /* Sidebar */
   --color-sidebar: #1E2139;
+  --color-sidebar-divider: #252945;
 
-  --color-text: #FFFFFF;
+  /* Text */
+  --color-text-primary: #FFFFFF;
   --color-text-secondary: #DFE3FA;
   --color-text-muted: #888EB0;
+  --color-item-title: #DFE3FA;
+  --color-status-label: #DFE3FA;
 
+  /* Borders */
   --color-border: #252945;
 
-  /* te kolory zostają bez zmian */
-  --color-primary: var(--color-primary);
-  --color-primary-hover: #9277FF;
-
-  --color-paid: #33D69F;
-  --color-paid-bg: rgba(51, 214, 159, .15);
-
-  --color-pending: #FF8F00;
-  --color-pending-bg: rgba(255, 143, 0, .15);
-
-  --color-danger: #EC5757;
-  --color-danger-hover: #FF9797;
+  /* Status */
+  --color-paid-background: rgba(51, 214, 159, 0.15);
+  --color-pending-background: rgba(255, 143, 0, 0.15);
 
   --color-draft: #DFE3FA;
-  --color-draft-bg: rgba(223, 227, 250, .15);
+  --color-draft-background: rgba(223, 227, 250, 0.15);
+
+  /* Effects */
+  --color-overlay: rgba(0, 0, 0, 0.7);
+  --color-shadow: rgba(0, 0, 0, 0.3);
 }
 
 * {

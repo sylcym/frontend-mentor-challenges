@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--color-overlay);
   z-index: 5;
 }
 
@@ -85,7 +85,7 @@ select.form-input {
 .items-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--color-items-title);
+  color: var(--color-item-title);
 }
 
 .item-row {
@@ -156,7 +156,8 @@ select.form-input {
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-surface);
-  box-shadow: 0 -30px 40px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 -30px 40px rgba(0, 0, 0, 0.08); */
+  box-shadow: 0 -30px 40px var(--color-shadow);
 
   margin: 40px -24px -32px;
   padding: 24px;
