@@ -215,6 +215,15 @@ select.form-input {
 }
 
 @media (min-width: 768px) {
+  .invoice-details-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+  }
+
+  .invoice-details-section .form-group:last-child {
+    grid-column: 1 / -1;
+  }
 
   .invoice-form {
     width: 616px;

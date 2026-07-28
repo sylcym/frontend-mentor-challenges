@@ -6,7 +6,7 @@ function InvoiceDetailsSection({
   errors,
 }) {
   return (
-    <section className="form-section">
+    <section className="form-section invoice-details-section">
       <div className="form-group">
         <label className="form-label">
           Invoice Date

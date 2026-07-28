@@ -15,6 +15,7 @@
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 16px;
+  color: var(--color-text);
 }
 
 .empty-description {
