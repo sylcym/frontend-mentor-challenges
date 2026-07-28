@@ -132,19 +132,21 @@
   .invoice-items-table tfoot td {
     padding: 24px 32px;
     background-color: var(--color-sidebar);
+    background-color: var(--color-amount);
     /* color: white; */
   }
 
   .invoice-items-table tfoot td:first-child {
     font-size: 11px;
     font-weight: 500;
-    color: var(--color-surface);
+    /* color: var(--color-surface); */
+    color: var(--color-white);
   }
 
   .invoice-items-table tfoot td:last-child {
     font-size: 24px;
     font-weight: 700;
-    color: var(--color-surface);
+    color: var(--color-white);
     text-align: right;
   }
 

@@ -32,6 +32,7 @@
   justify-content: space-between;
   gap: 16px;
   flex: 1;
+  color: var(--color-text-secondary);
 }
 
 .invoice-details-status p {
@@ -46,6 +47,7 @@
   width: fit-content;
   font-size: 15px;
   font-weight: 700;
+  color: var(--color-text);
   border: none;
   background: transparent;
   cursor: pointer;
@@ -70,6 +72,11 @@
 .invoice-details-title h2 {
   font-size: 15px;
   font-weight: 700;
+  color: var(--color-text);
+}
+
+.invoice-details-title h2 span {
+  color: var(--color-text-secondary);
 }
 
 .invoice-details-title p {

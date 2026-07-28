@@ -1,9 +1,13 @@
 import Logo from '../assets/logo/logo.svg'
+import PropTypes from 'prop-types'
 import MoonIcon from '../assets/icons/icon-moon.svg'
-// import SunIcon from '../assets/icons/icon-sun.svg'
+import SunIcon from '../assets/icons/icon-sun.svg'
 import '../styles/Sidebar.css'
 
-function Sidebar() {
+function Sidebar({
+  isDarkMode,
+  toggleTheme,
+}) {
   return (
     <aside className="aside">
       <div className="sidebar-logo">
@@ -17,12 +21,13 @@ function Sidebar() {
       <div className="sidebar-actions">
         <button
           className="theme-button"
+          onClick={toggleTheme}
           aria-label="Toggle theme"
         >
           <img
-            src={MoonIcon}
-            alt=""
+            src={isDarkMode ? SunIcon : MoonIcon}
             className="theme-icon"
+            alt=""
           />
         </button>
       </div>
@@ -36,5 +41,11 @@ function Sidebar() {
     </aside>
   )
 }
+
+Sidebar.propTypes = {
+  isDarkMode: PropTypes.bool,
+  toggleTheme: PropTypes.func,
+}
+
 
 export default Sidebar

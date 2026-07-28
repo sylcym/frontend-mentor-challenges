@@ -40,7 +40,7 @@
   border: none;
   border-radius: 24px;
   background-color: var(--color-primary);
-  color: var(--color-surface);
+  color: var(--color-white);
   padding: 6px 8px 6px 6px;
   transition: background-color .2s ease;
   cursor: pointer;
@@ -53,7 +53,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--color-surface);
+  background: var(--color-white);
 }
 
 .add-button:hover {

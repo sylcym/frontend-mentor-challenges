@@ -63,7 +63,8 @@ function InvoiceDetails({
 
             <div className="invoice-details-title">
               <h2>
-                #{invoice.id}
+                <span>#</span>
+                {invoice.id}
               </h2>
 
               <p>

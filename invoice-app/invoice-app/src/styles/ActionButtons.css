@@ -27,7 +27,7 @@
 }
 
 .edit-button {
-  background-color: var(--color-bcg-table);
+  background-color: var(--color-table-background);
   color: var(--color-text-secondary);
 }
 

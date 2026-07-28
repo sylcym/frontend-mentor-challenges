@@ -24,6 +24,7 @@
 .invoice-id {
   font-size: 12px;
   font-weight: 700;
+  color: var(--color-text);
   line-height: 15px;
   letter-spacing: -0.25px;
 }
@@ -34,6 +35,7 @@
   line-height: 15px;
   letter-spacing: -0.25px;
   color: var(--color-status);
+  color: var(--color-text-muted);
 }
 
 .invoice-card-middle {
@@ -51,6 +53,7 @@
 .invoice-price {
   font-size: 20px;
   font-weight: 700;
+  color: var(--color-text);
 }
 
 
