@@ -4,7 +4,10 @@ import Sidebar from './Sidebar'
 import "../styles/Layout.css"
 
 function Layout({ children }) {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  // const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark'
+  })
 
   function toggleTheme() {
     setIsDarkMode((prev) => !prev)
@@ -12,6 +15,11 @@ function Layout({ children }) {
 
   useEffect(() => {
     document.body.classList.toggle('dark', isDarkMode)
+
+    localStorage.setItem(
+      'theme',
+      isDarkMode ? 'dark' : 'light'
+    )
   }, [isDarkMode])
 
   return (

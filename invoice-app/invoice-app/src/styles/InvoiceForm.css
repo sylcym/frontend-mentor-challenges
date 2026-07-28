@@ -116,7 +116,8 @@ select.form-input {
   width: 100%;
   font-size: 12px;
   font-weight: 700;
-  background-color: var(--color-bcg-table);
+  background-color: var(--color-table-background);
+  background-color: var(--color-surface);
   color: var(--color-text-secondary);
   border: none;
   border-radius: 24px;
