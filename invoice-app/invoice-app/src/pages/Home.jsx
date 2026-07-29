@@ -59,20 +59,45 @@ function Home() {
     )
     : invoiceList
 
-  return (
 
+  return (
     <div>
 
-      {showInvoiceForm ? (
+      <div className="home-content">
 
-        <InvoiceForm
-          setShowInvoiceForm={setShowInvoiceForm}
-          setInvoiceList={setInvoiceList}
-          invoiceToEdit={invoiceToEdit}
-          setInvoiceToEdit={setInvoiceToEdit}
+        <Header
+          selectedStatus={selectedStatus}
+          setSelectedStatus={setSelectedStatus}
+          invoiceCount={filteredInvoices.length}
+          onOpenInvoiceForm={handleOpenInvoiceForm}
         />
-      ) : selectedInvoice ? (
 
+        {filteredInvoices.length === 0 ? (
+
+          <EmptyState />
+
+        ) : (
+
+          <div className="invoices-list">
+            {filteredInvoices.map((invoice) => (
+              <InvoiceCard
+                key={invoice.id}
+                id={invoice.id}
+                client={invoice.client}
+                dueDate={invoice.dueDate}
+                total={invoice.total}
+                status={invoice.status}
+                invoice={invoice}
+                setSelectedInvoice={setSelectedInvoice}
+              />
+            ))}
+          </div>
+
+        )}
+
+      </div>
+
+      {selectedInvoice && (
         <InvoiceDetails
           invoice={selectedInvoice}
           onGoBack={() => setSelectedInvoice(null)}
@@ -80,48 +105,20 @@ function Home() {
           onMarkPaid={() => handleMarkAsPaid(selectedInvoice)}
           onDelete={() => handleDeleteInvoice(selectedInvoice)}
         />
+      )}
 
-      ) : (
-
-        <div className="home-content">
-
-          <Header
-            selectedStatus={selectedStatus}
-            setSelectedStatus={setSelectedStatus}
-            invoiceCount={filteredInvoices.length}
-            onOpenInvoiceForm={handleOpenInvoiceForm}
-          />
-
-          {filteredInvoices.length === 0 ? (
-
-            <EmptyState />
-
-          ) : (
-
-            <div className="invoices-list">
-              {filteredInvoices.map((invoice) => (
-                <InvoiceCard
-                  key={invoice.id}
-                  id={invoice.id}
-                  client={invoice.client}
-                  dueDate={invoice.dueDate}
-                  total={invoice.total}
-                  status={invoice.status}
-                  invoice={invoice}
-                  setSelectedInvoice={setSelectedInvoice}
-                />
-              ))}
-            </div>
-
-          )}
-
-        </div>
-
+      {showInvoiceForm && (
+        <InvoiceForm
+          setShowInvoiceForm={setShowInvoiceForm}
+          setInvoiceList={setInvoiceList}
+          invoiceToEdit={invoiceToEdit}
+          setInvoiceToEdit={setInvoiceToEdit}
+        />
       )}
 
     </div>
-
   )
+
 
 }
 

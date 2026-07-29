@@ -46,7 +46,7 @@
   --color-danger-hover: #FF9797;
 
   /* Effects */
-  --color-overlay: rgba(0, 0, 0, 0.1);
+  --color-overlay: rgba(0, 0, 0, 0.5);
   --color-shadow: rgba(72, 84, 159, 0.25);
   --color-amount: #373B53;
 }
