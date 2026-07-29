@@ -12,9 +12,16 @@ import '../styles/Home.css'
 function Home() {
   const [selectedStatus, setSelectedStatus] = useState('')
   const [showInvoiceForm, setShowInvoiceForm] = useState(false)
-  const [invoiceList, setInvoiceList] = useState(invoices)
   const [selectedInvoice, setSelectedInvoice] = useState(null)
   const [invoiceToEdit, setInvoiceToEdit] = useState(null)
+  // const [invoiceList, setInvoiceList] = useState(invoices)
+  const [invoiceList, setInvoiceList] = useState(() => {
+    const savedInvoices = localStorage.getItem('invoices')
+
+    return savedInvoices
+      ? JSON.parse(savedInvoices)
+      : invoices
+  })
 
   function handleOpenInvoiceForm() {
     setSelectedInvoice(null)
@@ -62,40 +69,37 @@ function Home() {
 
   return (
     <div>
+      {!selectedInvoice && (
+        <div className="home-content">
 
-      <div className="home-content">
+          <Header
+            selectedStatus={selectedStatus}
+            setSelectedStatus={setSelectedStatus}
+            invoiceCount={filteredInvoices.length}
+            onOpenInvoiceForm={handleOpenInvoiceForm}
+          />
 
-        <Header
-          selectedStatus={selectedStatus}
-          setSelectedStatus={setSelectedStatus}
-          invoiceCount={filteredInvoices.length}
-          onOpenInvoiceForm={handleOpenInvoiceForm}
-        />
+          {filteredInvoices.length === 0 ? (
+            <EmptyState />
+          ) : (
+            <div className="invoices-list">
+              {filteredInvoices.map((invoice) => (
+                <InvoiceCard
+                  key={invoice.id}
+                  id={invoice.id}
+                  client={invoice.client}
+                  dueDate={invoice.dueDate}
+                  total={invoice.total}
+                  status={invoice.status}
+                  invoice={invoice}
+                  setSelectedInvoice={setSelectedInvoice}
+                />
+              ))}
+            </div>
+          )}
 
-        {filteredInvoices.length === 0 ? (
-
-          <EmptyState />
-
-        ) : (
-
-          <div className="invoices-list">
-            {filteredInvoices.map((invoice) => (
-              <InvoiceCard
-                key={invoice.id}
-                id={invoice.id}
-                client={invoice.client}
-                dueDate={invoice.dueDate}
-                total={invoice.total}
-                status={invoice.status}
-                invoice={invoice}
-                setSelectedInvoice={setSelectedInvoice}
-              />
-            ))}
-          </div>
-
-        )}
-
-      </div>
+        </div>
+      )}
 
       {selectedInvoice && (
         <InvoiceDetails
