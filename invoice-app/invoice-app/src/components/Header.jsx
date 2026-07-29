@@ -84,6 +84,7 @@ function Header({
           ref={filterRef}
         >
           <button
+            type="button"
             className="filter-button"
             onClick={() => setShowFilters(!showFilters)}
           >
@@ -137,6 +138,7 @@ function Header({
               </label>
 
               <button
+                type="button"
                 className="filter-option "
                 onClick={() => handleFilter('')}
               >
@@ -148,6 +150,7 @@ function Header({
         </div>
 
         <button
+          type="button"
           className="add-button"
           onClick={onOpenInvoiceForm}
         >

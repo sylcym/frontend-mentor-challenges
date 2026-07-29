@@ -23,6 +23,7 @@ function InvoiceDetails({
       <section className="invoice-details">
 
         <button
+          type="button"
           className="go-back-button"
           onClick={onGoBack}
         >

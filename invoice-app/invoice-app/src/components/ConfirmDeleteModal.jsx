@@ -25,6 +25,7 @@ function ConfirmDelete({
         <div className="confirm-delete-buttons">
 
           <button
+            type="button"
             className="cancel-button"
             onClick={onCancel}
           >
@@ -32,6 +33,7 @@ function ConfirmDelete({
           </button>
 
           <button
+            type="button"
             className="delete-button"
             onClick={onDelete}
           >

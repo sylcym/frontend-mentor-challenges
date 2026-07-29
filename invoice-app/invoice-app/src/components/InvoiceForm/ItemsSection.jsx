@@ -20,6 +20,108 @@ function ItemsSection({
           key={index}
         >
           <div className="form-group">
+            <label
+              htmlFor={`item-name-${index}`}
+              className="form-label"
+            >
+              Item Name
+            </label>
+
+            <input
+              id={`item-name-${index}`}
+              className="form-input"
+              type="text"
+              name="name"
+              value={item.name}
+              onChange={(e) => handleItemChange(index, e)}
+              placeholder="Banner Design"
+            />
+          </div>
+
+          <div className="item-grid">
+
+            <div className="form-group">
+              <label
+                htmlFor={`item-quantity-${index}`}
+                className="form-label"
+              >
+                Qty.
+              </label>
+
+              <input
+                id={`item-quantity-${index}`}
+                className="form-input"
+                type="number"
+                name="quantity"
+                value={item.quantity}
+                onChange={(e) => handleItemChange(index, e)}
+                placeholder="1"
+              />
+            </div>
+
+            <div className="form-group">
+              <label
+                htmlFor={`item-price-${index}`}
+                className="form-label"
+              >
+                Price
+              </label>
+
+              <input
+                id={`item-price-${index}`}
+                className="form-input"
+                type="number"
+                name="price"
+                value={item.price}
+                onChange={(e) => handleItemChange(index, e)}
+                placeholder="100.00"
+              />
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">
+                Total
+              </label>
+
+              <p className="item-total">
+                {(item.quantity * item.price).toFixed(2)}
+              </p>
+            </div>
+
+
+            <div className="form-group">
+              <label
+                htmlFor={`delete-item-${index}`}
+                className="form-label delete-label"
+              >
+                Delete
+              </label>
+
+              <button
+                id={`delete-item-${index}`}
+                type="button"
+                className="item-delete-button"
+                onClick={() => removeItem(index)}
+                aria-label={`Delete item ${index + 1}`}
+              >
+                <img
+                  src={DeleteIcon}
+                  alt=""
+                  className="delete-icon"
+                />
+              </button>
+            </div>
+
+          </div>
+        </div>
+      ))}
+
+      {/* {formData.items.map((item, index) => (
+        <div
+          className="item-row item-row-tablet"
+          key={index}
+        >
+          <div className="form-group">
             <label className="form-label">
               Item Name
             </label>
@@ -95,7 +197,7 @@ function ItemsSection({
             </div>
           </div>
         </div>
-      ))}
+      ))} */}
 
       <button
         type="button"

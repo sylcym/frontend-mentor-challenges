@@ -159,16 +159,6 @@ function InvoiceForm({
     return Object.keys(newErrors).length === 0
   }
 
-  // function isFormEmpty() {
-  //   return (
-  //     !formData.clientName.trim() &&
-  //     !formData.clientEmail.trim() &&
-  //     !formData.invoiceDate &&
-  //     formData.items.length === 1 &&
-  //     !formData.items[0].name.trim()
-  //   )
-  // }
-
   function createInvoice(status) {
     return {
       id: crypto.randomUUID().slice(0, 6),
@@ -267,6 +257,7 @@ function InvoiceForm({
 
       <aside className="invoice-form">
         <button
+          type="button"
           className="close-button"
           onClick={closeForm}
         >

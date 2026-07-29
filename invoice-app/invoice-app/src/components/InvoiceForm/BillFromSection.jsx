@@ -11,11 +11,15 @@ function BillFromSection({
       </h3>
 
       <div className="form-group">
-        <label className="form-label">
+        <label
+          htmlFor="senderStreet"
+          className="form-label"
+        >
           Street Address
         </label>
 
         <input
+          id="senderStreet"
           className="form-input"
           type="text"
           name="street"
@@ -25,12 +29,17 @@ function BillFromSection({
       </div>
 
       <div className="form-row form-row-three">
+
         <div className="form-group">
-          <label className="form-label">
+          <label
+            htmlFor="senderCity"
+            className="form-label"
+          >
             City
           </label>
 
           <input
+            id="senderCity"
             className="form-input"
             type="text"
             name="city"
@@ -40,11 +49,15 @@ function BillFromSection({
         </div>
 
         <div className="form-group">
-          <label className="form-label">
+          <label
+            htmlFor="senderPostCode"
+            className="form-label"
+          >
             Post Code
           </label>
 
           <input
+            id="senderPostCode"
             className="form-input"
             type="text"
             name="postCode"
@@ -52,14 +65,17 @@ function BillFromSection({
             onChange={handleChange}
           />
         </div>
-        {/* </div> */}
 
         <div className="form-group country-group">
-          <label className="form-label">
+          <label
+            htmlFor="senderCountry"
+            className="form-label"
+          >
             Country
           </label>
 
           <input
+            id="senderCountry"
             className="form-input"
             type="text"
             name="country"
@@ -67,8 +83,10 @@ function BillFromSection({
             onChange={handleChange}
           />
         </div>
+
       </div>
     </section>
+
   )
 }
 

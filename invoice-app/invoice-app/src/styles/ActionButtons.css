@@ -14,7 +14,6 @@
 }
 
 .action-buttons button {
-
   flex: 1;
   height: 48px;
   white-space: nowrap;
@@ -37,7 +36,7 @@
 
 .action-delete-button {
   background: var(--color-danger);
-  color: var(--color-surface);
+  color: var(--color-white);
 }
 
 .action-delete-button:hover {
@@ -46,27 +45,32 @@
 
 .paid-button {
   background: var(--color-primary);
-  color: var(--color-surface);
+  color: var(--color-white);
 }
 
 .paid-button:hover {
   background: var(--color-primary-hover);
 }
 
+.action-buttons button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 @media (min-width: 768px) {
 
   .action-buttons {
     position: static;
-
     justify-content: flex-end;
-
     max-width: 730px;
     margin: 32px auto 0;
-
-    padding: 0;
-
     background: transparent;
     box-shadow: none;
+    padding: 0;
+  }
+
+  .action-buttons button {
+    flex: 0;
   }
 
 }
