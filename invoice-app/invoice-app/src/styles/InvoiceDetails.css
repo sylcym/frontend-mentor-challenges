@@ -102,6 +102,10 @@
   display: block;
 }
 
+.input-error {
+  border-color: var(--color-danger);
+}
+
 @media (min-width: 768px) {
 
   .invoice-details-header {

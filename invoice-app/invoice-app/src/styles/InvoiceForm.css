@@ -165,7 +165,6 @@ select.form-input {
   background-color: var(--color-surface);
   /* box-shadow: 0 -30px 40px rgba(0, 0, 0, 0.08); */
   box-shadow: 0 -30px 40px var(--color-shadow);
-
   margin: 40px -24px -32px;
   padding: 24px;
 }
@@ -173,7 +172,9 @@ select.form-input {
 .form-footer-right {
   display: flex;
   align-items: center;
+  /* justify-content: flex-end; */
   gap: 8px;
+  margin-left: auto;
 }
 
 .discard-button,
@@ -209,11 +210,13 @@ select.form-input {
 }
 
 .error-message {
-  margin-top: 4px;
-
   font-size: 12px;
-
   color: var(--color-danger);
+  margin-top: 4px;
+}
+
+.input-error {
+  border-color: var(--color-danger);
 }
 
 @media (min-width: 768px) {

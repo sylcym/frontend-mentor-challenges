@@ -49,6 +49,7 @@
   --color-overlay: rgba(0, 0, 0, 0.5);
   --color-shadow: rgba(72, 84, 159, 0.25);
   --color-amount: #373B53;
+  --color-button-secondary-hover: #DFE3FA;
 }
 
 .dark {
@@ -82,6 +83,7 @@
   --color-overlay: transparent;
   --color-shadow: rgba(0, 0, 0, 0.3);
   --color-amount: #0C0E16;
+  --color-button-secondary-hover: #FFFFFF;
 }
 
 * {

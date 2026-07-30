@@ -116,92 +116,10 @@ function ItemsSection({
         </div>
       ))}
 
-      {/* {formData.items.map((item, index) => (
-        <div
-          className="item-row item-row-tablet"
-          key={index}
-        >
-          <div className="form-group">
-            <label className="form-label">
-              Item Name
-            </label>
-
-            <input
-              className="form-input"
-              type="text"
-              name="name"
-              value={item.name}
-              onChange={(e) => handleItemChange(index, e)}
-              placeholder="Banner Design"
-            />
-          </div>
-
-          <div className="item-grid">
-            <div className="form-group">
-              <label className="form-label">
-                Qty.
-              </label>
-
-              <input
-                className="form-input"
-                type="number"
-                name="quantity"
-                value={item.quantity}
-                onChange={(e) => handleItemChange(index, e)}
-                placeholder="1"
-              />
-            </div>
-
-            <div className="form-group">
-              <label className="form-label">
-                Price
-              </label>
-
-              <input
-                className="form-input"
-                type="number"
-                name="price"
-                value={item.price}
-                onChange={(e) => handleItemChange(index, e)}
-                placeholder="100.00"
-              />
-            </div>
-
-            <div className="form-group">
-              <label className="form-label">
-                Total
-              </label>
-
-              <p className="item-total">
-                {(item.quantity * item.price).toFixed(2)}
-              </p>
-            </div>
-
-            <div className="form-group">
-              <label className="form-label delete-label">
-                Delete
-              </label>
-
-              <button
-                type="button"
-                // className="delete-button"
-                className="item-delete-button"
-                onClick={() => removeItem(index)}
-              >
-                <img
-                  src={DeleteIcon}
-                  alt=""
-                  className="delete-icon"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
-      ))} */}
-
       <button
         type="button"
-        className="add-item-button"
+        className={`add-item-button ${errors.items ? 'input-error' : ''
+          }`}
         onClick={addNewItem}
       >
         + Add New Item

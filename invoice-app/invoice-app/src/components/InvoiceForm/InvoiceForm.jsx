@@ -302,6 +302,64 @@ function InvoiceForm({
 
           <div className="form-footer">
 
+            {invoiceToEdit ? (
+
+              <div className="form-footer-right">
+
+                <button
+                  type="button"
+                  className="discard-button"
+                  onClick={closeForm}
+                >
+                  Cancel
+                </button>
+
+                <button
+                  type="submit"
+                  className="save-button"
+                >
+                  Save Changes
+                </button>
+
+              </div>
+
+            ) : (
+
+              <>
+                <button
+                  type="button"
+                  className="discard-button"
+                  onClick={closeForm}
+                >
+                  Discard
+                </button>
+
+                <div className="form-footer-right">
+
+                  <button
+                    type="button"
+                    className="draft-button"
+                    onClick={handleSaveDraft}
+                  >
+                    Save as Draft
+                  </button>
+
+                  <button
+                    type="submit"
+                    className="save-button"
+                  >
+                    Save & Send
+                  </button>
+
+                </div>
+              </>
+
+            )}
+
+          </div>
+          {/* 
+          <div className="form-footer">
+
             <button
               type="button"
               className="discard-button"
@@ -344,7 +402,7 @@ function InvoiceForm({
 
             </div>
 
-          </div>
+          </div> */}
 
         </form>
       </aside>
