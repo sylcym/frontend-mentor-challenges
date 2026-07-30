@@ -7,7 +7,9 @@ function ActionButtons({
   onDelete,
   onMarkPaid,
 }) {
+
   return (
+
     <footer className="action-buttons">
 
       <button
@@ -26,7 +28,7 @@ function ActionButtons({
         Delete
       </button>
 
-      {status === 'Pending' && (
+      {status.toLowerCase() === 'pending' && (
         <button
           type="button"
           className="paid-button"

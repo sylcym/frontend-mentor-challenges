@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import InvoiceCard from '../components/InvoiceCard'
 import EmptyState from '../components/EmptyState'
@@ -10,11 +10,9 @@ import invoices from '../data/invoices'
 import '../styles/Home.css'
 
 function Home() {
+
   const [selectedStatus, setSelectedStatus] = useState('')
   const [showInvoiceForm, setShowInvoiceForm] = useState(false)
-  const [selectedInvoice, setSelectedInvoice] = useState(null)
-  const [invoiceToEdit, setInvoiceToEdit] = useState(null)
-  // const [invoiceList, setInvoiceList] = useState(invoices)
   const [invoiceList, setInvoiceList] = useState(() => {
     const savedInvoices = localStorage.getItem('invoices')
 
@@ -22,6 +20,17 @@ function Home() {
       ? JSON.parse(savedInvoices)
       : invoices
   })
+
+  const [selectedInvoice, setSelectedInvoice] = useState(null)
+  const [invoiceToEdit, setInvoiceToEdit] = useState(null)
+
+
+  useEffect(() => {
+    localStorage.setItem(
+      'invoices',
+      JSON.stringify(invoiceList)
+    )
+  }, [invoiceList])
 
   function handleOpenInvoiceForm() {
     setSelectedInvoice(null)
