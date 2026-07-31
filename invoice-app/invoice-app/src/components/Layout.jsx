@@ -43,7 +43,7 @@ function Layout({ children }) {
           </a>
           . Coded by{' '}
           <a
-            href=""
+            href="https://github.com/sylcym/frontend-mentor-challenges/tree/main/invoice-app"
             target="_blank"
             rel="noopener noreferrer"
           >

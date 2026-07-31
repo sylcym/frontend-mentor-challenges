@@ -84,7 +84,7 @@ The main goal was to build a modern invoice management application while practic
 ## 🚀 Live Demo
 
 - **Live Site:** https://sylcym-invoice-app.netlify.app/
-- **Repository:**
+- **Repository:** https://github.com/sylcym/frontend-mentor-challenges/tree/main/invoice-app
 
 ---
 
