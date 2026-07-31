@@ -43,10 +43,17 @@ function InvoiceForm({
 
   const [errors, setErrors] = useState({})
 
+  function closeForm() {
+    setShowInvoiceForm(false)
+    setInvoiceToEdit(null)
+    resetForm()
+  }
+
   useEffect(() => {
     if (!invoiceToEdit) {
       return
     }
+
 
     setFormData({
       street: invoiceToEdit.senderAddress.street,
@@ -69,6 +76,8 @@ function InvoiceForm({
       items: invoiceToEdit.items,
     })
   }, [invoiceToEdit])
+
+
 
   function handleChange(e) {
     const { name, value } = e.target
@@ -242,11 +251,11 @@ function InvoiceForm({
     saveInvoice('draft')
   }
 
-  function closeForm() {
-    setShowInvoiceForm(false)
-    setInvoiceToEdit(null)
-    resetForm()
-  }
+  // function closeForm() {
+  //   setShowInvoiceForm(false)
+  //   setInvoiceToEdit(null)
+  //   resetForm()
+  // }
 
   return (
     <>
