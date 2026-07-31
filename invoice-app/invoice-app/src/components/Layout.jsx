@@ -31,6 +31,26 @@ function Layout({ children }) {
 
       <main>
         {children}
+
+        <footer className="attribution">
+          Challenge by{' '}
+          <a
+            href="https://www.frontendmentor.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Frontend Mentor
+          </a>
+          . Coded by{' '}
+          <a
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sylwia
+          </a>
+          .
+        </footer>
       </main>
     </div>
   )

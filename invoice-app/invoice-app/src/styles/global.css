@@ -98,3 +98,20 @@ body {
   background-color: var(--color-background);
   color: var(--color-text-primary);
 }
+
+.attribution {
+  margin-top: 48px;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-sidebar);
+}
+
+.attribution a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
