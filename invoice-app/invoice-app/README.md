@@ -119,4 +119,4 @@ Some ideas for future improvements:
 
 ## 👤 Author
 
-**GitHub:** ...................
+**GitHub:** Sylwia
