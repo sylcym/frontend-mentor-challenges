@@ -1,0 +1,15 @@
+.filter {
+  width: 200px;
+  background-color: var(--elements);
+  border: none;
+  border-radius: 5px;
+  box-shadow: var(--shadow-small);
+  color: var(--text);
+  font-size: 12px;
+  padding: 16px;
+}
+
+.filter-container {
+  /* Spacing */
+  padding: 0 16px;
+}

@@ -1,3 +1,5 @@
+import "./ThenToggle.css"
+
 function ThemeToggle() {
   return (
     <button className="theme-toggle" type="button">
