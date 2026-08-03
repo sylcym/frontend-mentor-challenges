@@ -1,0 +1,52 @@
+:root {
+  --background: hsl(0, 0%, 98%);
+  --elements: hsl(0, 0%, 100%);
+  --text: hsl(200, 15%, 8%);
+  --input: hsl(0, 0%, 52%);
+  --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dark-mode {
+  --background: hsl(207, 26%, 17%);
+  --elements: hsl(209, 23%, 22%);
+  --text: hsl(0, 0%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}

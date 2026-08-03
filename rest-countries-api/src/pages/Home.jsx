@@ -1,5 +1,11 @@
+import Header from "../components/Header/Header";
+
 function Home() {
-  return <h1>REST Countries API</h1>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default Home;

@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--elements);
+  box-shadow: var(--shadow-small);
+  padding: 30px 16px;
+}
+
+.header-title {
+  font-size: 14px;
+  font-weight: 800;
+}
