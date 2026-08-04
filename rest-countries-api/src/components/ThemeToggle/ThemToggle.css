@@ -1,0 +1,22 @@
+.theme-toggle {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  color: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  border: none;
+  background-color: transparent;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.theme-toggle-icon {
+  /* Layout */
+  width: 16px;
+  height: 16px;
+}
+
+.theme-toggle-text {
+  line-height: 1;
+}
