@@ -1,3 +1,8 @@
+.filter-container {
+  /* Spacing */
+  padding: 0 16px;
+}
+
 .filter {
   width: 200px;
   background-color: var(--elements);
@@ -7,9 +12,5 @@
   color: var(--text);
   font-size: 12px;
   padding: 16px;
-}
-
-.filter-container {
-  /* Spacing */
-  padding: 0 16px;
+  cursor: pointer;
 }

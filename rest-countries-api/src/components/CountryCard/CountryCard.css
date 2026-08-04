@@ -1,0 +1,40 @@
+.country-card {
+  display: flex;
+  flex-direction: column;
+  width: 264px;
+  background-color: var(--elements);
+  border-radius: 5px;
+  box-shadow: var(--shadow-small);
+  overflow: hidden;
+  /* padding: 24px; */
+}
+
+.country-card-image {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.country-card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.country-card-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.country-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.country-card-info {
+  font-size: 14px;
+  line-height: 1.6;
+}

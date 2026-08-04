@@ -21,17 +21,19 @@ function CountryCard({
           {name}
         </h2>
 
-        <p className="country-card-info">
-          <strong>Population:</strong> {population}
-        </p>
+        <div className="country-card-details">
+          <p className="country-card-info">
+            <strong>Population:</strong> {population}
+          </p>
 
-        <p className="country-card-info">
-          <strong>Region:</strong> {region}
-        </p>
+          <p className="country-card-info">
+            <strong>Region:</strong> {region}
+          </p>
 
-        <p className="country-card-info">
-          <strong>Capital:</strong> {capital}
-        </p>
+          <p className="country-card-info">
+            <strong>Capital:</strong> {capital}
+          </p>
+        </div>
       </div>
     </article>
   );
