@@ -7,16 +7,20 @@ import "./Home.css"
 
 function Home() {
   return (
-    <main className="home">
+    <>
       <Header />
 
-      <section className="home-toolbar">
-        <SearchBar />
-        <Filter />
-      </section>
+      <main className="home">
+        <div className="container">
+          <section className="home-toolbar">
+            <SearchBar />
+            <Filter />
+          </section>
 
-      <CountriesGrid countries={countries} />
-    </main>
+          <CountriesGrid countries={countries} />
+        </div>
+      </main>
+    </>
   );
 }
 

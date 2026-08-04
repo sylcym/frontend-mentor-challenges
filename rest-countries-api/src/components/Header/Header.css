@@ -1,10 +1,14 @@
 .header {
+  width: 100%;
+  background-color: var(--elements);
+  box-shadow: var(--shadow-small);
+}
+
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--elements);
-  box-shadow: var(--shadow-small);
-  padding: 30px 16px;
+  height: 80px;
 }
 
 .header-title {

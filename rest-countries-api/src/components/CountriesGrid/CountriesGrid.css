@@ -2,6 +2,18 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  padding: 16px;
+  /* padding: 16px; */
   gap: 40px;
+}
+
+@media (min-width: 768px) {
+  .countries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .countries-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

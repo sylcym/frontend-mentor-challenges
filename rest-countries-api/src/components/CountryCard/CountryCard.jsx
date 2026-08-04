@@ -23,7 +23,7 @@ function CountryCard({
 
         <div className="country-card-details">
           <p className="country-card-info">
-            <strong>Population:</strong> {population}
+            <strong>Population:</strong> {population.toLocaleString("en-US")}
           </p>
 
           <p className="country-card-info">
