@@ -13,12 +13,12 @@ function CountryCard({
       <img
         className="country-card-image"
         src={flag}
-        alt={name}
+        alt={name.common}
       />
 
       <div className="country-card-content">
         <h2 className="country-card-title">
-          {name}
+          {name.common}
         </h2>
 
         <div className="country-card-details">
@@ -31,7 +31,7 @@ function CountryCard({
           </p>
 
           <p className="country-card-info">
-            <strong>Capital:</strong> {capital}
+            <strong>Capital:</strong> {capital?.[0] ?? "No capital"}
           </p>
         </div>
       </div>
