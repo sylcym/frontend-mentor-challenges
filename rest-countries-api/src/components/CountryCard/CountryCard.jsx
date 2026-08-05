@@ -1,24 +1,26 @@
 import PropTypes from "prop-types";
 import "./CountryCard.css";
 
-function CountryCard({
-  flag,
-  name,
-  population,
-  region,
-  capital,
-}) {
+function CountryCard({ country }) {
+  const {
+    flags: { svg },
+    name: { common },
+    population,
+    region,
+    capital,
+  } = country;
+
   return (
     <article className="country-card">
       <img
         className="country-card-image"
-        src={flag}
-        alt={name.common}
+        src={svg}
+        alt={common}
       />
 
       <div className="country-card-content">
         <h2 className="country-card-title">
-          {name.common}
+          {common}
         </h2>
 
         <div className="country-card-details">
@@ -40,14 +42,7 @@ function CountryCard({
 }
 
 CountryCard.propTypes = {
-  flag: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  population: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]).isRequired,
-  region: PropTypes.string.isRequired,
-  capital: PropTypes.string.isRequired,
+  country: PropTypes.object.isRequired,
 };
 
 export default CountryCard;

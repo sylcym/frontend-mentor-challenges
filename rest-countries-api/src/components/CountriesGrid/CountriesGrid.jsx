@@ -8,11 +8,7 @@ function CountriesGrid({ countries }) {
       {countries.map((country) => (
         <CountryCard
           key={country.cca3}
-          flag={country.flags.svg}
-          name={country.name}
-          population={country.population}
-          region={country.region}
-          capital={country.capital}
+          country={country}
         />
       ))}
     </section>
