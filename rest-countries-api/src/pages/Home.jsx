@@ -9,8 +9,15 @@ import "./Home.css"
 
 function Home() {
   const [countries, setCountries] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const filteredCountries = countries.filter((country) =>
+    country.name.common
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
 
 
   useEffect(() => {
@@ -45,11 +52,15 @@ function Home() {
       <main className="home">
         <div className="container">
           <section className="home-toolbar">
-            <SearchBar />
+            <SearchBar
+              searchTerm={searchTerm}
+              onSearchChange={setSearchTerm}
+            />
             <Filter />
           </section>
 
-          <CountriesGrid countries={countries} />
+          {/* <CountriesGrid countries={countries} /> */}
+          <CountriesGrid countries={filteredCountries} />
         </div>
       </main>
     </>

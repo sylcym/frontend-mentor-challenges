@@ -1,8 +1,10 @@
+import PropTypes from "prop-types";
 import "./SearchBar.css";
 
-function SearchBar() {
+function SearchBar({ searchTerm, onSearchChange }) {
+
   return (
-    <form className="search-bar">
+    <div className="search-bar">
       <div className="search-bar-wrapper">
         <span className="search-bar-icon">🔍</span>
 
@@ -10,10 +12,17 @@ function SearchBar() {
           className="search-bar-input"
           type="text"
           placeholder="Search for a country..."
+          value={searchTerm}
+          onChange={(e) => onSearchChange(e.target.value)}
         />
       </div>
-    </form>
+    </div>
   );
 }
+
+SearchBar.propTypes = {
+  searchTerm: PropTypes.string.isRequired,
+  onSearchChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
