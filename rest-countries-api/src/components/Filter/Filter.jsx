@@ -1,9 +1,19 @@
+import PropTypes from "prop-types";
 import "./Filter.css"
 
-function Filter() {
+function Filter({ selectedRegion, onRegionChange }) {
+  const handleRegionChange = (event) => {
+    onRegionChange(event.target.value);
+  };
+
+
   return (
-    <div className="filter-container">
-      <select className="filter">
+    <div
+      className="filter-container">
+      <select
+        className="filter"
+        value={selectedRegion}
+        onChange={handleRegionChange}>
         <option value="">
           Filter by Region
         </option>
@@ -31,5 +41,10 @@ function Filter() {
     </div>
   );
 }
+
+Filter.propTypes = {
+  selectedRegion: PropTypes.string.isRequired,
+  onRegionChange: PropTypes.func.isRequired,
+};
 
 export default Filter;

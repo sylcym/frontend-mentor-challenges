@@ -10,14 +10,25 @@ import "./Home.css"
 function Home() {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedRegion, setSelectedRegion] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const filteredCountries = countries.filter((country) =>
-    country.name.common
+  // const filteredCountries = countries.filter((country) =>
+  //   country.name.common
+  //     .toLowerCase()
+  //     .includes(searchTerm.toLowerCase())
+  // );
+  const filteredCountries = countries.filter((country) => {
+    const matchesSearch = country.name.common
       .toLowerCase()
-      .includes(searchTerm.toLowerCase())
-  );
+      .includes(searchTerm.toLowerCase());
+
+    const matchesRegion =
+      selectedRegion === "" || country.region === selectedRegion;
+
+    return matchesSearch && matchesRegion;
+  });
 
 
   useEffect(() => {
@@ -56,10 +67,11 @@ function Home() {
               searchTerm={searchTerm}
               onSearchChange={setSearchTerm}
             />
-            <Filter />
+            <Filter
+              selectedRegion={selectedRegion}
+              onRegionChange={setSelectedRegion}
+            />
           </section>
-
-          {/* <CountriesGrid countries={countries} /> */}
           <CountriesGrid countries={filteredCountries} />
         </div>
       </main>
