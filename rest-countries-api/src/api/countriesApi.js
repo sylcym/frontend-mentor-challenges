@@ -14,7 +14,8 @@ export async function getCountries() {
 }
 
 export async function getCountryByName(name) {
-  const url = `${BASE_URL}/name/${name}?fields=name,flags,population,region,capital`;
+  const url = `${BASE_URL}/name/${name}?fields=name,flags,population,
+  region,subregion,capital,tld,currencies,languages,borders`;
 
   const response = await fetch(url);
 
