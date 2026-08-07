@@ -4,8 +4,16 @@
   gap: 8px;
 }
 
+.border-countries-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .border-country {
-  padding: 6px 20px;
+  text-decoration: none;
+  color: inherit;
   background-color: var(--white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 6px 20px;
 }

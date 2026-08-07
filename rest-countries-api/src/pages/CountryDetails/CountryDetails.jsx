@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getCountryByName } from "../../api/countriesApi.js";
@@ -120,12 +120,13 @@ function CountryDetails({ countries }) {
 
                 <div className="border-countries-list">
                   {borderCountries.map((item) => (
-                    <span
+                    <Link
                       className="border-country"
                       key={item.cca3}
+                      to={`/country/${item.name.common}`}
                     >
                       {item.name.common}
-                    </span>
+                    </Link>
                   ))}
                 </div>
               </div>
