@@ -1,8 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { getCountryByName } from "../../api/countriesApi.js";
+import "./CountryDetails.css"
 
-function CountryDetails() {
+function CountryDetails({ countries }) {
+  // console.log(countries[0])
   const [country, setCountry] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -37,6 +40,11 @@ function CountryDetails() {
   const nativeName = country.name.nativeName
     ? Object.values(country.name.nativeName)[0]
     : null;
+
+  const borderCountries = countries.filter((item) =>
+    country.borders.includes(item.cca3)
+  );
+  console.log(borderCountries);
 
   return (
     <>
@@ -106,7 +114,20 @@ function CountryDetails() {
               </div>
 
               <div className="border-countries">
+                <h2 className="border-countries-title">
+                  Border Countries:
+                </h2>
 
+                <div className="border-countries-list">
+                  {borderCountries.map((item) => (
+                    <span
+                      className="border-country"
+                      key={item.cca3}
+                    >
+                      {item.name.common}
+                    </span>
+                  ))}
+                </div>
               </div>
 
             </div>
@@ -118,5 +139,9 @@ function CountryDetails() {
     </>
   );
 }
+
+CountryDetails.propTypes = {
+  countries: PropTypes.array.isRequired,
+};
 
 export default CountryDetails;

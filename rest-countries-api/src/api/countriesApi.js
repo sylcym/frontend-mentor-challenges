@@ -3,7 +3,7 @@ const BASE_URL = "https://restcountries.conventus.de/v3.1";
 
 export async function getCountries() {
   const response = await fetch(
-    `${BASE_URL}/all?fields=name,flags,population,region,capital`
+    `${BASE_URL}/all?fields=name,flags,population,region,capital,cca3`
   );
 
   if (!response.ok) {
@@ -15,7 +15,7 @@ export async function getCountries() {
 
 export async function getCountryByName(name) {
   const url = `${BASE_URL}/name/${name}?fields=name,flags,population,
-  region,subregion,capital,tld,currencies,languages,borders`;
+  region,subregion,capital,tld,currencies,languages,borders,cca3`;
 
   const response = await fetch(url);
 
