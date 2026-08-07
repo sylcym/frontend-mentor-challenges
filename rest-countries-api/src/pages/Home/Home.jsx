@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getCountries } from "../../api/countriesApi";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Filter from "../../components/Filter/Filter"
@@ -7,12 +7,12 @@ import Filter from "../../components/Filter/Filter"
 import CountriesGrid from "../../components/CountriesGrid/CountriesGrid";
 import "./Home.css"
 
-function Home() {
-  const [countries, setCountries] = useState([]);
+function Home({ countries, loading, error }) {
+  // const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState("");
 
   // const filteredCountries = countries.filter((country) =>
   //   country.name.common
@@ -31,21 +31,21 @@ function Home() {
   });
 
 
-  useEffect(() => {
-    async function fetchCountries() {
-      try {
-        const data = await getCountries();
+  // useEffect(() => {
+  //   async function fetchCountries() {
+  //     try {
+  //       const data = await getCountries();
 
-        setCountries(data);
-      } catch (error) {
-        setError(error.message || "Something went wrong.");
-      } finally {
-        setLoading(false);
-      }
-    }
+  //       setCountries(data);
+  //     } catch (error) {
+  //       setError(error.message || "Something went wrong.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
 
-    fetchCountries();
-  }, []);
+  //   fetchCountries();
+  // }, []);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -78,5 +78,11 @@ function Home() {
     </>
   );
 }
+
+Home.propTypes = {
+  countries: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
+};
 
 export default Home;
