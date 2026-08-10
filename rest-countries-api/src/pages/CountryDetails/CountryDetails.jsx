@@ -2,6 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getCountryByName } from "../../api/countriesApi.js";
+import Header from "../../components/Header/Header";
 import "./CountryDetails.css"
 
 function CountryDetails({ countries }) {
@@ -12,7 +13,6 @@ function CountryDetails({ countries }) {
 
   const { name } = useParams();
   const navigate = useNavigate();
-  console.log(country);
 
 
   useEffect(() => {
@@ -44,14 +44,15 @@ function CountryDetails({ countries }) {
   const borderCountries = countries.filter((item) =>
     country.borders.includes(item.cca3)
   );
-  console.log(borderCountries);
 
   return (
     <>
+      <Header />
       <main className="country-details-page">
         <div className="container">
 
           <button
+            className="back-button"
             type="button"
             onClick={() => navigate(-1)}
           >
@@ -69,16 +70,18 @@ function CountryDetails({ countries }) {
 
             <div className="country-content">
 
-              <h1>{country.name.common}</h1>
+              <h1 className="country-title">
+                {country.name.common}
+              </h1>
 
               <div className="country-info">
 
                 <div className="country-info-left">
-                  <p>
+                  <p >
                     <strong>Native Name:</strong> {nativeName?.common ?? "N/A"}
                   </p>
 
-                  <p>
+                  <p >
                     <strong>Population:</strong> {country.population.toLocaleString("en-US")}
                   </p>
 
