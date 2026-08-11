@@ -8,12 +8,20 @@
 
 @media (min-width: 768px) {
   .countries-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 264px);
+    justify-content: center;
   }
 }
 
 @media (min-width: 1024px) {
   .countries-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 264px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .countries-grid {
+    grid-template-columns: repeat(4, 264px);
+    gap: 74px;
   }
 }
