@@ -116,24 +116,25 @@ function CountryDetails({ countries }) {
 
               </div>
 
-              <div className="border-countries">
-                <h2 className="border-countries-title">
-                  Border Countries:
-                </h2>
+              {country.borders?.length > 0 && (
+                <div className="border-countries">
+                  <h2 className="border-countries-title">
+                    Border Countries:
+                  </h2>
 
-                <div className="border-countries-list">
-                  {borderCountries.map((item) => (
-                    <Link
-                      className="border-country"
-                      key={item.cca3}
-                      to={`/country/${item.name.common}`}
-                    >
-                      {item.name.common}
-                    </Link>
-                  ))}
+                  <div className="border-countries-list">
+                    {borderCountries.map((item) => (
+                      <Link
+                        className="border-country"
+                        key={item.cca3}
+                        to={`/country/${item.name.common}`}
+                      >
+                        {item.name.common}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
-
+              )}
             </div>
 
           </section>

@@ -6,7 +6,6 @@
   border-radius: 5px;
   box-shadow: var(--shadow-small);
   overflow: hidden;
-  /* padding: 24px; */
 }
 
 .country-card-image {
@@ -19,7 +18,7 @@
 .country-card-content {
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 24px 24px 46px;
 }
 
 .country-card-title {
@@ -31,10 +30,10 @@
 .country-card-details {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 9px;
 }
 
 .country-card-info {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 16px;
 }
