@@ -11,6 +11,13 @@
   box-shadow: var(--shadow-small);
   color: var(--text);
   font-size: 12px;
-  padding: 16px;
+  padding: 15px 16px;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .filter {
+    font-size: 14px;
+    padding: 17.5px 16px;
+  }
 }

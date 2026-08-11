@@ -19,3 +19,9 @@
 .theme-toggle-text {
   line-height: 1;
 }
+
+@media (min-width: 768px) {
+  .theme-toggle {
+    font-size: 16px;
+  }
+}
