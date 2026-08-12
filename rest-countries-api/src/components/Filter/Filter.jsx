@@ -8,43 +8,79 @@ function Filter({ selectedRegion, onRegionChange }) {
 
 
   return (
-    <div
-      className="filter-container">
-      <select
-        className="filter"
-        value={selectedRegion}
-        onChange={handleRegionChange}>
-        <option value="">
-          Filter by Region
-        </option>
+    <div className="filter-container">
+      <div className="filter-wrapper">
+        <select
+          className="filter"
+          value={selectedRegion}
+          onChange={handleRegionChange}
+        >
+          <option value="">
+            Filter by Region
+          </option>
 
-        <option value="Africa">
-          Africa
-        </option>
+          <option value="Africa">
+            Africa
+          </option>
 
-        <option value="Americas">
-          America
-        </option>
+          <option value="Americas">
+            America
+          </option>
 
-        <option value="Asia">
-          Asia
-        </option>
+          <option value="Asia">
+            Asia
+          </option>
 
-        <option value="Europe">
-          Europe
-        </option>
+          <option value="Europe">
+            Europe
+          </option>
 
-        <option value="Oceania">
-          Oceania
-        </option>
-      </select>
+          <option value="Oceania">
+            Oceania
+          </option>
+        </select>
 
-      {/* <img
-        src={arrowIcon}
-        alt=""
-        className="filter-arrow"
-      /> */}
+        <span className="filter-arrow"></span>
+      </div>
     </div>
+    // <div
+    //   className="filter-container">
+    //    <div className="filter-wrapper"></div>
+    //   <select
+    //     className="filter"
+    //     value={selectedRegion}
+    //     onChange={handleRegionChange}>
+    //     <option value="">
+    //       Filter by Region
+    //     </option>
+
+    //     <option value="Africa">
+    //       Africa
+    //     </option>
+
+    //     <option value="Americas">
+    //       America
+    //     </option>
+
+    //     <option value="Asia">
+    //       Asia
+    //     </option>
+
+    //     <option value="Europe">
+    //       Europe
+    //     </option>
+
+    //     <option value="Oceania">
+    //       Oceania
+    //     </option>
+    //   </select>
+
+    //   {/* <img
+    //     src={arrowIcon}
+    //     alt=""
+    //     className="filter-arrow"
+    //   /> */}
+    // </div>
   );
 }
 

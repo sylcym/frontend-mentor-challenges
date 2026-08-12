@@ -3,6 +3,11 @@
   padding: 0 16px;
 }
 
+.filter-wrapper {
+  position: relative;
+  width: 200px;
+}
+
 .filter {
   width: 200px;
   background-color: var(--elements);
@@ -11,7 +16,8 @@
   box-shadow: var(--shadow-small);
   color: var(--text);
   font-size: 12px;
-  padding: 15px 16px;
+  /* padding: 15px 16px; */
+  padding: 15px 40px 15px 16px;
   cursor: pointer;
 
 
@@ -22,13 +28,21 @@
 
 .filter-arrow {
   position: absolute;
-  right: 16px;
   top: 50%;
-  transform: translateY(-50%);
+  right: 19px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-65%) rotate(45deg);
   pointer-events: none;
 }
 
 @media (min-width: 768px) {
+  .filter-container {
+    padding: 0 0px;
+  }
+
   .filter {
     font-size: 14px;
     padding: 17.5px 16px;

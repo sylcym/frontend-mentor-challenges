@@ -60,3 +60,9 @@ ol {
   margin: 0 auto;
   padding: 0 16px;
 }
+
+@media (min-width: 1280px) {
+  .container {
+    padding: 0;
+  }
+}
