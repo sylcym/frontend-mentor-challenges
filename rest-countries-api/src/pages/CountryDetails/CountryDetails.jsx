@@ -1,26 +1,26 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { getCountryByName } from "../../api/countriesApi.js";
+import { getCountryByCode } from "../../api/countriesApi";
 import Header from "../../components/Header/Header";
 import "./CountryDetails.css"
 
 function CountryDetails({ countries }) {
-  // console.log(countries[0])
   const [country, setCountry] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const { name } = useParams();
+  const { code } = useParams();
   const navigate = useNavigate();
-
 
   useEffect(() => {
     async function fetchCountry() {
-      try {
-        const data = await getCountryByName(name);
 
-        setCountry(data[0]);
+      try {
+        const data = await getCountryByCode(code);
+
+        setCountry(data);
+
       } catch (error) {
         setError(error.message || "Something went wrong.");
       } finally {
@@ -29,7 +29,7 @@ function CountryDetails({ countries }) {
     }
 
     fetchCountry();
-  }, [name]);
+  }, [code]);
 
   if (loading) return <p>Loading...</p>;
 
@@ -127,7 +127,7 @@ function CountryDetails({ countries }) {
                       <Link
                         className="border-country"
                         key={item.cca3}
-                        to={`/country/${item.name.common}`}
+                        to={`/country/${item.cca3}`}
                       >
                         {item.name.common}
                       </Link>

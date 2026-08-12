@@ -9,10 +9,11 @@ function CountryCard({ country }) {
     population,
     region,
     capital,
+    cca3,
   } = country;
 
   return (
-    <Link to={`/country/${common.toLowerCase()}`}>
+    <Link to={`/country/${cca3}`}>
       <article className="country-card">
         <img
           className="country-card-image"

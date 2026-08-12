@@ -22,7 +22,7 @@ function Filter({ selectedRegion, onRegionChange }) {
           Africa
         </option>
 
-        <option value="America">
+        <option value="Americas">
           America
         </option>
 
@@ -38,6 +38,12 @@ function Filter({ selectedRegion, onRegionChange }) {
           Oceania
         </option>
       </select>
+
+      {/* <img
+        src={arrowIcon}
+        alt=""
+        className="filter-arrow"
+      /> */}
     </div>
   );
 }

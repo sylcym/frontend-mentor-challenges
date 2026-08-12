@@ -13,9 +13,10 @@ export async function getCountries() {
   return await response.json();
 }
 
-export async function getCountryByName(name) {
-  const url = `${BASE_URL}/name/${name}?fields=name,flags,population,
-  region,subregion,capital,tld,currencies,languages,borders,cca3`;
+export async function getCountryByCode(code) {
+  const url = `${BASE_URL}/alpha/${code}?fields=name,flags,population,region,subregion,capital,tld,currencies,languages,borders,cca3`;
+
+  console.log("API URL:", url);
 
   const response = await fetch(url);
 

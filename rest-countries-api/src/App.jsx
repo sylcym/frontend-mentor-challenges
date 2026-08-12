@@ -46,7 +46,7 @@ function App() {
         }
       />
       <Route
-        path="/country/:name"
+        path="/country/:code"
         element={<CountryDetails countries={countries} />}
       />
     </Routes>
