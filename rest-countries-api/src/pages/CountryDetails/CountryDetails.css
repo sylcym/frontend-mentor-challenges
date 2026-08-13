@@ -25,6 +25,8 @@
   display: block;
   width: 100%;
   height: auto;
+  border-radius: 6px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
 .border-countries-list {
@@ -109,6 +111,12 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 60px;
     align-items: center;
+  }
+
+  .country-image img {
+    height: 401px;
+    border-radius: 10px;
+    object-fit: cover;
   }
 
   .country-content {

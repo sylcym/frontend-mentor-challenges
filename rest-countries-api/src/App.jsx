@@ -5,9 +5,11 @@ import CountryDetails from "./pages/CountryDetails/CountryDetails";
 import { getCountries } from "./api/countriesApi";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
 
   useEffect(() => {
     async function fetchCountries() {
@@ -24,6 +26,10 @@ function App() {
 
     fetchCountries();
   }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("dark-mode", darkMode);
+  }, [darkMode]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -42,12 +48,20 @@ function App() {
             countries={countries}
             loading={loading}
             error={error}
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
           />
         }
       />
       <Route
         path="/country/:code"
-        element={<CountryDetails countries={countries} />}
+        element={
+          <CountryDetails
+            countries={countries}
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+          />
+        }
       />
     </Routes>
   );

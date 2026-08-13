@@ -3,9 +3,14 @@ import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getCountryByCode } from "../../api/countriesApi";
 import Header from "../../components/Header/Header";
+import arrowLeft from "../../assets/ikons/icon-arrow-down.svg";
 import "./CountryDetails.css"
 
-function CountryDetails({ countries }) {
+function CountryDetails({
+  countries,
+  darkMode,
+  setDarkMode
+}) {
   const [country, setCountry] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -47,15 +52,30 @@ function CountryDetails({ countries }) {
 
   return (
     <>
-      <Header />
+      <Header
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
       <main className="country-details-page">
         <div className="container">
 
+          {/* <button
+            className="back-button"
+            type="button"
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </button> */}
           <button
             className="back-button"
             type="button"
             onClick={() => navigate(-1)}
           >
+            <img
+              src={arrowLeft}
+              alt=""
+              className="back-button-icon"
+            />
             Back
           </button>
 
@@ -147,6 +167,8 @@ function CountryDetails({ countries }) {
 
 CountryDetails.propTypes = {
   countries: PropTypes.array.isRequired,
+  darkMode: PropTypes.bool.isRequired,
+  setDarkMode: PropTypes.func.isRequired,
 };
 
 export default CountryDetails;

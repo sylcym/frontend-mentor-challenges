@@ -7,7 +7,13 @@ import Filter from "../../components/Filter/Filter"
 import CountriesGrid from "../../components/CountriesGrid/CountriesGrid";
 import "./Home.css"
 
-function Home({ countries, loading, error }) {
+function Home({
+  countries,
+  loading,
+  error,
+  darkMode,
+  setDarkMode
+}) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
 
@@ -34,7 +40,10 @@ function Home({ countries, loading, error }) {
 
   return (
     <>
-      <Header />
+      <Header
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
 
       <main className="home">
         <div className="container">
@@ -58,8 +67,9 @@ function Home({ countries, loading, error }) {
 Home.propTypes = {
   countries: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
-  // error: PropTypes.string.isRequired,
-  error: PropTypes.string
+  error: PropTypes.string,
+  darkMode: PropTypes.bool.isRequired,
+  setDarkMode: PropTypes.func.isRequired,
 };
 
 export default Home;
