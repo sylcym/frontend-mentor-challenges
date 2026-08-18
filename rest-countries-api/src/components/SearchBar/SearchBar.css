@@ -1,7 +1,7 @@
-.search-bar {
-  /* padding: 24px 16px; */
-  padding: 0px 16px;
-}
+/* .search-bar { */
+/* padding: 24px 16px; */
+/* padding: 0px 16px; */
+/* } */
 
 .search-bar-wrapper {
   display: flex;
@@ -10,7 +10,7 @@
   background-color: var(--elements);
   border-radius: 5px;
   box-shadow: var(--shadow-small);
-  padding: 16px;
+  padding: 12.5px;
 }
 
 .search-bar-input {
@@ -33,6 +33,7 @@
   .search-bar-wrapper {
     max-width: 480px;
     width: 480px;
+    padding: 16.5px;
   }
 
   .search-bar {

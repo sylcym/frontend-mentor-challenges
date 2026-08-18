@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import "./ThemToggle.css";
 import iconMoon from "../../assets/ikons/icon-moon.svg";
+import iconSun from "../../assets/ikons/icon-sun.svg";
 
 function ThemeToggle({ darkMode, setDarkMode }) {
   return (
@@ -11,13 +12,16 @@ function ThemeToggle({ darkMode, setDarkMode }) {
     >
       <img
         className="theme-toggle-icon"
-        src={iconMoon}
+        src={darkMode ? iconSun : iconMoon}
         alt=""
         aria-hidden="true"
       />
 
-      <span className="theme-toggle-text">
+      {/* <span className="theme-toggle-text">
         Dark Mode
+      </span> */}
+      <span className="theme-toggle-text">
+        {darkMode ? "Light Mode" : "Dark Mode"}
       </span>
     </button>
   );
