@@ -5,7 +5,10 @@ import CountryDetails from "./pages/CountryDetails/CountryDetails";
 import { getCountries } from "./api/countriesApi";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  // const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("darkMode") === "true";
+  });
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -27,8 +30,12 @@ function App() {
     fetchCountries();
   }, []);
 
+  // useEffect(() => {
+  //   document.body.classList.toggle("dark-mode", darkMode);
+  // }, [darkMode]);
   useEffect(() => {
     document.body.classList.toggle("dark-mode", darkMode);
+    localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
   if (loading) {
