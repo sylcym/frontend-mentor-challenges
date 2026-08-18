@@ -10,12 +10,18 @@
   font-size: 14px;
   line-height: 20px;
   border: none;
-  background-color: var(--white);
+  background-color: var(--elements);
+  color: var(--text);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   padding: 6px 24px;
   margin-bottom: 64px;
   cursor: pointer;
 }
+
+/* .back-button-icon {
+  width: 18px;
+  height: 18px;
+} */
 
 .country-image {
   width: 100%;
@@ -43,7 +49,7 @@
   height: 28px;
   text-decoration: none;
   color: inherit;
-  background-color: var(--white);
+  background-color: var(--elements);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
