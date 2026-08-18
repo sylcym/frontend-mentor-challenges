@@ -5,7 +5,6 @@ import CountryDetails from "./pages/CountryDetails/CountryDetails";
 import { getCountries } from "./api/countriesApi";
 
 function App() {
-  // const [darkMode, setDarkMode] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("darkMode") === "true";
   });
@@ -30,9 +29,6 @@ function App() {
     fetchCountries();
   }, []);
 
-  // useEffect(() => {
-  //   document.body.classList.toggle("dark-mode", darkMode);
-  // }, [darkMode]);
   useEffect(() => {
     document.body.classList.toggle("dark-mode", darkMode);
     localStorage.setItem("darkMode", darkMode);

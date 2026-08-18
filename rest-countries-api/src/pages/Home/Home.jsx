@@ -57,7 +57,12 @@ function Home({
               onRegionChange={setSelectedRegion}
             />
           </section>
-          <CountriesGrid countries={filteredCountries} />
+          {/* <CountriesGrid countries={filteredCountries} /> */}
+          {filteredCountries.length > 0 ? (
+            <CountriesGrid countries={filteredCountries} />
+          ) : (
+            <h2 className="no-results">No countries found.</h2>
+          )}
         </div>
       </main>
     </>

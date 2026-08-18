@@ -115,7 +115,7 @@
   .country-details {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 60px;
+    gap: 40px;
     align-items: center;
   }
 
