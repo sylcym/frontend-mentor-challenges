@@ -6,6 +6,12 @@
   border-radius: 5px;
   box-shadow: var(--shadow-small);
   overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.country-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .country-card-image {
