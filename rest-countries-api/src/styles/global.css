@@ -56,11 +56,8 @@ ol {
 }
 
 .container {
-  /* Layout */
   width: 100%;
   max-width: 1280px;
-
-  /* Spacing */
   margin: 0 auto;
   padding: 0 16px;
 }

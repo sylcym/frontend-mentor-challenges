@@ -16,10 +16,6 @@ function ThemeToggle({ darkMode, setDarkMode }) {
         alt=""
         aria-hidden="true"
       />
-
-      {/* <span className="theme-toggle-text">
-        Dark Mode
-      </span> */}
       <span className="theme-toggle-text">
         {darkMode ? "Light Mode" : "Dark Mode"}
       </span>
