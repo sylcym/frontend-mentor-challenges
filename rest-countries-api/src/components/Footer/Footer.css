@@ -1,0 +1,23 @@
+.footer {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  font-size: 12px;
+  color: var(--text);
+  z-index: 10;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.footer a {
+  font-weight: 800;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    right: 24px;
+    bottom: 20px;
+  }
+}

@@ -4,6 +4,7 @@ import Header from "../../components/Header/Header";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Filter from "../../components/Filter/Filter"
 import CountriesGrid from "../../components/CountriesGrid/CountriesGrid";
+import Footer from "../../components/Footer/Footer";
 import "./Home.css"
 
 function Home({
@@ -63,6 +64,8 @@ function Home({
           )}
         </div>
       </main>
+
+      <Footer />
     </>
   );
 }
