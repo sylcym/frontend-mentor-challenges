@@ -1,0 +1,15 @@
+.map {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 700px;
+  background-color: hsl(0, 0%, 85%);
+  margin-top: -130px;
+}
+
+.map-placeholder {
+  text-align: center;
+  font-size: 20px;
+  color: var(--text);
+  padding-top: 40px;
+}

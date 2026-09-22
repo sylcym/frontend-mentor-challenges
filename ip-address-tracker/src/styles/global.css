@@ -3,3 +3,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --background: hsl(0, 0%, 98%);
+  --elements: hsl(0, 0%, 100%);
+  --text: hsl(200, 15%, 8%);
+  --text-on-primary: hsl(0, 0%, 100%);
+  --input: hsl(0, 0%, 52%);
+  --primary: hsl(228, 45%, 44%);
+}
+
+.dark-mode {
+  --background: hsl(207, 26%, 17%);
+  --elements: hsl(209, 23%, 22%);
+  --text: hsl(0, 0%, 100%);
+  --text-on-primary: hsl(0, 0%, 100%);
+  --input: hsl(0, 0%, 70%);
+  --primary: hsl(228, 45%, 44%);
+}

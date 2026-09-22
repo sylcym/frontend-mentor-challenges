@@ -1,0 +1,15 @@
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 280px;
+  background-color: var(--primary);
+  padding-top: 32px;
+}
+
+.header-title {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--text-on-primary);
+}
