@@ -19,12 +19,16 @@ function Home() {
     fetchIpData()
   }, [])
 
+  function handleSearch(searchValue) {
+    console.log(searchValue)
+  }
+
   return (
     <main className="home">
       <Header />
 
       <section className="tracker-content">
-        <SearchBar />
+        <SearchBar onSearch={handleSearch} />
         {ipData && <InfoPanel ipData={ipData} />}
       </section>
       <Map />
