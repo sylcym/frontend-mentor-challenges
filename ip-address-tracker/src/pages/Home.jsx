@@ -19,8 +19,10 @@ function Home() {
     fetchIpData()
   }, [])
 
-  function handleSearch(searchValue) {
-    console.log(searchValue)
+  async function handleSearch(searchValue) {
+    const data = await getIpData(searchValue)
+
+    setIpData(data)
   }
 
   return (
