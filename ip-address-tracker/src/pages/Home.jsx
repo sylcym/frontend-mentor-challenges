@@ -25,7 +25,7 @@ function Home() {
 
       <section className="tracker-content">
         <SearchBar />
-        <InfoPanel />
+        {ipData && <InfoPanel ipData={ipData} />}
       </section>
       <Map />
     </main>
