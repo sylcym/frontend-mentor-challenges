@@ -63,7 +63,7 @@ function Home() {
         )}
       </section>
 
-      <Map />
+      {ipData && <Map ipData={ipData} />}
     </main>
   )
 }

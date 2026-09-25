@@ -1,8 +1,12 @@
 import { MapContainer, TileLayer, Marker } from "react-leaflet"
+import PropTypes from "prop-types"
 import "./Map.css"
 
-function Map() {
-  const position = [32.69922, -117.11281]
+function Map({ ipData }) {
+  const position = [
+    ipData.location.lat,
+    ipData.location.lng,
+  ]
 
   return (
     <section className="map">
@@ -21,6 +25,15 @@ function Map() {
       </MapContainer>
     </section>
   )
+}
+
+Map.propTypes = {
+  ipData: PropTypes.shape({
+    location: PropTypes.shape({
+      lat: PropTypes.number.isRequired,
+      lng: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
 }
 
 export default Map
