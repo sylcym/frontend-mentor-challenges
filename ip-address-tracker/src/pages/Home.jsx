@@ -8,21 +8,39 @@ import "./Home.css"
 
 function Home() {
   const [ipData, setIpData] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState("")
 
   useEffect(() => {
     async function fetchIpData() {
-      const data = await getIpData()
+      setIsLoading(true)
+      setError("")
 
-      setIpData(data)
+      try {
+        const data = await getIpData("8.8.8.8")
+        setIpData(data)
+      } catch (error) {
+        setError("Something went wrong. Please try again.")
+      } finally {
+        setIsLoading(false)
+      }
     }
 
     fetchIpData()
   }, [])
 
   async function handleSearch(searchValue) {
-    const data = await getIpData(searchValue)
+    setIsLoading(true)
+    setError("")
 
-    setIpData(data)
+    try {
+      const data = await getIpData(searchValue)
+      setIpData(data)
+    } catch (error) {
+      setError("Something went wrong. Please try again.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -31,10 +49,23 @@ function Home() {
 
       <section className="tracker-content">
         <SearchBar onSearch={handleSearch} />
-        {ipData && <InfoPanel ipData={ipData} />}
+
+        {isLoading && (
+          <p className="status-message">Loading...</p>
+        )}
+
+        {error && (
+          <p className="status-message">{error}</p>
+        )}
+
+        {ipData && !isLoading && !error && (
+          <InfoPanel ipData={ipData} />
+        )}
       </section>
+
       <Map />
     </main>
   )
 }
+
 export default Home

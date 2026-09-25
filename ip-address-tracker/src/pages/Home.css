@@ -12,3 +12,10 @@
   margin-top: -170px;
   padding: 0 16px;
 }
+
+.status-message {
+  font-size: 16px;
+  color: var(--text);
+  text-align: center;
+  padding: 16px;
+}
