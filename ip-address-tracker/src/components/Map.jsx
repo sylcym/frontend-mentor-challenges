@@ -1,6 +1,21 @@
-import { MapContainer, TileLayer, Marker } from "react-leaflet"
+import { useEffect } from "react"
+import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet"
 import PropTypes from "prop-types"
 import "./Map.css"
+
+function MapUpdater({ position }) {
+  const map = useMap()
+
+  useEffect(() => {
+    map.setView(position, 13)
+  }, [map, position])
+
+  return null
+}
+
+MapUpdater.propTypes = {
+  position: PropTypes.arrayOf(PropTypes.number).isRequired,
+}
 
 function Map({ ipData }) {
   const position = [
@@ -20,6 +35,8 @@ function Map({ ipData }) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
+        <MapUpdater position={position} />
 
         <Marker position={position} />
       </MapContainer>

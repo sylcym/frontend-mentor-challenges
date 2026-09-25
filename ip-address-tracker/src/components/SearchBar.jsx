@@ -13,6 +13,7 @@ function SearchBar({ onSearch }) {
     }
 
     onSearch(searchValue.trim())
+    setSearchValue("")
   }
 
   return (
