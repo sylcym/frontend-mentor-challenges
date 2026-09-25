@@ -38,6 +38,8 @@ InfoPanel.propTypes = {
       city: PropTypes.string.isRequired,
       region: PropTypes.string.isRequired,
       timezone: PropTypes.string.isRequired,
+      lat: PropTypes.number.isRequired,
+      lng: PropTypes.number.isRequired,
     }).isRequired,
 
     isp: PropTypes.string.isRequired,
