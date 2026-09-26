@@ -23,3 +23,8 @@
   --input: hsl(0, 0%, 70%);
   --primary: hsl(228, 45%, 44%);
 }
+
+html {
+  /* font-size: 62.5%; */
+  font-family: "Rubik", sans-serif;
+}

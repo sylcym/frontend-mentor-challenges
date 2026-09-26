@@ -1,7 +1,15 @@
 import { useEffect } from "react"
 import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet"
+import L from "leaflet"
 import PropTypes from "prop-types"
+import locationIcon from "../assets/icon-location.svg"
 import "./Map.css"
+
+const customIcon = L.icon({
+  iconUrl: locationIcon,
+  iconSize: [46, 56],
+  iconAnchor: [23, 56],
+})
 
 function MapUpdater({ position }) {
   const map = useMap()
@@ -38,7 +46,7 @@ function Map({ ipData }) {
 
         <MapUpdater position={position} />
 
-        <Marker position={position} />
+        <Marker position={position} icon={customIcon} />
       </MapContainer>
     </section>
   )
