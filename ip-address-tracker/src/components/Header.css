@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 280px;
+  min-height: 300px;
   background-color: var(--primary);
   padding-top: 32px;
 }
@@ -12,4 +12,10 @@
   font-size: 26px;
   font-weight: 500;
   color: var(--text-on-primary);
+}
+
+@media (min-width: 768px) {
+  .header {
+    min-height: 280px;
+  }
 }

@@ -31,3 +31,36 @@
   color: var(--text);
   margin-top: 8px;
 }
+
+@media (min-width: 768px) {
+  .info-panel {
+    flex-direction: row;
+    align-items: stretch;
+    padding: 32px;
+  }
+
+  .info-item {
+    flex: 1;
+    align-items: flex-start;
+  }
+
+  .info-item+.info-item {
+    border-left: 1px solid var(--input);
+    padding-left: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .info-panel {
+    max-width: 1110px;
+    width: 100%;
+    min-height: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 32px;
+  }
+
+  .info-item {
+    min-height: 75px;
+  }
+}
