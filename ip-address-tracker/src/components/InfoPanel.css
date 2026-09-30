@@ -3,12 +3,14 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  width: calc(100% - 32px);
-  border-radius: 8px;
+  gap: 24px;
+  /* width: calc(100% - 32px); */
+  width: 100%;
+  border-radius: 15px;
   background-color: var(--elements);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  margin: 10px auto 0;
-  padding: 24px;
+  /* margin: 10px auto 0; */
+  padding: 26px 24px 24px;
 }
 
 .info-item {
@@ -20,7 +22,7 @@
 .info-label {
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.46px;
   text-transform: uppercase;
   color: var(--input);
 }
@@ -28,15 +30,17 @@
 .info-value {
   font-size: 20px;
   font-weight: 500;
+  letter-spacing: -0.18px;
   color: var(--text);
-  margin-top: 8px;
+  margin-top: 7px;
 }
 
 @media (min-width: 768px) {
   .info-panel {
     flex-direction: row;
     align-items: stretch;
-    padding: 32px;
+    max-height: 161px;
+    padding: 37px 32px;
   }
 
   .info-item {
@@ -47,6 +51,16 @@
   .info-item+.info-item {
     border-left: 1px solid var(--input);
     padding-left: 24px;
+  }
+
+  .info-label {
+    font-size: 12px;
+  }
+
+  .info-value {
+    font-size: 26px;
+    letter-spacing: -0.23px;
+    margin-top: 13px;
   }
 }
 
