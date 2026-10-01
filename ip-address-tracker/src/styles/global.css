@@ -9,16 +9,20 @@
 :root {
   --background: hsl(0, 0%, 98%);
   --elements: hsl(0, 0%, 100%);
-  --text: hsl(200, 15%, 8%);
+  --text: rgb(44, 44, 44);
+  --button-hover: hsl(0, 0%, 30%);
   --text-on-primary: hsl(0, 0%, 100%);
-  --input: hsl(0, 0%, 52%);
+  /* --input: hsl(0, 0%, 52%); */
+  --input: rgb(44, 44, 44, 0.5);
   --primary: hsl(228, 45%, 44%);
+  --shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
 }
 
 .dark-mode {
   --background: hsl(207, 26%, 17%);
   --elements: hsl(209, 23%, 22%);
   --text: hsl(0, 0%, 100%);
+  --button-hover: hsl(0, 0%, 85%);
   --text-on-primary: hsl(0, 0%, 100%);
   --input: hsl(0, 0%, 70%);
   --primary: hsl(228, 45%, 44%);

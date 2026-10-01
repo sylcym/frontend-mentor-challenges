@@ -1,7 +1,7 @@
 .search-bar {
   display: flex;
   border-radius: 15px;
-  box-shadow: 0 50px 50px -25px #ffffff;
+  box-shadow: var(--shadow);
   overflow: hidden;
   /* width: 100%; */
 }
@@ -15,6 +15,8 @@
   color: var(--text);
   background-color: var(--elements);
   padding: 0 24px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
 }
 
 .search-button {
@@ -25,10 +27,25 @@
   height: 58px;
   font-size: 24px;
   border: none;
+  background-image: url(../assets/Arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
   background-color: var(--text);
   color: var(--elements);
   padding: 0;
+  /* transition: transform 0.2s ease, background-color 0.2s ease; */
+  transition: background-color 0.2s ease;
   cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: var(--button-hover);
+
+}
+
+.search-button:active {
+  transform: scale(0.95);
 }
 
 @media (min-width: 768px) {

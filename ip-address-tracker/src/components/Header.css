@@ -22,6 +22,7 @@
 @media (min-width: 768px) {
   .header {
     min-height: 280px;
+    background-image: url(../assets/Combined-Shape-des.svg);
     padding-top: 33px;
   }
 

@@ -31,7 +31,6 @@ function SearchBar({ onSearch }) {
         type="submit"
         aria-label="Search"
       >
-        →
       </button>
     </form>
   )
