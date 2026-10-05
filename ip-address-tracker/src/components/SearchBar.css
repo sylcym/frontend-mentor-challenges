@@ -12,6 +12,7 @@
   height: 58px;
   font-size: 18px;
   border: none;
+  outline: none;
   color: var(--text);
   background-color: var(--elements);
   padding: 0 24px;
