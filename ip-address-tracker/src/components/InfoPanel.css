@@ -72,36 +72,6 @@
   }
 }
 
-/* @media (min-width: 768px) {
-  .info-panel {
-    flex-direction: row;
-    align-items: stretch;
-    max-height: 161px;
-    padding: 37px 32px;
-  }
-
-  .info-item {
-    flex: 1;
-    align-items: flex-start;
-  }
-
-  .info-item+.info-item {
-    border-left: 1px solid var(--input);
-    padding-left: 32px;
-  }
-
-  .info-label {
-    font-size: 12px;
-    letter-spacing: 1.75px;
-  }
-
-  .info-value {
-    font-size: 26px;
-    letter-spacing: -0.23px;
-    margin-top: 13px;
-  }
-} */
-
 @media (min-width: 1024px) {
   .info-panel {
     max-width: 1110px;

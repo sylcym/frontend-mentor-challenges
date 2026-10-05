@@ -37,6 +37,7 @@ function Map({ ipData }) {
         className="map-container"
         center={position}
         zoom={13}
+        zoomControl={false}
         scrollWheelZoom={false}
       >
         <TileLayer

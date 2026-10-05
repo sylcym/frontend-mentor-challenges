@@ -10,7 +10,7 @@ This is a solution to the [IP Address Tracker](https://www.frontendmentor.io/cha
 
 ### Screenshot
 
-![IP Address Tracker](#)
+![IP Address Tracker](image.png)
 
 ### The Challenge
 

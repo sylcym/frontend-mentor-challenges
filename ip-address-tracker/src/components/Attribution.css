@@ -1,0 +1,21 @@
+.attribution {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 10px;
+  bottom: 19px;
+  z-index: 1;
+  padding: 16px 24px;
+}
+
+.attribution-text {
+  font-size: 12px;
+  text-align: center;
+  color: var(--text);
+}
+
+.attribution-link {
+  color: var(--text);
+  text-decoration: underline;
+}
