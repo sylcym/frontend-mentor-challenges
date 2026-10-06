@@ -3,7 +3,6 @@
   border-radius: 15px;
   box-shadow: var(--shadow);
   overflow: hidden;
-  /* width: 100%; */
 }
 
 .search-input {
