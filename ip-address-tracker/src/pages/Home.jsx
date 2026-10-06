@@ -21,7 +21,7 @@ function Home() {
         const data = await getIpData("8.8.8.8")
         setIpData(data)
       } catch (error) {
-        setError("Something went wrong. Please try again.")
+        setError(error.message)
       } finally {
         setIsLoading(false)
       }
@@ -38,7 +38,7 @@ function Home() {
       const data = await getIpData(searchValue)
       setIpData(data)
     } catch (error) {
-      setError("Something went wrong. Please try again.")
+      setError(error.message)
     } finally {
       setIsLoading(false)
     }
@@ -56,7 +56,7 @@ function Home() {
         )}
 
         {error && (
-          <p className="status-message">{error}</p>
+          <p className="status-message status-error">{error}</p>
         )}
 
         {ipData && !isLoading && !error && (
