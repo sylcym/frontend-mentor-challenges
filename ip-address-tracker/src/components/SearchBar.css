@@ -34,7 +34,6 @@
   background-color: var(--text);
   color: var(--elements);
   padding: 0;
-  /* transition: transform 0.2s ease, background-color 0.2s ease; */
   transition: background-color 0.2s ease;
   cursor: pointer;
 }

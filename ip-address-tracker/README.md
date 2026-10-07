@@ -6,7 +6,7 @@ This is a solution to the [IP Address Tracker](https://www.frontendmentor.io/cha
 
 ### Live Demo
 
-[View Live Site](#)
+[View Live Site](https://sylcym-ip-address-tracker.netlify.app/)
 
 ### Screenshot
 
