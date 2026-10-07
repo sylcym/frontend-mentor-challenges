@@ -55,4 +55,4 @@ This project helped me practice:
 ## Author
 
 - Frontend Mentor - [@sylcym](https://www.frontendmentor.io/profile/sylcym)
-- GitHub - [@sylcym](https://github.com/sylcym)
+- GitHub - [@sylcym](https://github.com/sylcym/frontend-mentor-challenges/tree/main/ip-address-tracker)
