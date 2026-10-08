@@ -4,8 +4,37 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 800;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../assets/fonts/PlusJakartaSans-Italic.-VariableFont_wght.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 200 800;
+}
+
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("../assets/fonts/RedHatText-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300 900;
+}
+
+@font-face {
+  font-family: "Red Hat Text";
+  src: url("../assets/fonts/RedHatText-Italic.-VariableFont_wght.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 300 900;
+}
+
 body {
   min-height: 100vh;
+  font-family: "Red Hat Text", sans-serif;
 }
 
 button,
