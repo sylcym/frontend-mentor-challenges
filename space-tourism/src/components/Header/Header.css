@@ -63,7 +63,7 @@
   gap: 12px;
   padding: 16px 0;
   color: var(--color-white);
-  font-family: "Red Hat Text", sans-serif;
+  font-family: var(--font-condensed);
   font-size: 16px;
   font-weight: 400;
   line-height: 1;
