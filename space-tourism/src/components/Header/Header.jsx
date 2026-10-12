@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import logo from "../../assets/shared/logo.svg"
 import hamburgerIcon from "../../assets/shared/icon-hamburger.svg"
 import closeIcon from "../../assets/shared/icon-close.svg"
@@ -9,13 +10,20 @@ function Header() {
 
   return (
     <header className="header">
-      <a className="header-logo" href="/">
+      <Link className="header-logo" to="/" aria-label="Go to home">
         <img
           className="header-logo-image"
           src={logo}
           alt="Space Tourism"
         />
-      </a>
+      </Link>
+      {/* <a className="header-logo" href="/">
+        <img
+          className="header-logo-image"
+          src={logo}
+          alt="Space Tourism"
+        />
+      </a> */}
 
       <button
         className="header-menu-button"
@@ -43,7 +51,27 @@ function Header() {
             />
           </button>
 
-          <a className="header-link" href="/">
+          <Link className="header-link" to="/" onClick={() => setIsMenuOpen(false)}>
+            <span className="header-link-number">00</span>
+            Home
+          </Link>
+
+          <Link className="header-link" to="/destination" onClick={() => setIsMenuOpen(false)}>
+            <span className="header-link-number">01</span>
+            Destination
+          </Link>
+
+          <Link className="header-link" to="/crew" onClick={() => setIsMenuOpen(false)}>
+            <span className="header-link-number">02</span>
+            Crew
+          </Link>
+
+          <Link className="header-link" to="/technology" onClick={() => setIsMenuOpen(false)}>
+            <span className="header-link-number">03</span>
+            Technology
+          </Link>
+
+          {/* <a className="header-link" href="/">
             <span className="header-link-number">00</span>
             Home
           </a>
@@ -61,7 +89,7 @@ function Header() {
           <a className="header-link" href="/technology">
             <span className="header-link-number">03</span>
             Technology
-          </a>
+          </a> */}
         </nav>
       )}
     </header>
