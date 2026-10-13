@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 88px);
-  background-image: url("../../assets/home/background-home-mobile.jpg");
+  /* background-image: url("../../assets/home/background-home-mobile.jpg");
   background-position: center -121px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
 .home-content {

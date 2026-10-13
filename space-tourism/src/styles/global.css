@@ -17,6 +17,7 @@
 
 body {
   min-height: 100vh;
+  background-color: var(--color-dark);
   font-family: var(--font-body);
 }
 
@@ -44,5 +45,30 @@ img {
 
 .app {
   min-height: 100vh;
-  background-color: var(--color-dark);
+
+}
+
+.app-home,
+.app-destination,
+.app-crew,
+.app-technology {
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+.app-home {
+  background-image: url("../assets/home/background-home-mobile.jpg");
+}
+
+.app-destination {
+  background-image: url("../assets/destination/background-destination-mobile.jpg");
+}
+
+.app-crew {
+  background-image: url("../assets/crew/background-crew-mobile.jpg");
+}
+
+.app-technology {
+  background-image: url("../assets/technology/background-technology-mobile.jpg");
 }
