@@ -89,6 +89,8 @@
 .header-link {
   display: flex;
   gap: 12px;
+  position: relative;
+  border-bottom: 3px solid transparent;
   padding: 16px 0;
   color: var(--color-white);
   font-family: var(--font-condensed);
@@ -102,4 +104,60 @@
 
 .header-link-number {
   font-weight: 700;
+}
+
+.header-link-active {
+  border-bottom-color: var(--color-white);
+}
+
+
+
+@media (min-width: 768px) {
+  .header {
+    padding: 0 0 0 40px;
+    min-height: 96px;
+  }
+
+  .header-menu-button {
+    display: none;
+  }
+
+  .header-nav {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    width: auto;
+    min-height: 96px;
+    padding: 0 40px;
+
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+
+  .header-close-button {
+    display: none;
+  }
+
+  .header-link-number {
+    display: none;
+  }
+
+  .header-link {
+    align-items: center;
+    align-self: stretch;
+    gap: 8px;
+    padding: 0;
+    border-bottom: 3px solid transparent;
+  }
+
+  .header-link:hover {
+    border-bottom-color: rgb(255 255 255 / 50%);
+  }
 }
