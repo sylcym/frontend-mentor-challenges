@@ -90,16 +90,16 @@
   display: flex;
   gap: 12px;
   position: relative;
-  border-bottom: 3px solid transparent;
-  padding: 16px 0;
-  color: var(--color-white);
-  font-family: var(--font-condensed);
   font-size: 16px;
   font-weight: 400;
   line-height: 1;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 2.7px;
+  font-family: var(--font-condensed);
+  color: var(--color-white);
+  border-bottom: 3px solid transparent;
+  padding: 16px 0;
 }
 
 .header-link-number {
@@ -127,18 +127,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: 37px;
     width: auto;
     min-height: 96px;
-    padding: 0 40px;
-
     background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-
     visibility: visible;
     transform: none;
     transition: none;
+    padding: 0 47px;
   }
 
   .header-close-button {
@@ -153,8 +151,10 @@
     align-items: center;
     align-self: stretch;
     gap: 8px;
-    padding: 0;
+    font-size: 14px;
+    letter-spacing: 2.36px;
     border-bottom: 3px solid transparent;
+    padding: 0;
   }
 
   .header-link:hover {
