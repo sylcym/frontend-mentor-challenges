@@ -133,3 +133,64 @@
   font-weight: 400;
   text-transform: uppercase;
 }
+
+
+@media (min-width: 768px) {
+  .destination {
+    padding: 40px 40px;
+  }
+
+  .destination-heading {
+    align-self: flex-start;
+    font-size: 20px;
+    letter-spacing: 3.4px;
+  }
+
+  .destination-image {
+    width: 300px;
+    height: 300px;
+    margin-top: 60px;
+  }
+
+  .destination-tabs {
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .destination-tab {
+    font-size: 16px;
+    padding-bottom: 12px;
+  }
+
+  .destination-info {
+    max-width: 573px;
+    margin-top: 32px;
+  }
+
+  .destination-name {
+    font-size: 80px;
+  }
+
+  .destination-description {
+    max-width: 573px;
+    font-size: 16px;
+    line-height: 1.75;
+    margin-top: 16px;
+  }
+
+  .destination-divider {
+    margin-top: 40px;
+  }
+
+  .destination-stats {
+    flex-direction: row;
+    justify-content: center;
+    gap: 80px;
+    width: 100%;
+    margin-top: 28px;
+  }
+
+  .destination-stat {
+    min-width: 180px;
+  }
+}

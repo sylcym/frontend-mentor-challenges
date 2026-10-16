@@ -79,4 +79,9 @@ img {
     background-image: url("../assets/home/background-home-tablet.jpg");
     background-position: center top;
   }
+
+  .app-destination {
+    background-image: url("../assets/destination/background-destination-tablet.jpg");
+    background-position: center top;
+  }
 }
