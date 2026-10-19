@@ -122,3 +122,68 @@
   line-height: 1.8;
   margin-top: 16px;
 }
+
+
+@media (min-width: 768px) {
+  .technology {
+    min-height: calc(100vh - 96px);
+    padding: 40px 0 48px;
+  }
+
+  .technology-heading {
+    align-self: flex-start;
+    font-size: 20px;
+    letter-spacing: 3.4px;
+    margin: 0 40px;
+  }
+
+  .technology-content {
+    width: 100%;
+  }
+
+  .technology-image-container {
+    margin-top: 60px;
+  }
+
+  .technology-image {
+    aspect-ratio: 768 / 310;
+    object-fit: cover;
+  }
+
+  .technology-details {
+    padding: 0 40px;
+  }
+
+  .technology-controls {
+    gap: 16px;
+    margin-top: 56px;
+  }
+
+  .technology-control {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+
+  .technology-text {
+    max-width: 573px;
+    margin-top: 44px;
+  }
+
+  .technology-eyebrow {
+    font-size: 16px;
+    letter-spacing: 2.7px;
+  }
+
+  .technology-name {
+    font-size: 40px;
+    margin-top: 16px;
+  }
+
+  .technology-description {
+    max-width: 442px;
+    font-size: 16px;
+    line-height: 1.75;
+    margin-top: 16px;
+  }
+}

@@ -90,4 +90,11 @@ img {
     background-position: center top;
   }
 
+
+  .app-technology {
+    background-image: url("../assets/technology/background-technology-tablet.jpg");
+    background-position: center top;
+  }
+
+
 }
