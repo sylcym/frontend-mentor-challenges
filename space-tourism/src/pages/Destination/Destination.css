@@ -154,11 +154,12 @@
 
   .destination-tabs {
     gap: 32px;
-    margin-top: 40px;
+    margin-top: 53px;
   }
 
   .destination-tab {
     font-size: 16px;
+    letter-spacing: 2.7px;
     padding-bottom: 12px;
   }
 
@@ -175,11 +176,11 @@
     max-width: 573px;
     font-size: 16px;
     line-height: 1.75;
-    margin-top: 16px;
+    margin-top: 8px;
   }
 
   .destination-divider {
-    margin-top: 40px;
+    margin-top: 49px;
   }
 
   .destination-stats {

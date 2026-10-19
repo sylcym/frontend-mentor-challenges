@@ -114,3 +114,68 @@
   line-height: 1.8;
   margin-top: 16px;
 }
+
+@media (min-width: 768px) {
+  .crew {
+    min-height: calc(100vh - 96px);
+    padding: 40px 40px 0;
+  }
+
+  .crew-heading {
+    gap: 18px;
+    font-size: 20px;
+    letter-spacing: 3.4px;
+  }
+
+  .crew-content {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .crew-details {
+    order: 1;
+    margin-top: 60px;
+  }
+
+  .crew-role {
+    font-size: 24px;
+  }
+
+  .crew-name {
+    font-size: 40px;
+    margin-top: 12px;
+  }
+
+  .crew-description {
+    max-width: 458px;
+    font-size: 16px;
+    line-height: 1.75;
+    margin-top: 16px;
+  }
+
+  .crew-indicators {
+    order: 2;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .crew-indicator {
+    width: 10px;
+    height: 10px;
+  }
+
+  .crew-image-container {
+    order: 3;
+    height: auto;
+    flex: 1;
+    min-height: 280px;
+    border-bottom: none;
+    margin-top: 32px;
+  }
+
+  .crew-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
