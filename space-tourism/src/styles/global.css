@@ -101,6 +101,11 @@ img {
 
 
 @media (min-width: 1024px) {
+  .app {
+
+    padding-top: 40px;
+  }
+
   .app-home {
     background-image: url("../assets/home/background-home-desktop.jpg");
     background-position: center top;
