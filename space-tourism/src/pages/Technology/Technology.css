@@ -187,3 +187,105 @@
     margin-top: 16px;
   }
 }
+
+
+@media (min-width: 1224px) {
+  .technology {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    max-width: 1275px;
+    min-height: calc(100vh - 40px - 96px);
+    padding: 76px 0 101px;
+    margin: 0 0 0 auto;
+  }
+
+  .technology-heading {
+    grid-column: 1;
+    grid-row: 1;
+    gap: 24px;
+    font-size: 28px;
+    letter-spacing: 4.72px;
+    margin: 0;
+  }
+
+  .technology-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 515px;
+    grid-template-rows: 1fr;
+    column-gap: 130px;
+    align-items: center;
+    min-height: 0;
+    width: 100%;
+    margin-top: 26px;
+  }
+
+  .technology-details {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr);
+    column-gap: 80px;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  .technology-controls {
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 0;
+  }
+
+  .technology-control {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+
+  .technology-text {
+    align-items: flex-start;
+    max-width: 470px;
+    text-align: left;
+    margin-top: 0;
+  }
+
+  .technology-eyebrow {
+    font-size: 16px;
+    letter-spacing: 2.7px;
+  }
+
+  .technology-name {
+    font-size: 56px;
+    white-space: nowrap;
+    margin-top: 11px;
+  }
+
+  .technology-description {
+    max-width: 444px;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-top: 17px;
+  }
+
+  .technology-image-container {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .technology-picture {
+    display: block;
+    width: 100%;
+  }
+
+  .technology-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+}

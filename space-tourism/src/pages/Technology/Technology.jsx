@@ -2,30 +2,37 @@
 import { useState } from "react"
 import "./Technology.css"
 
-import launchVehicle from "../../assets/technology/image-launch-vehicle-landscape.jpg"
-import spaceport from "../../assets/technology/image-spaceport-landscape.jpg"
-import spaceCapsule from "../../assets/technology/image-space-capsule-landscape.jpg"
+import launchVehicleLandscape from "../../assets/technology/image-launch-vehicle-landscape.jpg"
+import spaceportLandscape from "../../assets/technology/image-spaceport-landscape.jpg"
+import spaceCapsuleLandscape from "../../assets/technology/image-space-capsule-landscape.jpg"
+
+import launchVehiclePortrait from "../../assets/technology/image-launch-vehicle-portrait.jpg"
+import spaceportPortrait from "../../assets/technology/image-spaceport-portrait.jpg"
+import spaceCapsulePortrait from "../../assets/technology/image-space-capsule-portrait.jpg"
 
 const technologies = [
   {
     name: "Launch vehicle",
     description:
       "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
-    image: launchVehicle,
+    image: launchVehicleLandscape,
+    imagePortrait: launchVehiclePortrait,
     imageAlt: "A launch vehicle ready for launch",
   },
   {
     name: "Spaceport",
     description:
       "A spaceport or cosmodrome is a site for launching or receiving spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth's rotation for launch.",
-    image: spaceport,
+    image: spaceportLandscape,
+    imagePortrait: spaceportPortrait,
     imageAlt: "A spaceport launch facility",
   },
   {
     name: "Space capsule",
     description:
       "A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained.",
-    image: spaceCapsule,
+    image: spaceCapsuleLandscape,
+    imagePortrait: spaceCapsulePortrait,
     imageAlt: "A space capsule floating in space",
   },
 ]
@@ -47,11 +54,18 @@ function Technology() {
         aria-label="Space launch technologies"
       >
         <div className="technology-image-container">
-          <img
-            className="technology-image"
-            src={technology.image}
-            alt={technology.imageAlt}
-          />
+          <picture className="technology-picture">
+            <source
+              media="(min-width: 1224px)"
+              srcSet={technology.imagePortrait}
+            />
+
+            <img
+              className="technology-image"
+              src={technology.image}
+              alt={technology.imageAlt}
+            />
+          </picture>
         </div>
 
         <div className="technology-details">
@@ -78,7 +92,9 @@ function Technology() {
 
           <div className="technology-text" aria-live="polite">
             <p className="technology-eyebrow">The terminology...</p>
+
             <h2 className="technology-name">{technology.name}</h2>
+
             <p className="technology-description">
               {technology.description}
             </p>
@@ -90,3 +106,4 @@ function Technology() {
 }
 
 export default Technology
+
