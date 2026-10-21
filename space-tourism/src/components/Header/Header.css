@@ -190,7 +190,7 @@
     z-index: 2;
     top: 50%;
     left: calc(100% + 64px);
-    width: 282px;
+    width: clamp(282px, calc(45.913vw - 188.15px), 473px);
     height: 1px;
     background: rgb(255 255 255 / 25%);
     pointer-events: none;
@@ -246,7 +246,4 @@
     padding: 0 0 0 123px;
   }
 
-  .header-logo::after {
-    width: 473px;
-  }
 }
