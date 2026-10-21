@@ -269,7 +269,7 @@
 
   .destination-divider {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 54px;
   }
 
   .destination-stats {
@@ -287,7 +287,7 @@
 
   .destination-stat-label {
     font-size: 14px;
-    letter-spacing: 2px;
+    letter-spacing: 2.36px;
   }
 
   .destination-stat-value {

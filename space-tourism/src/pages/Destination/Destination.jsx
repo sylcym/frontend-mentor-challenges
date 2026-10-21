@@ -65,8 +65,8 @@ function Destination() {
         {destinations.map((destination) => (
           <button
             className={`destination-tab ${activeDestination === destination.name
-                ? "destination-tab-active"
-                : ""
+              ? "destination-tab-active"
+              : ""
               }`}
             key={destination.name}
             type="button"
