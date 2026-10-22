@@ -1,0 +1,31 @@
+.attribution {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  color: var(--color-light);
+  font-family: var(--font-body);
+  font-size: 12px;
+  text-align: center;
+}
+
+.attribution-text {
+  line-height: 1.5;
+}
+
+.attribution-link {
+  color: var(--color-white);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.attribution-link:hover {
+  color: var(--color-light);
+}
+
+@media (min-width: 768px) {
+  .attribution {
+    right: 24px;
+    bottom: 20px;
+  }
+}

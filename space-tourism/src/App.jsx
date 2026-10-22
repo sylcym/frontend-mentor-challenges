@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home"
 import Destination from "./pages/Destination/Destination"
 import Crew from "./pages/Crew/Crew"
 import Technology from "./pages/Technology/Technology"
+import Attribution from "./components/Attribution/Attribution"
 
 function AppLayout() {
   const location = useLocation()
@@ -25,6 +26,8 @@ function AppLayout() {
         <Route path="/crew" element={<Crew />} />
         <Route path="/technology" element={<Technology />} />
       </Routes>
+
+      <Attribution />
     </div>
   )
 }
