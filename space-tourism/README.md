@@ -6,7 +6,7 @@ Explore destinations across the solar system, meet the crew, and discover the te
 
 🌐 Live Demo
 
-View Live Site — .................
+View Live Site — (https://sylcym-space-tourism.netlify.app/)
 
 📸 Screenshots
 

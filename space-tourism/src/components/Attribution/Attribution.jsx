@@ -16,7 +16,7 @@ function Attribution() {
         . Coded by{" "}
         <a
           className="attribution-link"
-          href="https://github.com/sylcym"
+          href="https://github.com/sylcym/frontend-mentor-challenges/tree/main/space-tourism"
           target="_blank"
           rel="noreferrer"
         >
