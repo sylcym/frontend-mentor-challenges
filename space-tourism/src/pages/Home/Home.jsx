@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 import "./Home.css"
 
 function Home() {
@@ -19,9 +21,9 @@ function Home() {
           out of this world experience!
         </p>
 
-        <a className="home-explore" href="/destination">
+        <NavLink className="home-explore" to="/destination">
           Explore
-        </a>
+        </NavLink>
       </section>
     </main>
   )
